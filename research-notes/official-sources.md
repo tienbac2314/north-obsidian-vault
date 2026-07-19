@@ -26,6 +26,16 @@ This register separates statements published by component owners from project in
 - Implication: write through an outbox, preserve raw content elsewhere, retry with idempotency, and fetch current page state after webhook signals.
 - Remaining uncertainty: exact plan-specific API entitlements and attachment limits must be tested with the connected workspace.
 
+### Notion repeating database templates
+
+- Source: [Database templates](https://www.notion.com/help/database-templates).
+- Official: Yes, Notion Help Center.
+- Version: page current at access date; no document version exposed.
+- Verified facts: a database template can repeat daily, weekly, monthly, or yearly and automatically creates a page.
+- Interpretation: existing journal can solve page creation without custom automation, but empty repeated pages do not solve reflection.
+- Implication: use built-in repetition only if daily blank pages remain desirable; pipeline digests should be event-driven.
+- Remaining uncertainty: exact created-time/date-property behavior should be tested in the current workspace.
+
 ### Obsidian
 
 - Source: [How Obsidian stores data](https://github.com/obsidianmd/obsidian-help/blob/21a11f649571d2fbf02b4d639c5c352009fe07e9/en/Files%20and%20folders/How%20Obsidian%20stores%20data.md).
@@ -81,4 +91,3 @@ This register separates statements published by component owners from project in
 ## Research provenance rule
 
 Each supporting document links back to this register or to a redacted local observation. Marketing claims, benchmark claims, and star counts are not treated as architecture evidence. When an official source conflicts with the running deployment, the deployment observation is recorded as current fact and the source is marked potentially stale.
-

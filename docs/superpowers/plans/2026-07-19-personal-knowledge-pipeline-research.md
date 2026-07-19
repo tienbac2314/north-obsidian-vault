@@ -85,7 +85,7 @@ Specify source preservation, reply/album/link grouping signals, ambiguity handli
 
 Add two-week MVP tests with capture completion, digest review, correction, promotion, and retrieval measures plus explicit pass/fail thresholds.
 
-- [ ] **Step 5: Commit behavior research**
+- [x] **Step 5: Commit behavior research**
 
 ```powershell
 git add docs/current-state docs/behavior research-notes/vps-findings.md
@@ -111,19 +111,19 @@ Expected: behavioral design remains tool-neutral and distinguishes evidence from
 - Consumes: official sources register, repository/VPS evidence, behavioral requirements.
 - Produces: comparable evaluations with versions, evidence, implications, uncertainties, and fit criteria.
 
-- [ ] **Step 1: Research official capabilities**
+- [x] **Step 1: Research official capabilities**
 
 Use official Notion API, Telegram Bot API, Obsidian Help, OpenViking repository/docs, Supermemory repository/docs, Hermes repository/docs, and 9Router repository/architecture/Docker/release documents. Record access date, release/commit where available, direct URL, and official status.
 
-- [ ] **Step 2: Evaluate 9Router as model gateway**
+- [x] **Step 2: Evaluate 9Router as model gateway**
 
 Document current redacted deployment, Hermes integration, routing and fallback behavior, persistence, logging, security, backups, failure handling, and tradeoffs among routing all LLM calls, routing synthesis/classification only, and explicitly pinning embedding models.
 
-- [ ] **Step 3: Compare storage roles**
+- [x] **Step 3: Compare storage roles**
 
 Evaluate Markdown files, SQLite, Notion databases, and vector stores for raw-event durability, attachments, portability, auditability, idempotency, offline access, and operational burden.
 
-- [ ] **Step 4: Evaluate semantic retrieval timing**
+- [x] **Step 4: Evaluate semantic retrieval timing**
 
 Separate keyword/backlink requirements from embedding/vector requirements. Define corpus-size or retrieval-failure evidence that would justify adding vector search.
 
