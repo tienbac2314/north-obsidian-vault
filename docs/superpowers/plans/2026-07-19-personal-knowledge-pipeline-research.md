@@ -165,7 +165,7 @@ Cover duplicate Telegram delivery, partial attachment failure, URL-fetch failure
 
 Extract each Mermaid block and parse it with a Mermaid CLI-compatible validator; repair syntax before commit.
 
-- [ ] **Step 5: Commit architecture**
+- [x] **Step 5: Commit architecture**
 
 ```powershell
 git add docs/architecture
@@ -189,19 +189,19 @@ Expected: recommended MVP is replaceable and future integrations use explicit bo
 - Consumes: all research, behavioral, and architecture documents.
 - Produces: authoritative reading path, complete self-contained design, status-qualified decisions, unresolved issues, MVP acceptance criteria, and postponed features.
 
-- [ ] **Step 1: Record qualified decisions**
+- [x] **Step 1: Record qualified decisions**
 
 Use the required DEC-XXX template. Mark one-bot, hybrid processing, storage, Notion role, 9Router scope, embedding pinning, semantic retrieval, and future-tool decisions Proposed or Experimental unless tests provide sufficient evidence.
 
-- [ ] **Step 2: Define MVP and phased roadmap**
+- [x] **Step 2: Define MVP and phased roadmap**
 
 Specify build order, acceptance evidence, rollback path, deliberately postponed features, and promotion criteria for Obsidian, OpenViking, Supermemory, or vector retrieval.
 
-- [ ] **Step 3: Write self-contained system design**
+- [x] **Step 3: Write self-contained system design**
 
 Include problem definition, user behavior, verified current facts, research findings, analysis, requirements, behavioral flow, architecture options, recommendation, data model, lifecycle, failures, privacy, experiments, decisions, roadmap, future architecture, and unresolved questions.
 
-- [ ] **Step 4: Publish reading order**
+- [x] **Step 4: Publish reading order**
 
 Update `README.md` with problem, goals, research status, authoritative documents, recommended reading order, and major unresolved decisions.
 
