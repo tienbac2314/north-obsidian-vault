@@ -46,7 +46,7 @@ Run read-only GitHub/Git commands to record branch, commit hash, file path, and 
 
 Document PM2/process state, Hermes Gateway state, Telegram connectivity, 9Router integration, Supermemory process and ports, inspection method, staleness caveat, and redaction policy. Never copy raw logs, hostnames, endpoints, account identifiers, or token values.
 
-- [ ] **Step 4: Commit foundation**
+- [x] **Step 4: Commit foundation**
 
 ```powershell
 git add .gitignore docs/superpowers/plans research-notes docs/current-state/repository-history.md
@@ -69,19 +69,19 @@ Expected: one coherent foundation commit with no secrets.
 - Consumes: evidence ledger and observed four-entry Notion journal.
 - Produces: behavioral requirements, example interactions, and falsifiable experiments used by architecture recommendations.
 
-- [ ] **Step 1: Separate observations from needs**
+- [x] **Step 1: Separate observations from needs**
 
 Record current copy-paste behavior, two-minute effort ceiling, mixed source types, incomplete journal entries, empty summaries, and desire for learning retention plus career evidence.
 
-- [ ] **Step 2: Compare processing cadences**
+- [x] **Step 2: Compare processing cadences**
 
 Document immediate, session-based, daily, and hybrid processing with benefits, failure modes, interruption cost, grouping risk, and recommended experiment.
 
-- [ ] **Step 3: Define scattered-input behavior**
+- [x] **Step 3: Define scattered-input behavior**
 
 Specify source preservation, reply/album/link grouping signals, ambiguity handling, temporary-versus-durable classification, correction controls, and maximum-question policy.
 
-- [ ] **Step 4: Define measurable experiments**
+- [x] **Step 4: Define measurable experiments**
 
 Add two-week MVP tests with capture completion, digest review, correction, promotion, and retrieval measures plus explicit pass/fail thresholds.
 
