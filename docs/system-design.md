@@ -1,6 +1,6 @@
 # Personal knowledge pipeline: complete system design
 
-Status: **Research complete; behavior and architecture proposed for experiments.**  
+Status: **Research complete; behavior and architecture proposed for experiments.**
 Research date: **2026-07-19**. This document is authoritative for current recommendation. Supporting documents preserve detailed evidence.
 
 ## 1. Problem
@@ -263,20 +263,20 @@ Backup canonical SQLite with a consistency-safe method plus attachment files and
 
 ## 13. Experiments
 
-1. **Two-week capture:** 90% of useful items captured; p90 under 30 seconds; raw available through forced downstream outage.
-2. **Grouping:** labeled mixed-message set; measure incorrect merges/splits and correction effort.
-3. **Daily review:** 80% of active days reviewed under two minutes; track actions/ignored digests.
-4. **Weekly growth:** at least two of four weeks yield a practice/action change or useful repeated pattern.
-5. **Gateway outage:** disable processor access to 9Router/upstreams; capture remains durable; recovery drains once without loss/duplication.
-6. **Notion outage:** local digest remains usable; outbox later converges idempotently.
-7. **Retrieval baseline:** labeled queries compare FTS/metadata/backlinks before any vector pilot.
+1. **Two-week capture:** at least ten useful captures; median under 15 seconds; p90 under 30 seconds; none abandoned because structure was required.
+2. **Grouping:** zero harmful merges; at most 20% of items need correction; corrections preserve raw input.
+3. **Daily review:** median under two minutes; at least 70% of active-day digests reviewed; at least 60% of promoted items useful one week later.
+4. **Weekly growth:** source-backed answers for four of five recall prompts, one next-week practice action, and no unsupported growth claim.
+5. **Gateway outage:** three test captures commit and acknowledge without a model call; delayed jobs later process exactly once with raw bytes/metadata unchanged.
+6. **Notion outage:** local approval persists; retry produces exactly one projection without data loss.
+7. **Retrieval baseline:** at least six of eight real questions return a correct top-five result with provenance before any vector pilot.
 
-Full protocols: [behavioral experiments](behavior/experiments.md).
+These are summaries. [Behavioral experiments](behavior/experiments.md) is canonical for procedures, measures, thresholds, and failure responses.
 
 ## 14. Decisions and rejected shortcuts
 
-Accepted: raw capture before every model/SaaS call.  
-Experimental: one bot and hybrid cadence.  
+Accepted: raw capture before every model/SaaS call.
+Experimental: one bot and hybrid cadence.
 Proposed: local SQLite/files truth, Notion projection, 9Router generation-only scope, pinned embeddings, no vectors in MVP, future tools as derived views.
 
 Rejected for MVP: Notion-first truth, memory-platform-first truth, all calls through 9Router, transparent embedding fallback, immediate full synthesis, automatic grouping by time, blank daily-page generation, and autonomous deletion/consolidation.
@@ -319,4 +319,3 @@ Complete list and inspection limits: [unresolved questions](decisions/unresolved
 - Architecture comparison and component matrix: [options](architecture/options.md)
 - Validated diagrams: [architecture diagrams](architecture/diagrams.md)
 - Component evaluations: [research directory](research/storage-options.md)
-

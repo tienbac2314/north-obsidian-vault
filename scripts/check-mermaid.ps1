@@ -52,4 +52,3 @@ finally {
         Remove-Item -LiteralPath $resolvedWork -Recurse -Force
     }
 }
-

@@ -54,4 +54,3 @@ Record counts/latency/status by stage, not raw private bodies. Required signals:
 3. Drain attachment/outbox jobs.
 4. Restore processing and digests.
 5. Restore projections and optional indexes.
-

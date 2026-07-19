@@ -84,4 +84,3 @@ flowchart LR
     NOTE --> DG["Daily or weekly digest"]
     NOTE --> PROJ["Notion or Markdown projection"]
 ```
-

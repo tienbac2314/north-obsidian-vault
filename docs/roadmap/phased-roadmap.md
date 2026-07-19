@@ -37,4 +37,3 @@
 ## Deliberately postponed
 
 Automatic graph building, model-routed embeddings, multi-agent coaching, workplace-content ingestion by default, separate bots, elaborate dashboards, gamification, and autonomous deletion/consolidation.
-

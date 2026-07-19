@@ -37,4 +37,3 @@ Do not grant processor permission to mutate raw captures. Run with least-require
 ## Uncertainty
 
 Installed Hermes source must be reviewed for a pre-agent ingestion hook, polling offset semantics, cron retry policy, and safe per-task tool restrictions before implementation.
-

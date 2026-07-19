@@ -17,4 +17,3 @@ History argues against choosing a memory platform before validating capture and 
 ## Source trail
 
 Detailed branch, commit, path, and interpretation records live in [`research-notes/repo-findings.md`](../../research-notes/repo-findings.md). Some historical documents are not in current `master` tree and were inspected with `git show <commit>:<path>`.
-

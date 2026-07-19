@@ -127,4 +127,3 @@ No recommendation becomes accepted merely because it appears here. Proposed and 
 - Evidence: Official component research and prior repository migration history.
 - What could change this decision: A shadow pilot materially improves weekly review/retrieval with acceptable backup and isolation.
 - Related documents: [Obsidian](../research/obsidian.md), [OpenViking](../research/openviking.md), [Supermemory](../research/supermemory.md)
-

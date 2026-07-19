@@ -17,9 +17,9 @@ No embeddings, vector database, OpenViking installation, Obsidian automation, au
 3. **Asynchronous candidates:** version structured output; call dedicated 9Router route; retain raw and derivation provenance.
    - Pass: invalid JSON cannot overwrite/promote; route outage queues safely; replay produces traceable new run.
 4. **Daily review and correction:** deliver only on active days; support keep/practice/reference/temporary/fix.
-   - Pass: 80% of sampled reviews take under two minutes; corrections supersede rather than erase history.
+   - Pass: median review under two minutes; at least 70% of active-day digests reviewed; at least 60% of promoted items useful one week later; corrections supersede rather than erase history.
 5. **Weekly growth review:** consolidate by topic/project with source links and one practice target.
-   - Pass: user identifies at least one useful repeated pattern or changed action in two of four weeks.
+   - Pass: source-backed answers for at least four of five recall prompts, one concrete next-week practice action, and no unsupported growth claim.
 6. **Projection and backup:** idempotent Notion outbox; encrypted daily off-host backup; documented restore.
    - Pass: Notion outage drains later without duplicates; restore drill reconstructs raw capture, jobs, and attachment references.
 
@@ -33,5 +33,4 @@ No embeddings, vector database, OpenViking installation, Obsidian automation, au
 
 ## Exit criteria
 
-Promote MVP only after experiments establish capture reliability, digest usage, grouping quality, weekly value, gateway outage safety, projection recovery, and restore success. Otherwise keep raw capture and revise review behavior before adding tools.
-
+Promote MVP only after canonical [behavioral experiments](../behavior/experiments.md) establish capture reliability, digest usage, grouping quality, weekly value, gateway outage safety, projection recovery, and retrieval baseline, plus a successful restore drill. Otherwise keep raw capture and revise review behavior before adding tools.

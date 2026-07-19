@@ -33,4 +33,3 @@ These can run in one process for MVP. Boundary matters more than deployment coun
 - Does Hermes confirm Telegram polling offsets only after session state is safely written?
 - Are screenshots downloaded before Telegram's 24-hour update retention window expires?
 - Does work policy permit copied content to leave employer-controlled systems?
-

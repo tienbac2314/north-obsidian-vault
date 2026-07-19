@@ -41,4 +41,3 @@ VLM/query-planning generation may use a designated 9Router route if substitution
 ## Uncertainty
 
 Current 0.4.10 storage/identity migration behavior, OVPack completeness, Hermes plugin compatibility, and OpenCode overlap need version-pinned tests. Past 0.4.9 findings are historical, not current guarantees.
-

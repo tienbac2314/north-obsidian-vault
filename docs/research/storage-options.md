@@ -44,4 +44,3 @@ Writing raw Telegram messages directly to Notion or a vector store makes model/S
 ## Uncertainty
 
 Expected attachment volume and retention are unknown. First two weeks should measure database/object growth before choosing compression or object storage.
-

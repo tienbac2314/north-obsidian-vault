@@ -26,4 +26,3 @@ Past work repeatedly increased integration complexity before proving user value.
 ## Uncertainty
 
 Historical documents may describe versions that changed after their commit dates. Only the commit-local statement is treated as historical evidence; current capability claims use the official source register.
-

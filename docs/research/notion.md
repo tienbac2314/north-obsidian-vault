@@ -49,4 +49,3 @@ Raw payload stays local and is linked by opaque capture ID, not copied wholesale
 ## Uncertainty
 
 Connected plan entitlements, API attachment flow, template scheduling behavior, and user preference for digest editing need live tests. No workspace mutations were made during research.
-

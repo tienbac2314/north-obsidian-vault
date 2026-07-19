@@ -52,4 +52,3 @@ Embedding calls expose content. Work-sensitive items default to local-only/no em
 ## Remaining uncertainty
 
 Corpus language mix, query style, and expected size are unknown. No vector backend is justified today.
-

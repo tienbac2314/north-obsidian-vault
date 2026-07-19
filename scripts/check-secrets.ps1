@@ -41,4 +41,3 @@ if ($failures.Count -gt 0) {
 }
 
 Write-Host "Secret scan passed: $($trackedFiles.Count) tracked files; values never printed."
-

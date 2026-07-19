@@ -7,7 +7,7 @@ Field names are design contracts, not final SQL.
 ### `capture`
 
 - `id`: stable UUID/ULID.
-- `source_system`, `source_account_key`, `source_event_id`: unique idempotency tuple.
+- `source_system`, `source_account_key`, `source_event_id`: unique idempotency tuple. `source_account_key` is a stable non-secret logical bot/account identifier and never derives from a credential.
 - `source_message_id`, `source_chat_key`, `reply_to_source_message_id`, `media_group_id`.
 - `captured_at`, `received_at`, `edited_at`.
 - `raw_text`, `raw_object_ref`, `sha256`, `mime_type`, `byte_size`.
@@ -27,7 +27,8 @@ Raw fields are immutable. Edits become new source-version record linked to captu
 ### `processing_run`
 
 - `id`, `group_id`, `purpose`, `processor_version`, `prompt_version`, `schema_version`.
-- `route_policy`, `requested_model`, `actual_model`, `started_at`, `finished_at`.
+- `route_policy`, `route_policy_version`, `model_contract_version`, `requested_model`, `actual_model`, `gateway_request_id`, `started_at`, `finished_at`.
+- `gateway_request_id` is nullable because a direct-provider rollback route may not return a 9Router request identifier.
 - `status`, `attempt`, `error_class`, `latency_ms`, `token_usage`.
 - No secret or full prompt body in operational log fields.
 
@@ -59,8 +60,9 @@ Raw fields are immutable. Edits become new source-version record linked to captu
 
 ### `relationship`
 
-- `from_type/id`, `to_type/id`, `relation_type`, `origin`: `user|rule|model`.
-- `confidence`, `evidence_json`, `created_at`, `superseded_at`.
+- `id`: stable UUID/ULID; `from_type/id`, `to_type/id`, `relation_type`, `origin`: `user|rule|model`.
+- `relationship_version`, `confidence`, `evidence_json`, `created_at`, `supersedes_id`, `superseded_at`.
+- Active uniqueness applies to `(from_type, from_id, to_type, to_id, relation_type)`; changed interpretation creates a new version that supersedes the previous record.
 
 ### `job` and `outbox`
 
@@ -80,9 +82,9 @@ Only append/supersede operations modify interpretation. Deletion uses tombstone 
 
 ## Idempotency
 
-- Telegram ingest: hash of bot key plus `update_id`.
+- Telegram ingest: stable non-secret source account ID plus `update_id`; token/key rotation never changes identity.
 - Attachment: Telegram file unique ID plus SHA-256 after download.
-- Processing: group ID + purpose + processor/prompt/schema version.
+- Processing: ordered source IDs + purpose + processor/prompt/schema versions + immutable route-policy/model-contract versions.
 - Digest: period + render version.
 - Notion projection: object ID + export version.
 
@@ -95,4 +97,3 @@ durable note -> candidate -> processing run -> capture group -> immutable captur
 ```
 
 User-authored interpretation is labeled separately from source claim and model inference.
-

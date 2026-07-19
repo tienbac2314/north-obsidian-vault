@@ -76,4 +76,3 @@ Telegram -> Hermes Gateway/session/memory/cron -> Notion
 ## Recommendation rationale
 
 Option B adds one small local boundary but removes every volatile component from capture availability. This directly addresses user problem and preserves paths to all candidate tools. Tradeoff is modest service/schema ownership; experiments can still begin with a single process and SQLite file.
-

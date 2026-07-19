@@ -32,4 +32,3 @@ Status: verified point-in-time facts from read-only inspection on 2026-07-19. Id
 VPS capacity and existing services make a small capture worker practical. Existing deployment must not dictate MVP boundaries: Telegram update persistence should succeed without Hermes, 9Router, upstream providers, Notion, or Supermemory.
 
 Detailed evidence and uncertainty: [`research-notes/vps-findings.md`](../../research-notes/vps-findings.md).
-

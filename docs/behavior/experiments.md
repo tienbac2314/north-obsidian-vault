@@ -68,4 +68,3 @@ No proposal becomes Accepted until measured with non-sensitive material.
 - copyright-sensitive copied material;
 - retention/deletion requests;
 - clock/timezone changes and missed digest runs.
-

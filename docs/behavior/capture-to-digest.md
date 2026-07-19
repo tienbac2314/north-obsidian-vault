@@ -124,4 +124,3 @@ Weekly artifact is topic/project-centered, not a concatenation of days:
 - Obsidian/OpenViking/Supermemory adoption.
 - Vector search and embedding provider.
 - Whether Hermes hosts adapter or calls it as external service.
-

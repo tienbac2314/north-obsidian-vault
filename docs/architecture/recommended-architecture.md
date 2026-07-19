@@ -98,4 +98,3 @@ One process can host adapter, worker, scheduler, and local API; modules communic
 - migration of existing Supermemory data;
 - automatic workplace-content processing;
 - elaborate dashboards and gamification.
-

@@ -40,4 +40,3 @@ if ($failures.Count -gt 0) {
 }
 
 Write-Host "Markdown link check passed: $checked local links across $($markdownFiles.Count) files."
-

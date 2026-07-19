@@ -57,4 +57,3 @@ Run Phase 0 behavioral experiments with synthetic outage tests. Build only durab
 ## Validation
 
 Repository scripts scan tracked files for secret/private-endpoint patterns without printing values, validate local Markdown links, and render every Mermaid block. Final branch/PR checks are performed separately.
-

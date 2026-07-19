@@ -11,4 +11,3 @@ Obsidian, Supermemory, and OpenViking remain future derived views or shadow expe
 Build only after Phase 0 tests behavior. First technical acceptance test: with 9Router and every upstream provider unavailable, a Telegram update still becomes one durable capture and receives `Saved` only after commit.
 
 Read [system design](system-design.md) for complete behavior and architecture, then [decision log](decisions/decision-log.md), [MVP](roadmap/mvp.md), and [unresolved questions](decisions/unresolved-questions.md).
-

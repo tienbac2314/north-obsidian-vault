@@ -32,4 +32,3 @@ Use YAML properties only for stable machine fields; keep explanation readable wi
 ## Uncertainty
 
 Sync provider, mobile workflow, vault privacy, and Git strategy are undecided. OpenViking indexing of a future vault should be evaluated only after plain-file behavior works.
-

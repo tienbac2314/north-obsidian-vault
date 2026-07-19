@@ -38,7 +38,7 @@ Fallback is unsafe where stable model identity is data integrity:
 - policy/security classification whose behavior must be auditable;
 - raw persistence acknowledgments.
 
-Two configured multi-model combos prove substitution is active, not theoretical. Logs prove retries/fallback execute, but do not establish semantic equivalence of outputs.
+Two configured multi-model combos prove substitution is enabled as a real route policy, not merely an advertised capability. Aggregated logs show retries/fallback execute somewhere in gateway handling, but do not prove which model/account was substituted or that outputs were semantically equivalent.
 
 ## Main question
 
@@ -82,4 +82,3 @@ If embeddings ever transit 9Router, use a dedicated exact route with no account/
 - No controlled outage or restore test was run.
 - Request-detail retention and body content remain unverified.
 - Direct-port reachability was tested from one network only.
-

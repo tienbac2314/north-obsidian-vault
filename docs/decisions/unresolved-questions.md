@@ -37,4 +37,3 @@ These remain visible by design. MVP experiments must answer behavioral questions
 - 9Router fallback order, account contents, raw request details, and provider secrets were deliberately not inspected.
 - Backup restore and controlled service/provider outage tests were not performed.
 - Current process state is a point-in-time observation from 2026-07-19.
-

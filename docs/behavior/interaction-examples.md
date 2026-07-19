@@ -10,10 +10,10 @@ Examples describe behavior, not final Telegram wording.
 
 **Later proposal:**
 
-> Topic: Spring transaction boundaries  
-> Source says: proxy-based transactions apply only across intercepted calls.  
-> Why this may matter: explains why self-invocation bypassed rollback.  
-> Suggested action: Learn  
+> Topic: Spring transaction boundaries
+> Source says: proxy-based transactions apply only across intercepted calls.
+> Why this may matter: explains why self-invocation bypassed rollback.
+> Suggested action: Learn
 > Source: original URL and exact copied excerpt
 
 ## Screenshot without context
@@ -59,4 +59,3 @@ Digest is available in Telegram/local store. Notion export remains in outbox and
 ## Work-sensitive content
 
 If capture is marked `private-work` or source policy blocks external processing, system stores only permitted metadata/local content and skips external models. Policy must be configured before workplace rollout.
-

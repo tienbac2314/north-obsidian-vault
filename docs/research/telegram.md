@@ -33,4 +33,3 @@ Persist before acknowledgment using `(bot identity, update_id)` idempotency. Kee
 ## Uncertainty
 
 Hermes polling acknowledgement order is unverified. MVP spike must prove raw commit occurs before update confirmation or implement a thin independent adapter.
-
