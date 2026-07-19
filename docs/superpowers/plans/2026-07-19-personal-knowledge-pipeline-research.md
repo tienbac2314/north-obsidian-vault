@@ -246,7 +246,7 @@ Expected: all scripts exit `0`, status is empty, and history shows coherent mile
 
 Cover problem, research, inspected systems, options, recommended MVP, target architecture, decisions, experiments, unresolved questions, risks, and follow-up work.
 
-- [ ] **Step 4: Commit and push final review materials**
+- [x] **Step 4: Commit and push final review materials**
 
 ```powershell
 git add scripts docs/pull-request-summary.md
@@ -256,7 +256,7 @@ git push origin research/full-system-design
 
 Expected: remote branch matches local HEAD.
 
-- [ ] **Step 5: Create pull request**
+- [x] **Step 5: Create pull request**
 
 ```powershell
 gh pr create --base main --head research/full-system-design --title "Research and design the personal knowledge pipeline" --body-file docs/pull-request-summary.md
@@ -264,6 +264,6 @@ gh pr create --base main --head research/full-system-design --title "Research an
 
 Expected: command returns a GitHub pull-request URL.
 
-- [ ] **Step 6: Verify remote completion checks**
+- [x] **Step 6: Verify remote completion checks**
 
 Use `gh repo view`, `gh pr view`, `git ls-remote`, validation scripts, README/document inspection, clean status, and final log to prove all 13 requested checks.
