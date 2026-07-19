@@ -127,7 +127,7 @@ Evaluate Markdown files, SQLite, Notion databases, and vector stores for raw-eve
 
 Separate keyword/backlink requirements from embedding/vector requirements. Define corpus-size or retrieval-failure evidence that would justify adding vector search.
 
-- [ ] **Step 5: Commit candidate research**
+- [x] **Step 5: Commit candidate research**
 
 ```powershell
 git add docs/research research-notes/official-sources.md research-notes/repo-findings.md
@@ -149,19 +149,19 @@ Expected: no component is treated as required dependency.
 - Consumes: behavioral requirements and technology comparison.
 - Produces: candidate architectures, provisional MVP, extensible future architecture, data contracts, failure semantics, and valid Mermaid diagrams.
 
-- [ ] **Step 1: Compare at least three architectures**
+- [x] **Step 1: Compare at least three architectures**
 
 Compare Notion-first, file/SQLite-first, and memory-platform-first designs. Include 9Router placement, operational cost, lock-in, source fidelity, review ergonomics, migration path, and failure recovery.
 
-- [ ] **Step 2: Define MVP lifecycle and data model**
+- [x] **Step 2: Define MVP lifecycle and data model**
 
 Specify raw capture, capture group, synthesis candidate, durable note, digest, relationship, feedback, and processing-run records with stable IDs, timestamps, provenance, confidence, state transitions, and idempotency keys.
 
-- [ ] **Step 3: Define failure handling**
+- [x] **Step 3: Define failure handling**
 
 Cover duplicate Telegram delivery, partial attachment failure, URL-fetch failure, 9Router outage, upstream provider outage, LLM failure, Notion outage, ambiguous grouping, stale links, unsafe work content, retries, dead letters, and human correction. Preserve raw capture without any model dependency.
 
-- [ ] **Step 4: Validate diagrams**
+- [x] **Step 4: Validate diagrams**
 
 Extract each Mermaid block and parse it with a Mermaid CLI-compatible validator; repair syntax before commit.
 
