@@ -205,7 +205,7 @@ Include problem definition, user behavior, verified current facts, research find
 
 Update `README.md` with problem, goals, research status, authoritative documents, recommended reading order, and major unresolved decisions.
 
-- [ ] **Step 5: Commit authoritative design**
+- [x] **Step 5: Commit authoritative design**
 
 ```powershell
 git add README.md docs/decisions docs/roadmap docs/executive-summary.md docs/system-design.md
@@ -226,11 +226,11 @@ Expected: main design can be understood without opening supporting files; suppor
 - Consumes: completed repository.
 - Produces: reproducible completion evidence, clean pushed branch, and open pull request.
 
-- [ ] **Step 1: Add repository checks**
+- [x] **Step 1: Add repository checks**
 
 Implement scripts that check local Markdown links, extract and validate Mermaid blocks, and scan tracked text for secret patterns without printing secret values.
 
-- [ ] **Step 2: Run completion audit**
+- [x] **Step 2: Run completion audit**
 
 ```powershell
 pwsh -File scripts/check-secrets.ps1
@@ -242,7 +242,7 @@ git log --oneline --decorate --reverse main..HEAD
 
 Expected: all scripts exit `0`, status is empty, and history shows coherent milestones.
 
-- [ ] **Step 3: Write pull request summary**
+- [x] **Step 3: Write pull request summary**
 
 Cover problem, research, inspected systems, options, recommended MVP, target architecture, decisions, experiments, unresolved questions, risks, and follow-up work.
 
