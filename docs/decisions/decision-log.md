@@ -63,7 +63,7 @@ Statuses: Accepted, Proposed, Experimental, Rejected, Postponed.
 
 - Status: Proposed
 - Date: 2026-07-21
-- Decision: Add Telegram after core release. Commit raw update before `Saved`; Hermes/OpenViking/9Router run asynchronously.
+- Decision: Add Telegram after core release. Full-synchronous SQLite commit precedes text/link `Saved`; media first reports durable metadata with attachment pending, then confirms bytes/checksum separately. Hermes/OpenViking/9Router run asynchronously.
 - Evidence: Hermes documented hooks and memory flush occur within/after agent lifecycle, not proven pre-receipt durability.
 
 ## DEC-010: Reuse 9Router for replaceable generation/VLM

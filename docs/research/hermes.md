@@ -31,6 +31,10 @@ All copied note, web, AI, and Telegram content is untrusted data. Proposal draft
 
 Moves, renames, merges, delete, archive, `.canvas`, `.obsidian`, `.git`, and system paths stay unavailable in first release.
 
+## Skills versus deterministic tools
+
+Hermes' bundled Obsidian/note-taking skills are useful prompt-level guidance for intent recognition, note shape, and workflow composition. They cannot enforce filesystem containment, expected hashes, approval, idempotency, atomic replacement, staged Git identity, or crash recovery. Keep skill surface small and task-scoped; do not load broad unrelated catalog for vault work. Every mutation skill must call deterministic workspace service rather than shell or direct file write. Human-facing proposal includes focused unified diff plus source/rationale before approval.
+
 ## Failure behavior
 
 Hermes or 9Router outage leaves queue unchanged. Invalid output becomes failed proposal. Concurrent edit makes proposal stale. OpenViking outage falls back to exact vault inspection or delays context-dependent work.
