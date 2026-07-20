@@ -1,39 +1,49 @@
 # Unresolved questions
 
-These remain visible by design. MVP experiments must answer behavioral questions before tool expansion.
+## Blocking implementation plan
 
-## Blocking before implementation
-
-- Can installed Hermes persist Telegram updates in a pre-agent hook before any 9Router call, or must a separate polling/webhook adapter own Telegram ingestion?
-- Which raw captures may leave personal infrastructure for external model processing? What employer content must remain local or unprocessed?
-- Should attachment binaries be retained indefinitely, for a fixed period, or deleted after durable extraction?
+- Which actual devices and Android client constraints must sync experiment cover?
+- Which free backend already available to user should Remotely Save test use?
 - What off-host backup target and encryption-key recovery method will be used?
+- Where should proposal approval appear: Obsidian note/command, Telegram, or Hermes chat?
+- Which vault paths/data classes may reach external 9Router providers, and what employer policy applies?
 
-## Blocking before MVP promotion
+## Blocking first-release promotion
 
-- Does `Saved` after commit remain under 30 seconds p90 and build trust?
-- Which grouping signals and thresholds meet the correction target without merging unrelated captures?
-- Can daily review remain under two minutes on 80% of active days?
-- Does weekly topic-centered synthesis change practice or work decisions?
-- Should Notion edits flow back to local truth, and how are conflicts presented?
-- Which 9Router routes provide acceptable quality, cost, latency, and fallback provenance with synthetic non-sensitive tests?
-- Are 9Router request bodies retained anywhere despite current request-log settings?
-- Can a 9Router restore and provider-outage drill recover within acceptable time?
+- Does Self-hosted LiveSync or Remotely Save preserve conflicts, renames, deletes, attachments, and recovery better on actual devices?
+- Which `.obsidian` files, conflict patterns, proposal paths, and system artifacts must sync/index/context exclude?
+- Can workspace service recover after crash between file replace, journal update, and Git commit?
+- Does queue/proposal review create fatigue, and should approval batch by workflow?
+- Does four-week weekly review produce changed practice rather than archive growth?
+- Are 9Router request bodies/headers retained anywhere, and can data-class routes be enforced and audited?
+- Can vault, Git, configuration, and operational SQLite restore without primary device or live SaaS?
 
-## Future-tool questions
+## OpenViking promotion questions
 
-- At what approved-note corpus size does SQLite FTS/backlink retrieval miss useful items?
-- Which fixed embedding contract is affordable, stable, and permitted for the data classes involved?
-- Does Obsidian become the preferred review/editor once deterministic Markdown export exists?
-- Does Supermemory improve retrieval enough to justify existing operational complexity?
-- Can OpenViking be isolated, backed up, and fed approved content without becoming a hidden source of truth?
-- Is a second bot justified by notification fatigue or security separation?
-- When should adapter, processor, and scheduler become separate processes?
+- On pinned version, what exact API sequence safely represents content update, move, and delete?
+- Can explicit manifest reconcile interrupted tasks, missing resources, and partial semantic processing?
+- What stable identity survives user rename/move when note has no frontmatter ID?
+- Does OpenViking improve prewritten bilingual retrieval queries over filename/link/text search enough to justify service?
+- Which state must be backed up versus rebuilt?
 
-## Known inspection limits
+## Embedding experiment
 
-- Oracle network/security-list configuration was not available from host inspection.
-- Tunnel access policy and dashboard authentication were not exercised.
-- 9Router fallback order, account contents, raw request details, and provider secrets were deliberately not inspected.
-- Backup restore and controlled service/provider outage tests were not performed.
-- Current process state is a point-in-time observation from 2026-07-19.
+- Can 9Router guarantee one exact embedding model with no model substitution and observable failure?
+- Does local `embeddinggemma` provide acceptable Vietnamese/English recall on 2-core ARM64?
+- What are indexing throughput, query latency, RAM, rebuild duration, and privacy differences?
+- How will contract/version change create isolated new index generation?
+
+## Optional Telegram
+
+- Polling or webhook for dedicated ingress?
+- Attachment retention period and maximum size?
+- How will bot distinguish raw quick capture from remote command without capture-time friction?
+- How long may Telegram delivery remain unprocessed while still reporting truthful status?
+
+## Known evidence limits
+
+- No service configuration was changed and no outage/restore test was run.
+- VPS observations from 2026-07-19 may drift.
+- Sync candidates were researched, not installed or benchmarked.
+- OpenViking lifecycle was read from documentation, not tested against deployed version.
+- 9Router fallback quality, raw logging, backup, and restore remain unverified by controlled experiment.

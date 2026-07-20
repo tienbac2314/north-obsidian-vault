@@ -4,7 +4,7 @@ Status: verified point-in-time facts from read-only inspection on 2026-07-19. Id
 
 | Component | Observed state | Persistence | Network/model role | Evidence limit |
 |---|---|---|---|---|
-| Hermes Gateway | Online; Telegram connected; custom model provider | `~/.hermes/` sessions, state, logs, memory files | Telegram agent and orchestration; generation sent to loopback 9Router route | One connected DM observed; capture durability not tested |
+| Hermes Gateway | Online; Telegram connected; custom model provider | `~/.hermes/` sessions, state, logs, memory files | Future proposal orchestration; generation sent to loopback 9Router route | One connected DM observed; capture durability and vault tools not tested |
 | 9Router `0.5.35` | Online under PM2; one restart | SQLite plus WAL/SHM; upgrade snapshots | Central OpenAI-compatible generation gateway with provider/account/model fallback | Failure recovery inferred from config/log signals, not controlled test |
 | Supermemory server `0.0.5` | Server and embedded engine running | Encrypted/embedded local data directory | Existing semantic memory service; embedding model pinned outside 9Router | Actual usage quality and restore not tested |
 | Cloudflare tunnel | Processes running | Local tunnel state | Publishes selected HTTPS service | Access policy not inspected |
@@ -29,6 +29,8 @@ Status: verified point-in-time facts from read-only inspection on 2026-07-19. Id
 
 ## Architecture implication
 
-VPS capacity and existing services make a small capture worker practical. Existing deployment must not dictate MVP boundaries: Telegram update persistence should succeed without Hermes, 9Router, upstream providers, Notion, or Supermemory.
+VPS can host one working vault replica, deterministic proposal service, and existing 9Router if sync/resource tests pass. OpenViking plus local embeddings adds CPU, RAM, storage, and rebuild load and therefore needs measurement before co-location. Local VLM/reasoning inference is not assumed viable.
+
+Existing services do not dictate authority: Obsidian files remain canonical; ordinary writing survives Hermes/9Router/OpenViking outage; optional Telegram persistence succeeds without those services. 9Router's all-interface bind, broad credential concentration, sensitive request/log potential, and missing verified off-host restore remain security work before private notes flow through it.
 
 Detailed evidence and uncertainty: [`research-notes/vps-findings.md`](../../research-notes/vps-findings.md).

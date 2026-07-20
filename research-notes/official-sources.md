@@ -1,6 +1,6 @@
 # Official source register
 
-Access date for every source below: **2026-07-19**.
+Base access date: **2026-07-19**. Sync, gateway-internals, OpenViking API, and Ollama sources were refreshed **2026-07-21**.
 
 This register separates statements published by component owners from project interpretation. Repository commit hashes were read through the GitHub API. Web documentation without a commit hash is identified by the version or page date visible at access time.
 
@@ -42,20 +42,27 @@ This register separates statements published by component owners from project in
 - Official: Yes, `obsidianmd/obsidian-help`.
 - Commit: `21a11f649571d2fbf02b4d639c5c352009fe07e9` on `master`.
 - Verified facts: notes are Markdown-formatted plain-text files in a local vault folder; external editors may modify them; Obsidian maintains a rebuildable metadata cache.
-- Interpretation: Obsidian is a portable future reading/editing interface over files, not necessary for first capture loop.
-- Implication: a Markdown export boundary preserves a low-cost migration path.
-- Remaining uncertainty: mobile synchronization choice and plugin requirements have not been selected.
+- Interpretation: Obsidian is suitable as primary human library; it does not supply transactional jobs, sync, or backup by itself.
+- Implication: keep canonical knowledge as ordinary Markdown and isolate operational agent state.
+- Remaining uncertainty: free mobile/VPS synchronization choice remains experimental.
+
+### Free Obsidian replication candidates
+
+- Sources: [Self-hosted LiveSync](https://github.com/vrtmrz/obsidian-livesync), [releases](https://github.com/vrtmrz/obsidian-livesync/releases), [Remotely Save](https://github.com/remotely-save/remotely-save), [Syncthing Android](https://github.com/syncthing/syncthing-android), [Syncthing conflict FAQ](https://docs.syncthing.net/users/faq.html#what-if-there-is-a-conflict).
+- Official/project-owner sources: Yes for each named project.
+- Verified facts: LiveSync supports self-hosted synchronization and recent releases include headless CLI work; Remotely Save supports several remote backends; official Syncthing Android app was discontinued and archived December 2024; Syncthing conflict copies propagate as normal files.
+- Interpretation: LiveSync and Remotely Save require device-level bake-off. Syncthing is not default Android recommendation, and conflict files must not be auto-merged.
 
 ## Processing and model sources
 
 ### Hermes Agent
 
-- Sources: [repository README](https://github.com/NousResearch/hermes-agent), [memory providers](https://github.com/NousResearch/hermes-agent/blob/main/website/docs/user-guide/features/memory-providers.md), [FAQ](https://github.com/NousResearch/hermes-agent/blob/main/website/docs/reference/faq.md).
+- Sources: [repository README](https://github.com/NousResearch/hermes-agent), [memory providers](https://github.com/NousResearch/hermes-agent/blob/main/website/docs/user-guide/features/memory-providers.md), [FAQ](https://github.com/NousResearch/hermes-agent/blob/main/website/docs/reference/faq.md), [gateway internals](https://github.com/NousResearch/hermes-agent/blob/main/website/docs/developer-guide/gateway-internals.md).
 - Official: Yes, Nous Research.
 - Commit: `e598cef87465981fcea1c0339edfcf5d9716c917` on `main`; latest release observed `v2026.7.7.2`.
 - Verified facts: one Gateway process supports Telegram and other channels; custom OpenAI-compatible model endpoints are supported; built-in local memory remains active while at most one external memory provider is selected; OpenViking and Supermemory are bundled external-provider choices.
-- Interpretation: Hermes can orchestrate capture and scheduled synthesis, but its conversational session state should not be the only raw store.
-- Implication: keep Telegram ingestion/persistence in a small adapter and invoke Hermes or a model worker after persistence.
+- Interpretation: Hermes can orchestrate vault proposals, but documented lifecycle hooks and session-end memory do not prove durable receipt before Telegram success acknowledgment.
+- Implication: deterministic workspace service owns vault apply; optional Telegram ingress persists independently before invoking Hermes.
 - Remaining uncertainty: safest extension point for capture-before-agent execution needs a code-level spike against the installed version.
 
 ### 9Router
@@ -80,14 +87,20 @@ This register separates statements published by component owners from project in
 
 ### OpenViking
 
-- Sources: [repository README](https://github.com/volcengine/OpenViking/blob/main/README.md), [official documentation](https://docs.openviking.ai/), [repository](https://github.com/volcengine/OpenViking).
+- Sources: [repository README](https://github.com/volcengine/OpenViking/blob/main/README.md), [resource API](https://docs.openviking.ai/en/api/02-resources), [filesystem API](https://docs.openviking.ai/en/api/03-filesystem), [setup](https://docs.openviking.ai/en/getting-started/04-setup-for-agent), [changelog](https://docs.openviking.ai/en/about/02-changelog), [repository](https://github.com/volcengine/OpenViking).
 - Official: Yes, Volcengine.
 - Commit: `379c19f66ea60d91a6beab334900a8f1867c682b` on `main`; latest release observed `v0.4.10`.
 - Verified facts: OpenViking exposes a hierarchical `viking://` context filesystem with resource, memory, skill, and session concepts; deployments configure storage, embedding, and optional VLM services; vector indexes can be reindexed independently or with semantic artifacts.
-- Interpretation: strong possible future context backend, but younger and operationally broader than MVP needs.
-- Implication: postpone until a file/SQLite corpus and measured retrieval failures justify it; pilot with pinned embeddings and backup/restore.
+- Interpretation: strong derived context backend, but official APIs do not establish a generic bidirectional Obsidian directory mirror.
+- Implication: use explicit projection manifest/reconciliation after core vault release; pin embeddings and prove rebuild/restore.
 - Remaining uncertainty: data migration from this pipeline and stable identity/isolation semantics need a version-pinned pilot.
 
 ## Research provenance rule
 
 Each supporting document links back to this register or to a redacted local observation. Marketing claims, benchmark claims, and star counts are not treated as architecture evidence. When an official source conflicts with the running deployment, the deployment observation is recorded as current fact and the source is marked potentially stale.
+
+### Ollama embeddings
+
+- Source: [Embeddings capability](https://docs.ollama.com/capabilities/embeddings), official Ollama documentation.
+- Verified facts: Ollama exposes embedding APIs and recommends models including `embeddinggemma`, `qwen3-embedding`, and `all-minilm`; same embedding model should be used for indexing and querying.
+- Interpretation: `embeddinggemma` is bilingual-local candidate, not chosen contract, pending ARM64 and retrieval benchmark.

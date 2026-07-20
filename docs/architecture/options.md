@@ -1,78 +1,54 @@
 # Architecture options
 
-Status: analysis; recommendation is Proposed until experiments pass.
+## Criteria
 
-## Evaluation criteria
+- Direct Obsidian use stays available without agents.
+- Canonical Markdown has one authority.
+- Existing notes cannot be silently overwritten.
+- Sync, audit, and backup remain distinct.
+- Optional Telegram capture survives model outages.
+- 2-core/12-GB ARM64 VPS remains operable.
 
-- Raw capture succeeds without model/SaaS availability.
-- Original source and derivation provenance remain inspectable.
-- Capture requires no structure and under 30 seconds p90.
-- Review fits two minutes.
-- Components can be removed without data migration crisis.
-- Security and backup are understandable by one operator.
-- 2-core/12-GB VPS remains sufficient.
+## A. Obsidian only
 
-## Option A: Notion-first automation
+Obsidian plus free sync, Git, and backup. Lowest operational burden and valid fallback. Lacks agent proposal automation and semantic context, but remains useful if every later component is removed.
 
-```text
-Telegram/Hermes -> 9Router -> Notion databases/pages
-```
+## B. Obsidian plus proposal-only Hermes
 
-- Strengths: fastest visible result; existing interface; calendar and page templates; built-in daily recurrence.
-- Weaknesses: Notion/model outage enters capture path; API size/rate/order constraints; hard raw/derived separation; platform lock-in; duplicate/retry logic still needs local state.
-- 9Router role: all processing generation.
-- Embeddings: absent or added later.
-- Verdict: useful prototype of digest layout, not production MVP truth.
+Adds deterministic workspace service and 9Router-backed proposal drafting. Best first release: agent value without second knowledge authority or automatic overwrite.
 
-## Option B: Local truth with projections
+## C. Obsidian plus symmetric OpenViking
 
-```text
-Telegram -> capture adapter -> SQLite/files -> async processor -> Telegram/Notion projections
-                                             -> 9Router generation
-```
+Both systems edit same logical notes. Rejected: conflicting truth, rename/delete ambiguity, feedback loops, and unclear recovery.
 
-- Strengths: capture independence; transactional idempotency/outbox; source fidelity; easy backup/export; Notion/Hermes/9Router replaceable.
-- Weaknesses: small service and schema must be maintained; two visible stores; projection reconciliation.
-- 9Router role: classification/synthesis/optional permitted vision after capture.
-- Embeddings: none initially; later direct pinned index.
-- Verdict: recommended MVP.
+## D. Obsidian plus derived OpenViking
 
-## Option C: Memory-platform-first
+OpenViking indexes allowed vault material through explicit manifest and serves Hermes recall. Recommended later promotion after plain-search baseline and lifecycle tests.
 
-```text
-Telegram/Hermes -> Supermemory or OpenViking -> semantic recall -> Notion/Obsidian
-```
+## E. Telegram/OpenViking first
 
-- Strengths: automatic extraction, linking, and retrieval; existing Supermemory deployment; future shared agent context.
-- Weaknesses: retrieval product becomes source of truth; automatic inference can obscure source; model/index outages; migration/backup complexity; behavior still unproven.
-- 9Router role: generation and possibly VLM; embeddings must remain pinned.
-- Verdict: reject for MVP; test as derived index after baseline.
+Rejected as main workflow. User expects direct Obsidian use; OpenViking processing is unnecessary receipt dependency. Optional Telegram later uses independent SQLite ingress.
 
-## Option D: Hermes-native workflow
+## Sync candidates
 
-```text
-Telegram -> Hermes Gateway/session/memory/cron -> Notion
-                        -> 9Router
-```
-
-- Strengths: least new deployment; current Telegram and scheduling already work.
-- Weaknesses: raw acknowledgement ordering unclear; broad agent tools; session/memory semantics are not an immutable event log; Hermes/9Router outage can affect capture.
-- Verdict: viable only if a pre-agent durable hook meets capture invariant. Otherwise Hermes calls external capture service.
+| Option | Strength | Critical weakness | Status |
+|---|---|---|---|
+| Self-hosted LiveSync | Obsidian-native multi-device flow; self-hostable; newer CLI | CouchDB/CLI recovery and conflict behavior need ARM64 test | Primary experiment |
+| Remotely Save | Many free storage backends | VPS convergence and same-note conflict semantics need proof | Primary experiment |
+| Syncthing | Strong desktop/VPS file replication | Official Android client discontinued | Fallback with accepted community client |
+| Git transport | Excellent history and controlled exchange | Weak phone/offline live-sync UX; merges expose implementation detail | Desktop-first fallback |
+| Obsidian Sync | First-party integration | Paid subscription violates constraint | Rejected |
 
 ## Component comparison
 
-| Component | MVP role | Future role | Must not own |
+| Component | Role | Canonical? | May block ordinary writing? |
 |---|---|---|---|
-| Telegram | Capture/review interface | Same | Durable truth |
-| Capture worker | Idempotent persistence and outbox | Stable ingestion boundary | Knowledge inference |
-| SQLite/files | Raw truth, state, FTS | Canonical provenance/export | UI polish |
-| Hermes | Optional processor/scheduler/sender | Agent orchestration | Sole raw persistence |
-| 9Router | Replaceable generation gateway | Central generation observability/fallback | Raw capture or fallback embeddings |
-| Notion | Digest/knowledge projection | Editable review UI | Raw event queue |
-| Obsidian | None | Portable local note UI | Ingestion queue |
-| Supermemory | None/shadow experiment | Derived semantic index | Canonical source |
-| OpenViking | None | Shared context/resource backend pilot | MVP dependency |
-
-## Recommendation rationale
-
-Option B adds one small local boundary but removes every volatile component from capture availability. This directly addresses user problem and preserves paths to all candidate tools. Tradeoff is modest service/schema ownership; experiments can still begin with a single process and SQLite file.
+| Obsidian vault | Human library | Yes | No |
+| Sync | Replication | No | No; local edits continue |
+| Git | Audit/rollback | No | No |
+| Backup | Disaster recovery | Recovery copy | No |
+| Hermes | Orchestration/proposals | No | No |
+| Workspace service | Safe mutation state | Operational only | Only approved agent apply |
+| 9Router | Replaceable model gateway | No | No |
+| OpenViking | Derived context | No | No |
+| SQLite Telegram ingress | Raw delivery queue | Canonical for raw event only | Telegram acknowledgment only |

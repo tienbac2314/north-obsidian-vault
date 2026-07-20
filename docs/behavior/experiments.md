@@ -1,70 +1,51 @@
-# Behavioral experiments
+# Behavioral and architecture experiments
 
-No proposal becomes Accepted until measured with non-sensitive material.
+## EXP-001: Unstructured Obsidian capture
 
-## EXP-001: Two-week capture habit
+- Hypothesis: `INBOX/Unsorted` removes capture friction without creating unusable pile.
+- Run: four weeks of normal work.
+- Pass: useful note capture under 30 seconds p90; no abandoned item due to required structure; inbox reviewed weekly without exceeding 20 minutes.
 
-- Hypothesis: Telegram raw capture with no required structure is sustainable.
-- Duration: 14 calendar days.
-- Procedure: send every intentionally saved learning item to one bot; optional `why:` context only when natural.
-- Measures: number of captured items, days with at least one capture, median and p90 manual capture time, abandoned captures.
-- Pass: at least 10 useful captures, median under 15 seconds, p90 under 30 seconds, and no item abandoned because form fields were required.
-- Failure response: reduce bot interaction; do not add more automation.
+## EXP-002: Weekly growth
 
-## EXP-002: Grouping and classification
+- Hypothesis: own-words compression plus one action changes practice.
+- Pass: three of four weekly reviews contain one source-backed insight, one applied example, and one next action; next review records result.
+- Failure: shorten template or switch from summary to retrieval/practice prompts.
 
-- Hypothesis: reply/media/source signals plus conservative semantic grouping avoid harmful merges.
-- Sample: first 30 captures or all captures after two weeks.
-- Measures: incorrect merge, incorrect split, wrong durable/temporary class, user corrections.
-- Pass: zero harmful merges, at most 20% items needing any correction, and all corrections traceably update derived state without changing raw input.
-- Failure response: disable automatic semantic grouping; retain explicit reply/media grouping only.
+## EXP-003: Sync bake-off
 
-## EXP-003: Daily digest usability
+- Candidates: Self-hosted LiveSync and Remotely Save, one at a time.
+- Cases: Windows/Android/VPS create, offline same-note edit, attachment, rename, delete, `.canvas`, restart, prolonged outage, recovery.
+- Pass: no silent byte loss; conflicts visible; no recursive conflict loop; acceptable latency/resources; documented clean restore.
 
-- Hypothesis: digest creates interpretation without becoming another chore.
-- Procedure: deliver only on capture days at chosen time.
-- Measures: review time, reviewed digests, promoted/practice/reference/temporary actions, ignored questions.
-- Pass: median review under two minutes; at least 70% of digests on active days reviewed; at least 60% of promoted items rated useful one week later.
-- Failure response: reduce digest to three items and defer overflow to weekly review.
+## EXP-004: Proposal safety
 
-## EXP-004: Weekly growth value
+- Cases: normal queue, reject-with-file-still-queued, source edit after draft, duplicate approval, sync race after replace, crash before/after replace, forbidden path, symlink/path traversal, invalid Markdown, Git failure, and source prompt injection asking for shell/secrets/messaging.
+- Pass: source unchanged before approval; rejected hash does not loop; stale hash blocks; apply once; staged Git blob equals approved result; writes remain in allowlist; injected source invokes no tool or wider context; failure is inspectable and recoverable.
 
-- Hypothesis: topic-centered weekly synthesis helps retention and action more than daily-page browsing.
-- Procedure: before reading weekly review, answer five short recall prompts generated from captures; then rate usefulness and choose one practice item.
-- Pass: source-backed answer for at least four of five prompts, one concrete next-week practice action, and no unsupported growth claim.
-- Failure response: use spaced recall prompts instead of narrative summary.
+## EXP-005: 9Router outage and privacy
 
-## EXP-005: Model and provider outage
+- Stop disposable/test route; queue allowed and restricted notes.
+- Pass: normal writing/sync unaffected; allowed proposal waits/retries; unlabeled note defaults local-only; restricted note never leaves policy boundary; no external classifier sees undecided content; raw request bodies absent from gateway logs.
 
-- Hypothesis: raw capture remains reliable without 9Router or upstream providers.
-- Procedure: stop only a disposable/local test route or point test worker at a guaranteed-failing endpoint; send text, link, and attachment; restore processor.
-- Pass: three raw records committed and acknowledged, no model call on capture transaction, three delayed jobs processed exactly once, original bytes/metadata unchanged.
-- Failure response: redesign persistence/ack boundary before any further feature work.
+## EXP-006: Backup restore
 
-## EXP-006: Notion export outage
+- Restore encrypted snapshot to isolated path without primary device.
+- Pass: coordinated backup generation restores vault bytes/checksums, Git history, sync/bootstrap documentation, proposal journal, and keys/config references; nonterminal proposal reconciliation never blindly reapplies.
 
-- Hypothesis: Notion is a projection, not availability dependency.
-- Procedure: use invalid test integration credentials; approve one synthesis; restore valid test connection.
-- Pass: local approval persists, outbox retries with same idempotency key, one Notion projection appears, and no raw/synthesized data is lost.
+## EXP-007: OpenViking lifecycle
 
-## EXP-007: Retrieval baseline
+- Pin version; test add, content update, move, delete, interrupted task, rebuild, and manifest reconciliation on synthetic vault.
+- Pass: no canonical vault mutation; desired/observed drift resolves; deleted/restricted items disappear; full projection rebuild succeeds.
 
-- Hypothesis: source links, titles, tags, and full-text search are enough before vectors.
-- Procedure: define eight real questions after 30+ captures; answer with SQLite full-text/file search, then optionally compare semantic retrieval.
-- Pass without vectors: at least six correct top-five results with source provenance and acceptable manual search time.
-- Vector-search trigger: fewer than six correct results on two consecutive curated test sets or repeated user failure to find known material.
+## EXP-008: Retrieval and embeddings
 
-## Edge cases to include
+- Prewrite bilingual queries and answer key.
+- Compare plain Obsidian text/link search, OpenViking with exact 9Router route, and OpenViking with local `embeddinggemma`.
+- Measure top-k, provenance, query/index latency, RAM, rebuild duration, cost, privacy, and outage.
+- Promote vectors only for material measured gain.
 
-- forwarded messages without original URL;
-- edited/deleted Telegram messages;
-- duplicate updates and retries;
-- very long AI answers;
-- inaccessible/paywalled links;
-- screenshots containing secrets;
-- prompt injection inside captured pages;
-- conflicting new and old knowledge;
-- one item relevant to multiple topics/projects;
-- copyright-sensitive copied material;
-- retention/deletion requests;
-- clock/timezone changes and missed digest runs.
+## EXP-009: Optional Telegram durability
+
+- Cases: duplicate, edit, attachment failure, SQLite failure, restart, Hermes/9Router/OpenViking outage.
+- Pass: text/link `Saved` only after full-synchronous durable raw record; media acknowledgment distinguishes metadata from attachment bytes; delayed jobs drain once; disk failure never returns success.

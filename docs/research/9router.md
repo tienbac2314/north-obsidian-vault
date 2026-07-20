@@ -1,6 +1,6 @@
 # 9Router evaluation
 
-Status: current centralized AI model gateway; recommended scope is **Proposed**.
+Status: current centralized AI model gateway; generation/VLM scope is **Proposed** and embedding transport is **Experimental**.
 
 ## Official evidence
 
@@ -50,6 +50,17 @@ Two configured multi-model combos prove substitution is enabled as a real route 
 
 If embeddings ever transit 9Router, use a dedicated exact route with no account/model substitution beyond the same immutable model contract, store provider/model/dimensions/index-generation metadata, and fail closed instead of falling back.
 
+Compare this exact route against local Ollama `embeddinggemma` using identical English/Vietnamese corpus and answer key. Measure recall, indexing/query latency, RAM, rebuild duration, privacy, and outage behavior on 2-core/12-GB ARM64. Do not preselect local or gateway transport without benchmark. A local VLM/reasoning fallback is not recommended because it adds contention and is unlikely to offer useful interactive speed on this CPU; only a later measurement may change that.
+
+## Data-class routing
+
+- `public`: configured generation combos permitted.
+- `personal_external_ok`: explicit provider allowlist; no opaque/free route by default.
+- `local_only`: only local embedding/search; no external generation.
+- `work_restricted`: no external processing unless employer policy explicitly permits it.
+
+Missing label defaults to `local_only`; uncertain workplace content defaults to `work_restricted`. Folder rules may supply defaults, but proposal/job must carry locally resolved policy before request. No external model may classify whether undecided content is safe to disclose. 9Router fallback must not cross provider allowlist.
+
 ## Failure handling
 
 - Capture transaction contains no 9Router call.
@@ -82,3 +93,4 @@ If embeddings ever transit 9Router, use a dedicated exact route with no account/
 - No controlled outage or restore test was run.
 - Request-detail retention and body content remain unverified.
 - Direct-port reachability was tested from one network only.
+- Exact-route embedding fail-closed behavior and data-class provider enforcement were not tested.

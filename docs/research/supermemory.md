@@ -23,17 +23,17 @@
 ## Options
 
 - **Critical path:** reject; capture must not depend on it.
-- **Shadow index:** promising experiment after 30+ captures; ingest only approved durable notes with stable IDs.
+- **Shadow index:** lower-priority comparison after OpenViking/plain-search evaluation; ingest only permitted vault notes with stable IDs.
 - **Hermes global memory provider:** postpone; automatic context can confound pipeline evaluation and duplicate notes.
 - **Migration source:** preserve existing instance read-only until export/restore is proven.
 
 ## Evaluation protocol
 
-Use same approved corpus and eight-query retrieval set against SQLite FTS and Supermemory hybrid search. Measure top-five relevance, source traceability, latency, correction/deletion, and operator effort. Do not compare vendor benchmark claims with this personal corpus.
+Use same permitted Obsidian corpus and prewritten bilingual retrieval set against plain vault search, OpenViking, and optionally Supermemory. Measure top-five relevance, source traceability, latency, correction/deletion, and operator effort. Do not compare vendor benchmark claims with this personal corpus.
 
 ## Recommendation
 
-Keep running service untouched. Do not send all raw captures. If shadow test beats FTS materially, use Supermemory as derived search index; SQLite/files remain truth.
+Keep running service untouched. Do not send all vault content. Current direction prefers OpenViking for Hermes context; Supermemory remains optional comparison only. Obsidian files remain canonical.
 
 ## Remaining uncertainty
 

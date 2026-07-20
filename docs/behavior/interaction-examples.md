@@ -1,61 +1,33 @@
 # Interaction examples
 
-Examples describe behavior, not final Telegram wording.
+## Normal note
 
-## Raw article paragraph
+User pastes long AI answer into `INBOX/Unsorted/java-pool.md`. Sync/Git may copy/checkpoint it. Hermes does nothing.
 
-**User sends:** copied paragraph and URL.
+## Request review
 
-**Immediate response:** `Saved · C-20260719-0042`
+User moves note to `INBOX/Pending Agent Review`. Hermes creates proposal that shortens answer, labels source versus interpretation, adds application to current project, suggests one practice step, and proposes `ZETA/LITERATURE`. Source file remains unchanged.
 
-**Later proposal:**
+## Concurrent edit
 
-> Topic: Spring transaction boundaries
-> Source says: proxy-based transactions apply only across intercepted calls.
-> Why this may matter: explains why self-invocation bypassed rollback.
-> Suggested action: Learn
-> Source: original URL and exact copied excerpt
+User changes source after proposal. Approval sees base hash mismatch, marks proposal stale, and asks to regenerate. New text is never overwritten.
 
-## Screenshot without context
+## Agent-created report
 
-**User sends:** error screenshot.
-
-Raw file and Telegram metadata persist first. OCR/vision may later propose "database connection pool timeout." If confidence is low, digest asks: "Was this saved as a bug you solved or a reference for later?"
-
-## Several related messages
-
-User sends a copied answer, then replies to it with code, then replies "worked after changing propagation." Reply chain provides strong grouping. One synthesis cites all three capture IDs and keeps each original item.
-
-## Unrelated messages close together
-
-User sends Git advice, then an Educative link about JVM memory one minute later. No reply/source relation exists and topics differ. Items remain separate despite timing.
-
-## Optional context
-
-**User sends:** article link plus `why: use this in next code review`.
-
-Processor treats user-authored context as higher authority than inferred purpose and never rewrites it as a source claim.
-
-## Correction
-
-**Digest:** classifies a copied deployment command as durable knowledge.
-
-**User:** `temporary, only needed for today's server fix`
-
-System records feedback, prevents durable promotion, and keeps raw capture until retention policy removes it.
+Hermes creates disposable research draft under `SYSTEM/AGENT PROPOSALS`. Automatic creation is allowed. Publishing it as canonical project/resource note requires approval.
 
 ## 9Router outage
 
-**User sends:** screenshot and note while 9Router is stopped.
+User continues writing and syncing. Queued agent review waits. No note changes and no data loss.
 
-**Immediate response:** `Saved · processing delayed`
+## OpenViking outage
 
-Raw record enters `captured`; processing job enters retry queue. After recovery, same job executes once using idempotency key. No duplicate Notion page is created.
+Vault stays available. Projection manifest shows drift. Hermes may use exact file inspection for simple work or delay context-heavy proposal.
 
-## Notion outage
+## Sync conflict
 
-Digest is available in Telegram/local store. Notion export remains in outbox and retries later. Review feedback applies locally and is synchronized when Notion returns.
+Two devices edit same note offline. Sync preserves conflict version. Hermes excludes conflict file and creates no proposal until user resolves it.
 
-## Work-sensitive content
+## Optional Telegram
 
-If capture is marked `private-work` or source policy blocks external processing, system stores only permitted metadata/local content and skips external models. Policy must be configured before workplace rollout.
+User sends screenshot while 9Router is down. Ingress commits raw message/metadata to full-synchronous SQLite, then says `Saved metadata; attachment pending`. After bytes/checksum persist it says `Attachment saved`. OCR/proposal waits and runs once after service recovery.

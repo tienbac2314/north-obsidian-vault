@@ -1,5 +1,7 @@
 # Notion evaluation
 
+Status: historical alternative; not selected for current Obsidian-first design.
+
 ## Current workspace evidence
 
 Read-only inspection on 2026-07-19 found database `My journal` with date, title, status, and summary properties; calendar and log views; and default `Daily entry` template. Four dated rows existed: two done, two not started, all Summary values empty. Template contains Tasks, What I learned, Problems/how solved, and Links sections.
@@ -24,21 +26,21 @@ Observation: structure exists, but capture and review habits do not. Blank/parti
 
 - Benefit: calendar/table/linked-page UX and mobile access; local pipeline can survive outage.
 - Cost: projection logic and two-way edits require reconciliation.
-- Recommendation: preferred MVP role, with one-way export plus explicit feedback actions initially.
+- Recommendation: not selected. Obsidian now supplies review/editing interface without a second page system.
 
 ### Both canonical durable notes and review UI
 
 - Benefit: fewer visible systems.
 - Cost: Notion becomes availability and migration dependency; provenance must be encoded in properties/blocks.
-- Recommendation: reconsider after two-week behavior experiment.
+- Recommendation: reject while Obsidian is canonical.
 
 ## Automatic daily creation
 
-Existing template can be configured in Notion UI with `•••` → `Repeat` → daily. This directly solves missing daily pages without VPS automation. However, daily blank pages may worsen clutter. Pipeline should publish digests only on capture days and create a weekly review every week; recurring blank journal pages are optional.
+Existing template can be configured in Notion UI with repeating pages, but blank daily pages do not solve reflection. Current design moves normal writing and weekly/monthly review to Obsidian. No Notion projection belongs in first release.
 
-## Proposed projection
+## Historical projection idea
 
-Use three views/databases only if experiment succeeds:
+Earlier design proposed three views/databases. Preserve this only as migration history, not current roadmap:
 
 - `Daily Digests`: date, review status, capture count, one question, summary.
 - `Knowledge`: title, topic, maturity, source captures, last reviewed, related notes.

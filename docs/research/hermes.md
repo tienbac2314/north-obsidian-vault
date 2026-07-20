@@ -2,38 +2,35 @@
 
 ## Evidence
 
-- Official repository: [NousResearch/hermes-agent](https://github.com/NousResearch/hermes-agent), accessed 2026-07-19.
-- Commit: `e598cef87465981fcea1c0339edfcf5d9716c917`; latest release observed `v2026.7.7.2`.
-- Official facts: one Gateway process supports multiple messaging channels; custom model endpoints, cron jobs, local session search, built-in memory, and one external memory provider are supported.
-- Deployment facts: Gateway/Telegram connected; provider `custom`; loopback `/v1` route to 9Router; Telegram toolsets include files, vision, memory, cron, web, and code execution.
+- Official [repository](https://github.com/NousResearch/hermes-agent) and [gateway internals](https://github.com/NousResearch/hermes-agent/blob/main/website/docs/developer-guide/gateway-internals.md).
+- Hermes supports messaging gateways, custom OpenAI-compatible endpoints, tools, scheduling, local memory, and external memory providers including OpenViking.
+- Documented hooks cover gateway/session/agent/command lifecycle. External memory flush occurs after session lifecycle. This does not prove durable Telegram receipt before model execution or `Saved`.
+- Current deployment routes Hermes generation to loopback 9Router.
 
-## Candidate roles
+## Revised role
 
-| Role | Fit | Risk |
-|---|---|---|
-| Raw Telegram adapter | Possible, pending hook/ack audit | Conversational execution may start before durable capture |
-| Classifier/synthesizer | Strong | Agent tool breadth is unnecessary for simple deterministic transforms |
-| Scheduler/digest sender | Strong | Cron state and delivery need monitoring/idempotency |
-| Knowledge store | Weak | Session/memory semantics do not preserve complete raw provenance by default |
-| Orchestrator for future tools | Strong | Can become central coupling point if interfaces are implicit |
+Hermes is workflow orchestrator:
 
-## Recommendation
+- inspect explicitly queued Obsidian note;
+- retrieve permitted OpenViking context when available;
+- call 9Router for research/synthesis;
+- produce structured proposal;
+- report status and request approval.
 
-Use Hermes as replaceable processor/orchestrator after capture persistence. Prefer a small explicit command or job contract:
+Hermes must not own canonical note bytes, raw Telegram durability, mutation authorization, or unrestricted vault shell. Deterministic workspace service performs apply after policy and hash checks.
 
-```text
-process(capture_group_id, schema_version, prompt_version) -> synthesis_candidate
-publish(digest_id, destination) -> delivery_receipt
-```
+All copied note, web, AI, and Telegram content is untrusted data. Proposal drafting runs with no shell, write, deployment, credential, or messaging tools. Source text cannot request more context, change data class, approve mutation, or initiate a tool. Explicit user-requested research uses separate allowlisted tools and query arguments derived from trusted user intent.
 
-Do not grant processor permission to mutate raw captures. Run with least-required toolsets and separate workplace-sensitive policy.
+## Required tool contract
 
-## Alternatives
+- `read_vault`: allowed paths only, exact bytes/hash.
+- `create_proposal`: target, expected hash, patch/content, rationale, sources, validation.
+- `approve/reject`: explicit user action.
+- `apply_proposal`: deterministic and idempotent; no LLM decision.
+- `query_openviking`: permitted scopes only; derived results require source verification.
 
-- Direct 9Router worker: simpler and more deterministic for classification/synthesis.
-- Hermes skill/plugin: easier scheduling, vision, and conversational correction.
-- Hybrid: thin capture worker plus Hermes cron/processing; recommended first integration experiment.
+Moves, renames, merges, delete, archive, `.canvas`, `.obsidian`, `.git`, and system paths stay unavailable in first release.
 
-## Uncertainty
+## Failure behavior
 
-Installed Hermes source must be reviewed for a pre-agent ingestion hook, polling offset semantics, cron retry policy, and safe per-task tool restrictions before implementation.
+Hermes or 9Router outage leaves queue unchanged. Invalid output becomes failed proposal. Concurrent edit makes proposal stale. OpenViking outage falls back to exact vault inspection or delays context-dependent work.

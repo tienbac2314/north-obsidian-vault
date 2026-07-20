@@ -1,39 +1,34 @@
-# Phased roadmap
+# Evidence-gated roadmap
 
-## Phase 0: Behavioral prototype
+Phases describe promotion order, not disposable implementations. First release establishes final authority and storage boundaries.
 
-- Run two-week capture experiment with manual or lightweight synthesis.
-- Measure capture friction, grouping corrections, daily review time, and weekly usefulness.
-- Use synthetic public content for gateway failure tests.
-- Outcome: revise behavior; no platform commitment.
+## Release 1: Obsidian workspace
 
-## Phase 1: Reliable MVP
+- Vault structure, guide, optional templates, weekly/monthly review.
+- Validated free sync, Git audit, encrypted backup/restore.
+- Proposal-only Hermes, deterministic mutation service, 9Router data policy.
+- Gate: [first-release acceptance](mvp.md).
 
-- Build durable capture boundary, local schema, job/outbox lifecycle, 9Router generation adapter, Telegram digest, backup, and restore procedure.
-- Add Notion projection only after local review works.
-- Outcome: raw capture remains available through every downstream outage.
+## Release 2: Derived agent context
 
-## Phase 2: Portable knowledge
+- Pin OpenViking version and test resource lifecycle.
+- Add projection manifest and reconciler for allowed vault paths.
+- Compare filename/link/text search with OpenViking on prewritten bilingual queries.
+- Compare exact 9Router embedding route with local `embeddinggemma`.
+- Gate: better retrieval with provenance, rebuild proof, stable embedding contract, acceptable ARM64 cost, no restricted-data leak.
 
-- Export approved durable notes to deterministic Markdown.
-- Evaluate Obsidian as editor/review surface without changing canonical provenance.
-- Add topic/project consolidation and career evidence views.
-- Promotion evidence: user edits/reviews exported notes often enough to justify the surface.
+## Release 3: Optional quick capture
 
-## Phase 3: Retrieval experiment
+- Add allowlisted Telegram ingress with full-synchronous SQLite WAL, durable-before-`Saved` text/link contract, and separate media metadata/attachment acknowledgments.
+- Drain into Hermes and vault proposal workflow.
+- Test duplicate updates, attachment retry, disk failure, 9Router/Hermes/OpenViking outage, and recovery.
+- Gate: no lost or duplicate captures and no false acknowledgment.
 
-- Build labeled retrieval queries from real missed recalls.
-- Compare metadata/FTS/backlinks against one pinned-embedding shadow index.
-- Pilot Supermemory or OpenViking only as disposable derived view.
-- Promotion evidence: material recall gain, stable embedding contract, backup/rebuild proof, acceptable cost and privacy.
+## Release 4: Broader workflows
 
-## Phase 4: Agent context
+- Consider Canvas creation, managed sections, automatic generated reports, and richer project research chains only from repeated concrete demand.
+- Moves, renames, merge, archive, delete, and bulk taxonomy remain reviewed.
 
-- Expose only approved, provenance-linked knowledge to Hermes/development agents.
-- Add tool permissions and data-class boundaries per job.
-- Consider OpenViking shared context after isolation and restore drills.
-- Promotion evidence: measured work benefit without source confusion or unsafe tool execution.
+## Deliberately absent
 
-## Deliberately postponed
-
-Automatic graph building, model-routed embeddings, multi-agent coaching, workplace-content ingestion by default, separate bots, elaborate dashboards, gamification, and autonomous deletion/consolidation.
+Paid Obsidian Sync assumption, Git branch switching in live vault, two simultaneous sync engines, automatic conflict merge, unrestricted agent shell, symmetric OpenViking/Obsidian editing, fallback embeddings, and local CPU VLM emergency path.

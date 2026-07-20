@@ -1,43 +1,33 @@
 # OpenViking evaluation
 
-## Evidence
+## Verified capabilities
 
-- Official sources: [repository](https://github.com/volcengine/OpenViking), [README](https://github.com/volcengine/OpenViking/blob/main/README.md), [documentation](https://docs.openviking.ai/), accessed 2026-07-19.
-- Commit: `379c19f66ea60d91a6beab334900a8f1867c682b`; release `v0.4.10`; AGPL-3.0.
-- Official facts: hierarchical `viking://` context filesystem; resource/memory/skill/session concepts; server/CLI; configurable storage, embeddings, VLM, auth, indexing, and reindex modes.
-- Repository-history fact: version 0.4.9 was evaluated on 2026-07-15 and remained pilot-only because isolation, backup, migration, outage, and dual-client gates were open.
+- Accessed 2026-07-21. Pilot must record exact deployed release/commit before relying on lifecycle behavior.
+- Official [repository](https://github.com/volcengine/OpenViking), [resource API](https://docs.openviking.ai/en/api/02-resources), [filesystem API](https://docs.openviking.ai/en/api/03-filesystem), [setup](https://docs.openviking.ai/en/getting-started/04-setup-for-agent), and [changelog](https://docs.openviking.ai/en/about/02-changelog).
+- OpenViking exposes hierarchical context resources, memories, skills, sessions, server/CLI, explicit resource ingestion/task state, filesystem move/remove operations, and configurable embedding/VLM endpoints.
+- Local directory ingestion honors `.gitignore`; reread/watch behavior depends on source type. Uploaded temporary snapshots are not generic permanent directory mirrors.
+- Recent changelog fixes cover locks, move/URI mapping, queue/task persistence, and vector recovery. Lifecycle remains version-sensitive.
 
-## Strengths
+## Fit
 
-- Could index future Obsidian/Markdown resources while serving both Hermes and development agents.
-- Separates source resources from semantic summaries/indexes.
-- Rich navigation and explicit context hierarchy may fit long-term knowledge use better than isolated daily pages.
+OpenViking complements Obsidian when used asymmetrically:
 
-## Risks
+- Obsidian owns human-readable pages.
+- OpenViking first stores only derived retrieval representation. Native agent memories are separate non-rebuildable state and stay disabled until independent authority, retention, deletion, and backup policy exists.
+- Hermes reads recall results, then verifies exact vault file before proposing change.
 
-- Young, rapidly changing component; version changed during this research window.
-- Requires more services/configuration than current capture problem.
-- Embedding/VLM cost and failure paths.
-- Identity/peer scopes and automatic memory behaviors can leak or duplicate context if misconfigured.
-- No verified direct importer from this pipeline or existing Supermemory corpus.
-- Repository indexing overlaps CodeGraph and broadens scope.
+It overlaps a knowledge SQLite database, so no separate structured knowledge DB is planned. It does not replace tiny operational SQLite needed for Telegram durable receipt, proposal state, idempotency, and file concurrency.
 
-## Recommendation
+## Projection contract
 
-Do not install for MVP. Preserve compatibility through Markdown export and stable IDs. Consider pilot only after:
+Use explicit manifest mapping vault identity/path/hash and sensitivity policy to OpenViking URI/task/observed state. Reconciler excludes `.git`, `.obsidian`, conflicts, proposals, system state, secrets, and restricted paths. It explicitly schedules verified add/move/remove/update operations. Vault remains canonical during failure.
 
-1. two-week behavior experiment passes;
-2. 30+ approved notes exist;
-3. FTS retrieval fails measured tests;
-4. backup/restore works;
-5. actor/peer isolation and deletion pass;
-6. embeddings are pinned outside fallback combos;
-7. automatic capture/recall starts disabled.
+Do not assume arbitrary directory watcher can infer rename, authorship, or authorization. Exact content-update sequence must be verified against pinned version before implementation.
 
-## 9Router placement in future pilot
+## Model policy
 
-VLM/query-planning generation may use a designated 9Router route if substitution is acceptable and logged. Dense embeddings remain explicitly pinned by provider/model/dimensions/index generation; fail closed on embedding outage.
+VLM/L0/L1 derivations may use allowed 9Router route because outputs are rebuildable. Embeddings must use exact immutable contract and fail closed. Compare exact no-substitution 9Router route with local Ollama `embeddinggemma` on bilingual retrieval and ARM64 throughput.
 
-## Uncertainty
+## Promotion gate
 
-Current 0.4.10 storage/identity migration behavior, OVPack completeness, Hermes plugin compatibility, and OpenCode overlap need version-pinned tests. Past 0.4.9 findings are historical, not current guarantees.
+Postpone until first Obsidian release passes. Promote only if pinned-version lifecycle, restore/rebuild, deletion, privacy isolation, and prewritten retrieval evaluation all pass. OpenViking outage must never block note creation, sync, review, or accepted vault edit.

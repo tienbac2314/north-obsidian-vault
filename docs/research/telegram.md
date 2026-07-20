@@ -2,34 +2,24 @@
 
 ## Evidence
 
-- Official source: [Telegram Bot API](https://core.telegram.org/bots/api), accessed 2026-07-19.
-- Version: Bot API 10.2, released 2026-07-14.
-- Verified: `update_id` supports duplicate suppression/order recovery; replies and media-group IDs provide grouping signals; Telegram retains unconsumed updates for no more than 24 hours; failed webhooks are retried.
-- Current deployment: one Hermes Telegram DM connected through polling.
+- Official [Telegram Bot API](https://core.telegram.org/bots/api) supplies `update_id`, replies, media groups, files, polling, and retrying webhooks. Pending updates have limited retention.
+- Current Hermes bot uses polling, but durable-before-agent acknowledgment was not proven.
 
-## Fit
+## Revised fit
 
-Telegram is strongest capture interface because it is already available across phone and PC and accepts every expected raw form. It is not a knowledge store: retention is short, message edits/deletes complicate provenance, and bot availability depends on Telegram.
+Telegram is optional quick capture and remote status channel, not primary input. Direct Obsidian use covers normal note writing.
 
-## Recommendation
+If enabled, dedicated deterministic ingress must:
 
-Use one bot for MVP. Separate capture and digest behavior through message types/state, not separate bot identities. Add another bot only if notification volume, access policy, or experimentation requires isolation.
+1. allowlist sender/chat;
+2. derive idempotency from stable non-secret bot identity plus `update_id`;
+3. commit raw update, relationships, attachment metadata, and job/outbox to SQLite WAL;
+4. say `Saved` for text/link only after full-synchronous commit; for media, acknowledge metadata/pending first and bytes/checksum separately;
+5. download/process asynchronously through Hermes;
+6. create vault proposal rather than silently mutate canonical note.
 
-Persist before acknowledgment using `(bot identity, update_id)` idempotency. Keep:
+OpenViking and Hermes memory are downstream, not receipt boundary. If 9Router, upstream provider, Hermes, OpenViking, sync, or Obsidian is unavailable, raw capture remains queued. If disk/SQLite fails, no success acknowledgment. SQLite WAL alone is insufficient: receipt path requires durable local storage and full synchronous commits.
 
-- chat/message/update IDs;
-- timestamp and edit version;
-- original text/caption;
-- reply and media-group IDs;
-- forward/source metadata when available;
-- attachment file ID, checksum after download, MIME type, and local object path.
+## Later choices
 
-## Tradeoffs
-
-- **Polling:** already works with Hermes; simpler firewall; must confirm offset after durable write.
-- **Webhook:** lower latency and explicit retries; adds public endpoint/authentication; still must persist before 2xx.
-- **Separate bots:** clearer UX boundaries; doubles credentials/config and fragments reply context.
-
-## Uncertainty
-
-Hermes polling acknowledgement order is unverified. MVP spike must prove raw commit occurs before update confirmation or implement a thin independent adapter.
+Polling avoids public webhook; webhook offers explicit delivery retry but needs authenticated endpoint. Choose after ingress prototype. Attachment retention and command/capture disambiguation remain open.

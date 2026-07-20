@@ -1,34 +1,27 @@
 # Obsidian evaluation
 
-## Evidence
+## Verified facts
 
-- Official source: [How Obsidian stores data](https://github.com/obsidianmd/obsidian-help/blob/21a11f649571d2fbf02b4d639c5c352009fe07e9/en/Files%20and%20folders/How%20Obsidian%20stores%20data.md), accessed 2026-07-19.
-- Commit: `21a11f649571d2fbf02b4d639c5c352009fe07e9`.
-- Verified: vaults are local folders containing Markdown plain-text notes; other editors can modify them; Obsidian maintains rebuildable metadata cache.
-- Current state: Obsidian is not installed and no vault exists.
+- Official [Obsidian help](https://help.obsidian.md/Files+and+folders/How+Obsidian+stores+data): vault is local folder; notes are Markdown plain text; external editors may modify files; metadata cache is rebuildable.
+- Obsidian therefore supplies portable canonical human artifacts, not durable jobs, compare-and-swap writes, replication, or backup by itself.
 
-## Fit
+## Revised fit
 
-Obsidian is a strong future reading/editing layer because pipeline can export durable notes as ordinary Markdown. It does not itself solve capture transformation or weekly synthesis.
+Obsidian is primary interface and canonical human library. This matches actual expected behavior: most material will be pasted or written directly in Obsidian, and only selected notes should involve Hermes.
+
+Vault structure adapts Dusk's PARA/Zettelkasten organization but excludes its old community plugins, scripts, CSS, dashboards, and sample content. `INBOX/Unsorted` removes capture-time taxonomy. `INBOX/Pending Agent Review` is explicit proposal request.
+
+## Sync research
+
+- [Self-hosted LiveSync](https://github.com/vrtmrz/obsidian-livesync) supports self-hosted CouchDB/object-storage modes and warns against combining sync solutions. Recent releases add headless CLI capabilities. Resource use, bootstrap, conflict, and recovery still need Oracle ARM64 tests.
+- [Remotely Save](https://github.com/remotely-save/remotely-save) supports several remote storage backends. VPS convergence and conflict semantics need tests.
+- [Syncthing Android](https://github.com/syncthing/syncthing-android) official app was discontinued and archived in December 2024. Desktop/VPS remains viable, but Android requires community-client acceptance.
+- Git is excellent audit/rollback but awkward default phone sync. Paid Obsidian Sync violates constraint.
 
 ## Recommendation
 
-Postpone installation until MVP creates at least 20 useful durable notes or the user asks for local browsing. From day one, make export deterministic:
+Test LiveSync versus Remotely Save on actual clients. Run one sync engine only. Preserve conflict copies for human resolution. Keep `.git`, volatile `.obsidian` state, service databases, temp files, and agent proposal state out of sync/index contexts as selected design requires.
 
-```text
-knowledge/<topic-slug>/<note-id>.md
-reviews/weekly/YYYY-Www.md
-sources/<capture-id>.md   # metadata/reference, not necessarily full copyrighted payload
-```
+## Growth structure
 
-Use YAML properties only for stable machine fields; keep explanation readable without plugins. Never require a community plugin for core access.
-
-## Tradeoffs
-
-- Portable/offline/Git-friendly versus synchronization setup and potential merge conflicts.
-- Excellent linking/manual curation versus no built-in reliable event queue.
-- Local control versus attachment duplication and mobile sync choices.
-
-## Uncertainty
-
-Sync provider, mobile workflow, vault privacy, and Git strategy are undecided. OpenViking indexing of a future vault should be evaluated only after plain-file behavior works.
+Daily note is optional. Weekly review should compress a few items into own words, evidence/application, repeated pattern, next experiment, and project/knowledge links. Monthly review summarizes changed beliefs and demonstrated skill. Templates remain short and optional.

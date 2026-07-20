@@ -1,86 +1,81 @@
 # Architecture diagrams
 
-## MVP runtime
+## First release
 
 ```mermaid
 flowchart LR
-    U["User"] --> T["One Telegram bot"]
-    T --> C["Capture adapter"]
-    C --> S[("SQLite raw store")]
-    C --> O[("Content-addressed objects")]
-    C --> A["Saved acknowledgement"]
-    S --> J["Transactional job and outbox"]
-    J --> P["Async processor"]
-    P --> R["9Router generation gateway"]
-    R --> L["Configured generation providers"]
-    P --> S
-    J --> D["Digest publisher"]
-    D --> T
-    D --> N["Notion review projection"]
-    S --> F["FTS and Markdown export"]
-    F -. "future" .-> B["Obsidian"]
-    F -. "measured need" .-> X["Pinned semantic index"]
-    X -. "optional implementation" .-> M["Supermemory or OpenViking"]
+    U["User"] --> O["Obsidian clients"]
+    O <--> S["One validated free sync"]
+    S <--> V["VPS vault replica"]
+    V --> G["Git audit"]
+    V --> B["Encrypted off-host backup"]
+    V --> Q["Pending Agent Review"]
+    Q --> H["Hermes"]
+    H --> R["9Router generation"]
+    H --> P["Proposal artifact"]
+    P --> A["Deterministic approval/apply"]
+    A --> V
 ```
 
-9Router is downstream of durable capture. Dashed components are absent from MVP.
+## Optional later services
 
-## Capture lifecycle
+```mermaid
+flowchart LR
+    T["Telegram"] --> I[("SQLite WAL ingress")]
+    I --> H["Hermes worker"]
+    H --> P["Vault proposal"]
+    V["Canonical vault"] --> M["Projection manifest"]
+    M --> X["OpenViking derived context"]
+    X --> H
+    H --> R["9Router generation/VLM"]
+    E["Pinned embedding endpoint"] --> X
+```
+
+## Proposal state
 
 ```mermaid
 stateDiagram-v2
-    [*] --> Received
-    Received --> Captured: SQLite commit
-    Received --> Failed: commit failure
-    Captured --> AttachmentPending: binary not downloaded
-    AttachmentPending --> Ready: checksum stored
-    AttachmentPending --> DeadLetter: retry budget exhausted
-    Captured --> Ready: text or link only
-    Ready --> Grouped: strong signals
-    Grouped --> Synthesized: valid processor output
-    Grouped --> Delayed: 9Router or model unavailable
-    Delayed --> Synthesized: retry succeeds
-    Delayed --> DeadLetter: retry budget exhausted
-    Synthesized --> Reviewed: user or policy decision
-    Reviewed --> Promoted: durable knowledge
-    Reviewed --> Temporary: archive only
-    Reviewed --> Corrected: feedback supersedes output
-    Corrected --> Grouped: regenerate
+    [*] --> Queued
+    Queued --> Drafting
+    Drafting --> Proposed
+    Drafting --> Failed
+    Proposed --> Rejected
+    Proposed --> Stale: base hash changed
+    Proposed --> Approved
+    Approved --> Applying
+    Applying --> Applied: atomic write and validation
+    Applying --> Stale: hash mismatch
+    Applying --> Failed
+    Applied --> Committed: Git commit succeeds
+    Applied --> Reconcile: Git commit fails
+    Reconcile --> Committed
 ```
 
-## Availability boundaries
+## Authority and derivation
 
 ```mermaid
 flowchart TB
-    subgraph Critical["Capture-critical"]
-        TG["Telegram delivery"]
-        CA["Capture adapter"]
-        DB[("SQLite and object store")]
-        TG --> CA --> DB
-    end
-    subgraph Deferred["Retryable after capture"]
-        H["Hermes orchestration"]
-        R9["9Router"]
-        UP["Upstream models"]
-        NO["Notion"]
-        IX["Optional semantic index"]
-        H --> R9 --> UP
-    end
-    DB --> H
-    DB --> NO
-    DB -.-> IX
+    V["Obsidian vault: canonical"] --> P["OpenViking projection: rebuildable"]
+    V --> G["Git history: audit"]
+    V --> B["Encrypted backup: recovery"]
+    P --> H["Hermes context"]
+    H --> Q["Proposal only"]
+    Q --> V
 ```
 
-## Provenance chain
+Sync copies canonical bytes. Git records history. Backup recovers data. OpenViking derives context. None grants Hermes authority.
+
+## Telegram availability boundary
 
 ```mermaid
-flowchart LR
-    SRC["Original source"] --> CAP["Immutable capture"]
-    CAP --> GRP["Capture group"]
-    GRP --> RUN["Versioned processing run"]
-    RUN --> CAN["Synthesis candidate"]
-    CAN --> FB["User feedback"]
-    FB --> NOTE["Durable note"]
-    NOTE --> DG["Daily or weekly digest"]
-    NOTE --> PROJ["Notion or Markdown projection"]
+flowchart TB
+    T["Telegram update"] --> I["Allowlist and idempotency"]
+    I --> D[("SQLite durable commit")]
+    D --> A["Saved"]
+    D --> J["Async job"]
+    J --> H["Hermes"]
+    H --> R["9Router/upstream"]
+    H --> V["Vault proposal"]
 ```
+
+For text/link, full-synchronous SQLite commit precedes `Saved`. Media first confirms durable metadata/pending attachment; final confirmation follows durable bytes/checksum. Every model/agent component may fail and retry.

@@ -1,36 +1,53 @@
-# Minimum viable pipeline
+# First production-worthy release
 
-Status: Proposed implementation target after behavioral approval.
+Status: proposed implementation scope after design approval.
 
-## Scope
+## Included
 
-One Telegram bot, one small service, SQLite WAL, content-addressed attachments, SQLite FTS, asynchronous processing through 9Router, Telegram digests, optional one-way Notion projection, and encrypted off-host backup.
+- Dusk-inspired Obsidian vault structure with `INBOX/Unsorted` and `INBOX/Pending Agent Review`.
+- Plain Markdown guide and optional short project, literature, permanent, weekly, and monthly templates.
+- One free sync design proven on actual Windows, Android, and Oracle VPS replica.
+- Narrow Git checkpoints, encrypted off-host backup, and successful restore drill.
+- Proposal-only Hermes workflow for queued notes.
+- Deterministic workspace service with path policy, SQLite proposal journal, expected hashes, atomic apply, validation, and idempotency.
+- Existing 9Router for permitted replaceable generation, with explicit data-class and logging policy.
+- Weekly review in user's own words plus one changed action; monthly compression.
 
-No embeddings, vector database, OpenViking installation, Obsidian automation, autonomous research agent, separate queue, or multi-bot topology.
+## Excluded
 
-## Build order and acceptance evidence
+- OpenViking installation/projection and embeddings.
+- Telegram ingress as normal input.
+- Canvas automation.
+- Automatic updates to existing notes, managed sections, folder reorganization, moves, renames, merges, deletes, archives, and link repair.
+- Paid Obsidian Sync.
+- Local VLM/reasoning fallback.
 
-1. **Durable capture:** allowlist sender; derive idempotency key from bot/update; commit raw update plus outbox before `Saved`.
-   - Pass: duplicate replay creates one capture; 9Router and network-disabled processor do not stop capture; disk/commit failure never returns `Saved`.
-2. **Attachments and recovery:** store metadata immediately, download with checksum through retriable job, expose dead letters.
-   - Pass: partial download recovers after restart; missing binary remains visibly pending.
-3. **Asynchronous candidates:** version structured output; call dedicated 9Router route; retain raw and derivation provenance.
-   - Pass: invalid JSON cannot overwrite/promote; route outage queues safely; replay produces traceable new run.
-4. **Daily review and correction:** deliver only on active days; support keep/practice/reference/temporary/fix.
-   - Pass: median review under two minutes; at least 70% of active-day digests reviewed; at least 60% of promoted items useful one week later; corrections supersede rather than erase history.
-5. **Weekly growth review:** consolidate by topic/project with source links and one practice target.
-   - Pass: source-backed answers for at least four of five recall prompts, one concrete next-week practice action, and no unsupported growth claim.
-6. **Projection and backup:** idempotent Notion outbox; encrypted daily off-host backup; documented restore.
-   - Pass: Notion outage drains later without duplicates; restore drill reconstructs raw capture, jobs, and attachment references.
+## Build order and acceptance
+
+1. **Vault and habit**
+   - Create structure without Dusk plugins or sample content.
+   - Pass: new note takes under 30 seconds; no mandatory fields; weekly review produces own-words insight and next action in three of four weeks.
+2. **Sync experiment**
+   - Compare Self-hosted LiveSync and Remotely Save; run only one engine at a time.
+   - Pass: offline same-note conflict, create, attachment, rename, delete, Canvas file, client/VPS restart, and recovery cause no silent byte loss.
+3. **History and recovery**
+   - Add Git checkpoint policy and encrypted off-host backup.
+   - Pass: coordinated generation restores clean machine/VPS directory with vault, Git history, configuration, proposal journal, and documented key recovery; nonterminal jobs reconcile without blind apply.
+4. **Proposal boundary**
+   - Implement queue detection, proposal artifact, SQLite journal, approval/rejection, hash-checked atomic apply, and narrow Git commit.
+   - Pass: ordinary notes trigger nothing; queued source remains unchanged; rejected unchanged item does not loop; stale hash blocks; duplicate approval applies once; staged Git blob equals approved bytes; forbidden paths and injected source instructions fail.
+5. **Hermes and 9Router**
+   - Hermes drafts proposals through permitted 9Router routes.
+   - Pass: outage queues work without affecting notes/sync; invalid output cannot mutate vault; unlabeled notes default local-only; restricted content never reaches external route or raw logs.
 
 ## Rollback
 
-- Disable processing/digest workers while capture remains live.
-- Switch 9Router calls to a direct fixed provider through the same processor interface.
-- Disable Notion projection without changing canonical records.
-- Rebuild FTS or future indexes from immutable captures/approved notes.
-- Restore SQLite plus content-addressed files from last verified backup, then replay Telegram updates still available and durable outbox jobs.
+- Disable Hermes watcher/workflow; Obsidian, sync, Git, and backup remain useful.
+- Disable agent apply; keep proposals as manual copy/edit suggestions.
+- Disable 9Router processing; queued notes remain unchanged.
+- Restore accepted file from Git or full vault from encrypted backup.
+- Change sync provider only after full snapshot and conflict-free shutdown of old engine.
 
 ## Exit criteria
 
-Promote MVP only after canonical [behavioral experiments](../behavior/experiments.md) establish capture reliability, digest usage, grouping quality, weekly value, gateway outage safety, projection recovery, and retrieval baseline, plus a successful restore drill. Otherwise keep raw capture and revise review behavior before adding tools.
+Release is complete only when sync conflict/recovery tests, restore drill, mutation safety tests, 9Router outage test, data-leak test, and four-week learning loop pass. OpenViking and Telegram begin separate promotion experiments afterward.

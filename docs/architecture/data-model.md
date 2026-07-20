@@ -1,99 +1,75 @@
-# Data model and lifecycle
+# Operational data and file contracts
 
-Field names are design contracts, not final SQL.
+Markdown files are canonical human knowledge. SQL names below are design contracts for operational state, not duplicate note database.
 
-## Core records
+## Canonical vault artifact
 
-### `capture`
+- `path`: current vault-relative path.
+- `content_sha256`: exact base identity for proposal.
+- optional stable `id`: recommended for agent-created/processed notes, never mandatory for ordinary capture.
+- body and optional YAML remain readable without plugins.
+- Git commit records accepted version history.
 
-- `id`: stable UUID/ULID.
-- `source_system`, `source_account_key`, `source_event_id`: unique idempotency tuple. `source_account_key` is a stable non-secret logical bot/account identifier and never derives from a credential.
-- `source_message_id`, `source_chat_key`, `reply_to_source_message_id`, `media_group_id`.
-- `captured_at`, `received_at`, `edited_at`.
-- `raw_text`, `raw_object_ref`, `sha256`, `mime_type`, `byte_size`.
-- `source_url`, `forward_metadata_json`.
-- `sensitivity`: `unknown|public|personal|private_work|restricted`.
-- `state`: `captured|attachment_pending|ready|quarantined|deleted`.
-- `schema_version`.
+## `proposal`
 
-Raw fields are immutable. Edits become new source-version record linked to capture.
+- `id`, `workflow_id`, `target_path`, `operation`.
+- `expected_base_sha256`, `proposed_object_ref`, `proposal_sha256`.
+- `purpose`, `rationale`, `source_refs`, `processor/prompt/schema/route versions`.
+- `status`: `drafting|proposed|approved|rejected|stale|applying|applied|failed|uncommitted`.
+- `created_at`, `decided_at`, `applied_at`, `git_commit`.
+- `approved_result_sha256`, `staged_git_blob`, `backup_generation_id` when applicable.
 
-### `capture_group`
+Approval is idempotent. Apply succeeds only when current target hash equals expected hash or operation is collision-free new-file creation.
 
-- `id`, `created_at`, `grouping_method`, `grouping_version`, `confidence`.
-- Member join table with ordering and evidence signal.
-- User feedback can split/merge by creating superseding group; history remains.
+One active proposal exists per target path/base hash/action. Rejected hash stays suppressed until explicit retry or content change. Approved queue workflow includes reviewed destination/removal from pending queue.
 
-### `processing_run`
+## `job`
 
-- `id`, `group_id`, `purpose`, `processor_version`, `prompt_version`, `schema_version`.
-- `route_policy`, `route_policy_version`, `model_contract_version`, `requested_model`, `actual_model`, `gateway_request_id`, `started_at`, `finished_at`.
-- `gateway_request_id` is nullable because a direct-provider rollback route may not return a 9Router request identifier.
-- `status`, `attempt`, `error_class`, `latency_ms`, `token_usage`.
-- No secret or full prompt body in operational log fields.
+- `id`, `kind`, `idempotency_key`, payload/object reference.
+- `state`, `available_at`, `lease_owner`, `lease_expires_at`, `attempt`, `error_class`.
+- Kinds include proposal draft, apply, Git reconcile, OpenViking projection, Telegram attachment, and status delivery.
 
-### `synthesis_candidate`
+## `projection_manifest`
 
-- `id`, `group_id`, `run_id`, `title`, `topic`, `content_type`.
-- `source_summary`, `why_it_matters`, `example`, `caveat`, `practice_step`.
-- `recommended_disposition`: `learn|practice|reference|temporary|task|needs_context`.
-- `confidence`, `supersedes_id`, `created_at`.
-- Every claim links one or more capture IDs.
+- stable vault identity when available, current path, current content hash.
+- sensitivity/data policy and desired state.
+- OpenViking URI/task/reference, observed hash/path/state, embedding/index contract, last success/error.
 
-### `durable_note`
+Manifest is rebuildable from vault plus policy except remote identity mapping; backup it with operational journal.
 
-- `id`, `slug`, `title`, `body`, `maturity`: `seed|verified|practiced|superseded`.
-- `topic_ids`, `project_ids`, `source_candidate_ids`.
-- `created_at`, `updated_at`, `last_reviewed_at`.
-- `export_version`, `notion_page_id`, `markdown_path` as nullable projection references.
+## Optional `telegram_capture`
 
-### `digest`
+- unique non-secret bot identity plus `update_id`.
+- message/chat/reply/media-group identifiers; timestamps/edit version.
+- raw text/object reference; attachment metadata/checksum/state.
+- sensitivity, received/committed timestamps, processing status.
 
-- `id`, `period_type`: `daily|weekly`, `period_start`, `period_end`.
-- ordered candidate/note references, one optional question, render version.
-- `status`: `draft|delivered|reviewed|superseded`.
+Raw event is immutable; edits append versions. Receipt database uses WAL on durable local filesystem with full synchronous commits. Text/link commit precedes `Saved`; media metadata commit precedes `Saved metadata; attachment pending`, while final attachment confirmation requires bytes and checksum.
 
-### `feedback`
+## Model run evidence
 
-- `id`, `target_type`, `target_id`, `action`, `text`, `created_at`, `source_message_id`.
-- Actions include `keep`, `practice`, `reference`, `temporary`, `correct`, `merge`, `split`, `delete`.
+- purpose and data class;
+- requested route/exact contract and actual model when available;
+- processor, prompt, schema, model-policy versions;
+- status, attempt, latency, token count, error class;
+- source/proposal IDs.
 
-### `relationship`
+Never store credentials or unnecessary raw prompt/note bodies in operational logs.
 
-- `id`: stable UUID/ULID; `from_type/id`, `to_type/id`, `relation_type`, `origin`: `user|rule|model`.
-- `relationship_version`, `confidence`, `evidence_json`, `created_at`, `supersedes_id`, `superseded_at`.
-- Active uniqueness applies to `(from_type, from_id, to_type, to_id, relation_type)`; changed interpretation creates a new version that supersedes the previous record.
-
-### `job` and `outbox`
-
-- Unique idempotency key, payload reference, state, available time, lease owner/expiry, attempt, error class.
-- Outbox destinations include processor, Telegram, Notion, Markdown export, optional index.
-
-## State transitions
-
-```text
-received -> captured -> ready -> grouped -> synthesized -> reviewed -> promoted
-               |          |          |             |           |
-               v          v          v             v           v
-       attachment_pending quarantined retry/dead-letter temporary corrected
-```
-
-Only append/supersede operations modify interpretation. Deletion uses tombstone and projection/index cleanup workflow; backup retention is documented separately.
+Missing data policy resolves locally to `local_only`. External provider cannot classify whether source may be disclosed.
 
 ## Idempotency
 
-- Telegram ingest: stable non-secret source account ID plus `update_id`; token/key rotation never changes identity.
-- Attachment: Telegram file unique ID plus SHA-256 after download.
-- Processing: ordered source IDs + purpose + processor/prompt/schema versions + immutable route-policy/model-contract versions.
-- Digest: period + render version.
-- Notion projection: object ID + export version.
+- proposal draft: target hash + operation + workflow/prompt/schema versions;
+- apply: proposal ID + proposal hash;
+- projection: vault identity/path + content hash + projection/index contract;
+- Telegram: bot identity + `update_id`;
+- attachment: stable Telegram file ID plus content hash after download.
 
-## Provenance invariant
-
-Every durable sentence generated by system must resolve to:
+## Provenance
 
 ```text
-durable note -> candidate -> processing run -> capture group -> immutable captures -> source
+accepted note version -> Git commit -> approved proposal -> model run -> source note/capture/context refs
 ```
 
-User-authored interpretation is labeled separately from source claim and model inference.
+User-authored changes may have only Git provenance. OpenViking representation points back to exact vault path/hash and never becomes independent curated truth.

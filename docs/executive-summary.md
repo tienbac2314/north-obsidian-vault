@@ -1,13 +1,13 @@
 # Executive summary
 
-Current failure is not missing journal automation. It is loss of context between capture and later reflection. Empty daily pages and pasted AI/article text do not produce durable understanding.
+Obsidian is now primary workspace, not future projection. Write normal Markdown without structure; use `INBOX/Unsorted` when destination is unclear. Moving note to `INBOX/Pending Agent Review` requests Hermes proposal but never authorizes silent overwrite.
 
-Recommended experiment: capture anything through one Telegram bot without structure, persist it locally before acknowledging, enrich it asynchronously, review a short daily digest, then produce a weekly topic/project synthesis with source links and one practice target.
+Dusk-inspired PARA and Zettelkasten folders remain optional navigation. Growth comes from weekly own-words compression and one changed action, then monthly synthesis—not daily page volume.
 
-Recommended MVP keeps SQLite/files as canonical truth. Telegram is capture/review UI. 9Router is current centralized generation gateway for classification and synthesis, but never part of raw capture. Notion is an optional review projection. SQLite FTS and explicit links precede vectors. If vectors become justified, embeddings use an explicitly pinned contract and fail closed; transparent model fallback is forbidden.
+First production-worthy release includes vault structure, one tested free sync method, Git audit, encrypted off-host backup/restore, proposal-only Hermes, deterministic hash-checked writes, and permitted 9Router generation. Existing notes remain human-owned. Git does not infer ownership, replace sync, or replace backup.
 
-Obsidian, Supermemory, and OpenViking remain future derived views or shadow experiments. None owns raw truth. Main risks are capture loss, sensitive-content leakage, prompt injection, weak backup/restore, 9Router credential/log blast radius, bad grouping, and review fatigue.
+OpenViking becomes later read-only, rebuildable projection with explicit manifest. Optional Telegram uses full-synchronous SQLite ingress: text/link `Saved` follows commit, while media metadata and attachment durability are acknowledged separately. Hermes/OpenViking/9Router stay downstream. Embeddings are exact-model pinned and fail closed; compare dedicated 9Router route with local `embeddinggemma`. Never use model combos for vectors.
 
-Build only after Phase 0 tests behavior. First technical acceptance test: with 9Router and every upstream provider unavailable, a Telegram update still becomes one durable capture and receives `Saved` only after commit.
+Main open decision is free sync: test Self-hosted LiveSync against Remotely Save on actual Windows/Android/VPS workflow. Syncthing is not preferred because official Android app is discontinued. Private/work notes need explicit policy before any external model call.
 
-Read [system design](system-design.md) for complete behavior and architecture, then [decision log](decisions/decision-log.md), [MVP](roadmap/mvp.md), and [unresolved questions](decisions/unresolved-questions.md).
+Read [system design](system-design.md), [workspace specification](superpowers/specs/2026-07-20-obsidian-openviking-workspace-design.md), [MVP](roadmap/mvp.md), and [decision log](decisions/decision-log.md).

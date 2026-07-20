@@ -1,59 +1,38 @@
-# Research and design the personal knowledge pipeline
+# Design Obsidian-first personal engineering workspace
 
 ## Problem
 
-Unstructured captures from AI, articles, learning, and coding are copied into blank pages without context, often forgotten, and rarely consolidated. Automatic daily pages alone do not create learning or growth.
+Copied AI answers, articles, and work discoveries accumulate without own-words understanding, links, or later action. User wants direct Obsidian use, Dusk-inspired PARA/Zettelkasten structure, Hermes assistance only for selected notes, optional OpenViking context, existing 9Router reuse, and free sync.
 
-## Research performed
+## Research
 
-- Inspected existing Notion journal structure and row behavior.
-- Reviewed official Telegram, Notion, Obsidian, Hermes, 9Router, Supermemory, and OpenViking sources with versions/commits and access dates.
-- Traced relevant branches, commits, and paths in `tienbac2314/my-opencode-setup`.
-- Inspected running VPS components read-only with identifiers, endpoints, secrets, raw logs, request bodies, and provider/account details redacted.
-- Compared capture cadence, raw storage, semantic retrieval, four architecture options, security, backup, and failure handling.
+- Inspected current repository design and redacted VPS state without changing services or exposing secrets.
+- Reviewed official Obsidian, Hermes, Telegram, 9Router, OpenViking, Syncthing, Self-hosted LiveSync, Remotely Save, and Ollama material.
+- Used NotebookLM notebook as adversarial reviewer; forced retractions; independently rejected unsupported, contradictory, paid, or invented prescriptions.
 
-## Systems inspected
+## Revised architecture
 
-Hermes/Telegram, 9Router v0.5.35, Supermemory v0.0.5, current Notion journal, and historical Supermemory/Mem0/OpenViking/9Router repository changes.
+- Obsidian Markdown is canonical human library and primary input.
+- Dusk-inspired structure remains optional; `INBOX/Unsorted` requires no classification.
+- `INBOX/Pending Agent Review` requests proposal, never overwrite.
+- Deterministic workspace service applies approved proposal with path allowlist, SQLite journal, expected SHA-256, atomic write, validation, idempotency, and Git commit.
+- Git audits/rolls back; one tested free sync converges devices; encrypted off-host backup restores disaster loss.
+- OpenViking is later explicit manifested projection, never second curated truth.
+- 9Router handles permitted replaceable generation/VLM. Embeddings remain exact-model pinned and fail closed.
+- Optional Telegram later commits text/link with full-synchronous SQLite WAL before `Saved`; media metadata and attachment durability are separate acknowledgments.
 
-## Recommended MVP
+## Sync decision
 
-- One Telegram bot with separate internal capture, processing, and publishing boundaries.
-- Commit immutable raw update plus outbox to SQLite/files before replying `Saved`.
-- Enrich asynchronously; group conservatively; daily review under two minutes; weekly topic/project growth review.
-- Reuse 9Router for replaceable classification/synthesis only. Never place it in raw capture transaction.
-- No embeddings in MVP. If later justified, pin exact provider/model/dimensions/preprocessing/chunking/metric and fail closed.
-- Notion is optional projection; SQLite/files remain canonical.
-- Encrypted off-host backup and restore drill are MVP acceptance requirements.
+Test Self-hosted LiveSync versus Remotely Save on actual Windows/Android/VPS clients. Syncthing is fallback because official Android app was discontinued. Paid Obsidian Sync is rejected. Never run two live sync engines or auto-merge conflict copies.
 
-## Architecture options
+## First release
 
-Notion-first, local-truth-with-projections, memory-platform-first, and Hermes-native designs are compared. Local truth is proposed because every volatile component can fail without losing capture. Hermes-native remains viable only with verified pre-agent persistence.
+Vault structure, weekly/monthly growth loop, validated sync, Git, encrypted backup/restore, proposal-only Hermes, deterministic apply, and 9Router privacy/logging policy. OpenViking, Telegram, vectors, Canvas, managed-section writes, and automatic reorganization wait for evidence gates.
 
-## Possible target architecture
+## Key risks
 
-Deterministic Markdown export enables Obsidian review. A labeled retrieval evaluation may add one pinned-embedding shadow index. Supermemory or OpenViking may index approved notes as disposable derived views. Only approved, source-linked knowledge later reaches agents.
+Sync conflict/data loss, stale overwrite, agent path escape, review fatigue, restricted-note leakage, 9Router credential/log blast radius, untested restore, OpenViking lifecycle drift, and embedding-model substitution.
 
-## Major decisions
+## Verification target
 
-Accepted invariant: raw capture precedes every model/SaaS call. Experimental: one bot and hybrid cadence. Proposed: SQLite/files truth, Notion projection, 9Router generation-only scope, pinned embeddings, FTS before vectors, future tools as derived views.
-
-## Experimental assumptions
-
-Capture p90 under 30 seconds; one-word acknowledgment builds trust; grouping can be accurate without mandatory structure; daily review stays under two minutes; weekly synthesis changes practice; outage recovery drains without loss/duplication.
-
-## Unresolved questions
-
-Hermes pre-agent hook feasibility, private-work data policy, attachment retention, backup target/key recovery, Notion conflict behavior, controlled 9Router quality/outage/restore/logging evidence, and vector-retrieval promotion threshold.
-
-## Risks
-
-False save acknowledgments, sensitive-content leakage, prompt injection, bad grouping, review fatigue, SQLite/attachment backup gaps, 9Router credential/log blast radius, and unverified cloud/tunnel/dashboard controls.
-
-## Follow-up work
-
-Run Phase 0 behavioral experiments with synthetic outage tests. Build only durable capture first. Promote later phases through measured evidence, not tool availability.
-
-## Validation
-
-Repository scripts scan tracked files for secret/private-endpoint patterns without printing values, validate local Markdown links, and render every Mermaid block. Final branch/PR checks are performed separately.
+Validate Markdown links, Mermaid syntax/rendering, secret/private-endpoint patterns, internal design consistency, Git diff, and PR body. No implementation or running-service change belongs in this PR.

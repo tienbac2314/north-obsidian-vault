@@ -1,100 +1,76 @@
 # Recommended architecture
 
-Status: **Proposed MVP**, subject to [`behavior/experiments.md`](../behavior/experiments.md).
+Status: proposed; sync choice remains experimental.
 
-## Behavioral contract
+## Core
 
-Capture first, interpret later, review briefly, consolidate weekly. System never asks user to structure raw input before saving it.
+Obsidian vault is canonical human library. User writes directly. Dusk-inspired folders help navigation but never block capture. Hermes creates proposals; deterministic workspace service applies approved changes with expected hashes. OpenViking is later rebuildable projection. 9Router is downstream generation/VLM gateway.
 
-## MVP components
+```mermaid
+flowchart LR
+    U["User"] --> O["Obsidian"]
+    O <--> S["Free sync under test"]
+    S <--> V["VPS vault replica"]
+    V --> G["Git audit"]
+    V --> B["Encrypted backup"]
+    V --> Q["Review queue"]
+    Q --> H["Hermes"]
+    H --> R["9Router"]
+    H --> P["Proposal"]
+    P --> A["Hash-checked apply"]
+    A --> V
+    V -.-> X["OpenViking projection"]
+    T["Telegram optional"] --> I[("SQLite ingress")]
+    I --> H
+```
 
-### Capture adapter
+## Component contract
 
-- Receives Telegram polling/webhook update.
-- Validates allowlisted user/chat.
-- Downloads permitted attachment or records retriable download job.
-- Writes immutable capture and outbox in one SQLite transaction.
-- Acknowledges only after commit.
-- Contains no LLM/Notion/memory dependency.
+| Component | First-release role | Later role | Failure effect |
+|---|---|---|---|
+| Obsidian | Main writing/review UI and canonical files | Same | Local files remain usable |
+| Free sync | Device/VPS convergence | Same | Local edits queue; no silent loss |
+| Git | Narrow accepted-history checkpoints | Diff/rollback/audit | Mutation marked uncommitted |
+| Backup | Encrypted off-host recovery | Same | Alert until restore proves healthy |
+| Hermes | Proposal orchestration | Rich workflows/context | Notes still usable |
+| Workspace service | Path policy, journal, CAS, atomic apply | Stable mutation boundary | No agent writes |
+| 9Router | Permitted replaceable generation/VLM | Same | Proposals wait |
+| OpenViking | Not in first release | Derived search/context | Vault unaffected; rebuild later |
+| Telegram ingress | Not in first release | Optional durable quick capture | Obsidian unaffected |
 
-### Local store
+## Why operational SQLite remains
 
-- SQLite WAL for state, provenance, feedback, jobs, outbox, FTS.
-- Content-addressed files for attachments/large payloads.
-- Encrypted daily off-host backup and restore checks.
+OpenViking overlaps semantic storage, but not transaction boundaries for a truthful Telegram `Saved`, proposal idempotency, or optimistic write concurrency. Tiny SQLite WAL stores only ingress events, jobs, proposals, and apply journal. Knowledge remains Markdown.
 
-### Processor
+## Authority
 
-- Claims jobs with lease/idempotency.
-- Groups only with strong signals.
-- Calls 9Router for replaceable classification/synthesis generation.
-- Validates structured output against versioned schema.
-- Stores candidate derivation, never overwrites raw.
-- Sends irrecoverable jobs to dead letter.
+- Any canonical existing page: human-owned, proposal required.
+- Generated proposal/report path: agent may create automatically.
+- Update/move/rename/merge/delete: explicit approval.
+- `.obsidian`, `.git`, sync state, backups, secrets: forbidden.
+- OpenViking copy: disposable and never written back as independent truth.
 
-Hermes may host or invoke processor, but processor contract remains independent.
+## Sync shortlist
 
-### Review and projection
+Run one candidate at a time:
 
-- Telegram sends raw acknowledgment, delayed warning, digest, and correction actions.
-- Notion receives daily digests/approved knowledge through transactional outbox.
-- Local data remains usable if Notion fails.
-- Weekly review consolidates by topic/project and produces practice/career evidence.
+1. Self-hosted LiveSync plus its current headless CLI.
+2. Remotely Save plus compatible storage and VPS convergence mechanism.
 
-## 9Router policy
+Syncthing needs maintained community Android client and is fallback, not default. Git-only sync is acceptable only if user accepts manual/desktop-first phone workflow.
 
-Reuse current gateway for:
+## Model split
 
-- classification and topic proposals;
-- source summaries;
-- explanation drafts;
-- weekly synthesis;
-- optional OCR/vision for content allowed to reach configured providers.
+- 9Router combo: routine replaceable generation on permitted data.
+- 9Router exact route: quality-critical generation or experimental pinned embedding only when exact identity is guaranteed.
+- Local Ollama embedding: privacy/availability experiment.
+- No local CPU VLM fallback by default.
 
-Do not call 9Router during raw transaction. Do not route embeddings through combos. Evaluation jobs record requested route, actual selected model when available, prompt/schema version, latency, and result status without storing prompt bodies in gateway logs.
+## Promotion order
 
-## Embedding policy
-
-MVP has no embeddings. If retrieval tests justify vectors:
-
-- pin explicit provider/model/dimensions/preprocessor/chunker/metric;
-- use direct endpoint or guaranteed no-fallback 9Router exact route;
-- fail closed on outage;
-- write new index generation for any change;
-- keep index disposable and source-addressed.
-
-## Security analysis
-
-- Telegram bot uses allowed-user list; reject groups until explicitly tested.
-- Secrets stay in owner-readable environment/secret store, never database/docs/logs.
-- Raw captures classified `personal`, `public-source`, `private-work`, or `restricted`; uncertain defaults to restricted external processing.
-- Captured text/web pages are untrusted data, never agent instructions. Processor prompt/tool policy prevents captured prompt injection from invoking tools.
-- Processor gets no shell/browser/write tools unless job explicitly requires them.
-- Use dedicated scoped 9Router client key; expose compatibility API only through loopback/private boundary where possible; management UI separate.
-- Disable body/header request logging; rotate metadata logs.
-- Restrict 9Router DB/directories to service owner; add host firewall defense in depth; verify tunnel access controls.
-- Encrypt off-host backups and test deletion across raw, projections, indexes, and backups according to retention policy.
-
-## MVP deployment shape
-
-One process can host adapter, worker, scheduler, and local API; modules communicate through SQLite jobs. Separate processes are unnecessary until fault isolation or scaling evidence appears. One Telegram bot is enough.
-
-## Possible future architecture
-
-- Obsidian reads deterministic Markdown export.
-- Supermemory or OpenViking indexes approved notes as disposable derived view.
-- OpenViking may serve shared context to Hermes/development agents after isolation/backup pilot.
-- Additional bots only for security boundary or noisy digest separation.
-- Dedicated queue/object storage only after measured concurrency/volume.
-
-## Explicitly postponed
-
-- vector search;
-- automatic old-note linking beyond conservative suggestions;
-- multi-agent research/coaching;
-- separate capture/digest bots;
-- OpenViking installation;
-- Obsidian plugin automation;
-- migration of existing Supermemory data;
-- automatic workplace-content processing;
-- elaborate dashboards and gamification.
+1. Vault, review habit, sync, Git, backup.
+2. Proposal-only Hermes and deterministic apply.
+3. 9Router generation with data policy and logging controls.
+4. OpenViking projection after retrieval benchmark.
+5. Telegram ingress after durable receipt service exists.
+6. Canvas/automation after concrete repeated use case.
