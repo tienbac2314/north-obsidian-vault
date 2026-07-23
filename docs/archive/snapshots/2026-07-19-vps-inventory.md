@@ -1,6 +1,6 @@
 # Oracle VPS inventory
 
-Status: verified point-in-time facts from read-only inspection on 2026-07-19. Identifiers and endpoints are redacted.
+Status: archived point-in-time inspection from 2026-07-19. Planned additions below are superseded and must not be executed. Identifiers and endpoints are redacted.
 
 | Component | Observed state | Persistence | Network/model role | Evidence limit |
 |---|---|---|---|---|
@@ -33,4 +33,17 @@ VPS can host one working vault replica, deterministic proposal service, and exis
 
 Existing services do not dictate authority: Obsidian files remain canonical; ordinary writing survives Hermes/9Router/OpenViking outage; optional Telegram persistence succeeds without those services. 9Router's all-interface bind, broad credential concentration, sensitive request/log potential, and missing verified off-host restore remain security work before private notes flow through it.
 
-Detailed evidence and uncertainty: [`research-notes/vps-findings.md`](../../research-notes/vps-findings.md).
+## Approved release-one additions
+
+These are planned, not observed current state:
+
+- Syncthing plain-file vault replica, with `.git`, SQLite, backup spool, secrets, and service config outside synchronized paths.
+- Small Python workspace package invoked by one-shot systemd service/timers.
+- Operational SQLite for proposal/jobs only.
+- VPS-only Git repository and serialized checkpoint/apply lock.
+- Daily encrypted `.7z` backup copied to Google Drive through rclone `drive.file` remote.
+- Hermes named custom provider for loopback 9Router with several live-discovered model IDs and one validated pipeline default.
+
+No OpenViking, local embedding model, new Telegram ingress, Tailscale, CouchDB, or web API is added in release one.
+
+Detailed evidence and uncertainty: [VPS findings](../research/vps-findings.md).

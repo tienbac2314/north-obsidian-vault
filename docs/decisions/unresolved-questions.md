@@ -1,49 +1,50 @@
 # Unresolved questions
 
-## Blocking implementation plan
+Status: current design gates.
 
-- Which actual devices and Android client constraints must sync experiment cover?
-- Which free backend already available to user should Remotely Save test use?
-- What off-host backup target and encryption-key recovery method will be used?
-- Where should proposal approval appear: Obsidian note/command, Telegram, or Hermes chat?
-- Which vault paths/data classes may reach external 9Router providers, and what employer policy applies?
+## Sync validation
 
-## Blocking first-release promotion
+- Does current FNS remain reliable under this Android device's background and battery restrictions, reboot, and delayed reconnect?
+- Do offline same-note edits, case-only rename, bulk attachment-folder moves, deletes, server restarts, and upgrades preserve recoverable bytes?
+- Can current FNS server restore its complete database into an empty environment, and which independent recovery copy protects against server or database loss?
+- Does a vault-restricted token remain inside its vault under direct tests, and do externally created files survive background synchronization?
+- Which `.obsidian` configuration can safely sync across Windows and Android after content-only behavior passes?
+- Does FNS Cloud Preview preserve expected Windows and Android rendering while local deletion remains off?
+- Do platform-native Windows and Android capture actions produce same vault-local file, link/embed, privacy, rename/move/delete, duplicate, and recovery outcomes?
+- Do large video, audio, PDF, and arbitrary binary attachments converge through FNS within acceptable time and storage limits without retry loops or missing embeds?
+- Which independent recovery destination, encryption boundary, cadence, and retention policy restore vault attachments without relying on live FNS state?
+- If FNS fails, does Syncthing core plus Syncthing Manager pass background, conflict, versioning, and restore tests strongly enough to replace it?
+- Has Self-hosted LiveSync encrypted CLI issue `#1036` been fixed upstream and verified on Oracle ARM64 strongly enough to become the mature sync and headless-access alternative?
 
-- Does Self-hosted LiveSync or Remotely Save preserve conflicts, renames, deletes, attachments, and recovery better on actual devices?
-- Which `.obsidian` files, conflict patterns, proposal paths, and system artifacts must sync/index/context exclude?
-- Can workspace service recover after crash between file replace, journal update, and Git commit?
-- Does queue/proposal review create fatigue, and should approval batch by workflow?
-- Does four-week weekly review produce changed practice rather than archive growth?
-- Are 9Router request bodies/headers retained anywhere, and can data-class routes be enforced and audited?
-- Can vault, Git, configuration, and operational SQLite restore without primary device or live SaaS?
+## Hermes review contract
 
-## OpenViking promotion questions
+- Which transport can enforce proposal-only and Release 4A read/write scopes on Oracle ARM64 without exposing broader FNS authority?
+- Which authenticated Windows/Android interaction creates one-time request/apply receipt without trusting synchronized Markdown or reusing FNS credential?
+- Can chosen transport provide real compare-and-swap, or must approved apply use exclusive maintenance window with FNS and every other client quiescent?
+- Which deterministic executor implementation enforces canonical path rules, transaction journal, atomic replace, rollback, and replay-safe result identity?
+- Where do hash-only receipts/journals and private preimages live, and how are 15-minute, 90-day, 30-day-plus-backup, and failure-hold retention rules verified?
+- Which exact PARA/ZETA roots enter weekly changed-note allowlist, and which personal or employer-derived roots remain denied?
+- Which standard link sections are safe for first additive patch promotion without harming human prose?
+- Which recovery mechanism proves exact restoration for multi-note approved apply?
+- How does operator safely rebaseline lost path/hash checkpoint without sending whole vault to provider?
 
-- On pinned version, what exact API sequence safely represents content update, move, and delete?
-- Can explicit manifest reconcile interrupted tasks, missing resources, and partial semantic processing?
-- What stable identity survives user rename/move when note has no frontmatter ID?
-- Does OpenViking improve prewritten bilingual retrieval queries over filename/link/text search enough to justify service?
-- Which state must be backed up versus rebuilt?
+## Deployment and privacy
 
-## Embedding experiment
+- Does selected sync/headless client work on Oracle ARM64 and survive restart?
+- What caused the observed Hermes gateway restart pattern, and what bounded health check proves it is stable?
+- Are 9Router request bodies, headers, and provider responses retained anywhere?
+- Which personal or employer-derived notes may reach external providers?
+- What visible failure signal shows that pending work waited because Hermes, 9Router, sync, or provider was unavailable?
 
-- Can 9Router guarantee one exact embedding model with no model substitution and observable failure?
-- Does local `embeddinggemma` provide acceptable Vietnamese/English recall on 2-core ARM64?
-- What are indexing throughput, query latency, RAM, rebuild duration, and privacy differences?
-- How will contract/version change create isolated new index generation?
+## Later promotion, not first design
 
-## Optional Telegram
+- Does OpenViking improve bilingual retrieval enough to justify another authority/index lifecycle?
+- Does a fixed embedding contract outperform plain filename, link, and text search?
+- Is any Telegram-to-Obsidian capture path still useful after direct Obsidian habit is established?
 
-- Polling or webhook for dedicated ingress?
-- Attachment retention period and maximum size?
-- How will bot distinguish raw quick capture from remote command without capture-time friction?
-- How long may Telegram delivery remain unprocessed while still reporting truthful status?
+## Evidence limits
 
-## Known evidence limits
-
-- No service configuration was changed and no outage/restore test was run.
-- VPS observations from 2026-07-19 may drift.
-- Sync candidates were researched, not installed or benchmarked.
-- OpenViking lifecycle was read from documentation, not tested against deployed version.
-- 9Router fallback quality, raw logging, backup, and restore remain unverified by controlled experiment.
+- FNS is selected only for an isolated human-sync pilot; no sync option has passed actual Windows/Android recovery tests or personal-data promotion.
+- LiveSync issue `#1036` and Fast Note Sync security/permission reports may change; refresh them only when deciding or implementing sync.
+- No runtime service was changed during simplification research.
+- 9Router fallback, logging, backup, and restore remain observations rather than controlled tests.

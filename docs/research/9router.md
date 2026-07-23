@@ -1,6 +1,6 @@
 # 9Router evaluation
 
-Status: current centralized AI model gateway; generation/VLM scope is **Proposed** and embedding transport is **Experimental**.
+Status: current centralized AI model gateway; release-one queued-note generation is **Accepted** and later embedding transport is **Experimental**.
 
 ## Official evidence
 
@@ -22,6 +22,8 @@ Status: current centralized AI model gateway; generation/VLM scope is **Proposed
 - Service binds all interfaces; UFW inactive; direct public port probe timed out; HTTPS tunnel route works with valid TLS.
 
 ## Routing/fallback analysis
+
+Hermes release-one integration uses one named custom provider pointing at loopback 9Router. Hermes may register and select several model IDs returned by 9Router's OpenAI-compatible `/models` endpoint under that single provider. One live-validated model becomes pipeline default. Model IDs and context sizes must come from endpoint/config evidence, not documentation guesses. This solves multi-model import/selection; it is not described as a per-run override.
 
 9Router is useful where model substitution is acceptable:
 
@@ -52,24 +54,28 @@ If embeddings ever transit 9Router, use a dedicated exact route with no account/
 
 Compare this exact route against local Ollama `embeddinggemma` using identical English/Vietnamese corpus and answer key. Measure recall, indexing/query latency, RAM, rebuild duration, privacy, and outage behavior on 2-core/12-GB ARM64. Do not preselect local or gateway transport without benchmark. A local VLM/reasoning fallback is not recommended because it adds contention and is unlikely to offer useful interactive speed on this CPU; only a later measurement may change that.
 
-## Data-class routing
+## Release-one authorization
+
+Moving a note into `INBOX/Pending Agent Review` explicitly authorizes one generation job over that queued note and only context linked by the request. Notes elsewhere are not inspected or sent. Work-restricted/private notes remain outside queue until local-only processing or explicit employer/provider policy exists.
+
+Later data-class routing may add:
 
 - `public`: configured generation combos permitted.
 - `personal_external_ok`: explicit provider allowlist; no opaque/free route by default.
-- `local_only`: only local embedding/search; no external generation.
+- `local_only`: only local processing; no external generation.
 - `work_restricted`: no external processing unless employer policy explicitly permits it.
 
-Missing label defaults to `local_only`; uncertain workplace content defaults to `work_restricted`. Folder rules may supply defaults, but proposal/job must carry locally resolved policy before request. No external model may classify whether undecided content is safe to disclose. 9Router fallback must not cross provider allowlist.
+No external model may classify whether undecided content is safe to disclose. 9Router fallback must not cross provider allowlist.
 
 ## Failure handling
 
-- Capture transaction contains no 9Router call.
+- Ordinary note creation, approval, apply, Git, sync, and backup contain no 9Router call.
 - Processing job records request ID, purpose, route policy, model selected, prompt/schema version, and retry count.
 - Retry transport/429/5xx with capped exponential backoff and jitter.
 - Do not retry policy/validation errors automatically.
 - After retry budget, move to dead letter and surface in digest; raw capture remains available.
 - Quality-critical weekly review can require designated model/route; routine classification may use a combo.
-- Health status changes scheduling priority, never capture availability.
+- Health status changes job scheduling, never Obsidian availability or approved deterministic apply.
 
 ## Persistence, logging, and backups
 
