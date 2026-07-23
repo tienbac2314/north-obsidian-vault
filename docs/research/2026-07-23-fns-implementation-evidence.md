@@ -49,3 +49,22 @@ resolve reported server risks. Therefore:
 - failure preserves state and stops promotion.
 
 Operational commands and recovery contract live in [FNS pilot operations](../../deploy/fns/README.md).
+
+## Implementation checkpoint
+
+Observed later on 2026-07-23:
+
+- Pinned server image started healthy with all Linux capabilities dropped and raw listener on IPv6 loopback only.
+- Dedicated unprivileged tunnel service validates its isolated configuration. Existing two cloudflared processes and three earlier routes were not edited.
+- TLS health returned HTTP `200` from Windows. Oracle resolver retained stale DNS during immediate verification, so remote self-check was not treated as public-path authority.
+- Registration remains closed. No FNS user, token, vault, MCP consumer, REST consumer, Git integration, sharing link, mirror, or headless client was created.
+- Obsidian `1.12.7` and verified FNS plugin `2.4.0` assets were installed for one disposable Windows vault.
+- Vault initializer regression passed, then created 18 directories and six starter files. Top-level roots are `DAILY`, `HUB`, `PARA`, `STAGING`, `SYSTEM`, and `ZETA`.
+- Obsidian opened layout and presented first-open plugin trust warning. Automation stopped without changing Restricted Mode. Human acceptance and credential ownership are next gates.
+
+Two runtime failures were contained before public use:
+
+1. Capability-dropped container could not write host-owned `0700` bind mount. Contract now makes FNS config and storage root-owned before first start.
+2. Dedicated tunnel account could not traverse deployment root, then `localhost` selected IPv4 against IPv6-only listener. Contract now grants traverse-only root access and pins tunnel origin to exact IPv6 loopback.
+
+No personal notes entered pilot.

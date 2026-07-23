@@ -14,16 +14,20 @@ Reach first usable synthetic Windows and Android Fast Note Sync vault with agree
 - Stage 1 contract now defines pinned Compose, loopback bind, closed-by-default registration, secret-bearing runtime config, dedicated tunnel, stopped-service backup, empty-path restore, and rollback.
 - Stage 2 read-only Oracle preflight passed architecture, Docker, Compose, disk, loopback port, target-path, and no-existing-FNS checks.
 - Preflight disproved old Nginx assumption. DEC-035 selects new dedicated Cloudflare Tunnel without editing existing routes or tunnel processes.
+- Pinned FNS server is healthy on IPv6 loopback. Dedicated tunnel and DNS route return TLS health `200` from Windows. Registration remains closed.
+- Obsidian `1.12.7` is installed. Disposable Windows vault contains agreed 18-directory layout, Home, guide, and four core templates.
+- Verified FNS plugin `2.4.0` assets are installed only in disposable vault. Obsidian has not enabled plugin because first-open trust warning requires human security decision.
 - Hermes and 9Router remain outside deployment and receive no vault workload.
 
 ## Next action
 
-Verify Stage 1 repository checks, commit contract, then deploy pinned FNS and dedicated tunnel on Oracle. Bootstrap one disposable account, close registration, initialize disposable Windows vault, and stop when physical Android or user-secret interaction is required.
+User reviews Obsidian trust warning and, if accepted, selects `Trust author and enable plugins`. User then chooses and records disposable FNS account credentials. Continue with one-account registration window, close-registration proof, Windows plugin connection, and physical Android enrollment.
 
 ## Blockers
 
 - FNS physical Windows/Android note and native-attachment gates remain unrun.
-- Disposable account creation may require interactive browser input.
+- Obsidian first-open plugin trust warning is awaiting human security decision.
+- Disposable account creation requires user-owned credential choice and storage.
 - Physical Android plugin installation and battery/background checks require user device.
 - Independent off-VPS backup destination remains later promotion gate.
 - Public TLS endpoint plus unresolved FNS security reports restrict pilot to synthetic content.

@@ -56,7 +56,13 @@ sed \
   config/config.yaml.example > runtime/config/config.yaml
 unset auth_key share_key
 chmod 0600 runtime/config/config.yaml
+sudo chown -R root:root runtime/config runtime/storage
+sudo chmod 0700 runtime/config runtime/storage
 ```
+
+FNS image runs as container root with every Linux capability dropped. Root
+ownership is required because dropped `DAC_OVERRIDE` prevents that process
+from writing a host directory owned only by another UID.
 
 Render Cloudflare configuration with exact dedicated tunnel ID, credentials
 path, and hostname. Keep those values outside repository and shell history.
@@ -67,6 +73,7 @@ tunnel runtime, and install exact unit:
 ```bash
 sudo useradd --system --home-dir /nonexistent --shell /usr/sbin/nologin fns-tunnel
 sudo chown -R fns-tunnel:fns-tunnel runtime/cloudflared
+sudo chmod 0711 /opt/personal-knowledge-pipeline/fns
 sudo chmod 0700 runtime/cloudflared
 sudo chmod 0600 runtime/cloudflared/config.yml runtime/cloudflared/credentials.json
 sudo install -m 0644 \
@@ -75,6 +82,10 @@ sudo install -m 0644 \
 sudo systemctl daemon-reload
 sudo systemctl enable --now fns-cloudflared.service
 ```
+
+Mode `0711` grants dedicated service traverse-only access to known tunnel path;
+it cannot list deployment root. Secret-bearing config, storage, tunnel, and
+backup directories retain owner-only modes.
 
 ## Start and health
 

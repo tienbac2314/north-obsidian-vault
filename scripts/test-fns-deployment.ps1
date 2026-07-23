@@ -49,7 +49,7 @@ Assert-True ($config -match 'cloudflare:\s*\r?\n\s+enabled:\s*false') "Embedded 
 Assert-True ($config -match 'oauth:\s*\r?\n\s+enabled:\s*false') "OAuth integration must stay disabled."
 Assert-True ($config -match 'attachment-static:\s*\r?\n\s+is-enable:\s*false') "Unauthenticated attachment endpoint must stay disabled."
 
-Assert-True ($tunnel -match 'service:\s*http://localhost:19000') "Tunnel must target loopback FNS port."
+Assert-True ($tunnel -match 'service:\s*http://\[::1\]:19000') "Tunnel must target exact IPv6 loopback FNS port."
 Assert-True ($tunnel -match 'service:\s*http_status:404') "Tunnel must end with explicit 404 catch-all."
 Assert-True ($tunnel -match '(?m)^tunnel:\s*__FNS_TUNNEL_ID__$') "Tunnel ID must remain a placeholder in repository."
 Assert-True ($tunnel -match '(?m)^credentials-file:\s*__FNS_TUNNEL_CREDENTIALS_FILE__$') "Tunnel credentials path must remain a placeholder in repository."
@@ -71,6 +71,8 @@ foreach ($requiredPhrase in @(
     Assert-True ($runbook.Contains($requiredPhrase)) "Runbook missing required section or phrase: $requiredPhrase"
 }
 
+Assert-True ($runbook -match 'sudo chown -R root:root runtime/config runtime/storage') "Capability-dropped root container requires root-owned config and storage."
+Assert-True ($runbook -match 'sudo chmod 0711 /opt/personal-knowledge-pipeline/fns') "Tunnel account requires traverse-only access to deployment root."
 Assert-True ($runbook -notmatch '(?i)\brsync\b.*--delete|\brclone\b.*\b(sync|purge)\b|\brm\s+-rf\b') "Runbook must avoid destructive mirror or recursive-delete commands."
 
 Write-Output "FNS deployment contract tests passed."
