@@ -17,18 +17,27 @@ Reach first usable synthetic Windows and Android Fast Note Sync vault with agree
 - Pinned FNS server is healthy on IPv6 loopback. Dedicated tunnel and DNS route return TLS health `200` from Windows. WebGUI registration probe returns closed-registration code `410`.
 - Stopped-service archive checksum and `runtime/` paths passed. Empty-path same-VPS restore started healthy on alternate loopback port, returned `200`, matched live storage file count, and retained closed registration. Restore tree is preserved.
 - Obsidian `1.12.7` is installed. Disposable Windows vault contains agreed 18-directory layout, Home, guide, and four core templates.
-- Verified FNS plugin `2.4.0` assets are installed only in disposable vault. Obsidian has not enabled plugin because first-open trust warning requires human security decision.
+- Human accepted the disposable vault trust warning. Restricted Mode is off,
+  verified FNS plugin `2.4.0` is enabled, and its Remote Configuration panel is
+  reachable.
+- A controlled registration window exposed the WebGUI form without entering
+  credentials. Registration was closed again; no account, token, or remote
+  vault exists.
 - Hermes and 9Router remain outside deployment and receive no vault workload.
 
 ## Next action
 
-User reviews Obsidian trust warning and, if accepted, selects `Trust author and enable plugins`. User then chooses and records disposable FNS account credentials. Continue with one-account registration window, close-registration proof, Windows plugin connection, and physical Android enrollment.
+After action-time confirmation, generate one disposable credential, keep its
+recoverable record encrypted outside repository and vault, briefly reopen
+registration, create one account, close registration immediately, and prove a
+second registration is rejected. Then connect Windows plugin and stop at
+physical Android enrollment.
 
 ## Blockers
 
 - FNS physical Windows/Android note and native-attachment gates remain unrun.
-- Obsidian first-open plugin trust warning is awaiting human security decision.
-- Disposable account creation requires user-owned credential choice and storage.
+- Disposable account submission and credential transmission await mandatory
+  action-time confirmation.
 - Physical Android plugin installation and battery/background checks require user device.
 - Independent off-VPS backup destination remains later promotion gate.
 - Same-VPS restore rehearsal does not replace off-VPS archive copy or rebuilt-client recovery test.

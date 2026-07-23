@@ -60,7 +60,13 @@ Observed later on 2026-07-23:
 - Registration remains closed; WebGUI-compatible registration probe returned application code `410`. No FNS user, token, vault, MCP consumer, REST consumer, Git integration, sharing link, mirror, or headless client was created.
 - Obsidian `1.12.7` and verified FNS plugin `2.4.0` assets were installed for one disposable Windows vault.
 - Vault initializer regression passed, then created 18 directories and six starter files. Top-level roots are `DAILY`, `HUB`, `PARA`, `STAGING`, `SYSTEM`, and `ZETA`.
-- Obsidian opened layout and presented first-open plugin trust warning. Automation stopped without changing Restricted Mode. Human acceptance and credential ownership are next gates.
+- Human accepted Obsidian's first-open vault trust warning. Restricted Mode is
+  off, FNS plugin `2.4.0` is enabled, its Remote Configuration panel is
+  reachable, and it reports the expected disconnected state before enrollment.
+- One controlled registration window exposed the FNS WebGUI registration form.
+  No credential was entered and no account or token was created. Registration
+  was closed again before waiting for account-creation confirmation; loopback
+  and public TLS health both remained HTTP `200`.
 
 Two runtime failures were contained before public use:
 
