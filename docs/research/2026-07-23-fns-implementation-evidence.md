@@ -57,7 +57,7 @@ Observed later on 2026-07-23:
 - Pinned server image started healthy with all Linux capabilities dropped and raw listener on IPv6 loopback only.
 - Dedicated unprivileged tunnel service validates its isolated configuration. Existing two cloudflared processes and three earlier routes were not edited.
 - TLS health returned HTTP `200` from Windows. Oracle resolver retained stale DNS during immediate verification, so remote self-check was not treated as public-path authority.
-- Registration remains closed. No FNS user, token, vault, MCP consumer, REST consumer, Git integration, sharing link, mirror, or headless client was created.
+- Registration remains closed; WebGUI-compatible registration probe returned application code `410`. No FNS user, token, vault, MCP consumer, REST consumer, Git integration, sharing link, mirror, or headless client was created.
 - Obsidian `1.12.7` and verified FNS plugin `2.4.0` assets were installed for one disposable Windows vault.
 - Vault initializer regression passed, then created 18 directories and six starter files. Top-level roots are `DAILY`, `HUB`, `PARA`, `STAGING`, `SYSTEM`, and `ZETA`.
 - Obsidian opened layout and presented first-open plugin trust warning. Automation stopped without changing Restricted Mode. Human acceptance and credential ownership are next gates.
