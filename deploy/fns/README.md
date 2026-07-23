@@ -142,8 +142,8 @@ sudo tar \
   --create \
   --gzip \
   --file "backups/fns-state-${timestamp}.tar.gz" \
-  --directory runtime \
-  config storage cloudflared
+  --directory . \
+  runtime/config runtime/storage runtime/cloudflared
 sha256sum "backups/fns-state-${timestamp}.tar.gz" \
   > "backups/fns-state-${timestamp}.tar.gz.sha256"
 docker compose start

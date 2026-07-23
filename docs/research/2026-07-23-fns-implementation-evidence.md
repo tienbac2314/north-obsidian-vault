@@ -68,3 +68,21 @@ Two runtime failures were contained before public use:
 2. Dedicated tunnel account could not traverse deployment root, then `localhost` selected IPv4 against IPv6-only listener. Contract now grants traverse-only root access and pins tunnel origin to exact IPv6 loopback.
 
 No personal notes entered pilot.
+
+## Empty-state recovery rehearsal
+
+With registration closed and no user vault:
+
+- stopped dedicated tunnel and FNS service before archive;
+- created one checksum-verified archive containing `runtime/config`, `runtime/storage`, and `runtime/cloudflared`;
+- restored into previously absent isolated path;
+- started restored Compose project on different loopback port without tunnel exposure;
+- restored container became healthy and health endpoint returned HTTP `200`;
+- live and restored storage each contained nine files;
+- restored configuration retained closed registration;
+- stopped restored container/network and preserved restore tree for inspection;
+- restarted live FNS and dedicated tunnel successfully.
+
+This proves archive shape and same-VPS empty-path service startup. It does not
+prove off-VPS custody, independent vault recovery, history/trash recovery after
+real use, or rebuilt-client recovery. Those gates remain.

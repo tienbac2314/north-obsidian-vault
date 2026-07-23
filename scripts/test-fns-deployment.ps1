@@ -73,6 +73,7 @@ foreach ($requiredPhrase in @(
 
 Assert-True ($runbook -match 'sudo chown -R root:root runtime/config runtime/storage') "Capability-dropped root container requires root-owned config and storage."
 Assert-True ($runbook -match 'sudo chmod 0711 /opt/personal-knowledge-pipeline/fns') "Tunnel account requires traverse-only access to deployment root."
+Assert-True ($runbook -match '(?s)--directory \.\s*\\\s*runtime/config runtime/storage runtime/cloudflared') "Backup archive must preserve runtime/ prefix required by Compose."
 Assert-True ($runbook -notmatch '(?i)\brsync\b.*--delete|\brclone\b.*\b(sync|purge)\b|\brm\s+-rf\b') "Runbook must avoid destructive mirror or recursive-delete commands."
 
 Write-Output "FNS deployment contract tests passed."

@@ -15,6 +15,7 @@ Reach first usable synthetic Windows and Android Fast Note Sync vault with agree
 - Stage 2 read-only Oracle preflight passed architecture, Docker, Compose, disk, loopback port, target-path, and no-existing-FNS checks.
 - Preflight disproved old Nginx assumption. DEC-035 selects new dedicated Cloudflare Tunnel without editing existing routes or tunnel processes.
 - Pinned FNS server is healthy on IPv6 loopback. Dedicated tunnel and DNS route return TLS health `200` from Windows. WebGUI registration probe returns closed-registration code `410`.
+- Stopped-service archive checksum and `runtime/` paths passed. Empty-path same-VPS restore started healthy on alternate loopback port, returned `200`, matched live storage file count, and retained closed registration. Restore tree is preserved.
 - Obsidian `1.12.7` is installed. Disposable Windows vault contains agreed 18-directory layout, Home, guide, and four core templates.
 - Verified FNS plugin `2.4.0` assets are installed only in disposable vault. Obsidian has not enabled plugin because first-open trust warning requires human security decision.
 - Hermes and 9Router remain outside deployment and receive no vault workload.
@@ -30,6 +31,7 @@ User reviews Obsidian trust warning and, if accepted, selects `Trust author and 
 - Disposable account creation requires user-owned credential choice and storage.
 - Physical Android plugin installation and battery/background checks require user device.
 - Independent off-VPS backup destination remains later promotion gate.
+- Same-VPS restore rehearsal does not replace off-VPS archive copy or rebuilt-client recovery test.
 - Public TLS endpoint plus unresolved FNS security reports restrict pilot to synthetic content.
 
 ## Authority
