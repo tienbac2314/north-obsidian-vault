@@ -26,7 +26,7 @@ human-use gate or unrun physical Android matrix.
   is needed; Computer Use is the last resort.
 - `G:\Obsidian\Notion` currently contains 164 files. Its paths and bytes are
   preservation inputs, not transformation scope.
-- Current vault plugins are FNS `2.4.0` and Importer `1.8.12`.
+- Pre-change vault plugins were FNS `2.4.0` and Importer `1.8.12`.
 - Dusk inventory contains 58 plugin artifacts and 27 template/code/CSS files;
   no Dusk credential or plugin data file has been read.
 - FNS `3.6.0` storage adapters and Google Drive bridges were reviewed. All
