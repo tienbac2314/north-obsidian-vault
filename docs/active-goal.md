@@ -26,23 +26,32 @@ Reach first usable synthetic Windows and Android Fast Note Sync vault with agree
 - Registration was closed immediately after account creation. A second valid
   WebGUI registration request returned application code `410`; no second
   account exists.
-- WebGUI now presents its Administrator Initialization Setup gate. No
-  administrator permission, authorization config, token, or remote vault exists.
+- Sole synthetic user is now administrator. Registration remains closed and
+  loopback and public health checks still pass.
+- Windows Obsidian uses one dedicated REST plus WebSocket token restricted to
+  exact `FNS Pilot` vault. Recoverable authorization record is DPAPI-encrypted
+  outside repository and vault. Account-wide bootstrap token was revoked.
+- Initial and repeated full sync completed. Remote vault contains seven
+  synthetic notes and one native SVG attachment.
+- Windows gates passed for note convergence, two-version history, recycle-bin
+  deletion, restoration to original path, and native attachment sync.
+- Manual protocol-import test briefly created synthetic `FNS+Pilot` because
+  form encoding represented space as `+`. Correct import restored exact vault
+  name, and accidental remote vault was deleted after equality checks.
 - Hermes and 9Router remain outside deployment and receive no vault workload.
 
 ## Next action
 
-After separate action-time permission confirmation, decide whether to set the
-sole synthetic user as FNS system administrator. Then create only the
-authorization material required by Obsidian, connect Windows plugin, and stop
-at physical Android enrollment.
+On physical Android device, install Obsidian and verified Fast Note Sync
+`2.4.0`, create an empty disposable vault, enroll a separate Android token
+restricted to `FNS Pilot`, exempt Obsidian from battery/background suspension,
+and run bidirectional note plus attachment convergence. Do not migrate personal
+notes.
 
 ## Blockers
 
-- FNS physical Windows/Android note and native-attachment gates remain unrun.
-- WebGUI administrator initialization changes account permissions and awaits
-  mandatory action-time confirmation.
 - Physical Android plugin installation and battery/background checks require user device.
+- Android note, history, trash, and native-attachment gates remain unrun.
 - Independent off-VPS backup destination remains later promotion gate.
 - Same-VPS restore rehearsal does not replace off-VPS archive copy or rebuilt-client recovery test.
 - Public TLS endpoint plus unresolved FNS security reports restrict pilot to synthetic content.

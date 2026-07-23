@@ -118,6 +118,34 @@ Configuration Sync, MCP, external REST consumers, Git automation, sharing,
 mirrors, and headless clients stay disabled. Cloud Preview automatic local
 deletion stays off.
 
+## Obsidian client enrollment
+
+Use separate vault-restricted authorization per device:
+
+1. Set sole synthetic account as administrator only after registration is
+   closed.
+2. Create or select exact remote vault name `FNS Pilot`.
+3. From that vault, generate Obsidian authorization with **Limit access to
+   current vault only** checked.
+4. Import through WebGUI one-click action or plugin **Paste server
+   authorization config**. Do not hand-build `obsidian://` URI: form encoding
+   can turn space into literal `+` and select a different vault.
+5. Set neutral client label such as `Windows Pilot` or `Android Pilot`.
+6. Verify restricted client is **Service connected** and WebGUI reports its
+   WebSocket online.
+7. Revoke broader bootstrap token. Verify it is absent from token inventory,
+   receives authorization failure if retried, and restricted client reconnects.
+8. Run Full Sync and confirm remote note and attachment counts.
+9. Store recoverable authorization with OS secret storage outside repository
+   and vault. Never place token in Markdown, screenshots, shell history, or
+   shared clipboard history.
+
+Windows pilot passed full sync, two-version history, recycle-bin restore, and
+native SVG attachment gates. Android remains physical gate: install verified
+plugin, use empty disposable vault, create separate vault-restricted token,
+allow Obsidian background/battery operation, then repeat bidirectional note and
+attachment checks. Personal migration remains blocked.
+
 ## Stop and restart
 
 ```bash

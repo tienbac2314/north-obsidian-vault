@@ -1,7 +1,8 @@
 # FNS implementation evidence and Oracle preflight
 
 Status: current dated implementation evidence. Public facts and sanitized
-observations support Stage 1 and Stage 2; they do not prove user-facing sync.
+observations support Stage 1 and Stage 2 and prove bounded synthetic Windows
+sync. Android and personal-data use remain unproven.
 
 Observed: 2026-07-23.
 
@@ -77,17 +78,33 @@ Observed later on 2026-07-23:
 - Registration was closed immediately after Dashboard appeared. A second valid
   WebGUI registration request returned HTTP `200` with application code `410`;
   no second account was created.
-- WebGUI then required a separate decision to make the first user system
-  administrator. No permission change, authorization config, remote vault, MCP
-  consumer, REST consumer, Git integration, sharing link, mirror, or headless
-  client exists yet.
+- After explicit authorization, the sole synthetic user became system
+  administrator. Registration stayed closed; loopback and public TLS health
+  remained HTTP `200`.
+- WebGUI created one Windows authorization restricted to exact `FNS Pilot`
+  vault and REST plus WebSocket sync. Its recoverable record is
+  DPAPI-encrypted outside repository and vault. The earlier account-wide
+  bootstrap token was revoked after the restricted token connected.
+- Windows client name is the neutral label `Windows Pilot`; no personal device
+  name is used.
+- Initial and repeated full sync completed. Remote inventory reached seven
+  synthetic notes and one 286-byte SVG attachment.
+- Synthetic note produced two recoverable history versions. Deletion appeared
+  in FNS recycle bin, restore succeeded, and local note returned at original
+  path with history marker and attachment embed intact.
+- Manually reconstructed Obsidian protocol URI encoded a space as `+`, which
+  created an accidental synthetic `FNS+Pilot` vault. FNS handler retained that
+  character literally. Re-import with `%20` restored exact `FNS Pilot`;
+  repeated full sync made inventories equal, then accidental vault was deleted.
+- No MCP consumer, external REST consumer, Git integration, sharing link,
+  mirror, configuration sync, or headless client was enabled.
 
 Two runtime failures were contained before public use:
 
 1. Capability-dropped container could not write host-owned `0700` bind mount. Contract now makes FNS config and storage root-owned before first start.
 2. Dedicated tunnel account could not traverse deployment root, then `localhost` selected IPv4 against IPv6-only listener. Contract now grants traverse-only root access and pins tunnel origin to exact IPv6 loopback.
 
-No personal notes entered pilot.
+No personal notes entered pilot. Physical Android enrollment remains next gate.
 
 ## Empty-state recovery rehearsal
 
