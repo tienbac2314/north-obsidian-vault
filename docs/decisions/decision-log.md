@@ -241,3 +241,15 @@ Statuses: Accepted, Proposed, Rejected, Postponed, Superseded.
 - Evidence: Read-only Stage 2 preflight found dormant empty host Nginx, two existing Cloudflare tunnel processes, valid local tunnel credentials, and no safe existing Nginx boundary to reuse. See [2026-07-23 implementation evidence](../research/2026-07-23-fns-implementation-evidence.md).
 - Boundary: Public TLS hostname still reaches FNS-authenticated surface. Open security and authorization issues therefore keep deployment synthetic-only. No personal or employer content, FNS MCP consumer, external REST consumer, sharing, Git automation, mirror, configuration sync, headless client, or Cloud Preview deletion is authorized.
 - Rollback: Stop dedicated FNS Compose project and dedicated tunnel. Preserve state for inspection. Existing ingress processes and routes remain untouched.
+
+## DEC-036: Use core-first Dusk experience
+
+- Status: Accepted for Phase 2 implementation.
+- Decision: Keep FNS as sole live sync. Leave all optional FNS Storage Configuration providers disabled; Google Drive is not native, and rclone/WebDAV or mounted-drive bridges add credentials, daemon, proxy, caching, and recovery boundaries without improving live capture.
+- Experience: Reproduce useful Dusk navigation with core Bases, Properties, Templates, Daily Notes, Bookmarks, Search, Backlinks, and File Recovery; Minimal theme `8.2.2`; Minimal Theme Settings `8.2.3`; Homepage `4.4.4`; shallow Custom File Explorer sorting `3.1.6`; and Lazy Loader `1.0.24`. Use one small inspectable dashboard CSS snippet. FNS, Homepage, and theme settings load immediately; only nonessential sorting may be short-delayed.
+- Templates: Use optional Daily, Weekly, Literature, Permanent, Project, and Meeting templates with only consumed properties. Omit automatically stale `modified` fields and mandatory capture metadata.
+- Attachments: Keep original filenames in core `SYSTEM/Media`. Do not install rename, move, Drive, S3, CDN, or external-folder plugins because unresolved mobile/link behavior would create a second data-loss surface.
+- Exclusions: Importer leaves enabled runtime after Notion verification. Do not add Dataview, Datacore, Tasks, Templater, QuickAdd, Meta Bind, JS Engine, Charts, Todoist, Iconic, Style Settings, Hider, Notebook Navigator, or Omnisearch.
+- Preservation: Notion import remains at existing paths and must match pre-change path, length, and SHA-256 manifest. Current customization neither sorts it nor authorizes Hermes.
+- Evidence: [Phase 2 storage and customization review](../research/2026-07-24-phase-2-customization.md).
+- Rollback: Markdown, Bases, and templates remain readable without plugins. Disable retained plugin IDs, clear theme/snippet settings, or restore verified pre-change vault copy. Never add a second live sync engine as rollback.

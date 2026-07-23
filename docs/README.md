@@ -21,6 +21,7 @@ Summaries navigate. They never replace detailed modules. Minimalization applies 
 
 ## Current evidence
 
+- [Phase 2 FNS storage and Obsidian customization review](research/2026-07-24-phase-2-customization.md)
 - [FNS implementation evidence and Oracle preflight](research/2026-07-23-fns-implementation-evidence.md)
 - [Sync, history, and attachment reevaluation](research/2026-07-22-sync-and-extension-reevaluation.md)
 - [NotebookLM adversarial review](research/notebooklm-adversarial-review.md)

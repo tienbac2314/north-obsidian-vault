@@ -29,12 +29,19 @@ human-use gate or unrun physical Android matrix.
 - Current vault plugins are FNS `2.4.0` and Importer `1.8.12`.
 - Dusk inventory contains 58 plugin artifacts and 27 template/code/CSS files;
   no Dusk credential or plugin data file has been read.
+- FNS `3.6.0` storage adapters and Google Drive bridges were reviewed. All
+  optional providers remain disabled under DEC-036.
+- NotebookLM discovery and adversarial synthesis completed; material claims
+  were independently checked.
+- Accepted core-first Dusk/QOL set is recorded in DEC-036 and current research.
+- Windows launch-to-window baseline median is 901 ms across three trials.
+- Full 312-file vault recovery copy and matching SHA-256 manifests were created
+  outside vault and repository before customization.
 
 ## Next action
 
-Complete Dusk and vault inventory, then research FNS storage and the smallest
-maintained folder-ordering, lazy-loading, homepage, search, capture, attachment,
-and UI set. Record evidence before changing runtime.
+Implement accepted vault template and runtime configuration, then verify
+startup, FNS, Notion byte preservation, rollback, and repository checks.
 
 ## Stop conditions
 

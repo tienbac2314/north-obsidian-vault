@@ -159,7 +159,14 @@ SYSTEM/
 
 Only exact requests in `STAGING/Pending Agent Review` and workflow-created proposals moved into `STAGING/Reviewed` have later workflow meaning, and only after Hermes promotion plus authenticated approval where required. `STAGING/Unsorted` replaces Dusk's narrower `ZETA/FLEETING` role: raw material may later become PARA or Zettelkasten content. No vault `README.md` or extra top-level capture folder is required. Other folders and initial home note are core human navigation inspired by Dusk, not mandatory metadata schema.
 
-Release one borrows Dusk's structure, not its runtime. Fast Note Sync is the only community plugin required by this design; folders, properties, links, embeds, templates, and the first home note use Obsidian core features. Do not copy Dusk's `.obsidian` directory, scripts, CSS, dashboards, sample content, plugin settings, or Todoist credential. Datacore, QuickAdd, Tasks, and other optional plugins require a later single-plugin experiment tied to a concrete unmet need.
+Release one borrows Dusk's structure, not its runtime. Phase 2 extends that
+core-first experience with core Bases and a small, reversible UI set: Minimal
+theme, Minimal Theme Settings, Homepage, shallow Custom File Explorer sorting,
+Lazy Loader policy, and one inspectable dashboard CSS snippet. Do not copy
+Dusk's `.obsidian` directory, scripts, dashboards, sample content, plugin
+settings, or Todoist credential. Dataview, Datacore, QuickAdd, Tasks, Templater,
+Meta Bind, JS Engine, Charts, Todoist, Iconic, and other chained runtime remain
+excluded. Detailed choice and versions: [DEC-036](decisions/decision-log.md#dec-036-use-core-first-dusk-experience).
 
 Detailed human and agent operation ships inside vault at `SYSTEM/Guides/vault-operating-guide.md`; repository source is [vault operating guide](../vault-template/SYSTEM/Guides/vault-operating-guide.md). Guide explains folder purposes, capture, filing, linking, attachments, templates, review decisions, agent permissions, failures, and promotion gates. Guide documents authority but never activates automation.
 
@@ -214,10 +221,16 @@ Default pilot settings:
 
 - normal Obsidian links and embeds;
 - default local attachment folder `SYSTEM/Media` on both clients;
+- original attachment filenames; no automatic rename or move plugin;
 - images, video, audio, PDF, and arbitrary binary fixtures included;
 - FNS Cloud Preview automatic local deletion: off.
 
 FNS clients and server can read synchronized attachments. Personal or restricted content remains outside pilot until FNS privacy, recovery, and policy gates pass. An independent backup destination is selected separately and never becomes live attachment authority.
+
+FNS Storage Configuration is optional backup/export, not live sync. Phase 2
+keeps local filesystem, OSS, S3, R2, MinIO, and WebDAV providers disabled.
+Google Drive has no native adapter; rclone/WebDAV, mounted Drive, or storage
+gateway bridges remain rejected until a separate restore-tested backup decision.
 
 ## Later Hermes proposal boundary
 

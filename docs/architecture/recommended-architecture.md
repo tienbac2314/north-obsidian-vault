@@ -73,8 +73,24 @@ Syncthing core plus Syncthing Manager replaces FNS only after a failed FNS gate 
 - Cloud Preview automatic local deletion remains off.
 - Large files, background transfer, rename, move, delete, and recovery remain physical pilot gates.
 - Drive, S3, CDN, external-folder, and whole-vault cloud plugins stay outside live capture.
+- Original filenames and core `SYSTEM/Media` remain default; automatic
+  attachment rename/move plugins stay disabled until mobile/link safety is
+  proven.
 
 Vault files remain one attachment content authority. Platform-native gestures produce same local-file, link/embed, privacy, and recovery outcome on both devices. This costs client/server storage and may expose FNS transfer limits that pilot must measure.
+
+## Phase 2 workspace surface
+
+Core Bases, Properties, Templates, Daily Notes, Bookmarks, Search, Backlinks,
+and File Recovery provide Dusk-like navigation without its plugin chain.
+Minimal theme, Minimal Theme Settings, Homepage, shallow root sorting, Lazy
+Loader policy, and one CSS snippet are reversible presentation helpers; they
+gain no agent or network authority. FNS and Homepage load immediately.
+
+All FNS optional Storage Configuration providers remain disabled. They are
+backup/export targets, not live transport. Google Drive has no native adapter;
+no rclone/WebDAV bridge, mount, second sync engine, or attachment offload enters
+this release.
 
 ## Agent promotion boundary
 

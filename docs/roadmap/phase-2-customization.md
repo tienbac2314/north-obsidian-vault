@@ -61,6 +61,12 @@ sync engine, or additional storage service unless verified evidence shows a
 clear benefit, safe recovery, and acceptable complexity. A rejected bridge is
 a valid result and must be documented.
 
+Accepted result: keep all providers disabled. FNS `3.6.0` supports local
+filesystem, Aliyun OSS, AWS S3, Cloudflare R2, MinIO, and WebDAV as optional
+backup/export targets. It has no native Google Drive adapter. rclone/WebDAV,
+mounted Drive, and object gateway bridges add more state and secrets than this
+phase justifies. See [current evidence](../research/2026-07-24-phase-2-customization.md).
+
 ## Content preservation
 
 - Create and verify a recovery copy of vault content and `.obsidian`
@@ -128,6 +134,20 @@ plugin needs:
 
 Remove Obsidian Importer after the Notion import is verified complete if no
 continuing workflow needs it.
+
+Accepted set:
+
+- Fast Note Sync `2.4.0`, instant startup;
+- Minimal theme `8.2.2`;
+- Minimal Theme Settings `8.2.3`, instant startup;
+- Homepage `4.4.4`, instant startup;
+- Custom File Explorer sorting `3.1.6`, one shallow root rule;
+- Lazy Loader `1.0.24`, one shared device policy and no FNS delay.
+
+Core Bases replaces dynamic Dataview/Datacore tables. Core Search remains
+starter search. Core `SYSTEM/Media` plus original filenames replaces automatic
+attachment rename/move plugins. Rejected additions and issue evidence live in
+current research file.
 
 ## Performance and sync safety
 
