@@ -207,3 +207,34 @@ same-VPS startup, and live/restore file-count gates. It does not prove recovery
 after Windows loss, rebuilt-client convergence, or Android recovery. Archive
 contains secret-bearing runtime state; keep its restricted directory outside
 cloud sync, repository, and vault.
+
+## Plain-vault recovery and local relocation
+
+Windows-side checks separated portable notes from sync runtime:
+
+- stopped Obsidian/FNS client activity before snapshot and confirmed source
+  hashes stayed stable;
+- copied only the six approved content roots into a dated recovery directory
+  outside repository and live vault;
+- recovered seven Markdown notes and one SVG attachment, totaling 18,169
+  bytes;
+- generated and rechecked a SHA-256 manifest with exact source/restored file
+  equality;
+- excluded `.obsidian`, plugin data, token material, and UI state;
+- removed inherited permissions from the recovery directory and retained only
+  current user, SYSTEM, and local Administrators.
+
+The live vault was then relocated to the requested non-system data volume:
+
+- Obsidian closed cleanly before filesystem work;
+- destination was an existing empty directory and no nested vault directory
+  was created;
+- all 24 files and 1,572,986 bytes, including `.obsidian`, matched SHA-256
+  before deleting the old source;
+- Obsidian registered and opened the new vault root;
+- the expected first-open trust prompt appeared for the newly registered vault
+  location; the already verified FNS plugin was re-enabled;
+- FNS `2.4.0` reported service connected and completed full sync after reopen.
+
+This proves portable plain-note recovery and safe local relocation. It does not
+prove rebuilt-client convergence from server state or Android recovery.

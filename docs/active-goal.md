@@ -52,6 +52,14 @@ Reach first usable synthetic Windows and Android Fast Note Sync vault with agree
 - Populated empty-path restore returned health `200`, retained closed
   registration, and matched 105 live storage files. Isolated restore
   container/network were removed; restored files remain preserved.
+- Plain-vault recovery copy contains all eight synthetic user files under the
+  six approved content roots, matches source SHA-256 hashes, excludes
+  `.obsidian` and FNS credentials, and has a restricted Windows ACL.
+- Active Windows vault moved to the requested non-system data volume by
+  copy/hash/verify/delete. All 24 files and 1,572,986 bytes matched before old
+  source removal. Obsidian reopened the new root, FNS `2.4.0` re-enabled after
+  the expected first-open trust prompt, full sync completed, and service status
+  returned connected.
 - Manual protocol-import test briefly created synthetic `FNS+Pilot` because
   form encoding represented space as `+`. Correct import restored exact vault
   name, and accidental remote vault was deleted after equality checks.
@@ -73,7 +81,8 @@ migrate personal notes.
   native-attachment gates remain unrun.
 - Current Windows archive is off VPS and ACL-restricted, but does not protect
   against simultaneous Windows and VPS loss.
-- Populated same-VPS restore does not replace rebuilt-client recovery test.
+- Populated same-VPS restore and plain-vault recovery copy do not replace the
+  rebuilt-client recovery test.
 - Public TLS endpoint plus unresolved FNS security reports restrict pilot to synthetic content.
 
 ## Authority
