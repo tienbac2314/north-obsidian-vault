@@ -1,0 +1,26 @@
+filters:
+  and:
+    - 'file.ext == "md"'
+    - or:
+        - 'file.inFolder("ZETA/Literature")'
+        - 'file.inFolder("ZETA/Permanent")'
+properties:
+  file.name:
+    displayName: Note
+  type:
+    displayName: Type
+  status:
+    displayName: Status
+  source:
+    displayName: Source
+  file.mtime:
+    displayName: Updated
+views:
+  - type: table
+    name: Recent
+    order:
+      - file.name
+      - type
+      - status
+      - source
+      - file.mtime

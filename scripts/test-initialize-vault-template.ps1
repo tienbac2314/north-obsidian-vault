@@ -30,6 +30,7 @@ function Invoke-Initializer {
 
 $requiredDirectories = @(
     'HUB',
+    'HUB/Bases',
     'STAGING/Unsorted',
     'STAGING/Pending Agent Review',
     'STAGING/Agent Proposals',
@@ -45,17 +46,25 @@ $requiredDirectories = @(
     'DAILY/Weekly',
     'DAILY/Monthly',
     'SYSTEM/Guides',
+    'SYSTEM/Config',
     'SYSTEM/Templates',
     'SYSTEM/Media'
 )
 
 $requiredFiles = @(
     'HUB/Home.md',
+    'HUB/Bases/Learning.base',
+    'HUB/Bases/Projects.base',
+    'HUB/Bases/Review Queue.base',
+    'SYSTEM/Config/dashboard.css',
+    'SYSTEM/Config/sortspec.md',
     'SYSTEM/Guides/vault-operating-guide.md',
     'SYSTEM/Templates/Daily.md',
     'SYSTEM/Templates/Weekly.md',
     'SYSTEM/Templates/Literature Note.md',
-    'SYSTEM/Templates/Permanent Note.md'
+    'SYSTEM/Templates/Permanent Note.md',
+    'SYSTEM/Templates/Project.md',
+    'SYSTEM/Templates/Meeting.md'
 )
 
 $tempBase = [IO.Path]::GetFullPath([IO.Path]::GetTempPath())
@@ -76,6 +85,33 @@ try {
         $path = Join-Path $vault $relativePath
         if (-not (Test-Path -LiteralPath $path -PathType Leaf)) {
             throw "Initializer did not copy starter file: $relativePath"
+        }
+    }
+
+    $homeContent = [IO.File]::ReadAllText((Join-Path $vault 'HUB/Home.md'))
+    foreach ($baseName in @('Learning', 'Projects', 'Review Queue')) {
+        if ($homeContent -notmatch [regex]::Escape("![[HUB/Bases/$baseName.base")) {
+            throw "Home does not embed required core Base: $baseName"
+        }
+    }
+
+    $sortspec = [IO.File]::ReadAllText((Join-Path $vault 'SYSTEM/Config/sortspec.md'))
+    if ($sortspec -notmatch 'target-folder:\s*/') {
+        throw 'Root sort specification does not target vault root.'
+    }
+    foreach ($folder in @('HUB', 'STAGING', 'DAILY', 'PARA', 'ZETA', 'Notion', 'SYSTEM')) {
+        if ($sortspec -notmatch "(?m)^\s+$([regex]::Escape($folder))\s*$") {
+            throw "Root sort specification omits top-level folder: $folder"
+        }
+    }
+
+    foreach ($templateName in @('Daily', 'Weekly', 'Literature Note', 'Permanent Note', 'Project', 'Meeting')) {
+        $template = [IO.File]::ReadAllText((Join-Path $vault "SYSTEM/Templates/$templateName.md"))
+        if ($template -notmatch '(?m)^type:\s*\S+') {
+            throw "Template lacks type property: $templateName"
+        }
+        if ($template -notmatch '(?m)^created:\s*') {
+            throw "Template lacks created property: $templateName"
         }
     }
 

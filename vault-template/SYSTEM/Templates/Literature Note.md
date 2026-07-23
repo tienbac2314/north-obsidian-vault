@@ -1,9 +1,13 @@
-# Title
+---
+type: literature
+status: seed
+created: "{{date:YYYY-MM-DD}}"
+source: ""
+aliases: []
+tags: []
+---
 
-## Source
-
-- URL or citation:
-- Why I saved it:
+# {{title}}
 
 ## In my own words
 

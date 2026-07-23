@@ -1,0 +1,20 @@
+/* Optional Home styling. Copy to .obsidian/snippets/dashboard.css and enable. */
+
+.dashboard.markdown-preview-view .callout {
+  border-radius: 12px;
+}
+
+.dashboard.markdown-preview-view h2 {
+  margin-top: 2rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid var(--background-modifier-border);
+}
+
+.dashboard.markdown-preview-view .internal-embed {
+  border: 0;
+  padding: 0;
+}
+
+.dashboard.markdown-preview-view .bases-embed {
+  margin-block: 0.5rem 1.5rem;
+}

@@ -1,32 +1,55 @@
+---
+cssclasses:
+  - dashboard
+aliases:
+  - Home
+tags: []
+---
+
 # Home
 
-Plain navigation for current work. Keep this short.
+> [!tip] Start here
+> Capture without sorting in `STAGING/Unsorted`. Use a template only when it
+> helps. Send material to `STAGING/Pending Agent Review` only after Hermes
+> proposal workflow is promoted.
 
-## Start
+## Today
 
-- Capture uncertain material in `STAGING/Unsorted`.
-- Open current note under `DAILY/Daily`.
-- Review current note under `DAILY/Weekly`.
-- Send only intentional material through `STAGING/Pending Agent Review` after Hermes promotion.
+- Open or create today's note in `DAILY/Daily`.
+- Continue one active project under `PARA/Projects`.
+- Turn one source into own-words understanding under `ZETA/Literature`.
+- Keep durable explanations under `ZETA/Permanent`.
 
-## Focus
+## Review queue
 
-- Current project:
-- Current area:
-- Current weekly review:
-- Current learning thread:
+![[HUB/Bases/Review Queue.base#Queue]]
 
-## Knowledge
+## Projects
 
-- Projects: `PARA/Projects`
-- Areas: `PARA/Areas`
-- Resources: `PARA/Resources`
-- Engineering investigations: `PARA/WORKSTATION`
-- Literature notes: `ZETA/Literature`
-- Permanent notes: `ZETA/Permanent`
+![[HUB/Bases/Projects.base#Active]]
 
-## System
+## Learning
 
-- [[SYSTEM/Guides/vault-operating-guide|Vault operating guide]]
+![[HUB/Bases/Learning.base#Recent]]
 
-Core Markdown comes first. Add dynamic dashboard only after measured need and separate plugin experiment.
+## Navigate
+
+> [!info]+ Action
+> - `STAGING/Unsorted`
+> - `PARA/Projects`
+> - `PARA/Areas`
+> - `PARA/WORKSTATION`
+
+> [!example]+ Knowledge
+> - `PARA/Resources`
+> - `ZETA/Literature`
+> - `ZETA/Permanent`
+> - `Notion`
+
+> [!note]+ Rhythm
+> - `DAILY/Daily`
+> - `DAILY/Weekly`
+> - `DAILY/Monthly`
+> - [[SYSTEM/Guides/vault-operating-guide|Operating guide]]
+
+Core Markdown remains usable when Bases or community plugins are disabled.

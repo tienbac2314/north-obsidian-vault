@@ -1,0 +1,22 @@
+filters:
+  and:
+    - 'file.inFolder("PARA/Projects")'
+    - 'file.ext == "md"'
+properties:
+  file.name:
+    displayName: Project
+  status:
+    displayName: Status
+  file.mtime:
+    displayName: Updated
+views:
+  - type: table
+    name: Active
+    filters:
+      and:
+        - 'status != "done"'
+        - 'status != "archived"'
+    order:
+      - file.name
+      - status
+      - file.mtime

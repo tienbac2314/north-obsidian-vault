@@ -48,6 +48,7 @@ Assert-NoReparsePoint -Path $destinationRoot
 
 $requiredDirectories = @(
     'HUB',
+    'HUB/Bases',
     'STAGING/Unsorted',
     'STAGING/Pending Agent Review',
     'STAGING/Agent Proposals',
@@ -63,17 +64,25 @@ $requiredDirectories = @(
     'DAILY/Weekly',
     'DAILY/Monthly',
     'SYSTEM/Guides',
+    'SYSTEM/Config',
     'SYSTEM/Templates',
     'SYSTEM/Media'
 )
 
 $starterFiles = @(
     'HUB/Home.md',
+    'HUB/Bases/Learning.base',
+    'HUB/Bases/Projects.base',
+    'HUB/Bases/Review Queue.base',
+    'SYSTEM/Config/dashboard.css',
+    'SYSTEM/Config/sortspec.md',
     'SYSTEM/Guides/vault-operating-guide.md',
     'SYSTEM/Templates/Daily.md',
     'SYSTEM/Templates/Weekly.md',
     'SYSTEM/Templates/Literature Note.md',
-    'SYSTEM/Templates/Permanent Note.md'
+    'SYSTEM/Templates/Permanent Note.md',
+    'SYSTEM/Templates/Project.md',
+    'SYSTEM/Templates/Meeting.md'
 )
 
 $createdDirectories = 0

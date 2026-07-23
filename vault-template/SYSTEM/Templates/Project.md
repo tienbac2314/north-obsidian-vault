@@ -1,6 +1,6 @@
 ---
-type: permanent
-status: growing
+type: project
+status: active
 created: "{{date:YYYY-MM-DD}}"
 aliases: []
 tags: []
@@ -8,19 +8,15 @@ tags: []
 
 # {{title}}
 
-## Explanation
+## Outcome
 
 -
 
-## Why it matters
+## Next action
 
 -
 
-## Evidence or example
-
--
-
-## Limits
+## Notes
 
 -
 

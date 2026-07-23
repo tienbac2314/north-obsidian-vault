@@ -19,6 +19,7 @@ This note explains how to capture, file, connect, review, synchronize, and recov
 ```text
 HUB/
   Home.md
+  Bases/
 STAGING/
   Unsorted/
   Pending Agent Review/
@@ -38,6 +39,7 @@ DAILY/
   Weekly/
   Monthly/
 SYSTEM/
+  Config/
   Guides/
   Templates/
   Media/
@@ -45,7 +47,16 @@ SYSTEM/
 
 ### HUB
 
-[`HUB/Home.md`](../../HUB/Home.md) is small navigation note. Link current projects, current weekly review, STAGING folders, ZETA entrypoints, and frequently used areas. Maintain links manually first. Dynamic dashboard plugin is optional later experiment.
+[`HUB/Home.md`](../../HUB/Home.md) is core-first dashboard. It embeds three
+core Bases:
+
+- `Projects`: active notes under `PARA/Projects`;
+- `Learning`: recent Literature and Permanent notes;
+- `Review Queue`: pending requests, agent proposals, and reviewed records.
+
+Bases add views without changing Markdown notes. If Bases is disabled, Home
+links and every note remain usable. Homepage plugin only opens Home on startup;
+it does not own dashboard data.
 
 ### STAGING
 
@@ -83,8 +94,12 @@ Daily note is optional. Weekly and monthly notes should compress learning, not d
 
 ### SYSTEM
 
+- `Config`: inspectable root sorting rule and optional dashboard CSS source.
 - `Guides`: human and agent operating instructions.
-- `Templates`: optional core Obsidian templates: [Daily](../Templates/Daily.md), [Weekly](../Templates/Weekly.md), [Literature Note](../Templates/Literature%20Note.md), and [Permanent Note](../Templates/Permanent%20Note.md).
+- `Templates`: optional core Obsidian templates: [Daily](../Templates/Daily.md),
+  [Weekly](../Templates/Weekly.md), [Literature Note](../Templates/Literature%20Note.md),
+  [Permanent Note](../Templates/Permanent%20Note.md), [Project](../Templates/Project.md),
+  and [Meeting](../Templates/Meeting.md).
 - `Media`: default vault-local attachment folder.
 
 Do not place personal knowledge in SYSTEM. Do not store credentials, databases, provider identifiers, raw logs, or backups here.
@@ -115,6 +130,53 @@ When destination is obvious, write directly there. Otherwise:
 4. stop after roughly two minutes.
 
 No mandatory YAML, tags, summary, template, or agent call. Descriptive filename is preferred. Avoid generic `New note` when one short phrase is available.
+
+## Templates and properties
+
+Templates are optional. Insert one after capture only when its shape saves work:
+
+- Daily and Weekly support review rhythm.
+- Literature separates source facts from own-words interpretation.
+- Permanent makes one durable explanation stand alone.
+- Project records outcome and next action.
+- Meeting records decisions and actions.
+
+Properties stay small:
+
+- `type` selects relevant Base view;
+- `status` exists only where action or maturity matters;
+- `created` records template insertion date;
+- `source` exists only on Literature notes;
+- `aliases` and `tags` remain empty unless useful.
+
+No automatic `modified` property is included because core Templates cannot keep
+it current. Raw Unsorted capture never requires a template or properties.
+
+## Folder order and appearance
+
+Custom File Explorer sorting reads
+[`SYSTEM/Config/sortspec.md`](../Config/sortspec.md). It applies one shallow
+root order:
+
+1. HUB
+2. STAGING
+3. DAILY
+4. PARA
+5. ZETA
+6. Notion
+7. SYSTEM
+
+It does not recursively sort imported notes. Disable plugin to return to native
+alphabetical display; no path changes.
+
+Minimal theme and Minimal Theme Settings control presentation only. Optional
+Home styling source is `SYSTEM/Config/dashboard.css`; active copy lives at
+`.obsidian/snippets/dashboard.css`. Disable snippet or clear theme to restore
+default UI.
+
+Lazy Loader keeps Fast Note Sync, Homepage, and Minimal Theme Settings instant.
+Custom sorting may start after short delay. One shared configuration is used on
+desktop and mobile. Never delay FNS.
 
 ## Weekly staging pass
 
@@ -159,6 +221,10 @@ Reciprocal link is useful when both notes benefit; it is not mandatory. Do not c
 ## Attachments
 
 Use normal Obsidian paste, drop, capture, or file selection. Store byte under `SYSTEM/Media` and use normal vault-relative link or embed. FNS synchronizes note and attachment. Keep Cloud Preview automatic local deletion off.
+
+Keep original attachment filename. No rename/move plugin is installed because
+mobile rename and link-update failures can orphan bytes. Rename manually only
+through Obsidian with automatic link updates enabled.
 
 For important or large file:
 

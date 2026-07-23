@@ -1,4 +1,11 @@
-# Week of {{date}}
+---
+type: weekly
+created: "{{date:YYYY-MM-DD}}"
+aliases: []
+tags: []
+---
+
+# Week of {{date:YYYY-MM-DD}}
 
 ## Strongest lessons
 
@@ -8,7 +15,7 @@
 
 -
 
-## Repeated confusion or blocker
+## Blocker
 
 -
 
