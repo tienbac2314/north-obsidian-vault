@@ -8,6 +8,7 @@ $deployRoot = Join-Path $repoRoot "deploy\fns"
 $composePath = Join-Path $deployRoot "compose.yaml"
 $configPath = Join-Path $deployRoot "config\config.yaml.example"
 $tunnelPath = Join-Path $deployRoot "cloudflared\config.yml.example"
+$tunnelUnitPath = Join-Path $deployRoot "cloudflared\fns-cloudflared.service"
 $runbookPath = Join-Path $deployRoot "README.md"
 
 function Assert-True {
@@ -24,13 +25,14 @@ function Assert-True {
     }
 }
 
-foreach ($requiredPath in @($composePath, $configPath, $tunnelPath, $runbookPath)) {
+foreach ($requiredPath in @($composePath, $configPath, $tunnelPath, $tunnelUnitPath, $runbookPath)) {
     Assert-True (Test-Path -LiteralPath $requiredPath -PathType Leaf) "Missing deployment artifact: $requiredPath"
 }
 
 $compose = Get-Content -Raw -LiteralPath $composePath
 $config = Get-Content -Raw -LiteralPath $configPath
 $tunnel = Get-Content -Raw -LiteralPath $tunnelPath
+$tunnelUnit = Get-Content -Raw -LiteralPath $tunnelUnitPath
 $runbook = Get-Content -Raw -LiteralPath $runbookPath
 
 Assert-True ($compose -match [regex]::Escape("haierkeys/fast-note-sync-service:3.6.0@sha256:560ab727f2a0bac804a6db9e467b68d7df1a1cf059e72dfccc0412aa4c62e89e")) "Compose must pin verified FNS 3.6.0 image digest."
@@ -52,6 +54,11 @@ Assert-True ($tunnel -match 'service:\s*http_status:404') "Tunnel must end with 
 Assert-True ($tunnel -match '(?m)^tunnel:\s*__FNS_TUNNEL_ID__$') "Tunnel ID must remain a placeholder in repository."
 Assert-True ($tunnel -match '(?m)^credentials-file:\s*__FNS_TUNNEL_CREDENTIALS_FILE__$') "Tunnel credentials path must remain a placeholder in repository."
 Assert-True ($tunnel -match '(?m)^\s+- hostname:\s*__FNS_HOSTNAME__$') "Tunnel hostname must remain a placeholder in repository."
+
+Assert-True ($tunnelUnit -match '(?m)^User=fns-tunnel$') "Tunnel unit must use dedicated unprivileged account."
+Assert-True ($tunnelUnit -match '(?m)^NoNewPrivileges=true$') "Tunnel unit must prevent privilege escalation."
+Assert-True ($tunnelUnit -match '(?m)^ProtectSystem=strict$') "Tunnel unit must protect host filesystem."
+Assert-True ($tunnelUnit -match '(?m)^ExecStart=/usr/bin/cloudflared --no-autoupdate --config /opt/personal-knowledge-pipeline/fns/runtime/cloudflared/config\.yml tunnel run$') "Tunnel unit must use exact isolated configuration."
 
 foreach ($requiredPhrase in @(
         "Registration bootstrap",

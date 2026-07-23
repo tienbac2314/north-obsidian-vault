@@ -15,7 +15,8 @@ Repository files:
 
 - `compose.yaml`: pinned service topology;
 - `config/config.yaml.example`: closed-registration configuration template;
-- `cloudflared/config.yml.example`: dedicated tunnel template.
+- `cloudflared/config.yml.example`: dedicated tunnel template;
+- `cloudflared/fns-cloudflared.service`: hardened dedicated tunnel supervisor.
 
 Oracle runtime root: `/opt/personal-knowledge-pipeline/fns`.
 
@@ -60,6 +61,21 @@ chmod 0600 runtime/config/config.yaml
 Render Cloudflare configuration with exact dedicated tunnel ID, credentials
 path, and hostname. Keep those values outside repository and shell history.
 
+Create one locked service account, grant it read access only to dedicated
+tunnel runtime, and install exact unit:
+
+```bash
+sudo useradd --system --home-dir /nonexistent --shell /usr/sbin/nologin fns-tunnel
+sudo chown -R fns-tunnel:fns-tunnel runtime/cloudflared
+sudo chmod 0700 runtime/cloudflared
+sudo chmod 0600 runtime/cloudflared/config.yml runtime/cloudflared/credentials.json
+sudo install -m 0644 \
+  cloudflared/fns-cloudflared.service \
+  /etc/systemd/system/fns-cloudflared.service
+sudo systemctl daemon-reload
+sudo systemctl enable --now fns-cloudflared.service
+```
+
 ## Start and health
 
 From exact runtime root:
@@ -94,8 +110,10 @@ deletion stays off.
 ## Stop and restart
 
 ```bash
+sudo systemctl stop fns-cloudflared.service
 docker compose stop
 docker compose start
+sudo systemctl start fns-cloudflared.service
 docker compose ps
 ```
 
@@ -158,7 +176,7 @@ No automatic updater or `latest` tag is allowed.
 
 ## Rollback
 
-Stop dedicated FNS Compose project and dedicated tunnel. Restore previous
+Stop dedicated FNS Compose project and `fns-cloudflared.service`. Restore previous
 pinned Compose file plus stopped-service archive into an empty isolated path.
 Repoint only dedicated FNS tunnel after restored service passes loopback
 health. Existing Hermes, 9Router, Cloudflare routes, PM2 processes, and host

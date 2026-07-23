@@ -1,0 +1,27 @@
+[Unit]
+Description=Dedicated Cloudflare Tunnel for synthetic FNS pilot
+After=network-online.target docker.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=fns-tunnel
+Group=fns-tunnel
+ExecStart=/usr/bin/cloudflared --no-autoupdate --config /opt/personal-knowledge-pipeline/fns/runtime/cloudflared/config.yml tunnel run
+Restart=on-failure
+RestartSec=5s
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectHome=true
+ProtectSystem=strict
+ProtectControlGroups=true
+ProtectKernelModules=true
+ProtectKernelTunables=true
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+RestrictSUIDSGID=true
+LockPersonality=true
+CapabilityBoundingSet=
+AmbientCapabilities=
+
+[Install]
+WantedBy=multi-user.target
