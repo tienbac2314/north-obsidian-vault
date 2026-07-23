@@ -1,38 +1,92 @@
 # Active goal
 
-Updated: 2026-07-23
+Updated: 2026-07-24
 
 ## Objective
 
-Land PR #2 with reviewed modular design aligned to FNS-only native attachments, reproducible core vault bootstrap, proposal-only Hermes Release 3, authenticated transactional Release 4A, and evidence-gated rollout. Runtime and VPS remain unchanged.
+Reach first usable synthetic Windows and Android Fast Note Sync vault with agreed plain-Markdown layout. Implement through verified checkpoints and stop at physical-device, account, or safety gate before personal migration.
+
+Status: complete on 2026-07-24. This closes the Phase 1 human-sync foundation,
+not the later personal-data promotion decision.
 
 ## Checkpoint
 
-- Official Obsidian registry, plugin scorecards, GitHub manifests, READMEs, and repository searches confirm Drive Attachments is desktop-only and no current alternative meets every seamless private arbitrary-file requirement.
-- DEC-028 replaces Windows-only Drive ingress with normal Obsidian attachment capture on both clients and FNS as sole live note and attachment transport.
-- Current architecture, behavior, failure, security, roadmap, and interaction modules keep vault files as one attachment content authority and FNS as sole live synchronization transport; historical research and superseded decisions remain intact.
-- DEC-030 replaces ambiguous `INBOX` and split proposal paths with one `STAGING` workflow: neutral capture, explicit review requests, incoming agent proposals, and visible reviewed feedback. Hermes remains deferred and may create a replacement only from explicit `revise` review after later promotion.
-- DEC-031 keeps Release 3 proposal-only, then gates accepted filing, exact dependency patches, and weekly changed-note link gardening behind Release 4A evidence. No runtime Hermes access or mutation is authorized now.
-- DEC-032 adds detailed in-vault human/agent manual under `SYSTEM/Guides`; guide documents operation but grants no authority.
-- DEC-033 treats synchronized review gestures as intent, requires authenticated hash-bound receipts, and gives deterministic executor canonical path, concurrency, rollback, idempotency, budget, and retention contracts.
-- DEC-034 adds non-destructive vault initializer, meaningful Home and templates, exact folder creation, safe-repeat test, and Stage 4 cross-platform bootstrap gate.
-- Already-filed canonical notes remain in place through sidecar review requests; only raw Unsorted notes move into pending queue.
-- Every generated plan/spec now declares current, completed, or superseded status in-file; current authority remains modular design.
-- Markdown checker regression now covers fenced examples, ordinary broken links, untracked Markdown targets, orphan rejection, and transitive reachability.
-- Full verification passed: Markdown regressions, vault initializer regressions, publisher regressions, 201 local links across 64 reachable Markdown files, secret scan across 73 tracked files, 9 rendered Mermaid diagrams, and whitespace.
-- Independent whole-system review plus focused re-reviews report no unresolved Critical or Important findings.
-- Publisher checkpoint verified remote dev, clean/dev tree equality, one clean commit over current `origin/main`, mergeable PR #2, intended diff, and updated PR description. Remote equality must be rechecked after any later bookkeeping commit; Git refs are final proof.
+- PR #2 is merged. Branch `feat/fns-release-one` starts from verified `origin/main`.
+- Current upstream releases are FNS server `3.6.0` and Obsidian plugin `2.4.0`; server image digest and ARM64 manifest are recorded in deployment contract.
+- Open server issues `#339`, `#342`, and `#346` still block personal data and agent consumers.
+- Stage 1 contract now defines pinned Compose, loopback bind, closed-by-default registration, secret-bearing runtime config, dedicated tunnel, stopped-service backup, empty-path restore, and rollback.
+- Stage 2 read-only Oracle preflight passed architecture, Docker, Compose, disk, loopback port, target-path, and no-existing-FNS checks.
+- Preflight disproved old Nginx assumption. DEC-035 selects new dedicated Cloudflare Tunnel without editing existing routes or tunnel processes.
+- Pinned FNS server is healthy on IPv6 loopback. Dedicated tunnel and DNS route return TLS health `200` from Windows. WebGUI registration probe returns closed-registration code `410`.
+- Stopped-service archive checksum and `runtime/` paths passed. Empty-path same-VPS restore started healthy on alternate loopback port, returned `200`, matched live storage file count, and retained closed registration. Restore tree is preserved.
+- Obsidian `1.12.7` is installed. Disposable Windows vault contains agreed 18-directory layout, Home, guide, and four core templates.
+- Human accepted the disposable vault trust warning. Restricted Mode is off,
+  verified FNS plugin `2.4.0` is enabled, and its Remote Configuration panel is
+  reachable.
+- One user-selected disposable credential created exactly one synthetic
+  account. Its recoverable password record is Windows DPAPI-encrypted outside
+  repository and vault.
+- Registration was closed immediately after account creation. A second valid
+  WebGUI registration request returned application code `410`; no second
+  account exists.
+- Sole synthetic user is now administrator. Registration remains closed and
+  loopback and public health checks still pass.
+- Windows Obsidian uses one dedicated REST plus WebSocket token restricted to
+  exact `FNS Pilot` vault. Recoverable authorization record is DPAPI-encrypted
+  outside repository and vault. Account-wide bootstrap token was revoked.
+- Initial and repeated full sync completed. Remote vault contains seven
+  synthetic notes and one native SVG attachment.
+- Windows gates passed for note convergence, two-version history, recycle-bin
+  deletion, restoration to original path, and native attachment sync.
+- Human completed physical Android plugin enrollment and reported successful
+  initial setup before disconnecting phone. WebGUI later confirmed prior
+  Android token use; Android behavior matrix remains unrun.
+- Exactly two current manual device tokens remain. Both use REST plus
+  WebSocket, 365-day validity, and exact `FNS Pilot` restriction. Windows
+  remained WebSocket-online after scope correction; superseded manual attempts
+  were revoked without changing WebGUI sessions.
+- Live and repository configuration now use 365-day manual-token default.
+- Empty Storage Configuration Type dropdown is explained by all optional FNS
+  storage providers being disabled. This is expected Release 1 configuration
+  plus an upstream missing empty-state message, not browser failure.
+- Fresh populated stopped-service archive passed server and Windows checksum
+  verification. Off-VPS copy is outside repository and vault under restricted
+  Windows ACL; temporary readable VPS export was removed.
+- Populated empty-path restore returned health `200`, retained closed
+  registration, and matched 105 live storage files. Isolated restore
+  container/network were removed; restored files remain preserved.
+- Plain-vault recovery copy contains all eight synthetic user files under the
+  six approved content roots, matches source SHA-256 hashes, excludes
+  `.obsidian` and FNS credentials, and has a restricted Windows ACL.
+- Human opened the plain-vault recovery copy as an ordinary Obsidian vault and
+  confirmed required folders, notes, and SVG attachment were readable.
+- Active Windows vault moved to the requested non-system data volume by
+  copy/hash/verify/delete. All 24 files and 1,572,986 bytes matched before old
+  source removal. Obsidian reopened the new root, FNS `2.4.0` re-enabled after
+  the expected first-open trust prompt, full sync completed, and service status
+  returned connected.
+- Manual protocol-import test briefly created synthetic `FNS+Pilot` because
+  form encoding represented space as `+`. Correct import restored exact vault
+  name, and accidental remote vault was deleted after equality checks.
+- Hermes and 9Router remain outside deployment and receive no vault workload.
+- Ground-up setup documentation is now a conventional standalone OSS-style
+  guide. It supports direct human use or automation without assuming a live
+  human-agent choreography.
 
 ## Next action
 
-Merge PR #2 through normal review, then verify `origin/main` matches published clean tree. That verification activates new workflow immediately: every later task starts from current `main` on short-lived branch. No legacy cleanup blocks Stage 1.
+No action is required for this completed Phase 1 foundation. Keep using only
+synthetic content until a later personal-data promotion decision.
 
-## Blockers
+## Deferred promotion work
 
-- FNS physical Windows/Android note and native-attachment gates remain unrun.
-- Hermes gateway supervisor stability remains unresolved; no vault workload is authorized.
-- Backup destination, cadence, encryption, and restore schedule remain Release 2 promotion gates.
-- PR #2 merge and `main` tree verification remain only Git-workflow cutover gate. Generated clean branch deletion is optional afterward; permanent dev branch and publisher may remain as history.
+- Full Android battery/background, offline, conflict, rename/move, restart, and
+  attachment matrix remains future promotion evidence.
+- Current Windows archive is off VPS and ACL-restricted, but does not protect
+  against simultaneous Windows and VPS loss.
+- A rebuilt-client drill and seven-day synthetic observation remain optional
+  follow-on promotion work, not Phase 1 installation work.
+- Public TLS endpoint plus unresolved FNS security reports restrict pilot to synthetic content.
 
 ## Authority
 

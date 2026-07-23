@@ -22,7 +22,7 @@ Obsidian community plugins, FNS server, Android background behavior, copied web/
 
 - Use isolated synthetic vault and disposable account until promotion.
 - Pin plugin and server releases for each test cycle; record public versions.
-- Bind service port to loopback and expose only through existing TLS Nginx boundary.
+- Bind service port to loopback and expose only through dedicated TLS tunnel ingress. Keep existing tunnel routes and processes unchanged.
 - Disable public registration after controlled bootstrap.
 - Use unique credentials for pilot; never reuse Hermes, 9Router, backup, or other service keys.
 - Keep server database, config, backups, logs, tokens, endpoints, and account identifiers outside repository.

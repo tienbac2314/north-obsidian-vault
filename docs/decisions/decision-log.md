@@ -233,3 +233,11 @@ Statuses: Accepted, Proposed, Rejected, Postponed, Superseded.
 - Safety: Existing files are never overwritten. Fixed manifest copies only Home, guide, and four templates. Source/self-copy target, reparse-point destination/ancestor, directory at starter-file path, and missing source file fail visibly. Initializer does not install plugins, copy Dusk `.obsidian`, enable FNS or Hermes, migrate notes, change settings, or delete content. Automated test verifies exact folder set, every starter preservation, manifest exclusion, containment directions, reparse cases, and wrong-item-type rejection.
 - Release gate: Stage 4 runs initializer into disposable vault, sets `SYSTEM/Media` through Obsidian core settings on both clients, and opens home/guide/templates on Windows and Android before sync fixtures.
 - Rationale: Git cannot carry empty directories, and guide alone is not usable vault template. Small bootstrap makes documented structure reproducible without sample-content clutter or plugin runtime.
+
+## DEC-035: Isolate pilot behind dedicated tunnel
+
+- Status: Accepted implementation amendment to DEC-022.
+- Decision: Use one new Cloudflare Tunnel and DNS route dedicated to synthetic FNS pilot. Bind pinned FNS container only to Oracle loopback. Keep existing managed tunnel, PM2 tunnel, routes, origins, Hermes, and 9Router unchanged.
+- Evidence: Read-only Stage 2 preflight found dormant empty host Nginx, two existing Cloudflare tunnel processes, valid local tunnel credentials, and no safe existing Nginx boundary to reuse. See [2026-07-23 implementation evidence](../research/2026-07-23-fns-implementation-evidence.md).
+- Boundary: Public TLS hostname still reaches FNS-authenticated surface. Open security and authorization issues therefore keep deployment synthetic-only. No personal or employer content, FNS MCP consumer, external REST consumer, sharing, Git automation, mirror, configuration sync, headless client, or Cloud Preview deletion is authorized.
+- Rollback: Stop dedicated FNS Compose project and dedicated tunnel. Preserve state for inspection. Existing ingress processes and routes remain untouched.

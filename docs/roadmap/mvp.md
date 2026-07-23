@@ -14,7 +14,7 @@ Hermes vault access is not part of this release. It begins a later release only 
 - Non-destructive core vault initializer, plain home note, operating guide, and core templates.
 - Fast Note Sync as only whole-vault transport in isolated Windows/Android pilot.
 - Fast Note Sync as the only release-one community plugin required by this design; use Obsidian core features for the initial home note and learning structure.
-- One private pinned FNS server behind existing TLS Nginx boundary.
+- One private pinned FNS server behind dedicated TLS tunnel ingress.
 - Integrated FNS current files, history, trash, and native attachment tests.
 - Same normal Obsidian attachment capture, links, embeds, and offline bytes on Windows and Android.
 - Stopped-service FNS copy, off-VPS independent vault copy, and empty-path restore.
@@ -87,7 +87,7 @@ Create repository-owned runtime design artifacts before touching VPS:
 - Compose service with pinned FNS server image/release;
 - loopback-only container/service port;
 - persistent storage and configuration paths isolated from Hermes and 9Router;
-- existing TLS Nginx location with private exposure policy;
+- dedicated TLS tunnel configuration with loopback origin and isolated credentials;
 - controlled registration bootstrap, then closure;
 - start, stop, health, upgrade, backup, empty-path restore, rollback, and removal commands;
 - configuration and secret boundary;
@@ -96,7 +96,7 @@ Create repository-owned runtime design artifacts before touching VPS:
 ### Verification
 
 - Compose renders without `latest`, privileged mode, host network, Docker socket, public raw bind, or secret literals.
-- Nginx snippet passes syntax validation in safe non-mutating context.
+- Tunnel configuration validates with placeholder-only identifiers in Git.
 - Backup/restore commands target exact isolated paths and avoid delete/purge/mirror semantics.
 - Repository link, secret, whitespace, and applicable configuration checks pass.
 
@@ -117,7 +117,7 @@ Through VibeShell, inspect without changing state:
 
 - Oracle architecture and OS;
 - Docker Engine and Compose compatibility;
-- Nginx ownership, include layout, and syntax-check path;
+- actual TLS ingress owner, process supervision, route isolation, and validation path;
 - disk capacity and expected recovery-copy headroom;
 - unused loopback port;
 - TLS ingress capacity and certificate boundary;
@@ -162,7 +162,7 @@ ARM64 compatibility, safe isolated paths, sufficient storage, private ingress, a
 
 ### Rollback
 
-Stop and remove exact isolated FNS service/resources, preserve deployment evidence, and leave Hermes, 9Router, Nginx unrelated routes, firewall, and other containers unchanged.
+Stop exact isolated FNS service and dedicated tunnel, preserve deployment evidence, and leave Hermes, 9Router, existing tunnel routes, firewall, and other containers unchanged.
 
 ## Stage 4: Synthetic Windows/Android baseline
 

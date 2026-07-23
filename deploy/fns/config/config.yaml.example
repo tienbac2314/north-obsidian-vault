@@ -1,0 +1,74 @@
+server:
+  run-mode: release
+  http-port: ":9000"
+  read-timeout: 60
+  write-timeout: 60
+  private-http-listen: ""
+  webgui-port: ""
+  share-port: ""
+  share-base-url: ""
+  ext-api-url: ""
+  cors-allowed-origins: []
+  trusted-proxies: []
+
+app:
+  temp-path: storage/temp
+  soft-delete-retention-time: "90d"
+  sync-log-retention-time: "30d"
+  history-keep-versions: 100
+  history-save-delay: "10s"
+  upload-session-timeout: "1d"
+  file-chunk-size: "512KB"
+  download-session-timeout: "1h"
+
+security:
+  auth-token-key: "__FNS_AUTH_TOKEN_KEY__"
+  token-expiry: "365d"
+  share-token-key: "__FNS_SHARE_TOKEN_KEY__"
+  share-token-expiry: "7d"
+  webgui-login-token-expiry: "24h"
+  webgui-login-token-bind-ip: true
+
+database:
+  type: sqlite
+  path: storage/database/db.sqlite3
+  auto-migrate: true
+
+log:
+  level: warn
+  file: storage/logs/log.log
+  production: true
+
+user:
+  register-is-enable: false
+  admin-uid: 0
+
+storage:
+  local-fs:
+    is-enable: false
+    httpfs-is-enable: false
+    save-path: "storage/uploads"
+  aliyun-oss:
+    is-enable: false
+  aws-s3:
+    is-enable: false
+  cloudflare-r2:
+    is-enable: false
+  minio:
+    is-enable: false
+  webdav:
+    is-enable: false
+
+cloudflare:
+  enabled: false
+  token: ""
+  log-enabled: false
+
+oauth:
+  enabled: false
+  allow-static-fns-token: true
+
+attachment-static:
+  is-enable: false
+  allowed-vaults: {}
+  allowed-types: []

@@ -19,6 +19,7 @@ Summaries navigate. They never replace detailed modules. Minimalization applies 
 
 ## Current evidence
 
+- [FNS implementation evidence and Oracle preflight](research/2026-07-23-fns-implementation-evidence.md)
 - [Sync, history, and attachment reevaluation](research/2026-07-22-sync-and-extension-reevaluation.md)
 - [NotebookLM adversarial review](research/notebooklm-adversarial-review.md)
 - [Obsidian](research/obsidian.md)
@@ -26,6 +27,10 @@ Summaries navigate. They never replace detailed modules. Minimalization applies 
 - [9Router](research/9router.md)
 
 Research supports decisions but does not authorize implementation. Refresh time-sensitive facts only when relevant gate or decision begins.
+
+## Runtime operations
+
+- [Fast Note Sync pilot operations](../deploy/fns/README.md)
 
 ## Preserved work
 
