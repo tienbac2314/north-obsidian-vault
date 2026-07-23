@@ -10,7 +10,9 @@ Read [executive summary](executive-summary.md) for orientation, then use modules
 - Architecture: [recommended architecture](architecture/recommended-architecture.md), [options](architecture/options.md), [data contracts](architecture/data-model.md), [failure handling](architecture/failure-handling.md), [security](architecture/security.md), and [diagrams](architecture/diagrams.md).
 - Behavior: [capture to growth](behavior/capture-to-digest.md), [Hermes approved apply and link gardening](behavior/hermes-apply-and-link-gardening.md), [interaction examples](behavior/interaction-examples.md), and [experiments](behavior/experiments.md).
 - In-vault manual: [vault operating guide](../vault-template/SYSTEM/Guides/vault-operating-guide.md).
-- Roadmap: [first production-worthy release](roadmap/mvp.md) and [evidence-gated roadmap](roadmap/phased-roadmap.md).
+- Roadmap: [first production-worthy release](roadmap/mvp.md),
+  [evidence-gated roadmap](roadmap/phased-roadmap.md), and
+  [active Phase 2 setup and customization](roadmap/phase-2-customization.md).
 - Decisions: [decision log](decisions/decision-log.md) and [unresolved questions](decisions/unresolved-questions.md).
 - Current checkpoint: [active goal](active-goal.md).
 - Repository operation: [Git workflow](git-workflow.md).
