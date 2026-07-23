@@ -166,4 +166,3 @@ Perform a final design and implementation review. Fix critical and important
 findings before delivery. The pull request must contain scope, affected
 decisions, plugin inventory, evidence, rollback instructions, exact validation
 commands, and remaining physical Android and four-week human-pilot work.
-
