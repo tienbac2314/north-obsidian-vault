@@ -1,10 +1,13 @@
 # Active goal
 
-Updated: 2026-07-23
+Updated: 2026-07-24
 
 ## Objective
 
 Reach first usable synthetic Windows and Android Fast Note Sync vault with agreed plain-Markdown layout. Implement through verified checkpoints and stop at physical-device, account, or safety gate before personal migration.
+
+Status: complete on 2026-07-24. This closes the Phase 1 human-sync foundation,
+not the later personal-data promotion decision.
 
 ## Checkpoint
 
@@ -55,6 +58,8 @@ Reach first usable synthetic Windows and Android Fast Note Sync vault with agree
 - Plain-vault recovery copy contains all eight synthetic user files under the
   six approved content roots, matches source SHA-256 hashes, excludes
   `.obsidian` and FNS credentials, and has a restricted Windows ACL.
+- Human opened the plain-vault recovery copy as an ordinary Obsidian vault and
+  confirmed required folders, notes, and SVG attachment were readable.
 - Active Windows vault moved to the requested non-system data volume by
   copy/hash/verify/delete. All 24 files and 1,572,986 bytes matched before old
   source removal. Obsidian reopened the new root, FNS `2.4.0` re-enabled after
@@ -64,25 +69,23 @@ Reach first usable synthetic Windows and Android Fast Note Sync vault with agree
   form encoding represented space as `+`. Correct import restored exact vault
   name, and accidental remote vault was deleted after equality checks.
 - Hermes and 9Router remain outside deployment and receive no vault workload.
+- Ground-up setup documentation is now a conventional standalone OSS-style
+  guide. It supports direct human use or automation without assuming a live
+  human-agent choreography.
 
 ## Next action
 
-When phone is next available, run remaining physical-device checklist in
-[FNS operations runbook](../deploy/fns/README.md#physical-android-gate):
-bidirectional and offline notes, background/battery behavior, rename/move,
-history/trash, native attachments, restart, and rebuilt-client recovery. Do not
-migrate personal notes.
+No action is required for this completed Phase 1 foundation. Keep using only
+synthetic content until a later personal-data promotion decision.
 
-## Blockers
+## Deferred promotion work
 
-- Android enrollment passed, but battery/background and lifecycle checks
-  require physical device.
-- Android bidirectional/offline note, history, trash, rename/move, restart, and
-  native-attachment gates remain unrun.
+- Full Android battery/background, offline, conflict, rename/move, restart, and
+  attachment matrix remains future promotion evidence.
 - Current Windows archive is off VPS and ACL-restricted, but does not protect
   against simultaneous Windows and VPS loss.
-- Populated same-VPS restore and plain-vault recovery copy do not replace the
-  rebuilt-client recovery test.
+- A rebuilt-client drill and seven-day synthetic observation remain optional
+  follow-on promotion work, not Phase 1 installation work.
 - Public TLS endpoint plus unresolved FNS security reports restrict pilot to synthetic content.
 
 ## Authority

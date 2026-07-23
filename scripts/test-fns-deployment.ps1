@@ -97,9 +97,8 @@ Assert-True ($humanSetup -match 'cloudflared tunnel create') "Human setup must c
 Assert-True ($humanSetup -match 'cloudflared tunnel route dns') "Human setup must create the dedicated DNS route."
 Assert-True ($humanSetup -match 'runtime/cloudflared/credentials\.json') "Human setup must normalize the runtime tunnel credential filename."
 Assert-True ($humanSetup -match 'cloudflared/config\.yml\.example') "Human setup must render tracked tunnel template."
-Assert-True ($humanSetup -match '## Operator model') "Human setup must distinguish agent and human responsibilities."
-Assert-True ($humanSetup -match '\*\*Agent runs:\*\*') "Human setup must mark agent-executable commands."
-Assert-True ($humanSetup -match '\*\*Human does:\*\*') "Human setup must mark unavoidable human UI actions."
-Assert-True ($humanSetup -match 'Do not ask the human to type commands the agent can run') "Human setup must keep shell work agent-owned."
+Assert-True ($humanSetup -match '## Installation overview') "Human setup must explain the installation sequence."
+Assert-True ($humanSetup -match '## (?:\d+\.\s+)?Verify installation') "Human setup must provide one final verification checklist."
+Assert-True ($humanSetup -notmatch '\*\*(Agent runs|Human does)') "Human setup must remain a conventional operator guide."
 
 Write-Output "FNS deployment contract tests passed."

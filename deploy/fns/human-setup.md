@@ -1,293 +1,363 @@
-# Fast Note Sync ground-up human setup
+# Fast Note Sync installation guide
 
-Status: current Release 1 path for one human operator and disposable data.
+Status: Release 1 installation path for one private synthetic vault.
 
-This guide gives one linear path from repository checkout to Windows and
-Android enrollment. Detailed commands, recovery procedures, and security
-reasons remain in [FNS pilot operations](README.md).
+This guide installs Fast Note Sync server `3.6.0`, creates the standard
+Obsidian layout, and enrolls Windows and Android with Fast Note Sync plugin
+`2.4.0`. Commands may be run by a person or automation. UI steps remain manual.
+For design rationale and failure response, read
+[FNS pilot operations](README.md).
 
-## Operator model
+## Safety boundary
 
-This is a human-supervised agent runbook, not a list of commands the human must
-type unaided.
+Use only synthetic notes and disposable attachments during installation.
+Never place account credentials, hostnames, tunnel identifiers, authorization
+URLs, tokens, or recovery archives in Git or the Obsidian vault.
 
-- **Agent runs:** repository checks, SSH preflight, file transfer, server
-  deployment, bounded health checks, vault initialization, checksum comparison,
-  evidence updates, and Git work.
-- **Human does:** account login, Cloudflare authorization, password entry,
-  Obsidian trust/plugin prompts, token approval/import, Android actions, and
-  confirmation of visible results.
-- Agent pauses before any step needing a secret, physical device, or security
-  decision. Human performs only that step and reports result.
-- Do not ask the human to type commands the agent can run. Do not ask agent to
-  see, copy, log, or store a secret.
+Stop on:
 
-Run phases in order. A passing command is a checkpoint; prose is not evidence.
+- failed health or checksum check;
+- wildcard raw-service listener;
+- registration that remains open;
+- token without exact-vault restriction;
+- silent loss, unexplained deletion, or cross-vault access;
+- inaccessible attachment or failed restore.
 
-## Stop conditions
+Do not run another whole-vault sync or attachment-offload transport beside FNS.
 
-Use only synthetic notes and disposable attachments. Stop before personal or
-employer content. Stop on silent loss, cross-vault access, unexplained
-deletion, inaccessible attachment, failed restore, or recurring manual repair.
-Never run another whole-vault sync or attachment-offload transport beside FNS.
+## Installation overview
 
-Keep all account credentials, hostnames, tunnel identifiers, authorization
-URLs, tokens, and recovery archives outside Git and outside the Obsidian vault.
+1. Verify repository artifacts.
+2. copy `deploy/fns` to an isolated server directory;
+3. render secret-bearing configuration outside Git;
+4. create one dedicated Cloudflare Tunnel;
+5. start FNS and verify private raw listener plus public TLS;
+6. create one account, then close registration;
+7. initialize and enroll Windows vault;
+8. enroll Android with a separate token;
+9. verify baseline sync;
+10. create and verify independent backup.
 
-## 1. Prepare operator tools
+## Requirements
 
-Required:
+- ARM64 or AMD64 Linux server;
+- Docker Engine with Docker Compose v2;
+- `cloudflared`, OpenSSL, `curl`, `tar`, and `sha256sum`;
+- Cloudflare account with a hostname you control;
+- Windows PowerShell 5.1 or newer, Git, OpenSSH, and Obsidian;
+- Android Obsidian;
+- repository checkout on reviewed Release 1 branch or current `main`.
 
-- Linux server with Docker Engine, Docker Compose, and `cloudflared`;
-- private Cloudflare account and hostname;
-- Windows PowerShell 5.1 or newer and Git;
-- Obsidian on Windows and Android;
-- repository checkout on a reviewed release branch or current `main`.
+## 1. Verify repository
 
-From repository root, verify deployment and vault artifacts:
-
-**Agent runs:**
+From repository root on Windows:
 
 ```powershell
 powershell -NoProfile -File scripts/test-fns-deployment.ps1
 powershell -NoProfile -File scripts/test-initialize-vault-template.ps1
+powershell -NoProfile -File scripts/check-secrets.ps1
 ```
 
-Do not continue after either command fails.
+Do not continue after any failure.
 
-Optional Android diagnostics use Minimal ADB and Fastboot. If installed at its
-default Windows path, add directory to user PATH once:
+## 2. Copy deployment files
 
-**Agent runs:**
+Choose SSH host or alias when prompted:
 
 ```powershell
-$adbDirectory = 'C:\Program Files (x86)\Minimal ADB and Fastboot'
-$userPath = [Environment]::GetEnvironmentVariable('Path', 'User')
-$pathEntries = @($userPath -split ';' | Where-Object { $_ })
-if ($pathEntries -notcontains $adbDirectory) {
-    [Environment]::SetEnvironmentVariable(
-        'Path',
-        (($pathEntries + $adbDirectory) -join ';'),
-        'User'
-    )
-}
+$server = Read-Host 'SSH host or configured alias'
+$remoteStaging = '/tmp/pkp-fns-install'
+
+ssh $server "test ! -e '$remoteStaging' && mkdir -m 700 '$remoteStaging'"
+scp -r deploy/fns/* "${server}:${remoteStaging}/"
+ssh -t $server "sudo install -d -m 0700 /opt/personal-knowledge-pipeline/fns && sudo cp -a '$remoteStaging/.' /opt/personal-knowledge-pipeline/fns/"
 ```
 
-Open new terminal before running `adb devices`. Require device state `device`,
-not `unauthorized`. ADB is diagnostic convenience, not FNS transport.
-
-## 2. Deploy isolated server
-
-**Agent runs from repository root:**
+Continue in a root shell because deployment root is intentionally owner-only:
 
 ```powershell
-$deploymentSource = (Resolve-Path 'deploy\fns').Path
-$serverAlias = Read-Host 'SSH alias or host'
-$remoteStaging = '/tmp/pkp-fns-release-one'
-
-ssh $serverAlias "test ! -e '$remoteStaging' && mkdir -m 700 '$remoteStaging'"
-scp -r "$deploymentSource\*" "${serverAlias}:${remoteStaging}/"
-ssh -t $serverAlias "sudo install -d -m 0700 /opt/personal-knowledge-pipeline/fns && sudo cp -a '$remoteStaging/.' /opt/personal-knowledge-pipeline/fns/"
+ssh -t $server "sudo -i"
 ```
 
-Never put password, token, hostname, tunnel ID, or credential file content in
-these commands. SSH alias may stay local; repository evidence records only
-sanitized results.
-
-**Agent runs on Linux server from
-`/opt/personal-knowledge-pipeline/fns`:**
-
-1. Copy `deploy/fns` to
-   `/opt/personal-knowledge-pipeline/fns`.
-2. Follow [Paths and secret boundary](README.md#paths-and-secret-boundary) and
-   [Render FNS server config](README.md#render-fns-server-config).
-3. From deployment root, create dedicated tunnel and DNS route:
-
-   ```bash
-   cloudflared tunnel login
-   cloudflared tunnel create fns-pilot
-   read -r -p "Tunnel UUID: " tunnel_id
-   read -r -p "FNS hostname: " fns_hostname
-   credential_source="$HOME/.cloudflared/${tunnel_id}.json"
-   test -f "$credential_source"
-   cloudflared tunnel route dns "$tunnel_id" "$fns_hostname"
-   ```
-
-**Human does:** complete browser-based Cloudflare login when
-`cloudflared tunnel login` opens it. Give agent only success/failure, never
-credential content.
-
-**Agent runs:** exact remaining commands in
-   [Install dedicated tunnel service](README.md#install-dedicated-tunnel-service).
-   They render tracked `cloudflared/config.yml.example`, install generated UUID
-   credential as `runtime/cloudflared/credentials.json`, set service ownership
-   and modes, and start dedicated tunnel unit. Do not retain UUID-named
-   credential inside runtime.
-5. Follow [Start and health](README.md#start-and-health). Require healthy
-   Compose state, HTTP `200` on IPv6 loopback, and HTTP `200` through TLS
-   hostname.
-6. Confirm raw FNS port is not reachable through wildcard listener.
-
-**Agent verifies:**
+All following Linux commands run from:
 
 ```bash
 cd /opt/personal-knowledge-pipeline/fns
-docker compose config --quiet
-docker compose ps
-curl --fail --silent --show-error http://[::1]:19000/api/health
-ss -lnt
-sudo systemctl is-active fns-cloudflared.service
 ```
 
-Do not reuse Hermes, 9Router, backup, or existing tunnel credentials. Do not
-edit unrelated tunnel routes or process supervisors.
+## 3. Render server configuration
 
-## 3. Create one disposable account
+Create private runtime directories:
 
-Follow [Registration bootstrap](README.md#registration-bootstrap):
+```bash
+sudo install -d -m 0700 \
+  runtime/config \
+  runtime/storage \
+  runtime/cloudflared \
+  backups
+```
 
-**Agent runs:** open registration temporarily with bounded stop/start, then
-report that account creation is ready. Do not print runtime configuration.
+Generate unique signing keys and install rendered configuration without
+printing key values:
 
-**Human does:** register exactly one disposable account through TLS WebGUI,
-store password in OS secret storage, then report success without sharing
-credential values.
+```bash
+rendered_config="$(mktemp)"
+trap 'rm -f "$rendered_config"' EXIT
+auth_key="$(openssl rand -hex 32)"
+share_key="$(openssl rand -hex 32)"
+sed \
+  -e "s/__FNS_AUTH_TOKEN_KEY__/${auth_key}/" \
+  -e "s/__FNS_SHARE_TOKEN_KEY__/${share_key}/" \
+  config/config.yaml.example > "$rendered_config"
+sudo install -o root -g root -m 0600 \
+  "$rendered_config" runtime/config/config.yaml
+rm -f "$rendered_config"
+trap - EXIT
+unset auth_key share_key
+sudo chown -R root:root runtime/config runtime/storage
+sudo chmod 0700 runtime/config runtime/storage
+```
 
-**Agent runs:** close registration immediately, verify another valid
-registration request is rejected, and recheck public plus loopback health.
+Registration is closed by default. Optional storage providers, sharing,
+Configuration Sync, Cloud Preview deletion, MCP, and external REST consumers
+remain disabled.
 
-**Human does:** sign in as sole disposable account and assign administrator
-only to that account.
+## 4. Create dedicated TLS tunnel
 
-Store password in OS secret storage. Never place it in Markdown, shell history,
-screenshots, or chat.
+Authenticate and create one isolated tunnel:
 
-## 4. Build Windows vault
+```bash
+cloudflared tunnel login
+cloudflared tunnel create fns-pilot
+read -r -p "Tunnel UUID: " tunnel_id
+read -r -p "FNS hostname: " fns_hostname
+credential_source="$HOME/.cloudflared/${tunnel_id}.json"
+test -f "$credential_source"
+cloudflared tunnel route dns "$tunnel_id" "$fns_hostname"
+```
 
-Choose new empty directory outside repository and cloud-synchronized folders.
-Test initializer again, then run:
+Render tunnel configuration:
 
-**Agent runs:**
+```bash
+if ! id -u fns-tunnel >/dev/null 2>&1; then
+  sudo useradd --system --home-dir /nonexistent \
+    --shell /usr/sbin/nologin fns-tunnel
+fi
+rendered_tunnel_config="$(mktemp)"
+trap 'rm -f "$rendered_tunnel_config"' EXIT
+sed \
+  -e "s|__FNS_TUNNEL_ID__|${tunnel_id}|" \
+  -e "s|__FNS_TUNNEL_CREDENTIALS_FILE__|/opt/personal-knowledge-pipeline/fns/runtime/cloudflared/credentials.json|" \
+  -e "s|__FNS_HOSTNAME__|${fns_hostname}|" \
+  cloudflared/config.yml.example > "$rendered_tunnel_config"
+sudo install -o fns-tunnel -g fns-tunnel -m 0600 \
+  "$rendered_tunnel_config" runtime/cloudflared/config.yml
+sudo install -o fns-tunnel -g fns-tunnel -m 0600 \
+  "$credential_source" runtime/cloudflared/credentials.json
+rm -f "$rendered_tunnel_config"
+trap - EXIT
+sudo chown fns-tunnel:fns-tunnel runtime/cloudflared
+sudo chmod 0711 /opt/personal-knowledge-pipeline/fns
+sudo chmod 0700 runtime/cloudflared
+sudo chmod 0600 \
+  runtime/cloudflared/config.yml \
+  runtime/cloudflared/credentials.json
+sudo install -m 0644 \
+  cloudflared/fns-cloudflared.service \
+  /etc/systemd/system/fns-cloudflared.service
+sudo systemctl daemon-reload
+sudo systemctl enable --now fns-cloudflared.service
+unset tunnel_id fns_hostname credential_source
+```
+
+If `fns-tunnel` already exists, verify it belongs to this deployment before
+continuing. Do not reuse or edit Hermes, 9Router, or another tunnel.
+
+## 5. Start server
+
+```bash
+docker compose config --quiet
+docker compose pull
+docker compose up -d
+docker compose ps
+curl --fail --silent --show-error http://[::1]:19000/api/health
+sudo systemctl is-active fns-cloudflared.service
+ss -lnt
+```
+
+Required results:
+
+- Compose service is healthy;
+- loopback health returns HTTP `200`;
+- dedicated tunnel service is active;
+- raw port `19000` listens only on `[::1]`, never an IPv4 or IPv6 wildcard;
+- TLS hostname returns HTTP `200`.
+
+From Windows:
 
 ```powershell
-powershell -NoProfile -File scripts/test-initialize-vault-template.ps1
-$vaultDestination = Read-Host 'New empty disposable vault path (example G:\Obsidian)'
+$fnsUrl = Read-Host 'FNS TLS URL'
+(Invoke-WebRequest -UseBasicParsing "$fnsUrl/api/health").StatusCode
+```
+
+## 6. Create account and close registration
+
+Registration opens only long enough to create one disposable account:
+
+```bash
+docker compose stop
+sudoedit runtime/config/config.yaml
+```
+
+Change only:
+
+```yaml
+user:
+  register-is-enable: true
+```
+
+Start service:
+
+```bash
+docker compose start
+docker compose ps
+```
+
+Open TLS WebGUI, register one disposable account, and store password in OS
+secret storage. Then close registration immediately:
+
+```bash
+docker compose stop
+sudoedit runtime/config/config.yaml
+```
+
+Restore:
+
+```yaml
+user:
+  register-is-enable: false
+```
+
+Restart and verify:
+
+```bash
+docker compose start
+docker compose ps
+curl --fail --silent --show-error http://[::1]:19000/api/health
+```
+
+Confirm another registration attempt is rejected. Sign in and assign
+administrator only to sole disposable account.
+
+## 7. Create Windows vault
+
+Choose a new absent directory. Existing installations may use their current
+vault instead.
+
+```powershell
+$vaultDestination = Read-Host 'New disposable vault path'
 if (Test-Path -LiteralPath $vaultDestination) {
-    throw 'Destination must be a new absent path'
+    throw 'Destination must not already exist'
 }
 powershell -NoProfile -File scripts/initialize-vault-template.ps1 `
   -Destination $vaultDestination
 ```
 
-Initializer must never target an existing or personal vault.
+Open directory in Obsidian. Verify:
 
-**Human does:** open directory as Obsidian vault and accept trust only for
-reviewed local template. Verify `HUB/Home.md`,
-`SYSTEM/Guides/vault-operating-guide.md`, four core templates, and all top-level
-folders render. In Obsidian:
+- `HUB/Home.md`;
+- `SYSTEM/Guides/vault-operating-guide.md`;
+- four files under `SYSTEM/Templates`;
+- top-level `DAILY`, `HUB`, `PARA`, `STAGING`, `SYSTEM`, and `ZETA`.
 
-1. Set core **Default location for new attachments** to
-   `In the folder specified below`.
+In Obsidian:
+
+1. Set **Default location for new attachments** to
+   **In the folder specified below**.
 2. Set **Attachment folder path** to `SYSTEM/Media`.
 3. Install Fast Note Sync from Community plugins.
-4. Verify plugin version is approved version recorded in current operations
-   contract; enable no other community plugin for pilot.
-5. Keep Configuration Sync, Cloud Preview automatic local deletion, sharing,
-   Git automation, MCP, mirrors, and external REST consumers off.
+4. Verify plugin version is `2.4.0`.
+5. Enable no other whole-vault sync plugin.
 
-## 5. Create remote vault and Windows token
-
-**Human does in FNS WebGUI while agent gives one step at a time:**
+In FNS WebGUI:
 
 1. Create exact remote vault `FNS Pilot`.
-2. Use vault **Authorize Obsidian** action.
-3. Name device token `Windows Pilot`.
+2. Select **Authorize Obsidian**.
+3. Name authorization `Windows Pilot`.
 4. Set validity to 365 days.
-5. Allow REST and WebSocket required by Obsidian sync.
-6. Check **Limit access to current vault only**.
-7. Import through WebGUI one-click action or plugin **Paste server
-   authorization config**.
+5. Allow REST and WebSocket.
+6. Enable **Limit access to current vault only**.
+7. Import through WebGUI one-click action or plugin paste action.
 
-Do not reconstruct `obsidian://` URL manually; a space encoded as `+` can
-create wrong vault. Verify plugin reports service connected, token shows
-WebSocket online, and selected vault is exactly `FNS Pilot`. Run Full Sync.
+Do not construct `obsidian://` URL manually. Verify plugin says **Service
+connected**, selected vault is exactly `FNS Pilot`, then run **Full Sync**.
 
-## 6. Enroll Android independently
+## 8. Enroll Android
 
-**Human does on Android while agent records only sanitized outcomes:**
+1. Create new empty disposable Android vault.
+2. Install Fast Note Sync `2.4.0`.
+3. Set attachment folder to `SYSTEM/Media`.
+4. Create separate `Android Pilot` authorization in WebGUI.
+5. Set 365-day validity, REST plus WebSocket, and exact-vault restriction.
+6. Import without email, chat, notes, screenshots, or shared clipboard history.
+7. Run **Full Sync**.
+8. Open Home, operating guide, templates, one note, and SVG attachment.
 
-1. Record Android and Obsidian versions plus default battery policy.
-2. Create new empty disposable vault.
-3. Install same approved Fast Note Sync plugin version and no other community
-   plugin.
-4. Set attachment folder to `SYSTEM/Media`.
-5. In WebGUI, create separate `Android Pilot` token with 365-day validity,
-   required REST and WebSocket permissions, and **Limit access to current vault
-   only**.
-6. Import authorization on device without email, chat, notes, screenshots, or
-   shared clipboard history.
-7. Confirm WebSocket online, run Full Sync, and open Home, guide, templates,
-   one note, and one attachment locally.
+Keep Configuration Sync, Cloud Preview automatic local deletion, sharing, Git,
+MCP, mirrors, and external REST consumers disabled.
 
-Record default lock-screen/background result before granting battery exemption.
-Then apply only required exemption and repeat convergence check.
+## 9. Verify installation
 
-## 7. Prove disposable behavior
+Release 1 installation is usable when all items pass:
 
-Follow full [Physical Android gate](README.md#physical-android-gate). Minimum
-promotion evidence:
+- Windows and Android show **Service connected**;
+- both authorizations are restricted to exact `FNS Pilot`;
+- WebGUI shows both WebSocket clients;
+- Windows creates a synthetic note and Android receives it;
+- Android edits that note and Windows receives edit;
+- `SYSTEM/Media` attachment opens on both devices;
+- registration remains closed;
+- public TLS and loopback health return HTTP `200`;
+- no personal content entered pilot.
 
-- Windows create, Android receive/edit, Windows receive;
-- Android offline create, reconnect, Windows receive;
-- note rename, folder move, delete/trash/restore, and history restore;
-- Android image plus larger arbitrary file opens on Windows;
-- attachment hashes match outside repository;
-- Android, Windows, and FNS restarts preserve exact vault and fixture counts;
-- no unexplained duplicate, deletion, cross-vault access, or manual repair.
+Extended offline, background, history, trash, lifecycle, and larger-attachment
+tests may continue during synthetic observation. They are not installation
+steps.
 
-Disconnecting phone before this matrix finishes leaves Android promotion gates
-open. Successful enrollment alone proves connectivity, not sync safety.
+## 10. Create independent backup
 
-## 8. Establish independent recovery
+Close Obsidian clients. On server:
 
-**Human does:** close or quiesce both Obsidian clients and confirm neither is
-editing.
-
-**Agent runs:** [Stopped-service
-backup](README.md#stopped-service-backup), copy archive plus checksum off VPS,
-then follow [Empty-path restore](README.md#empty-path-restore). Rebuild one
-empty disposable client from restored service.
-
-Agent must show checkpoint results without showing secrets:
-
-```text
-live service stopped
-archive checksum verified on server
-off-server checksum matched
-restore root was absent before extraction
-isolated restore health returned 200
-registration remained closed
-live and restored storage inventories matched
+```bash
+cd /opt/personal-knowledge-pipeline/fns
+docker compose stop
+timestamp="$(date -u +%Y%m%dT%H%M%SZ)"
+archive="backups/fns-state-${timestamp}.tar.gz"
+sudo tar \
+  --create \
+  --gzip \
+  --file "$archive" \
+  --directory . \
+  runtime/config runtime/storage runtime/cloudflared
+sudo sh -c "sha256sum '$archive' > '$archive.sha256'"
+sudo sha256sum --check "$archive.sha256"
+docker compose start
+docker compose ps
 ```
 
-**Human does:** authorize one new empty disposable Obsidian client against the
-isolated restored service. Agent then compares recovered fixture paths and
-hashes, revokes temporary authorization, and preserves evidence without token
-values.
+Copy archive and checksum off VPS, outside repository and vault. Recompute
+checksum after transfer. Protect archive because it contains signing keys,
+account database, vault data, and tunnel credentials.
 
-Archive contains FNS signing keys, account database, vault data, and tunnel
-credentials. Store copy outside cloud-synchronized folders under encrypted
-volume or ACL restricted to operator, SYSTEM, and local administrators. Verify
-checksum after copy and before every restore. Remove any temporary readable
-transfer copy after verification.
+Restore only into a new absent isolated directory and different loopback port.
+Never overwrite live or only surviving state. Exact procedure:
+[Empty-path restore](README.md#empty-path-restore).
 
-FNS history and trash are convenience recovery, not backup. Personal migration
-remains blocked until physical device matrix, off-VPS custody, and rebuilt
-client restore pass.
+FNS history and trash share live server failure domain; they are not backup.
 
-## Storage page note
+## Storage page
 
-Blank Storage Configuration Type list is expected while all optional FNS
-storage providers remain disabled. Read
-[Empty Storage Configuration type](README.md#empty-storage-configuration-type)
-before changing server configuration.
+Blank **Storage Configuration Type** list is expected because every optional
+FNS storage provider is disabled. Do not enable one merely to populate
+dropdown. See
+[Empty Storage Configuration type](README.md#empty-storage-configuration-type).
