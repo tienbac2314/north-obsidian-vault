@@ -174,10 +174,10 @@ Home styling source is `SYSTEM/Config/dashboard.css`; active copy lives at
 `.obsidian/snippets/dashboard.css`. Disable snippet or clear theme to restore
 default UI.
 
-Lazy Loader keeps Fast Note Sync, Homepage, Minimal Theme Settings, and Custom
-File Explorer sorting instant. Delayed Custom Sort misses automatic initial
-application, so do not delay it. One shared configuration is used on desktop
-and mobile. Never delay FNS.
+Fast Note Sync, Homepage, Minimal Theme Settings, and Custom File Explorer
+sorting all load immediately. Delayed Custom Sort misses automatic initial
+application, while the other three need instant behavior. No lazy loader is
+installed because this small set has nothing safe to delay. Never delay FNS.
 
 ## Weekly staging pass
 

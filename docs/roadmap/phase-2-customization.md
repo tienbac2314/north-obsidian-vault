@@ -141,8 +141,7 @@ Accepted set:
 - Minimal theme `8.2.2`;
 - Minimal Theme Settings `8.2.3`, instant startup;
 - Homepage `4.4.4`, instant startup;
-- Custom File Explorer sorting `3.1.6`, one shallow root rule;
-- Lazy Loader `1.0.24`, one shared device policy and no FNS delay.
+- Custom File Explorer sorting `3.1.6`, one shallow root rule.
 
 Core Bases replaces dynamic Dataview/Datacore tables. Core Search remains
 starter search. Core `SYSTEM/Media` plus original filenames replaces automatic
@@ -151,9 +150,10 @@ current research file.
 
 Windows implementation keeps every retained current plugin instant. Delaying
 Custom File Explorer sorting loaded its code but missed automatic initial
-application, so it was returned to instant startup. Lazy Loader remains as one
-shared controller for later nonessential plugins; it has no current delayed
-plugin and must never delay FNS.
+application, so it was returned to instant startup. FNS, Homepage, and theme
+settings also require instant startup. Lazy Loader was tested and removed
+because no current plugin can use it safely; keeping an idle manager would be
+bloat.
 
 ## Performance and sync safety
 

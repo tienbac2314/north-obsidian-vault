@@ -144,7 +144,7 @@ against releases, manifests, source, and relevant issues.
 | Minimal theme `8.2.2` | Yes | 2026-07-15 release. CSS theme only; vault remains usable with default theme. |
 | Minimal Theme Settings `8.2.3` | Yes | Excellent Health, Passed Review, desktop/mobile, 2026-05-11 release. One bounded theme controller. |
 | Custom File Explorer sorting `3.1.6` | Yes | Excellent Health, Caution Review, desktop/mobile, 2025-07-24 release. One shallow root rule only; no recursive date scans or bookmark mutation. |
-| Lazy Loader `1.0.24` | Yes | Excellent Health, Passed Review, desktop/mobile, 2026-05-31 release. One shared device policy avoids open dual-config issue `#36`. Runtime testing keeps FNS, Homepage, theme settings, and Custom Sort instant because delayed Custom Sort loaded but missed automatic initial application. |
+| Lazy Loader `1.0.24` | No | Excellent Health, Passed Review, desktop/mobile, 2026-05-31 release. Runtime testing found no safe delayed plugin: FNS, Homepage, and theme settings must be instant, while delayed Custom Sort loaded but missed automatic initial application. Keeping an idle manager would add bloat without startup benefit. |
 | Importer `1.8.12` | No after verification | Import is complete. Archive plugin files in recovery copy and remove from enabled runtime. |
 
 Scorecard sources:
@@ -171,6 +171,10 @@ measurement decides whether startup remains acceptable.
   Core `SYSTEM/Media` with original filenames is more portable.
 - **Style Settings and Hider:** extra UI controllers are not required. Minimal
   Theme Settings plus one inspectable CSS snippet cover accepted visual needs.
+- **Lazy Loader:** current retained plugins all require instant startup. Delayed
+  Custom Sort missed initial application, and an idle loader added no useful
+  behavior. Reconsider only after a later nonessential plugin has measured
+  startup cost and verified delayed behavior.
 - **Notebook Navigator:** Excellent Health and Passed Review, but it replaces
   file explorer and adds preview, indexing, and navigation behavior beyond the
   stated problem.
@@ -229,10 +233,10 @@ Windows launch-to-main-window baseline on Obsidian `1.12.7`:
 Median: 901 ms. This measures window readiness, not editor interaction or
 physical Android readiness.
 
-Post-customization normal launch trials were 973 ms, 854 ms, and 986 ms.
-Median was 973 ms and mean was 938 ms, compared with 901 ms median and 940 ms
-mean before customization. This small sample shows no meaningful mean
-regression or supported speed improvement. See
+Final post-customization normal launch trials were 973 ms, 841 ms, and 825 ms.
+Median was 841 ms and mean was 880 ms, compared with 901 ms median and 940 ms
+mean before customization. This small sample does not support a general speed
+claim. It does show no obvious launch regression. See
 [implementation evidence](2026-07-24-phase-2-implementation-evidence.md).
 
 ## Remaining gates

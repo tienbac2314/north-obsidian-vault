@@ -50,11 +50,11 @@ Live Obsidian configuration uses:
 | Minimal theme | 8.2.2 | Native theme load | Low-clutter presentation |
 | Minimal Theme Settings | 8.2.3 | Instant | Small maintained Minimal controls |
 | Custom File Explorer sorting | 3.1.6 | Instant | Shallow top-level order |
-| Lazy Loader | 1.0.24 | Instant controller | Shared policy for later nonessential plugins |
 
 Each downloaded file matched the SHA-256 digest published with its exact GitHub
-release asset. All four community plugins declare desktop and mobile support.
-Importer `1.8.12` is absent from enabled and installed active runtime.
+release asset. All retained community plugins declare desktop and mobile
+support. Importer `1.8.12` and tested Lazy Loader `1.0.24` are absent from
+enabled and installed active runtime.
 
 Core Search, Bases, Templates, Properties, Daily Notes, Bookmarks, Backlinks,
 File Recovery, and normal Markdown links remain the behavior layer. No
@@ -67,8 +67,8 @@ Obsidian `1.12.7` was launched with a local debugging endpoint for read-only
 runtime inspection. Observed results:
 
 - active file was `HUB/Home.md`;
-- FNS, Homepage, Minimal Theme Settings, Custom Sort, and Lazy Loader loaded;
-- Importer did not load;
+- FNS, Homepage, Minimal Theme Settings, and Custom Sort loaded;
+- Importer and Lazy Loader were neither installed nor loaded;
 - Minimal theme, hidden Minimal status bar, and dashboard snippet were active;
 - three Base sources rendered with no visible error view;
 - Custom Sort parsed its rule and applied this exact root folder order:
@@ -79,8 +79,14 @@ Initial short-delay testing found Custom Sort loaded after three seconds but did
 not automatically parse or apply because its initial layout hook had already
 passed. Manual activation worked. Configuration was corrected to instant
 startup, and a clean relaunch then parsed and applied the order automatically.
-Lazy Loader therefore has no delayed current plugin. This preserves requested
-control without trading away reliable navigation.
+Every other retained plugin also requires instant behavior. Lazy Loader was
+therefore removed rather than kept as an idle manager.
+
+FNS Configuration Sync restored the first local removal of disabled Importer
+and Lazy Loader folders from its remote configuration state. Both folders were
+removed again while FNS was connected so normal `SettingDelete` synchronization
+could record the deletion. A later FNS-connected relaunch did not restore them.
+Recovery copies remain outside active vault.
 
 ## Startup measurement
 
@@ -90,10 +96,10 @@ first editor interaction, background sync completion, or Android startup.
 | State | Trial 1 | Trial 2 | Trial 3 | Median | Mean |
 |---|---:|---:|---:|---:|---:|
 | Before | 1,020 ms | 901 ms | 898 ms | 901 ms | 940 ms |
-| After | 973 ms | 854 ms | 986 ms | 973 ms | 938 ms |
+| After | 973 ms | 841 ms | 825 ms | 841 ms | 880 ms |
 
-Three trials are too small for a performance claim. Mean was effectively flat;
-useful dashboard behavior did not introduce an obvious launch regression.
+Three trials are too small for a general performance claim. Final result shows
+no obvious launch regression and needs no loader to stay near one second.
 
 ## FNS safety checks
 
@@ -119,9 +125,7 @@ Small rollback:
 
 1. remove affected plugin ID from `.obsidian/community-plugins.json`;
 2. clear `cssTheme` or disable `dashboard` CSS snippet;
-3. keep Markdown, Bases, templates, and normal attachments unchanged;
-4. if removing Lazy Loader, re-enable any delayed plugin first. Current policy
-   has no delayed plugin.
+3. keep Markdown, Bases, templates, and normal attachments unchanged.
 
 Full rollback:
 

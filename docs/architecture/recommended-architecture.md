@@ -83,9 +83,10 @@ Vault files remain one attachment content authority. Platform-native gestures pr
 
 Core Bases, Properties, Templates, Daily Notes, Bookmarks, Search, Backlinks,
 and File Recovery provide Dusk-like navigation without its plugin chain.
-Minimal theme, Minimal Theme Settings, Homepage, shallow root sorting, Lazy
-Loader policy, and one CSS snippet are reversible presentation helpers; they
-gain no agent or network authority. FNS and Homepage load immediately.
+Minimal theme, Minimal Theme Settings, Homepage, shallow root sorting, and one
+CSS snippet are reversible presentation helpers; they gain no agent or network
+authority. All retained community plugins load immediately. No loader is
+installed because this minimal set has no safe delayed plugin.
 
 All FNS optional Storage Configuration providers remain disabled. They are
 backup/export targets, not live transport. Google Drive has no native adapter;

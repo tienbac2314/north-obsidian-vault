@@ -162,11 +162,12 @@ Only exact requests in `STAGING/Pending Agent Review` and workflow-created propo
 Release one borrows Dusk's structure, not its runtime. Phase 2 extends that
 core-first experience with core Bases and a small, reversible UI set: Minimal
 theme, Minimal Theme Settings, Homepage, shallow Custom File Explorer sorting,
-Lazy Loader policy, and one inspectable dashboard CSS snippet. Do not copy
-Dusk's `.obsidian` directory, scripts, dashboards, sample content, plugin
-settings, or Todoist credential. Dataview, Datacore, QuickAdd, Tasks, Templater,
-Meta Bind, JS Engine, Charts, Todoist, Iconic, and other chained runtime remain
-excluded. Detailed choice and versions: [DEC-036](decisions/decision-log.md#dec-036-use-core-first-dusk-experience).
+and one inspectable dashboard CSS snippet. Do not copy Dusk's `.obsidian`
+directory, scripts, dashboards, sample content, plugin settings, or Todoist
+credential. Dataview, Datacore, QuickAdd, Tasks, Templater, Lazy Loader, Meta
+Bind, JS Engine, Charts, Todoist, Iconic, and other chained runtime remain
+excluded. Detailed choice and versions:
+[DEC-036](decisions/decision-log.md#dec-036-use-core-first-dusk-experience).
 
 Detailed human and agent operation ships inside vault at `SYSTEM/Guides/vault-operating-guide.md`; repository source is [vault operating guide](../vault-template/SYSTEM/Guides/vault-operating-guide.md). Guide explains folder purposes, capture, filing, linking, attachments, templates, review decisions, agent permissions, failures, and promotion gates. Guide documents authority but never activates automation.
 
