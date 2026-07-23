@@ -23,7 +23,7 @@ app:
 
 security:
   auth-token-key: "__FNS_AUTH_TOKEN_KEY__"
-  token-expiry: "30d"
+  token-expiry: "365d"
   share-token-key: "__FNS_SHARE_TOKEN_KEY__"
   share-token-expiry: "7d"
   webgui-login-token-expiry: "24h"

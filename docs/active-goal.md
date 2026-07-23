@@ -35,6 +35,23 @@ Reach first usable synthetic Windows and Android Fast Note Sync vault with agree
   synthetic notes and one native SVG attachment.
 - Windows gates passed for note convergence, two-version history, recycle-bin
   deletion, restoration to original path, and native attachment sync.
+- Human completed physical Android plugin enrollment and reported successful
+  initial setup before disconnecting phone. WebGUI later confirmed prior
+  Android token use; Android behavior matrix remains unrun.
+- Exactly two current manual device tokens remain. Both use REST plus
+  WebSocket, 365-day validity, and exact `FNS Pilot` restriction. Windows
+  remained WebSocket-online after scope correction; superseded manual attempts
+  were revoked without changing WebGUI sessions.
+- Live and repository configuration now use 365-day manual-token default.
+- Empty Storage Configuration Type dropdown is explained by all optional FNS
+  storage providers being disabled. This is expected Release 1 configuration
+  plus an upstream missing empty-state message, not browser failure.
+- Fresh populated stopped-service archive passed server and Windows checksum
+  verification. Off-VPS copy is outside repository and vault under restricted
+  Windows ACL; temporary readable VPS export was removed.
+- Populated empty-path restore returned health `200`, retained closed
+  registration, and matched 105 live storage files. Isolated restore
+  container/network were removed; restored files remain preserved.
 - Manual protocol-import test briefly created synthetic `FNS+Pilot` because
   form encoding represented space as `+`. Correct import restored exact vault
   name, and accidental remote vault was deleted after equality checks.
@@ -42,20 +59,21 @@ Reach first usable synthetic Windows and Android Fast Note Sync vault with agree
 
 ## Next action
 
-On physical Android device, install Obsidian and verified Fast Note Sync
-`2.4.0`, create an empty disposable vault, enroll a separate Android token
-restricted to `FNS Pilot`, record default battery/background behavior before
-applying any exemption, then run bidirectional note plus attachment convergence.
-Follow the physical-device checklist in the
-[FNS operations runbook](../deploy/fns/README.md#physical-android-gate). Do not
+When phone is next available, run remaining physical-device checklist in
+[FNS operations runbook](../deploy/fns/README.md#physical-android-gate):
+bidirectional and offline notes, background/battery behavior, rename/move,
+history/trash, native attachments, restart, and rebuilt-client recovery. Do not
 migrate personal notes.
 
 ## Blockers
 
-- Physical Android plugin installation and battery/background checks require user device.
-- Android note, history, trash, and native-attachment gates remain unrun.
-- Independent off-VPS backup destination remains later promotion gate.
-- Same-VPS restore rehearsal does not replace off-VPS archive copy or rebuilt-client recovery test.
+- Android enrollment passed, but battery/background and lifecycle checks
+  require physical device.
+- Android bidirectional/offline note, history, trash, rename/move, restart, and
+  native-attachment gates remain unrun.
+- Current Windows archive is off VPS and ACL-restricted, but does not protect
+  against simultaneous Windows and VPS loss.
+- Populated same-VPS restore does not replace rebuilt-client recovery test.
 - Public TLS endpoint plus unresolved FNS security reports restrict pilot to synthetic content.
 
 ## Authority

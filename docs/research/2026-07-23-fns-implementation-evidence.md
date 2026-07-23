@@ -106,6 +106,61 @@ Two runtime failures were contained before public use:
 
 No personal notes entered pilot. Physical Android enrollment remains next gate.
 
+## Android enrollment and token correction
+
+Observed later on 2026-07-23:
+
+- A physical Android device connected over authorized ADB. Obsidian `1.12.7`
+  was installed, and the human reported successful FNS plugin enrollment before
+  disconnecting the phone.
+- FNS WebGUI showed prior Android token use and one current Windows WebSocket
+  connection. This proves account and transport enrollment, not Android
+  background or recovery behavior.
+- Manual recreation had left several superseded device tokens and made the two
+  newest device tokens vault-unrestricted. The newest Windows and Android
+  tokens were edited without rotation to retain REST plus WebSocket access,
+  365-day validity, and exact `FNS Pilot` vault restriction.
+- Windows remained WebSocket-online after scope correction. Five superseded
+  manual tokens, including never-used attempts, were revoked. Exactly two
+  manual device tokens remain; WebGUI login sessions were not changed.
+- Live runtime configuration already used `security.token-expiry: 365d`,
+  retained closed registration, and kept FNS running. Repository template and
+  human setup now use same device-token policy. WebGUI shows `366days`
+  immediately after a 365-day edit because it displays the current partial day
+  inclusively.
+
+Phone disconnected before bidirectional note, offline-create, background,
+battery, rename/move, history/trash, native attachment, restart, and rebuilt
+client gates. Those tests remain open.
+
+## Empty storage type diagnosis
+
+The authenticated WebGUI reproduced an empty **Storage Configuration** Type
+dropdown without console failure. Exact server `3.6.0` source and runtime
+contract explain it:
+
+- WebGUI requests `/api/storage/enabled_types`.
+- Server
+  [`GetEnabledTypes`](https://github.com/haierkeys/fast-note-sync-service/blob/3.6.0/internal/service/storage_service.go#L194)
+  returns only providers enabled in server configuration.
+- Release 1 deliberately disables local filesystem, Aliyun OSS, AWS S3,
+  Cloudflare R2, MinIO, and WebDAV storage providers. Empty list is therefore
+  correct for this deployment.
+- WebGUI has an upstream usability gap: it renders a blank selector instead of
+  explaining that no provider is enabled.
+
+English and Chinese GitHub issue searches included storage configuration,
+storage type, dropdown, no options, `存储配置`, `存储类型`, `下拉框`,
+`无法选择`, and `没有选项`. No exact report for this empty state was found.
+Chinese reports were included because much of upstream issue traffic is
+Chinese; absence of a matching issue is not proof no report exists.
+
+Release 1 fix is documentation, not enabling optional backup subsystem. A later
+approved provider would require runtime-only credentials, one explicit enable
+flag, restart, enabled-type response verification, and synthetic backup/restore
+test. Upstream UI fix should render a disabled explanatory state for empty
+response.
+
 ## Empty-state recovery rehearsal
 
 With registration closed and no user vault:
@@ -123,3 +178,32 @@ With registration closed and no user vault:
 This proves archive shape and same-VPS empty-path service startup. It does not
 prove off-VPS custody, independent vault recovery, history/trash recovery after
 real use, or rebuilt-client recovery. Those gates remain.
+
+## Populated backup and restore rehearsal
+
+After Windows and Android enrollment:
+
+- stopped live FNS and created a new root-owned archive plus SHA-256 manifest
+  from current `runtime/config`, `runtime/storage`, and
+  `runtime/cloudflared`;
+- restarted live service and verified loopback health plus server-side archive
+  checksum;
+- copied archive and checksum to Windows outside repository and vault;
+- independently recomputed local SHA-256 and matched manifest;
+- verified archive contains 137 entries and required runtime paths;
+- restricted exact Windows backup directory ACL to current user, SYSTEM, and
+  local Administrators with inherited access removed;
+- removed temporary readable VPS export copies while retaining root-owned
+  server archive;
+- extracted server archive into a new absent restore root;
+- started restored FNS on isolated alternate loopback port with no tunnel;
+- received HTTP `200`, retained closed registration, and matched all 105
+  storage files against live runtime at checkpoint;
+- stopped and removed isolated restore container and network while preserving
+  restored files for inspection.
+
+This passes current-state archive shape, off-VPS custody, checksum, populated
+same-VPS startup, and live/restore file-count gates. It does not prove recovery
+after Windows loss, rebuilt-client convergence, or Android recovery. Archive
+contains secret-bearing runtime state; keep its restricted directory outside
+cloud sync, repository, and vault.

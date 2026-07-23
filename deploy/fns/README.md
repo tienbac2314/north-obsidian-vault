@@ -9,6 +9,10 @@ Cloudflare Tunnel supplies TLS without changing existing tunnel routes.
 Synthetic data only. Do not connect personal or employer notes until every
 promotion gate in [first release](../../docs/roadmap/mvp.md) passes.
 
+New operator: follow the linear
+[ground-up human setup](human-setup.md). This file remains the detailed server,
+recovery, and failure-response reference.
+
 ## Paths and secret boundary
 
 Repository files:
@@ -25,7 +29,7 @@ Runtime-only files remain outside Git:
 - `runtime/config/config.yaml`;
 - `runtime/storage/`;
 - `runtime/cloudflared/config.yml`;
-- `runtime/cloudflared/<tunnel-id>.json`;
+- `runtime/cloudflared/credentials.json`;
 - stopped-service archives and their SHA-256 manifests;
 - FNS username, password, API configuration, tokens, hostname, and tunnel ID.
 
@@ -33,6 +37,8 @@ Generate unique `auth-token-key` and `share-token-key` values on Oracle. Never
 reuse Hermes, 9Router, Cloudflare, or backup credentials.
 
 ## Render configuration
+
+### Render FNS server config
 
 Create exact runtime directories with owner-only access:
 
@@ -48,14 +54,19 @@ Copy templates into runtime paths. Replace placeholders without printing
 generated values:
 
 ```bash
+rendered_config="$(mktemp)"
+trap 'rm -f "$rendered_config"' EXIT
 auth_key="$(openssl rand -hex 32)"
 share_key="$(openssl rand -hex 32)"
 sed \
   -e "s/__FNS_AUTH_TOKEN_KEY__/${auth_key}/" \
   -e "s/__FNS_SHARE_TOKEN_KEY__/${share_key}/" \
-  config/config.yaml.example > runtime/config/config.yaml
+  config/config.yaml.example > "$rendered_config"
+sudo install -o root -g root -m 0600 \
+  "$rendered_config" runtime/config/config.yaml
+rm -f "$rendered_config"
+trap - EXIT
 unset auth_key share_key
-chmod 0600 runtime/config/config.yaml
 sudo chown -R root:root runtime/config runtime/storage
 sudo chmod 0700 runtime/config runtime/storage
 ```
@@ -64,15 +75,43 @@ FNS image runs as container root with every Linux capability dropped. Root
 ownership is required because dropped `DAC_OVERRIDE` prevents that process
 from writing a host directory owned only by another UID.
 
-Render Cloudflare configuration with exact dedicated tunnel ID, credentials
-path, and hostname. Keep those values outside repository and shell history.
+### Provision dedicated tunnel
 
-Create one locked service account, grant it read access only to dedicated
-tunnel runtime, and install exact unit:
+Create dedicated tunnel and DNS route. Interactive values do not enter shell
+history:
+
+```bash
+cloudflared tunnel login
+cloudflared tunnel create fns-pilot
+read -r -p "Tunnel UUID: " tunnel_id
+read -r -p "FNS hostname: " fns_hostname
+credential_source="$HOME/.cloudflared/${tunnel_id}.json"
+test -f "$credential_source"
+cloudflared tunnel route dns "$tunnel_id" "$fns_hostname"
+```
+
+### Install dedicated tunnel service
+
+Create one locked service account. Render tracked template through temporary
+file, normalize generated UUID credential filename to `credentials.json`, and
+grant account access only to dedicated tunnel runtime:
 
 ```bash
 sudo useradd --system --home-dir /nonexistent --shell /usr/sbin/nologin fns-tunnel
-sudo chown -R fns-tunnel:fns-tunnel runtime/cloudflared
+rendered_tunnel_config="$(mktemp)"
+trap 'rm -f "$rendered_tunnel_config"' EXIT
+sed \
+  -e "s|__FNS_TUNNEL_ID__|${tunnel_id}|" \
+  -e "s|__FNS_TUNNEL_CREDENTIALS_FILE__|/opt/personal-knowledge-pipeline/fns/runtime/cloudflared/credentials.json|" \
+  -e "s|__FNS_HOSTNAME__|${fns_hostname}|" \
+  cloudflared/config.yml.example > "$rendered_tunnel_config"
+sudo install -o fns-tunnel -g fns-tunnel -m 0600 \
+  "$rendered_tunnel_config" runtime/cloudflared/config.yml
+sudo install -o fns-tunnel -g fns-tunnel -m 0600 \
+  "$credential_source" runtime/cloudflared/credentials.json
+rm -f "$rendered_tunnel_config"
+trap - EXIT
+sudo chown fns-tunnel:fns-tunnel runtime/cloudflared
 sudo chmod 0711 /opt/personal-knowledge-pipeline/fns
 sudo chmod 0700 runtime/cloudflared
 sudo chmod 0600 runtime/cloudflared/config.yml runtime/cloudflared/credentials.json
@@ -81,6 +120,7 @@ sudo install -m 0644 \
   /etc/systemd/system/fns-cloudflared.service
 sudo systemctl daemon-reload
 sudo systemctl enable --now fns-cloudflared.service
+unset tunnel_id fns_hostname credential_source
 ```
 
 Mode `0711` grants dedicated service traverse-only access to known tunnel path;
@@ -140,12 +180,16 @@ Use separate vault-restricted authorization per device:
    and vault. Never place token in Markdown, screenshots, shell history, or
    shared clipboard history.
 
+Use a 365-day validity period for each disposable device token. Keep WebGUI
+login and sharing lifetimes separate. Give Windows and Android different
+tokens so either device can be revoked without rotating the other.
+
 Windows pilot passed full sync, two-version history, recycle-bin restore, and
-native SVG attachment gates. Android remains physical gate: install verified
-plugin, use empty disposable vault, create separate vault-restricted token,
+native SVG attachment gates. Android plugin enrollment and separate
+vault-restricted token creation passed, but physical behavior remains a gate:
 record default background behavior before applying required battery exemption,
-then repeat bidirectional note and attachment checks. Personal migration
-remains blocked.
+then run bidirectional, offline, history/trash, attachment, lifecycle, and
+rebuilt-client checks. Personal migration remains blocked.
 
 ## Physical Android gate
 
@@ -182,6 +226,29 @@ Stop on silent loss, unexplained deletion, cross-vault access, inaccessible
 attachment, hidden failure, or recurring manual repair. Preserve all copies and
 do not add second sync or attachment transport.
 
+## Empty Storage Configuration type
+
+With this Release 1 configuration, **Backup & Sync** > **Storage
+Configuration** > **Add Storage** opens a Type control with no options. This is
+expected from current server configuration, not a browser failure:
+
+- the WebGUI requests `/api/storage/enabled_types`;
+- FNS returns only storage providers whose `is-enable` flag is true;
+- this deployment disables `local-fs`, Aliyun OSS, AWS S3, Cloudflare R2,
+  MinIO, and WebDAV, so the correct response is an empty list;
+- upstream WebGUI does not render a useful “no storage providers enabled”
+  message.
+
+Do not enable a provider only to populate the dropdown. Release 1 deliberately
+excludes FNS backup jobs: history and trash share the live server's failure
+domain, while independent recovery uses stopped-service archives.
+
+If a later approved design selects one FNS storage provider, add its
+runtime-only credentials, enable only that provider, restart FNS, confirm
+`/api/storage/enabled_types` returns that one type, and test backup plus restore
+with synthetic data. An upstream UI fix would keep the empty list but replace
+the blank control with an explanatory disabled state.
+
 ## Stop and restart
 
 ```bash
@@ -202,14 +269,14 @@ Quiesce Obsidian clients first. Then:
 ```bash
 docker compose stop
 timestamp="$(date -u +%Y%m%dT%H%M%SZ)"
+archive="backups/fns-state-${timestamp}.tar.gz"
 sudo tar \
   --create \
   --gzip \
-  --file "backups/fns-state-${timestamp}.tar.gz" \
+  --file "$archive" \
   --directory . \
   runtime/config runtime/storage runtime/cloudflared
-sha256sum "backups/fns-state-${timestamp}.tar.gz" \
-  > "backups/fns-state-${timestamp}.tar.gz.sha256"
+sudo sh -c "sha256sum '$archive' > '$archive.sha256'"
 docker compose start
 ```
 
@@ -225,7 +292,7 @@ verify it is absent, then create it:
 restore_root="/opt/personal-knowledge-pipeline/fns-restore-test"
 test ! -e "$restore_root"
 sudo install -d -m 0700 "$restore_root"
-sha256sum --check backups/fns-state-<timestamp>.tar.gz.sha256
+sudo sha256sum --check backups/fns-state-<timestamp>.tar.gz.sha256
 sudo tar \
   --extract \
   --gzip \
