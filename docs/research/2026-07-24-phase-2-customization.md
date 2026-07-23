@@ -144,7 +144,7 @@ against releases, manifests, source, and relevant issues.
 | Minimal theme `8.2.2` | Yes | 2026-07-15 release. CSS theme only; vault remains usable with default theme. |
 | Minimal Theme Settings `8.2.3` | Yes | Excellent Health, Passed Review, desktop/mobile, 2026-05-11 release. One bounded theme controller. |
 | Custom File Explorer sorting `3.1.6` | Yes | Excellent Health, Caution Review, desktop/mobile, 2025-07-24 release. One shallow root rule only; no recursive date scans or bookmark mutation. |
-| Lazy Loader `1.0.24` | Yes | Excellent Health, Passed Review, desktop/mobile, 2026-05-31 release. FNS, Homepage, and theme settings stay instant; only nonessential sorting is short-delayed. One shared device policy avoids open dual-config issue `#36`. |
+| Lazy Loader `1.0.24` | Yes | Excellent Health, Passed Review, desktop/mobile, 2026-05-31 release. One shared device policy avoids open dual-config issue `#36`. Runtime testing keeps FNS, Homepage, theme settings, and Custom Sort instant because delayed Custom Sort loaded but missed automatic initial application. |
 | Importer `1.8.12` | No after verification | Import is complete. Archive plugin files in recovery copy and remove from enabled runtime. |
 
 Scorecard sources:
@@ -228,6 +228,12 @@ Windows launch-to-main-window baseline on Obsidian `1.12.7`:
 
 Median: 901 ms. This measures window readiness, not editor interaction or
 physical Android readiness.
+
+Post-customization normal launch trials were 973 ms, 854 ms, and 986 ms.
+Median was 973 ms and mean was 938 ms, compared with 901 ms median and 940 ms
+mean before customization. This small sample shows no meaningful mean
+regression or supported speed improvement. See
+[implementation evidence](2026-07-24-phase-2-implementation-evidence.md).
 
 ## Remaining gates
 

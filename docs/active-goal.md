@@ -37,11 +37,22 @@ human-use gate or unrun physical Android matrix.
 - Windows launch-to-window baseline median is 901 ms across three trials.
 - Full 312-file vault recovery copy and matching SHA-256 manifests were created
   outside vault and repository before customization.
+- Core-first Home, three Bases, six simple templates, one shallow folder-order
+  rule, Minimal theme, Homepage, Minimal Theme Settings, Custom Sort, and Lazy
+  Loader are installed on Windows.
+- Runtime inspection confirmed Home startup, plugin load, Base rendering,
+  theme/snippet activation, exact root-folder order, and zero visible error
+  views. Custom Sort stays instant after delayed startup missed its layout hook.
+- Post-change normal launch mean is 938 ms across three trials versus 940 ms
+  baseline. Notion still matches all 164 baseline paths, lengths, and hashes.
+- Importer is disabled and recoverably archived beside the pre-change backup.
+- Public FNS health, loaded Windows plugin, unchanged FNS configuration hash,
+  and deployment contract tests pass.
 
 ## Next action
 
-Implement accepted vault template and runtime configuration, then verify
-startup, FNS, Notion byte preservation, rollback, and repository checks.
+Record implementation evidence, run full repository verification and review,
+push the branch, and open the Phase 2 pull request.
 
 ## Stop conditions
 

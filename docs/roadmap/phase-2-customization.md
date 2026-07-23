@@ -149,6 +149,12 @@ starter search. Core `SYSTEM/Media` plus original filenames replaces automatic
 attachment rename/move plugins. Rejected additions and issue evidence live in
 current research file.
 
+Windows implementation keeps every retained current plugin instant. Delaying
+Custom File Explorer sorting loaded its code but missed automatic initial
+application, so it was returned to instant startup. Lazy Loader remains as one
+shared controller for later nonessential plugins; it has no current delayed
+plugin and must never delay FNS.
+
 ## Performance and sync safety
 
 Measure Obsidian startup before and after customization. Keep only changes that
