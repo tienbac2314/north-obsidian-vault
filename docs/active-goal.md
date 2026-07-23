@@ -10,7 +10,8 @@ Notion import unchanged, port useful Dusk behavior without its obsolete runtime,
 customize `G:\Obsidian` with a minimal fast plugin set, verify recovery and sync
 safety, document decisions, and deliver a reviewed pull request.
 
-Status: in progress on `feat/obsidian-phase2`.
+Status: Windows implementation complete on `feat/obsidian-phase2`; PR
+[#4](https://github.com/tienbac2314/north-obsidian-vault/pull/4) is open.
 
 This work prepares Release 2. It does not complete the roadmap's four-week
 human-use gate or unrun physical Android matrix.
@@ -50,11 +51,13 @@ human-use gate or unrun physical Android matrix.
   configuration, then recoverably archived beside the pre-change backup.
 - Public FNS health, loaded Windows plugin, unchanged FNS configuration hash,
   and deployment contract tests pass.
+- Final repository suite passes on a clean branch. Atomic commits were pushed
+  normally and PR #4 is open against current `main`.
 
 ## Next action
 
-Record implementation evidence, run full repository verification and review,
-push the branch, and open the Phase 2 pull request.
+Review and merge PR #4. When Android is available, run the deferred physical
+customization smoke matrix, then begin the Release 2 four-week human-use gate.
 
 ## Stop conditions
 
