@@ -4,35 +4,29 @@ Updated: 2026-07-23
 
 ## Objective
 
-Land PR #2 with reviewed modular design aligned to FNS-only native attachments, reproducible core vault bootstrap, proposal-only Hermes Release 3, authenticated transactional Release 4A, and evidence-gated rollout. Runtime and VPS remain unchanged.
+Reach first usable synthetic Windows and Android Fast Note Sync vault with agreed plain-Markdown layout. Implement through verified checkpoints and stop at physical-device, account, or safety gate before personal migration.
 
 ## Checkpoint
 
-- Official Obsidian registry, plugin scorecards, GitHub manifests, READMEs, and repository searches confirm Drive Attachments is desktop-only and no current alternative meets every seamless private arbitrary-file requirement.
-- DEC-028 replaces Windows-only Drive ingress with normal Obsidian attachment capture on both clients and FNS as sole live note and attachment transport.
-- Current architecture, behavior, failure, security, roadmap, and interaction modules keep vault files as one attachment content authority and FNS as sole live synchronization transport; historical research and superseded decisions remain intact.
-- DEC-030 replaces ambiguous `INBOX` and split proposal paths with one `STAGING` workflow: neutral capture, explicit review requests, incoming agent proposals, and visible reviewed feedback. Hermes remains deferred and may create a replacement only from explicit `revise` review after later promotion.
-- DEC-031 keeps Release 3 proposal-only, then gates accepted filing, exact dependency patches, and weekly changed-note link gardening behind Release 4A evidence. No runtime Hermes access or mutation is authorized now.
-- DEC-032 adds detailed in-vault human/agent manual under `SYSTEM/Guides`; guide documents operation but grants no authority.
-- DEC-033 treats synchronized review gestures as intent, requires authenticated hash-bound receipts, and gives deterministic executor canonical path, concurrency, rollback, idempotency, budget, and retention contracts.
-- DEC-034 adds non-destructive vault initializer, meaningful Home and templates, exact folder creation, safe-repeat test, and Stage 4 cross-platform bootstrap gate.
-- Already-filed canonical notes remain in place through sidecar review requests; only raw Unsorted notes move into pending queue.
-- Every generated plan/spec now declares current, completed, or superseded status in-file; current authority remains modular design.
-- Markdown checker regression now covers fenced examples, ordinary broken links, untracked Markdown targets, orphan rejection, and transitive reachability.
-- Full verification passed: Markdown regressions, vault initializer regressions, publisher regressions, 201 local links across 64 reachable Markdown files, secret scan across 73 tracked files, 9 rendered Mermaid diagrams, and whitespace.
-- Independent whole-system review plus focused re-reviews report no unresolved Critical or Important findings.
-- Publisher checkpoint verified remote dev, clean/dev tree equality, one clean commit over current `origin/main`, mergeable PR #2, intended diff, and updated PR description. Remote equality must be rechecked after any later bookkeeping commit; Git refs are final proof.
+- PR #2 is merged. Branch `feat/fns-release-one` starts from verified `origin/main`.
+- Current upstream releases are FNS server `3.6.0` and Obsidian plugin `2.4.0`; server image digest and ARM64 manifest are recorded in deployment contract.
+- Open server issues `#339`, `#342`, and `#346` still block personal data and agent consumers.
+- Stage 1 contract now defines pinned Compose, loopback bind, closed-by-default registration, secret-bearing runtime config, dedicated tunnel, stopped-service backup, empty-path restore, and rollback.
+- Stage 2 read-only Oracle preflight passed architecture, Docker, Compose, disk, loopback port, target-path, and no-existing-FNS checks.
+- Preflight disproved old Nginx assumption. DEC-035 selects new dedicated Cloudflare Tunnel without editing existing routes or tunnel processes.
+- Hermes and 9Router remain outside deployment and receive no vault workload.
 
 ## Next action
 
-Merge PR #2 through normal review, then verify `origin/main` matches published clean tree. That verification activates new workflow immediately: every later task starts from current `main` on short-lived branch. No legacy cleanup blocks Stage 1.
+Verify Stage 1 repository checks, commit contract, then deploy pinned FNS and dedicated tunnel on Oracle. Bootstrap one disposable account, close registration, initialize disposable Windows vault, and stop when physical Android or user-secret interaction is required.
 
 ## Blockers
 
 - FNS physical Windows/Android note and native-attachment gates remain unrun.
-- Hermes gateway supervisor stability remains unresolved; no vault workload is authorized.
-- Backup destination, cadence, encryption, and restore schedule remain Release 2 promotion gates.
-- PR #2 merge and `main` tree verification remain only Git-workflow cutover gate. Generated clean branch deletion is optional afterward; permanent dev branch and publisher may remain as history.
+- Disposable account creation may require interactive browser input.
+- Physical Android plugin installation and battery/background checks require user device.
+- Independent off-VPS backup destination remains later promotion gate.
+- Public TLS endpoint plus unresolved FNS security reports restrict pilot to synthetic content.
 
 ## Authority
 

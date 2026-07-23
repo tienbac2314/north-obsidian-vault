@@ -1,0 +1,10 @@
+tunnel: __FNS_TUNNEL_ID__
+credentials-file: __FNS_TUNNEL_CREDENTIALS_FILE__
+
+ingress:
+  - hostname: __FNS_HOSTNAME__
+    service: http://localhost:19000
+    originRequest:
+      connectTimeout: 10s
+      noHappyEyeballs: false
+  - service: http_status:404
