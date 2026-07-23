@@ -44,9 +44,11 @@ Reach first usable synthetic Windows and Android Fast Note Sync vault with agree
 
 On physical Android device, install Obsidian and verified Fast Note Sync
 `2.4.0`, create an empty disposable vault, enroll a separate Android token
-restricted to `FNS Pilot`, exempt Obsidian from battery/background suspension,
-and run bidirectional note plus attachment convergence. Do not migrate personal
-notes.
+restricted to `FNS Pilot`, record default battery/background behavior before
+applying any exemption, then run bidirectional note plus attachment convergence.
+Follow the physical-device checklist in the
+[FNS operations runbook](../deploy/fns/README.md#physical-android-gate). Do not
+migrate personal notes.
 
 ## Blockers
 

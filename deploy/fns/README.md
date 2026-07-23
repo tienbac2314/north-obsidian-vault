@@ -143,8 +143,44 @@ Use separate vault-restricted authorization per device:
 Windows pilot passed full sync, two-version history, recycle-bin restore, and
 native SVG attachment gates. Android remains physical gate: install verified
 plugin, use empty disposable vault, create separate vault-restricted token,
-allow Obsidian background/battery operation, then repeat bidirectional note and
-attachment checks. Personal migration remains blocked.
+record default background behavior before applying required battery exemption,
+then repeat bidirectional note and attachment checks. Personal migration
+remains blocked.
+
+## Physical Android gate
+
+Do not pre-generate Android authorization. Create it only when physical device
+is ready, and never move it through email, chat, notes, screenshots, or shared
+clipboard history.
+
+On device:
+
+1. Record Android and Obsidian versions plus default battery/background policy.
+2. Create empty disposable Obsidian vault. Install only verified Fast Note Sync
+   `2.4.0`; keep every other community plugin disabled.
+3. Set attachment folder to `SYSTEM/Media`. Keep Configuration Sync, Cloud
+   Preview automatic local deletion, sharing, Git, mirrors, MCP, REST consumers,
+   and headless clients disabled.
+4. Generate separate `Android Pilot` authorization restricted to exact
+   `FNS Pilot`. Import through WebGUI one-click action or plugin paste action.
+5. Confirm WebGUI shows Android WebSocket online, then run Full Sync. Verify
+   Home, guide, templates, folders, synthetic roundtrip note, and SVG attachment
+   open locally.
+6. Before changing battery policy, lock screen and background Obsidian once;
+   record whether convergence completes or visibly waits. Then apply required
+   battery/background exemption and repeat.
+7. Run Windows create, Android receive/edit, Windows receive. Create one Android
+   note offline, reconnect, and verify Windows receives it.
+8. Test rename and folder move; delete, inspect trash, and restore; edit, inspect
+   history, and restore earlier version.
+9. Capture or select one Android image and one larger disposable file. Open both
+   from Windows after convergence and compare byte hashes outside repository.
+10. Restart Android Obsidian, Windows Obsidian, and FNS service separately.
+    Confirm exact vault remains connected and fixture counts stay stable.
+
+Stop on silent loss, unexplained deletion, cross-vault access, inaccessible
+attachment, hidden failure, or recurring manual repair. Preserve all copies and
+do not add second sync or attachment transport.
 
 ## Stop and restart
 
