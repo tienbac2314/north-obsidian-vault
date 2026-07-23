@@ -1,5 +1,7 @@
 # OpenViking evaluation
 
+Status: postponed research. OpenViking is excluded from first design until plain-search baseline proves need.
+
 ## Verified capabilities
 
 - Accessed 2026-07-21. Pilot must record exact deployed release/commit before relying on lifecycle behavior.

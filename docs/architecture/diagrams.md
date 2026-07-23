@@ -1,81 +1,112 @@
 # Architecture diagrams
 
-## First release
+Status: current diagrams under [system design](../system-design.md).
+
+## Human-only pilot
 
 ```mermaid
 flowchart LR
-    U["User"] --> O["Obsidian clients"]
-    O <--> S["One validated free sync"]
-    S <--> V["VPS vault replica"]
-    V --> G["Git audit"]
-    V --> B["Encrypted off-host backup"]
-    V --> Q["Pending Agent Review"]
-    Q --> H["Hermes"]
-    H --> R["9Router generation"]
-    H --> P["Proposal artifact"]
-    P --> A["Deterministic approval/apply"]
+    U["User"] --> W["Windows vault: notes and attachments"]
+    U --> A["Android vault: notes and attachments"]
+    W <--> F["Private FNS server"]
+    A <--> F
+    W --> V["Independent plain-vault recovery"]
     A --> V
+    F --> B["Stopped-service recovery"]
 ```
 
-## Optional later services
+Hermes, 9Router, FNS APIs, headless clients, Git automation, and second sync engines are outside this release.
+
+## Authority and copies
+
+```mermaid
+flowchart TB
+    N["Vault Markdown: canonical notes"] --> S["FNS current-file replication"]
+    N --> L["Vault attachment bytes"]
+    L --> S
+    S --> H["FNS history and trash: convenience"]
+    N --> B["Independent vault recovery copy"]
+    L --> B
+```
+
+Replication is not backup. Product history remains inside FNS failure domain. Independent copy includes actual note and attachment bytes.
+
+## Evidence-gated promotion
 
 ```mermaid
 flowchart LR
-    T["Telegram"] --> I[("SQLite WAL ingress")]
-    I --> H["Hermes worker"]
-    H --> P["Vault proposal"]
-    V["Canonical vault"] --> M["Projection manifest"]
-    M --> X["OpenViking derived context"]
-    X --> H
-    H --> R["9Router generation/VLM"]
-    E["Pinned embedding endpoint"] --> X
+    D["Approved design"] --> P["Synthetic FNS pilot"]
+    P --> C{"Conflict, Android, attachment, restore gates pass?"}
+    C -- "No" --> X["Stop and preserve copies"]
+    X --> F["Evaluate one replacement transport"]
+    C -- "Yes" --> O["Seven-day synthetic observation"]
+    O --> H{"Human personal-data gate passes?"}
+    H -- "No" --> X
+    H -- "Yes" --> U["Bounded human personal pilot"]
+    U --> G{"Gateway, privacy, transport, and agent gates pass?"}
+    G -- "No" --> U
+    G -- "Yes" --> A["Synthetic Hermes proposal pilot"]
 ```
 
-## Proposal state
+Passing one gate grants only next bounded stage. Human sync never implicitly authorizes agent access.
+
+## Later proposal-only Hermes
+
+```mermaid
+flowchart LR
+    Q["STAGING/Pending Agent Review"] --> A["Authenticated exact-request receipt"]
+    A --> T["Approved transport boundary"]
+    T --> H["Hermes narrow workflow"]
+    H --> R["9Router generation"]
+    H --> P["STAGING/Agent Proposals"]
+    P --> U["User records keep, revise, or reject"]
+    U --> V["STAGING/Reviewed"]
+    V -. "revise only" .-> H
+    Q -. "source unchanged" .-> U
+```
+
+Existing-note writes, automatic filing, deletion, rename, merge, and link repair remain outside scheduled flow.
+
+## Later proposal state
 
 ```mermaid
 stateDiagram-v2
     [*] --> Queued
-    Queued --> Drafting
-    Drafting --> Proposed
-    Drafting --> Failed
-    Proposed --> Rejected
-    Proposed --> Stale: base hash changed
-    Proposed --> Approved
-    Approved --> Applying
-    Applying --> Applied: atomic write and validation
-    Applying --> Stale: hash mismatch
-    Applying --> Failed
-    Applied --> Committed: Git commit succeeds
-    Applied --> Reconcile: Git commit fails
-    Reconcile --> Committed
+    Queued --> Drafting: source path and hash captured
+    Drafting --> Pending: collision-safe proposal created
+    Drafting --> Waiting: gateway or provider unavailable
+    Waiting --> Drafting: bounded retry
+    Drafting --> Failed: validation or policy failure
+    Pending --> HumanOwned: user edits review block
+    HumanOwned --> Reviewed: user moves proposal
+    Reviewed --> Pending: revise creates new identity
+    Reviewed --> Kept: keep creates no write
+    Reviewed --> Rejected: reject creates no write
+    Reviewed --> AwaitingReceipt: later accept after R4A gate
+    AwaitingReceipt --> ApplyPlan: authenticated hash-bound confirmation
+    ApplyPlan --> Applied: transaction commits once
+    ApplyPlan --> RolledBack: write failure restored
+    ApplyPlan --> Stale: precondition changed
+    ApplyPlan --> RecoveryRequired: rollback or state unknown
+    Pending --> Stale: source hash changes
+
+    note right of Pending
+      Source remains unchanged
+      Proposal is ordinary Markdown
+    end note
 ```
 
-## Authority and derivation
+Release 3 has no apply state. Release 4A adds immutable authenticated approval and deterministic transaction only after separate promotion.
+
+## Deferred extensions
 
 ```mermaid
 flowchart TB
-    V["Obsidian vault: canonical"] --> P["OpenViking projection: rebuildable"]
-    V --> G["Git history: audit"]
-    V --> B["Encrypted backup: recovery"]
-    P --> H["Hermes context"]
-    H --> Q["Proposal only"]
-    Q --> V
+    V["Human vault after proven workflow"] --> N{"Measured need?"}
+    N -- "Retrieval failure" --> O["Evaluate OpenViking or embeddings"]
+    N -- "Capture friction" --> T["Evaluate Telegram ingestion"]
+    N -- "Repeated visual workflow" --> C["Evaluate Canvas automation"]
+    N -- "No measured need" --> K["Keep current system"]
 ```
 
-Sync copies canonical bytes. Git records history. Backup recovers data. OpenViking derives context. None grants Hermes authority.
-
-## Telegram availability boundary
-
-```mermaid
-flowchart TB
-    T["Telegram update"] --> I["Allowlist and idempotency"]
-    I --> D[("SQLite durable commit")]
-    D --> A["Saved"]
-    D --> J["Async job"]
-    J --> H["Hermes"]
-    H --> R["9Router/upstream"]
-    H --> V["Vault proposal"]
-```
-
-For text/link, full-synchronous SQLite commit precedes `Saved`. Media first confirms durable metadata/pending attachment; final confirmation follows durable bytes/checksum. Every model/agent component may fail and retry.
+Deferred components are experiments, not empty boxes waiting for installation.

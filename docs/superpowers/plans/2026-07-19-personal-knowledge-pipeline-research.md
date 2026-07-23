@@ -1,5 +1,7 @@
 # Personal Knowledge Pipeline Research Implementation Plan
 
+Status: completed historical plan. Non-authoritative; do not execute. Current authority is [system design](../../system-design.md) and [first production-worthy release](../../roadmap/mvp.md).
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Produce a traceable research repository, complete behavioral and technical system design, coherent research history, pushed branch, and reviewable pull request for a personal knowledge pipeline.

@@ -1,5 +1,7 @@
 # Telegram evaluation
 
+Status: historical integration research. Telegram remains ordinary Hermes chatbot and is excluded from Obsidian ingestion in first design.
+
 ## Evidence
 
 - Official [Telegram Bot API](https://core.telegram.org/bots/api) supplies `update_id`, replies, media groups, files, polling, and retrying webhooks. Pending updates have limited retention.

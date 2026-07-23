@@ -13,14 +13,22 @@ Vault structure adapts Dusk's PARA/Zettelkasten organization but excludes its ol
 
 ## Sync research
 
-- [Self-hosted LiveSync](https://github.com/vrtmrz/obsidian-livesync) supports self-hosted CouchDB/object-storage modes and warns against combining sync solutions. Recent releases add headless CLI capabilities. Resource use, bootstrap, conflict, and recovery still need Oracle ARM64 tests.
+- [Self-hosted LiveSync](https://github.com/vrtmrz/obsidian-livesync) supports self-hosted CouchDB/object-storage modes, end-to-end encryption, and conflict handling. It warns against combining sync solutions and explicitly recommends separate backup.
+- Its official [headless CLI](https://github.com/vrtmrz/obsidian-livesync/tree/main/src/apps/cli) can continuously mirror CouchDB into a real VPS vault directory. This removes the previously assumed need for a custom bridge and lets Hermes use its bundled filesystem-first Obsidian skill.
+- Current CLI release has a blocking encrypted-write defect: [issue #1036](https://github.com/vrtmrz/obsidian-livesync/issues/1036) reports that E2EE pushes crash under Node. Do not promote it for bidirectional agent edits until fixed and verified on Oracle ARM64.
+- [Fast Note Sync](https://github.com/haierkeys/fast-note-sync-service) combines sync, history, trash, attachments, Git automation, REST, and native MCP. Its Obsidian plugin has Excellent Health and Passed Review, but E2EE remains future work and open authorization/correctness reports require a bounded pilot.
+- [Local REST API with MCP](https://github.com/coddingtonbear/obsidian-local-rest-api) provides strong targeted editing and search while Obsidian is running. It does not create an always-on VPS replica.
 - [Remotely Save](https://github.com/remotely-save/remotely-save) supports several remote storage backends. VPS convergence and conflict semantics need tests.
-- [Syncthing Android](https://github.com/syncthing/syncthing-android) official app was discontinued and archived in December 2024. Desktop/VPS remains viable, but Android requires community-client acceptance.
+- [Syncthing Android](https://github.com/syncthing/syncthing-android) official app was discontinued and archived in December 2024. [Syncthing-Fork](https://github.com/researchxxl/syncthing-android/releases) remains maintained but needs physical-device validation.
+- Syncthing preserves concurrent edits as propagated `.sync-conflict-*` files and supports per-device versioning for remote changes. These are useful plain-file safety properties, not proof of Android background reliability.
+- [Syncthing Manager](https://github.com/gustjose/obsidian-syncthing-manager) adds status, conflict diff, versioning, restore, and control UI inside Obsidian. It reduces usability cost but does not change core conflict or backup semantics.
 - Git is excellent audit/rollback but awkward default phone sync. Paid Obsidian Sync violates constraint.
 
 ## Recommendation
 
-Test LiveSync versus Remotely Save on actual clients. Run one sync engine only. Preserve conflict copies for human resolution. Keep `.git`, volatile `.obsidian` state, service databases, temp files, and agent proposal state out of sync/index contexts as selected design requires.
+Current design selects FNS for an isolated Windows and Android human-sync pilot because integrated setup, history, trash, and attachments best fit daily Obsidian use. FNS MCP, REST, headless clients, and Hermes access remain disabled until authorization, external-writer, conflict, and restore gates pass. If FNS fails or plain-file Hermes access becomes dominant, replace it with Syncthing core plus Syncthing Manager. LiveSync remains a mature promotion candidate after encrypted CLI issue `#1036` is fixed and ARM64-tested.
+
+Detailed evidence: [2026-07-22 sync and extension reevaluation](2026-07-22-sync-and-extension-reevaluation.md).
 
 ## Growth structure
 

@@ -1,13 +1,38 @@
 # Executive summary
 
-Obsidian is now primary workspace, not future projection. Write normal Markdown without structure; use `INBOX/Unsorted` when destination is unclear. Moving note to `INBOX/Pending Agent Review` requests Hermes proposal but never authorizes silent overwrite.
+Status: current product overview. Detailed authority lives in linked modular design and roadmap files.
 
-Dusk-inspired PARA and Zettelkasten folders remain optional navigation. Growth comes from weekly own-words compression and one changed action, then monthly synthesis—not daily page volume.
+This project designs a low-friction personal engineering workspace, not a note-collection machine. Obsidian is the canonical human library on Windows and Android. Capture stays loose: write anywhere, use `STAGING/Unsorted` when destination is unclear, and spend roughly two minutes recording raw material. Structure, own-words explanation, practice, and review happen later.
 
-First production-worthy release includes vault structure, one tested free sync method, Git audit, encrypted off-host backup/restore, proposal-only Hermes, deterministic hash-checked writes, and permitted 9Router generation. Existing notes remain human-owned. Git does not infer ownership, replace sync, or replace backup.
+Release one is deliberately small in runtime scope but deeply specified:
 
-OpenViking becomes later read-only, rebuildable projection with explicit manifest. Optional Telegram uses full-synchronous SQLite ingress: text/link `Saved` follows commit, while media metadata and attachment durability are acknowledged separately. Hermes/OpenViking/9Router stay downstream. Embeddings are exact-model pinned and fail closed; compare dedicated 9Router route with local `embeddinggemma`. Never use model combos for vectors.
+- Fast Note Sync is the only whole-vault transport in a synthetic human-only pilot.
+- Screenshots, images, video, audio, PDF, and other files remain ordinary vault attachments on both Windows and Android; FNS synchronizes their native links and bytes.
+- FNS Cloud Preview automatic local deletion stays off. No Drive, S3, CDN, or other live attachment-offload plugin enters release one.
+- Independent recovery must restore FNS state, vault content, attachments, and history/trash evidence. Sync history is convenient recovery, not backup.
+- Hermes, 9Router generation, FNS APIs, headless clients, Git automation, and external vault writers stay outside the human-sync pilot.
 
-Main open decision is free sync: test Self-hosted LiveSync against Remotely Save on actual Windows/Android/VPS workflow. Syncthing is not preferred because official Android app is discontinued. Private/work notes need explicit policy before any external model call.
+FNS leads because integrated Obsidian setup, history, trash, full attachment handling, and mobile experience matter most to daily use. Its Passed Obsidian Review does not cover its server, deployment, API permissions, conflict behavior, or recovery. Physical Windows/Android conflict, rename, attachment, Android-background, server-restore, and seven-day observation gates decide promotion. FNS failure triggers a clean replacement evaluation, never a second transport or attachment authority on the same vault.
 
-Read [system design](system-design.md), [workspace specification](superpowers/specs/2026-07-20-obsidian-openviking-workspace-design.md), [MVP](roadmap/mvp.md), and [decision log](decisions/decision-log.md).
+Hermes remains proposal-only through Release 3. Raw queued note or sidecar request for already-filed note records review intent after human sync, recovery, gateway stability, transport, and least-privilege gates pass. Authenticated receipt outside synchronized vault binds exact approved source before provider read. Hermes then creates separate deterministic proposal. Later Release 4A may add reviewed accepted filing and one weekly changed-note link digest through immutable authenticated approval and deterministic transactional executor. Daily full-vault scan and unattended mutation remain excluded.
+
+Minimalization means fewer runtime components and fewer automatic powers. It does not mean deleting the design context needed to understand authority, failures, security, recovery, user behavior, and promotion order.
+
+## Design map
+
+- [System design](system-design.md) - complete product behavior, authority, release boundaries, and gates.
+- [Recommended architecture](architecture/recommended-architecture.md) - components and their contracts.
+- [Architecture options](architecture/options.md) - rejected and fallback choices.
+- [Operational data and file contracts](architecture/data-model.md) - canonical bytes, links, recovery evidence, and later proposals.
+- [Failure handling](architecture/failure-handling.md) - safe degradation and recovery order.
+- [Security contract](architecture/security.md) - trust boundaries and acceptance tests.
+- [Architecture diagrams](architecture/diagrams.md) - human pilot and later agent promotion.
+- [Capture-to-growth behavior](behavior/capture-to-digest.md) - daily, weekly, and monthly workflow.
+- [Hermes approved apply and link gardening](behavior/hermes-apply-and-link-gardening.md) - later exact filing, dependency updates, weekly recommendations, and rollback.
+- [In-vault operating guide](../vault-template/SYSTEM/Guides/vault-operating-guide.md) - detailed human and agent instructions shipped with vault.
+- [Interaction examples](behavior/interaction-examples.md) - concrete normal and failure scenarios.
+- [Behavioral and architecture experiments](behavior/experiments.md) - evidence required for promotion.
+- [First production-worthy release](roadmap/mvp.md) - executable release plan.
+- [Evidence-gated roadmap](roadmap/phased-roadmap.md) - broader sequence without premature scope.
+
+Evidence and decision history: [current sync and attachment reevaluation](research/2026-07-22-sync-and-extension-reevaluation.md), [decision log](decisions/decision-log.md), and [unresolved questions](decisions/unresolved-questions.md).

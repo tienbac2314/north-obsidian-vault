@@ -1,5 +1,7 @@
 # Semantic retrieval evaluation
 
+Status: postponed research. Embeddings and vector retrieval are excluded from first design until plain search fails measured queries.
+
 ## Baseline
 
 Start with Obsidian filenames, folders, wikilinks/backlinks, properties where useful, and text search. Write bilingual query set before adding vectors. Semantic search must improve retrieval of known valuable notes, not merely produce plausible similarity.

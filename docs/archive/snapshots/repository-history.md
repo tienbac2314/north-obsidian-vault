@@ -1,5 +1,16 @@
 # Repository history relevant to this design
 
+## Current repository
+
+- Remote: `https://github.com/tienbac2314/north-obsidian-vault.git`
+- Base: `main`
+- Permanent detailed history: `research/full-system-design-dev`
+- Generated clean history: `research/full-system-design`
+
+Detailed dev commits were pushed normally and never rewritten. [`publish-feature-clean.ps1`](../../../scripts/publish-feature-clean.ps1) created clean review history during legacy workflow. See current [Git workflow](../../git-workflow.md).
+
+## Earlier related repository evidence
+
 Status: verified historical evidence, accessed 2026-07-19.
 
 The existing [`my-opencode-setup`](https://github.com/tienbac2314/my-opencode-setup) repository records three relevant phases:
@@ -16,4 +27,4 @@ History argues against choosing a memory platform before validating capture and 
 
 ## Source trail
 
-Detailed branch, commit, path, and interpretation records live in [`research-notes/repo-findings.md`](../../research-notes/repo-findings.md). Some historical documents are not in current `master` tree and were inspected with `git show <commit>:<path>`.
+Detailed branch, commit, path, and interpretation records live in [repository findings](../research/repo-findings.md). Some historical documents are not in current `master` tree and were inspected with `git show <commit>:<path>`.

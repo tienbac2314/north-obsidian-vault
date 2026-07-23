@@ -1,6 +1,10 @@
 # Obsidian, Hermes, OpenViking, and 9Router workspace design
 
-Status: revised design; implementation not started.
+Status: superseded non-authoritative specification. Preserve for provenance; do not implement. Current authority is [system design](../../system-design.md).
+
+> **Status: superseded on 2026-07-21.** Preserve for design provenance; do not implement. Replacement specification will follow approval of current simplified design. Use [documentation status](../../README.md) and [active goal](../../active-goal.md).
+
+Previous status: approved baseline before simplification.
 
 Date: 2026-07-20.
 
@@ -16,7 +20,7 @@ The design must remain useful when every agent component is down. Plain Markdown
 
 1. Writing must not require classification, frontmatter, a template, or an agent.
 2. New material may stay in `INBOX/Unsorted` until a weekly review.
-3. Moving a note into `INBOX/Pending Agent Review` authorizes inspection and a proposal, not overwrite.
+3. Moving a note into `INBOX/Pending Agent Review` authorizes one proposal job. For release one, it also authorizes sending that queued note and only its explicitly linked context through the configured 9Router generation route. It never authorizes overwrite.
 4. Every existing human note is review-required. Filesystem events cannot reliably prove who edited a synced file.
 5. Hermes may auto-create only bounded agent artifacts in `SYSTEM/AGENT PROPOSALS` or another explicitly generated path.
 6. OpenViking is a rebuildable projection, never a second editable copy of a curated note.
@@ -52,10 +56,12 @@ HUB/
 INBOX/
     Unsorted/
     Pending Agent Review/
+    Reviewed/
 PARA/
     PROJECTS/
     AREAS/
     RESOURCES/
+    WORKSTATION/
     ARCHIVES/
 ZETA/
     FLEETING/
@@ -69,10 +75,18 @@ SYSTEM/
     TEMPLATES/
     ATTACHMENTS/
     AGENT PROPOSALS/
+        Pending/
+        Approved/
+        Rejected/
+        Applied/
+        Stale/
+        Failed/
     GUIDE/
 ```
 
 Folders are choices, not capture requirements. `INBOX/Unsorted` is default destination. PARA answers “what action or responsibility does this support?” Zettelkasten answers “how mature is my understanding?” A note may stay unsorted indefinitely without breaking system.
+
+`PARA/WORKSTATION` is the junior-SWE engineering workbench: active debugging investigations, implementation decisions, blockers, experiments, benchmarks, and postmortems. Workstation notes may be incomplete and project-adjacent. They do not trigger Hermes merely by existing there. During weekly review, a durable conclusion may be rewritten into `ZETA/PERMANENT`, retained as a project-specific record, moved to `PARA/RESOURCES`, or discarded when it has served its temporary purpose.
 
 Templates are optional prompts. Minimum useful review asks:
 
@@ -81,23 +95,28 @@ Templates are optional prompts. Minimum useful review asks:
 - What will I do differently or test next?
 - Which project, area, or prior note does it relate to?
 
+The optional Workstation template asks only for context, observation, evidence, next experiment, and current conclusion. It uses plain Markdown and does not require plugin-generated frontmatter. Dusk's plugin-heavy dashboards, inline scripts, credential-bearing configuration, and automatic page-state machinery are not copied.
+
 Daily notes are optional. Weekly synthesis is required growth loop; monthly synthesis compresses weekly reviews. AI drafts questions and summaries, but user-owned wording is final understanding.
+
+Workspace service may create an unprocessed weekly or monthly request listing links to changed notes or accepted reviews without reading note bodies. User removes unwanted links and moves request into pending queue; only that action authorizes linked bodies for one synthesis job.
 
 ## Direct Obsidian workflow
 
 1. User creates or edits any note normally.
 2. Sync copies bytes to other devices and VPS working replica when available.
 3. Git automation may checkpoint changed files, but ordinary notes trigger no agent work.
-4. OpenViking projection may refresh asynchronously for paths permitted by policy.
-5. Moving a note into `INBOX/Pending Agent Review` creates a Hermes proposal request.
-6. Hermes reads exact source and allowed context, then writes a proposal artifact containing target path, expected SHA-256, proposed patch/content, rationale, sources, and validation result.
-7. User approves, rejects, or edits proposal. Only deterministic workspace tool applies approved change.
-8. Base-hash mismatch marks proposal stale. Nothing overwrites newer bytes.
-9. Accepted mutation gets a narrow Git commit. Rejected proposal leaves source unchanged.
+4. Moving a stable note into `INBOX/Pending Agent Review` creates one proposal request. Ordinary notes elsewhere trigger nothing.
+5. Hermes reads exact queued source plus explicitly linked, permitted context and returns one structured proposal. Create requests need no directive. Update requests require one user-written `Update [[vault-relative/path]]` directive; service validates target and supplies its current content. Hermes may not guess an existing target. It has no shell, file-write, credential, deployment, or messaging tools and does not retain this job in Hermes memory.
+6. Workspace service creates `SYSTEM/AGENT PROPOSALS/Pending/<proposal-id>/Review.md` plus `Proposed.md`. SQLite, not note frontmatter, stores source path/hash, operation, target path, expected target hash, proposed payload hash, state, attempts, and timestamps.
+7. User may edit `Proposed.md`. Moving proposal folder to `Approved` authorizes its exact current bytes. Moving it to `Rejected` authorizes no target change.
+8. Apply re-hashes live target immediately before mutation. Update requires exact expected-target SHA-256; create requires absent target. Mismatch moves proposal to `Stale` and writes nothing.
+9. Successful decision moves raw queued input unchanged to `INBOX/Reviewed`, preventing an unchanged item from retriggering. Stale or failed work leaves source pending, remains visible, and stays suppressed until source bytes change or user explicitly retries.
+10. Accepted mutation gets a narrow Git commit. First human edit of an agent-created page makes no special state transition: all canonical pages are always human-owned, and every later agent update still requires another proposal.
 
-No watcher tries to infer human versus agent authorship. First manual edit does not need to “claim” a file because existing canonical notes are always human-owned.
+No watcher tries to infer human versus agent authorship. First manual edit does not need to claim a file because existing canonical notes are always human-owned.
 
-Queue ledger permits one active proposal per path/hash/action. Approval applies content and approved destination move as one reviewed workflow, then source leaves pending queue. Rejection records rejected path/hash and does not retrigger until content changes or user explicitly retries. An unchanged rejected file may stay queued without looping.
+Queue ledger permits one active proposal per source path/hash. Approval applies one target and moves source to `INBOX/Reviewed` as one reviewed workflow. Rejection changes no target and also moves source to `INBOX/Reviewed`. Transient Hermes/9Router failures retry at most three total attempts with bounded delay. Terminal failed/stale work retries only after source edit or explicit retry command, preserving old proposal history.
 
 ## Deterministic mutation boundary
 
@@ -125,6 +144,7 @@ A small SQLite WAL journal is allowed for operational jobs, proposals, idempoten
 | Create proposal artifact | Automatic |
 | Create disposable generated report under approved generated path | Automatic |
 | Update existing canonical Markdown | Review and expected hash |
+| Create new canonical Markdown | Review and target-must-not-exist check |
 | Move, rename, merge, archive, delete | Always review; user/Obsidian preferred in first release |
 | Edit `.canvas` | Review; creation postponed until explicit use case |
 | Change `.obsidian`, Git, sync, or system files | Forbidden through Hermes |
@@ -133,18 +153,15 @@ Managed sections may be evaluated later, but marker-based auto-edit is not part 
 
 ## Replication and Git
 
-No paid Obsidian Sync subscription is assumed. Provider remains experimental until tested on actual Windows/Android/VPS clients.
+No paid Obsidian Sync subscription is assumed. Release one implements Syncthing first between Windows, a maintained Syncthing-Fork Android client, and the plain-file VPS replica. The official Android client ended in December 2024, so physical-device validation is a promotion gate rather than an assumed guarantee. Self-hosted LiveSync is fallback only if Android background operation or conflict/recovery tests fail.
 
-Candidate set:
+Syncthing requires no Tailscale dependency. Device authentication and transport remain Syncthing-owned; management UI binds to loopback and is reached through SSH when needed. Enable file versioning on Windows and VPS for remote changes. Preserve propagated `.sync-conflict-*` copies for human resolution while excluding them, Syncthing temporary names, `.stversions`, and volatile Obsidian workspace files from agent processing and Git checkpoints.
 
-- Self-hosted LiveSync: strongest mobile-first candidate with CouchDB and newer headless CLI support, but must prove ARM64 resource use, bootstrap/recovery, conflict behavior, and coexistence rules.
-- Remotely Save plus compatible remote storage/VPS client: broad storage choice and simpler server, but must prove headless VPS convergence, encryption interoperability, deletes/renames, and same-note conflict behavior.
-- Syncthing: desktop/VPS replication is mature, but official Android app was discontinued in December 2024; only acceptable if user knowingly adopts and validates a maintained community Android client.
-- Git transport: useful for controlled desktop-first/manual flows, but poor default mobile live sync. Keep audit and transport roles distinct.
+Never run two live sync engines over same vault. VPS `.git`, operational SQLite, backup spool, secrets, and service configuration do not sync. Never auto-merge or delete `.sync-conflict` files; surface them for review.
 
-Never run two live sync engines over same vault. Exclude `.git`, most `.obsidian` state, temp files, conflict copies, proposal journals, and system databases according to selected provider contract. Never auto-merge `.sync-conflict` files; surface them for review.
+Git automation uses one active branch in VPS vault replica, dedicated workspace-service identity, one shared Git lock, narrow approved-mutation commits, and periodic stable human-change checkpoints. `.git` never syncs to Windows or Android. No automated pull/rebase/reset/checkout in live replica.
 
-Git automation uses one active branch in live vault, dedicated Hermes identity, and narrow commits. No automated pull/rebase/reset/checkout in live replica. Encrypted off-host backup remains separate and requires restore drills.
+Daily recovery creates a consistent SQLite snapshot, archives vault plus VPS `.git` and non-secret recovery metadata into a timestamped AES-256-encrypted `.7z`, and uploads each unique file with one-way `rclone copyto` to Google Drive using the `drive.file` scope. Immutable-copy behavior prevents normal job overwrite. The job never uses `rclone sync` or remote delete. Failed uploads remain in a local retry spool and never block Obsidian writing or proposal decisions. `rclone.conf` is owner-only and excluded from archives; backup password lives outside VPS with one offline recovery copy. Promotion requires restore into an empty directory.
 
 ## OpenViking projection
 
@@ -175,9 +192,9 @@ If SQLite/disk fails, never say `Saved`. If Hermes, OpenViking, 9Router, upstrea
 
 ## 9Router and model policy
 
-Use current self-hosted 9Router for replaceable classification, summaries, research synthesis, and permitted VLM/OCR. Capture and vault edits do not depend on it. Record purpose, requested route, actual model when exposed, prompt/schema version, latency, and status without private bodies or credentials.
+Use current self-hosted 9Router for all release-one LLM drafting. Hermes config defines one named custom provider for loopback 9Router and registers multiple model IDs discovered from its OpenAI-compatible `/models` endpoint; one validated generation model is pipeline default. Do not invent IDs or context sizes. Capture, approval, apply, Git, and backup do not depend on it. Record purpose, requested route, actual model when exposed, prompt/schema version, latency, and status without private bodies or credentials.
 
-Provider fallback is allowed only where substitution is semantically tolerable. Missing label defaults to `local_only`; uncertain workplace content defaults to no external processing. Policy resolves locally before request. Full request/header/body logging must remain disabled or redacted and be verified at runtime.
+Queue placement is explicit one-job authorization for queued content and explicitly linked context to use configured 9Router providers. Notes outside queue are not read or sent. Work-restricted or private material must remain outside this queue until a local-only route exists or explicit provider policy is added. Full request/header/body logging must remain disabled or redacted and be verified at runtime.
 
 Hermes treats note/article/AI text as inert source data. Drafting context separates trusted user intent from untrusted source delimiters and runs without shell, write, deployment, credential, or messaging tools. Research tool calls require explicit user intent and may not be initiated by instructions inside source material.
 
@@ -192,14 +209,14 @@ Benchmark retrieval quality, ARM64 2-core throughput, memory, rebuild time, priv
 
 Included:
 
-- plain Dusk-inspired vault structure and short guide;
+- plain Dusk-inspired vault structure, including the engineering `WORKSTATION`, and short guide;
 - direct Obsidian capture with optional templates;
-- one validated free replication method;
-- Git checkpoints plus encrypted off-host backup and restore drill;
+- Syncthing-first Windows/Android/VPS replication with physical-device gate and LiveSync fallback;
+- Git checkpoints plus encrypted Google Drive backup and restore drill;
 - weekly and monthly learning reviews;
-- proposal-only Hermes workflow with deterministic apply boundary;
+- proposal-folder Hermes workflow with editable exact payload and deterministic apply boundary;
 - path/sensitivity exclusions and visible failure queue;
-- existing 9Router for permitted replaceable generation.
+- existing 9Router as named multi-model Hermes provider for permitted generation.
 
 Excluded until evidence gate:
 
@@ -216,10 +233,11 @@ This is not a throwaway barebones phase. It establishes final authority, file fo
 
 - Ordinary Obsidian editing works with agents offline.
 - Same-note concurrent-edit and offline-device tests lose no bytes and expose conflicts.
-- Restore drill rebuilds vault and Git history from off-host backup.
+- Android background sync, restart, attachment, rename, delete, and battery tests pass with maintained Syncthing-Fork; otherwise stop and evaluate LiveSync.
+- Restore drill rebuilds vault, Git history, and SQLite state from Google Drive archive without primary device.
 - Queueing a note never changes source before approval.
-- Approved proposal applies once; stale hash never overwrites current note.
-- Rejected unchanged queue item does not loop; accepted workflow moves source out of pending queue.
+- Approved proposal applies exact current `Proposed.md` once; stale target hash never overwrites current note.
+- Rejected proposal changes no target; both accepted and rejected workflows move source to `INBOX/Reviewed` without loss.
 - Hermes cannot write outside allowlist or into `.obsidian`/`.git`.
 - Prompt-injection fixtures cannot invoke tools, disclose extra context, or alter mutation/data policy.
 - 9Router outage leaves note creation, sync, review, and proposal queue intact.
@@ -228,12 +246,12 @@ This is not a throwaway barebones phase. It establishes final authority, file fo
 
 ## Retained, changed, rejected, postponed, and experimental
 
-Retained: Obsidian-first library, Dusk-inspired optional structure, Git audit, Hermes orchestration, OpenViking as derived context, 9Router generation role, pinned embeddings, durable optional Telegram ingress.
+Retained: Obsidian-first library, Dusk-inspired optional structure, Git audit, Hermes orchestration, OpenViking as later derived context, 9Router generation role, pinned later embeddings, durable optional Telegram ingress.
 
-Changed: default edit governance is proposal-only for existing notes; operational SQLite returns for jobs/ingress; sync choice is evidence-gated; OpenViking receives explicit reconciled projection; taxonomy is never required during capture.
+Changed: default edit governance is proposal folders for one-target create/update; operational SQLite owns machine state; Syncthing-Fork is first sync candidate; Google Drive is backup target; queued placement authorizes one external generation job; taxonomy is never required during capture.
 
 Rejected: inferred manual ownership from filesystem events, OpenViking as Telegram durability boundary, OpenViking and Obsidian as symmetric stores, external classification of disclosure policy, Git as sole sync/backup, automatic conflict merging, unrestricted note writes, embedding combos, paid Obsidian Sync assumption.
 
 Postponed: Canvas automation, bulk organization, managed-section auto-write, vector search, Telegram as main interface, local VLM fallback.
 
-Experimental: LiveSync versus Remotely Save; exact 9Router embedding route versus local `embeddinggemma`; OpenViking update/reconcile behavior; privacy classification and retrieval-quality gates.
+Experimental: Syncthing physical-device validation with Self-hosted LiveSync fallback; exact later 9Router embedding route versus local `embeddinggemma`; OpenViking update/reconcile behavior; retrieval-quality gates.
