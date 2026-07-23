@@ -54,14 +54,14 @@ Assert-True ($config -match 'attachment-static:\s*\r?\n\s+is-enable:\s*false') "
 
 Assert-True ($tunnel -match 'service:\s*http://\[::1\]:19000') "Tunnel must target exact IPv6 loopback FNS port."
 Assert-True ($tunnel -match 'service:\s*http_status:404') "Tunnel must end with explicit 404 catch-all."
-Assert-True ($tunnel -match '(?m)^tunnel:\s*__FNS_TUNNEL_ID__$') "Tunnel ID must remain a placeholder in repository."
-Assert-True ($tunnel -match '(?m)^credentials-file:\s*__FNS_TUNNEL_CREDENTIALS_FILE__$') "Tunnel credentials path must remain a placeholder in repository."
-Assert-True ($tunnel -match '(?m)^\s+- hostname:\s*__FNS_HOSTNAME__$') "Tunnel hostname must remain a placeholder in repository."
+Assert-True ($tunnel -match '(?m)^tunnel:\s*__FNS_TUNNEL_ID__\r?$') "Tunnel ID must remain a placeholder in repository."
+Assert-True ($tunnel -match '(?m)^credentials-file:\s*__FNS_TUNNEL_CREDENTIALS_FILE__\r?$') "Tunnel credentials path must remain a placeholder in repository."
+Assert-True ($tunnel -match '(?m)^\s+- hostname:\s*__FNS_HOSTNAME__\r?$') "Tunnel hostname must remain a placeholder in repository."
 
-Assert-True ($tunnelUnit -match '(?m)^User=fns-tunnel$') "Tunnel unit must use dedicated unprivileged account."
-Assert-True ($tunnelUnit -match '(?m)^NoNewPrivileges=true$') "Tunnel unit must prevent privilege escalation."
-Assert-True ($tunnelUnit -match '(?m)^ProtectSystem=strict$') "Tunnel unit must protect host filesystem."
-Assert-True ($tunnelUnit -match '(?m)^ExecStart=/usr/bin/cloudflared --no-autoupdate --config /opt/personal-knowledge-pipeline/fns/runtime/cloudflared/config\.yml tunnel run$') "Tunnel unit must use exact isolated configuration."
+Assert-True ($tunnelUnit -match '(?m)^User=fns-tunnel\r?$') "Tunnel unit must use dedicated unprivileged account."
+Assert-True ($tunnelUnit -match '(?m)^NoNewPrivileges=true\r?$') "Tunnel unit must prevent privilege escalation."
+Assert-True ($tunnelUnit -match '(?m)^ProtectSystem=strict\r?$') "Tunnel unit must protect host filesystem."
+Assert-True ($tunnelUnit -match '(?m)^ExecStart=/usr/bin/cloudflared --no-autoupdate --config /opt/personal-knowledge-pipeline/fns/runtime/cloudflared/config\.yml tunnel run\r?$') "Tunnel unit must use exact isolated configuration."
 
 foreach ($requiredPhrase in @(
         "Registration bootstrap",
