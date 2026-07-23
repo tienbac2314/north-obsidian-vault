@@ -57,7 +57,9 @@ Observed later on 2026-07-23:
 - Pinned server image started healthy with all Linux capabilities dropped and raw listener on IPv6 loopback only.
 - Dedicated unprivileged tunnel service validates its isolated configuration. Existing two cloudflared processes and three earlier routes were not edited.
 - TLS health returned HTTP `200` from Windows. Oracle resolver retained stale DNS during immediate verification, so remote self-check was not treated as public-path authority.
-- Registration remains closed; WebGUI-compatible registration probe returned application code `410`. No FNS user, token, vault, MCP consumer, REST consumer, Git integration, sharing link, mirror, or headless client was created.
+- Before account bootstrap, registration remained closed and a WebGUI-compatible
+  probe returned application code `410`. No FNS user, token, or vault existed
+  at that checkpoint.
 - Obsidian `1.12.7` and verified FNS plugin `2.4.0` assets were installed for one disposable Windows vault.
 - Vault initializer regression passed, then created 18 directories and six starter files. Top-level roots are `DAILY`, `HUB`, `PARA`, `STAGING`, `SYSTEM`, and `ZETA`.
 - Human accepted Obsidian's first-open vault trust warning. Restricted Mode is
@@ -67,6 +69,18 @@ Observed later on 2026-07-23:
   No credential was entered and no account or token was created. Registration
   was closed again before waiting for account-creation confirmation; loopback
   and public TLS health both remained HTTP `200`.
+- After explicit action-time confirmation, one user-selected disposable
+  credential created one synthetic account with a reserved non-deliverable
+  email address. Its recoverable password record is Windows DPAPI-encrypted
+  outside repository and vault; no credential value or account identifier is
+  recorded here.
+- Registration was closed immediately after Dashboard appeared. A second valid
+  WebGUI registration request returned HTTP `200` with application code `410`;
+  no second account was created.
+- WebGUI then required a separate decision to make the first user system
+  administrator. No permission change, authorization config, remote vault, MCP
+  consumer, REST consumer, Git integration, sharing link, mirror, or headless
+  client exists yet.
 
 Two runtime failures were contained before public use:
 

@@ -20,24 +20,28 @@ Reach first usable synthetic Windows and Android Fast Note Sync vault with agree
 - Human accepted the disposable vault trust warning. Restricted Mode is off,
   verified FNS plugin `2.4.0` is enabled, and its Remote Configuration panel is
   reachable.
-- A controlled registration window exposed the WebGUI form without entering
-  credentials. Registration was closed again; no account, token, or remote
-  vault exists.
+- One user-selected disposable credential created exactly one synthetic
+  account. Its recoverable password record is Windows DPAPI-encrypted outside
+  repository and vault.
+- Registration was closed immediately after account creation. A second valid
+  WebGUI registration request returned application code `410`; no second
+  account exists.
+- WebGUI now presents its Administrator Initialization Setup gate. No
+  administrator permission, authorization config, token, or remote vault exists.
 - Hermes and 9Router remain outside deployment and receive no vault workload.
 
 ## Next action
 
-After action-time confirmation, generate one disposable credential, keep its
-recoverable record encrypted outside repository and vault, briefly reopen
-registration, create one account, close registration immediately, and prove a
-second registration is rejected. Then connect Windows plugin and stop at
-physical Android enrollment.
+After separate action-time permission confirmation, decide whether to set the
+sole synthetic user as FNS system administrator. Then create only the
+authorization material required by Obsidian, connect Windows plugin, and stop
+at physical Android enrollment.
 
 ## Blockers
 
 - FNS physical Windows/Android note and native-attachment gates remain unrun.
-- Disposable account submission and credential transmission await mandatory
-  action-time confirmation.
+- WebGUI administrator initialization changes account permissions and awaits
+  mandatory action-time confirmation.
 - Physical Android plugin installation and battery/background checks require user device.
 - Independent off-VPS backup destination remains later promotion gate.
 - Same-VPS restore rehearsal does not replace off-VPS archive copy or rebuilt-client recovery test.
