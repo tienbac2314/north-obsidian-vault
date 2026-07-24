@@ -89,6 +89,11 @@ Preflight never opened or hashed:
 Later configuration compatibility work requires an explicit safe-field
 allowlist per plugin. No full `data.json` copy or dump is authorized.
 
+An initial disposable runtime mistakenly copied 31 plugin `data.json` files.
+It was quarantined and excluded from all promotion evidence. Corrected copies
+under `G:\Dusk-Goal1-Discovery-20260725\safe-rerun` enforced this boundary
+before either platform opened them.
+
 ## Tablet source comparison
 
 Tablet source:
@@ -138,3 +143,10 @@ Before and after every desktop or Android experiment:
 4. write a new copy manifest and rollback checkpoint;
 5. never reuse first-open baseline for plugin updates.
 
+## Final immutability recheck
+
+After all runtime experiments, all 1,425 PC safe-manifest rows were rehashed
+against their stored file length and SHA-256 with zero mismatch. PC totals
+remained 1,571 files, 293,256,520 bytes, and 421 directories. The tablet source
+still reported 1,571 files and 293,256,520 bytes. No runtime or cleanup command
+targeted either source root.
