@@ -73,6 +73,9 @@ $requiredDirectories = @(
 
 $starterFiles = @(
     'HUB/Home.md',
+    'HUB/Mail Box.md',
+    'HUB/Map of Content.md',
+    'HUB/Priority Matrix.md',
     'HUB/Bases/Areas.base',
     'HUB/Bases/Learning.base',
     'HUB/Bases/Projects.base',

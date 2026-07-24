@@ -9,7 +9,7 @@ aliases:
 
 # Map of Content
 
-[[SYSTEM/Mobile Hub/Mobile Home|Home]] · [[HUB/Map of Content|Rich desktop map]]
+[[SYSTEM/Mobile Hub/Mobile Home|Home]] · [[HUB/Map of Content|Desktop map]]
 
 ## Recently changed
 
@@ -25,11 +25,11 @@ limit 30
 
 ## Main paths
 
-- [[STAGING/Unsorted|Unsorted]]
-- [[PARA/Projects|Projects]]
-- [[PARA/Areas|Areas]]
-- [[PARA/Resources|Resources]]
-- [[PARA/WORKSTATION|Workstation]]
-- [[ZETA/Literature|Literature]]
-- [[ZETA/Permanent|Permanent]]
-- [[Notion|Notion import]]
+- Capture: `STAGING/Unsorted`
+- Projects: [[HUB/Bases/Projects.base|Projects Base]]
+- Areas: [[HUB/Bases/Areas.base|Areas Base]]
+- Resources: `PARA/Resources`
+- Workstation: `PARA/WORKSTATION`
+- Literature: [[HUB/Bases/Learning.base|Learning Base]]
+- Permanent notes: `ZETA/Permanent`
+- Unchanged import: `Notion`

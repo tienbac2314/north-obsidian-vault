@@ -55,6 +55,9 @@ $requiredDirectories = @(
 
 $requiredFiles = @(
     'HUB/Home.md',
+    'HUB/Mail Box.md',
+    'HUB/Map of Content.md',
+    'HUB/Priority Matrix.md',
     'HUB/Bases/Areas.base',
     'HUB/Bases/Learning.base',
     'HUB/Bases/Projects.base',
@@ -97,6 +100,11 @@ try {
     }
 
     $homeContent = [IO.File]::ReadAllText((Join-Path $vault 'HUB/Home.md'))
+    if ($homeContent -match '(?m)^```(?:dataviewjs|datacorejsx|tasks|meta-bind-button)' -or
+        $homeContent -match '(?m)^`````tabs' -or
+        $homeContent -match 'BUTTON\[') {
+        throw 'Portable Home depends on executable community-plugin blocks.'
+    }
     foreach ($baseName in @('Areas', 'Learning', 'Projects', 'Review Queue')) {
         if ($homeContent -notmatch [regex]::Escape("![[HUB/Bases/$baseName.base")) {
             throw "Home does not embed required core Base: $baseName"
