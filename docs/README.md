@@ -19,6 +19,8 @@ Summaries navigate. They never replace detailed modules. Minimalization applies 
 
 ## Current evidence
 
+- [Dusk Goal 1 preflight](research/2026-07-25-dusk-goal1-preflight.md)
+- [Dusk source and variant manifest](research/2026-07-25-dusk-source-manifest.md)
 - [FNS implementation evidence and Oracle preflight](research/2026-07-23-fns-implementation-evidence.md)
 - [Sync, history, and attachment reevaluation](research/2026-07-22-sync-and-extension-reevaluation.md)
 - [NotebookLM adversarial review](research/notebooklm-adversarial-review.md)

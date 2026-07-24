@@ -1,19 +1,34 @@
 # Active goal
 
-Updated: 2026-07-24
+Updated: 2026-07-25
 
 ## Objective
 
-Preserve the completed Phase 1 FNS foundation, record the abandoned hand-built
-Phase 2 attempt, and prepare a concise import-first Dusk evaluation without
-changing the live vault.
+Complete Dusk Goal 1 discovery from the fixed local source bundle and physical
+Android copy before asking about personalization or changing the live vault.
 
-Status: Phase 1 complete. Phase 2 PR #4 was closed without merge and its live
-changes were rolled back on 2026-07-24. No Dusk import source, plugin set, or
-promotion plan is currently accepted.
+Status: Goal 1 preflight passed on 2026-07-25. Source, plugin, first-open,
+update, popup, failure, Windows, Android, security, performance, language, and
+archived-finding discovery remain in progress. No Dusk import, plugin decision,
+personalization choice, or promotion plan is accepted.
 
 ## Checkpoint
 
+- Pull request #6 is merged at `571fde4`; current `main` contains reversal
+  authority.
+- Sole current Dusk source authority is
+  `C:\Users\TienBac\Documents\New project\dusk-obsidian-vault-master`.
+- [Goal 1 preflight](research/2026-07-25-dusk-goal1-preflight.md) passed for
+  repository, source, storage, Obsidian, research, browser, custom-agent, ADB,
+  screenshot, UI-tree, log, and filesystem access.
+- [Source manifest](research/2026-07-25-dusk-source-manifest.md) records 1,571
+  files and 421 directories. PC and tablet safe manifests match at SHA-256
+  `D7E55C61CD6395F938F1842CBED66D71D22DCD8480BA5EE2628CD5452CB3B6AB`;
+  146 sensitive/configuration files remain intentionally unopened.
+- Raw evidence and disposable copies use
+  `G:\Dusk-Goal1-Discovery-20260725`, outside `G:\Obsidian`.
+- Goal 1 is discovery only. Source bundle, tablet source, `G:\Obsidian`, FNS
+  account/configuration, and current authority receive no runtime promotion.
 - [DEC-039](decisions/decision-log.md#dec-039-archive-hand-built-phase-2-and-restart-import-first)
   supersedes the hand-built Dusk recreation from closed PR #4.
 - Exact PR #4 history remains on archived branch `feat/obsidian-phase2` at
@@ -92,11 +107,12 @@ promotion plan is currently accepted.
 
 ## Next action
 
-Begin import-first Dusk design from current `main`. Read the
-[reversal record](archive/2026-07-24-phase-2-reversal.md), reuse archived
-observations only after revalidation, identify the exact user-tested source,
-and approve a concise design before disposable-vault implementation. Do not
-revive or merge PR #4.
+Continue the approved
+[Goal 1 discovery plan](superpowers/plans/2026-07-25-dusk-goal1-discovery.md):
+finish source/plugin ledgers, preserve true first-open baselines, run
+checkpointed Windows and physical-Android update experiments, synthesize all
+requested reports, and obtain independent review. Do not personalize or
+promote into `G:\Obsidian`.
 
 ## Deferred promotion work
 
