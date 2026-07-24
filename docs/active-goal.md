@@ -70,12 +70,21 @@ human-use gate or unrun physical Android matrix.
 - Fresh launch-to-main-window baseline is 958, 869, and 916 ms; median 916 ms.
 - Public legacy Dusk and user-supplied Discord sources were hashed. Current
   Priority Matrix commit and MIT license were verified.
+- Fourteen selected Dusk dependencies were downloaded from official releases.
+  Every available GitHub SHA-256 digest matched.
+- QuickAdd `2.12.3`, Meta Bind `1.4.15`, and Templater `2.20.6` are pinned as
+  newest releases compatible with Obsidian `1.12.7`; their newest releases
+  require Obsidian `1.13.x`.
+- One clean launch showed all 18 enabled plugins in Obsidian's loaded registry.
+  FNS configuration hash remained unchanged.
+- Open mobile compatibility reports confirm that manifest support does not
+  equal rich-view parity. Desktop remains primary; plain mobile companion views
+  and physical Android deferral remain required.
 
 ## Next action
 
-Resolve current plugin releases and scorecards, install exact inspected
-dependencies one group at a time, then implement the rich runtime task-by-task
-from the tracked
+Recreate the Dusk visual shell and four rich surfaces, then implement modular
+actions and measured optional lazy loading from the tracked
 [Dusk recreation plan](superpowers/plans/2026-07-24-dusk-runtime-recreation.md).
 
 ## Stop conditions

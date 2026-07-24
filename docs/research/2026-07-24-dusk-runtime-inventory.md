@@ -120,23 +120,65 @@ Three-file component manifest SHA-256:
 
 The repository version supersedes older local Priority Matrix copies.
 
-## Candidate dependency matrix
+## Selected dependency matrix
 
-Exact current versions and final disposition remain Task 3 evidence.
+Release assets came from each plugin's official GitHub release. GitHub-provided
+SHA-256 digests matched every downloaded asset that exposed a digest. Dataview
+and Style Settings predate release-asset digests; their local SHA-256 values are
+retained in implementation evidence.
 
-| Candidate | Dusk consumer | Initial disposition |
-|---|---|---|
-| Datacore | Map of Content, Mail Box, Priority Matrix, Habit component | Required |
-| Dataview | legacy Homepage tables and JavaScript views | Verify replacement boundary |
-| Tasks | inline task queries and write-back | Verify |
-| Templater | current date and structured note creation | Verify |
-| QuickAdd | Dynamic Form and capture actions | Required if script passes review |
-| Meta Bind | Homepage buttons and inputs | Verify |
-| JS Engine | legacy Homepage widgets | Verify or replace |
-| Style Settings | Dusk theme controls | Verify |
-| Note Toolbar | mobile floating action button | Verify |
-| Tabs | legacy dashboard tabs | Verify or replace with callouts/CSS |
-| Lazy Loader | optional long-tail plugin delay | Keep only with measured safe target |
+Obsidian `1.12.7` cannot load the newest QuickAdd, Meta Bind, or Templater:
+their current manifests require Obsidian `1.13.x`. The newest compatible
+releases are pinned instead. Dataview's `0.5.70` release serves a manifest whose
+internal version is `0.5.68`; the release asset is used without rewriting it.
+
+Scorecard labels are automated triage, not approval. Health and Review are
+recorded separately.
+
+| Plugin ID | Installed version | Minimum Obsidian | Scorecard | Dusk behavior |
+|---|---:|---:|---|---|
+| `datacore` | 0.1.29 | 1.4.11 | Excellent / Caution | Map of Content and Priority Matrix reactive views |
+| `dataview` | 0.5.68 from 0.5.70 release | 0.13.11 | Good / Risks | Homepage and mobile-compatible fallback queries |
+| `obsidian-tasks-plugin` | 8.3.0 | 1.8.7 | Excellent / Caution | task queries and completion write-back |
+| `templater-obsidian` | 2.20.6 | 1.12.2 | Excellent / Caution | date and note templates |
+| `quickadd` | 2.12.3 | 1.11.4 | Excellent / Caution | capture actions and reviewed Dynamic Form |
+| `obsidian-meta-bind-plugin` | 1.4.15 | 1.10.0 | Excellent / Satisfactory | interactive dashboard buttons and inputs |
+| `js-engine` | 0.3.6 | 1.4.0 | Excellent / Caution | legacy Dusk widgets that cannot be expressed declaratively |
+| `obsidian-style-settings` | 1.0.9 | 0.11.5 | Good / Satisfactory | Dusk visual controls |
+| `note-toolbar` | 1.34.11 | 1.11.0 | Excellent / Satisfactory | compact dashboard and mobile actions |
+| `lazy-plugins` | 1.0.24 | 1.6.0 | Excellent / Passed | measured delay for optional plugins only |
+| `tabs` | 1.2.1 | 1.8.7 | scorecard not surfaced | Dusk tabbed desktop sections |
+| `editing-toolbar` | 4.0.11 | 0.14.0 | Excellent / Risks | touch-friendly editing controls |
+| `omnisearch` | 1.29.3 | 1.7.2 | Excellent / Satisfactory | fast full-vault search |
+| `iconic` | 1.1.10 | 1.12.0 | Excellent / Caution | Dusk navigation and folder icon treatment |
+
+All manifests declare `isDesktopOnly: false`. That declaration does not prove
+feature parity. Current open reports include incomplete Datacore rendering on
+iOS, Templater startup failure on iPhone/iPad, JS Engine imports failing on
+mobile, Lazy Loader applying desktop configuration on mobile, and Tabs cutting
+off a grouped Base on mobile. Desktop keeps rich surfaces; mobile companion
+notes avoid Datacore, JS Engine, Tabs, and delayed startup until physical
+Android testing.
+
+The following legacy dependencies are not retained:
+
+- BRAT: manual release pinning avoids an updater for one beta dependency.
+- Natural Language Dates: absent from the current community registry, and
+  display formatting does not require it.
+- Force View Mode and hotkeys-for-files: Homepage, Note Toolbar, and native
+  commands cover the selected behavior.
+- Hider, status-bar organizer, and settings search: core settings and CSS cover
+  the visible result.
+- Todoist, Custom Frames, Projects, Pomodoro, Charts View, and password
+  protection: no selected local-first Dusk surface requires them.
+
+## First dependency launch
+
+All 18 enabled plugins, including the four pre-existing plugins, appeared in
+both Obsidian's enabled and loaded plugin registries after one clean launch.
+The active file remained `HUB/Home.md`. FNS configuration SHA-256 remained
+`1FB34C99B1CB13992BD2AE23D789B6E2C3D90559615AE8B2694D336F1F789DAB`.
+No Fast Note Sync file was overwritten.
 
 ## Rejected source behavior
 
@@ -151,7 +193,6 @@ Exact current versions and final disposition remain Task 3 evidence.
 
 ## Next gate
 
-Resolve exact official plugin releases, current scorecards, mobile declarations,
-release assets, and compatibility issues. Install one dependency group at a
-time while Obsidian is closed, then verify clean launch and unchanged FNS
-configuration hash.
+Recreate the dark visual shell and four Dusk surfaces, then validate each
+component in the loaded Windows runtime. Lazy loading remains disabled until
+the immediate runtime works.
