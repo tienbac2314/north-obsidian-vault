@@ -63,25 +63,33 @@ $requiredDirectories = @(
     'DAILY/Daily',
     'DAILY/Weekly',
     'DAILY/Monthly',
+    'SYSTEM/Components',
     'SYSTEM/Guides',
     'SYSTEM/Config',
+    'SYSTEM/Mobile Hub',
     'SYSTEM/Templates',
     'SYSTEM/Media'
 )
 
 $starterFiles = @(
     'HUB/Home.md',
+    'HUB/Bases/Areas.base',
     'HUB/Bases/Learning.base',
     'HUB/Bases/Projects.base',
     'HUB/Bases/Review Queue.base',
     'SYSTEM/Config/dashboard.css',
     'SYSTEM/Config/sortspec.md',
     'SYSTEM/Guides/vault-operating-guide.md',
+    'SYSTEM/Mobile Hub/Mobile Home.md',
+    'SYSTEM/Mobile Hub/Mobile Mail Box.md',
+    'SYSTEM/Mobile Hub/Mobile Map of Content.md',
+    'SYSTEM/Templates/Area.md',
     'SYSTEM/Templates/Daily.md',
     'SYSTEM/Templates/Weekly.md',
     'SYSTEM/Templates/Literature Note.md',
     'SYSTEM/Templates/Permanent Note.md',
     'SYSTEM/Templates/Project.md',
+    'SYSTEM/Templates/Unsorted.md',
     'SYSTEM/Templates/Meeting.md'
 )
 

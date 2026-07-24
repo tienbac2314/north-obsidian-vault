@@ -180,6 +180,67 @@ The active file remained `HUB/Home.md`. FNS configuration SHA-256 remained
 `1FB34C99B1CB13992BD2AE23D789B6E2C3D90559615AE8B2694D336F1F789DAB`.
 No Fast Note Sync file was overwritten.
 
+## Deployed Dusk shell and surfaces
+
+The live vault now uses Minimal dark mode, accent `#ba4949`, colorful headings,
+full-width media, hidden ribbon, and the selected Dusk callout, multi-column,
+wide-view, gallery, Datacore, and file-wrap snippets. Repository-owned
+`dashboard.css` supplies the dark hero, button grid, progress bar, responsive
+layout, and plugin-off fallback.
+
+| Live file | Bytes | Adapted SHA-256 |
+|---|---:|---|
+| `HUB/Home.md` | 2,598 | `FD933366905F05C9DEDDC006D4A95BBE7F9F94AF7018E13FCF5617257CC8CE7E` |
+| `HUB/Map of Content.md` | 269,634 | `28A15D7653031FF56C2D971F09FFB096394F30E9976F685B923C422EF7C3AC0D` |
+| `HUB/Mail Box.md` | 17,356 | `3E0A262666EDB599B62C615637C22AE86F2BD6EE2F199E960BA941236AAEB6E4` |
+| `HUB/Priority Matrix.md` | 11,073 | `481C01578CF1F5CC17DACE0788B85E288A25E339A5AC77CB9838F1C10E0386E8` |
+| `SYSTEM/Components/Dusk/MapOfContent/map_of_content_data.json` | 2,198 | `733AB28413315A07FC00A533C7DB4A94145A69AE9261472C12424EA107433187` |
+| `SYSTEM/Components/Dusk/PriorityMatrix/PriorityMatrix.jsx` | 292,017 | `F01E5512B171F3FF39E9F7112946C456B9EBC7305F49ECDA93CEA178B945E9D4` |
+| `SYSTEM/Components/Dusk/PriorityMatrix/priority_matrix_data.json` | 3,222 | `DE1AE02DF5A598B17B9B20FD8E769209B9FB35A48BC51D90BF333BAEFBD17C7E` |
+
+Adaptations are narrow:
+
+- current Map configuration moved under `SYSTEM/Components/Dusk`;
+- current Priority Matrix component and state moved under the same boundary;
+- user-visible component dates use `en-GB` or `dd/MM/yyyy`;
+- MOC still includes Notion but excludes SYSTEM, HUB, and DAILY;
+- Priority Matrix excludes SYSTEM, HUB, Notion, and archive;
+- Mail Box queries the two active agent-review folders plus explicit
+  `page_task: true` notes, and never treats review links as approval;
+- empty Mail Box pagination clamps one page instead of displaying page zero;
+- Todoist, Custom Frames, password state, and sample notes remain absent.
+
+Three repository-owned mobile companions use Markdown, Tasks, Dataview, and
+Bases instead of Datacore, JS Engine, or Tabs:
+
+- `SYSTEM/Mobile Hub/Mobile Home.md`;
+- `SYSTEM/Mobile Hub/Mobile Map of Content.md`;
+- `SYSTEM/Mobile Hub/Mobile Mail Box.md`.
+
+## Surface runtime observations
+
+Windows rendered all selected surfaces in Reading view:
+
+- Home showed dark Dusk shell, two command buttons, five open tasks, review
+  Base, tabbed project/area/learning Bases, and `24/07/2026` day progress;
+- Map of Content rendered the current configurable explorer with 164 indexed
+  items and no visible error;
+- Priority Matrix loaded its external component and four live quadrants with no
+  visible error;
+- Mail Box rendered filters, `DD/MM/YYYY` input, and correct empty state;
+- Project and Area templates rendered Meta Bind controls and contextual
+  Dataview tables;
+- all three mobile companions rendered at desktop width with no visible error.
+
+DataviewJS is enabled for Dusk-owned dashboard code; inline DataviewJS remains
+disabled. This is an intentional code-execution boundary. Do not execute
+unreviewed DataviewJS copied into imported or downloaded notes.
+
+Two pre-existing Canvas files contained only `{}`. Datacore consistently
+reported `nodes is not iterable`. Their paths were preserved and content was
+repaired to the valid empty Canvas shape `{"nodes":[],"edges":[]}`; clean
+startup verification remains a later gate.
+
 ## Rejected source behavior
 
 - wholesale `.obsidian` copy;
@@ -193,6 +254,6 @@ No Fast Note Sync file was overwritten.
 
 ## Next gate
 
-Recreate the dark visual shell and four Dusk surfaces, then validate each
-component in the loaded Windows runtime. Lazy loading remains disabled until
-the immediate runtime works.
+Review Dynamic Form and Habit Streak RPG, configure capture and Note Toolbar
+actions, then measure optional lazy loading. Rich surfaces already work with
+immediate startup.

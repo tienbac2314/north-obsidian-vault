@@ -5,7 +5,7 @@ aliases: []
 tags: []
 ---
 
-# Week of {{date:YYYY-MM-DD}}
+# Week of {{date:DD/MM/YYYY}}
 
 ## Strongest lessons
 

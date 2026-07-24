@@ -45,25 +45,33 @@ $requiredDirectories = @(
     'DAILY/Daily',
     'DAILY/Weekly',
     'DAILY/Monthly',
+    'SYSTEM/Components',
     'SYSTEM/Guides',
     'SYSTEM/Config',
+    'SYSTEM/Mobile Hub',
     'SYSTEM/Templates',
     'SYSTEM/Media'
 )
 
 $requiredFiles = @(
     'HUB/Home.md',
+    'HUB/Bases/Areas.base',
     'HUB/Bases/Learning.base',
     'HUB/Bases/Projects.base',
     'HUB/Bases/Review Queue.base',
     'SYSTEM/Config/dashboard.css',
     'SYSTEM/Config/sortspec.md',
     'SYSTEM/Guides/vault-operating-guide.md',
+    'SYSTEM/Mobile Hub/Mobile Home.md',
+    'SYSTEM/Mobile Hub/Mobile Mail Box.md',
+    'SYSTEM/Mobile Hub/Mobile Map of Content.md',
     'SYSTEM/Templates/Daily.md',
+    'SYSTEM/Templates/Area.md',
     'SYSTEM/Templates/Weekly.md',
     'SYSTEM/Templates/Literature Note.md',
     'SYSTEM/Templates/Permanent Note.md',
     'SYSTEM/Templates/Project.md',
+    'SYSTEM/Templates/Unsorted.md',
     'SYSTEM/Templates/Meeting.md'
 )
 
@@ -89,7 +97,7 @@ try {
     }
 
     $homeContent = [IO.File]::ReadAllText((Join-Path $vault 'HUB/Home.md'))
-    foreach ($baseName in @('Learning', 'Projects', 'Review Queue')) {
+    foreach ($baseName in @('Areas', 'Learning', 'Projects', 'Review Queue')) {
         if ($homeContent -notmatch [regex]::Escape("![[HUB/Bases/$baseName.base")) {
             throw "Home does not embed required core Base: $baseName"
         }
@@ -105,7 +113,7 @@ try {
         }
     }
 
-    foreach ($templateName in @('Daily', 'Weekly', 'Literature Note', 'Permanent Note', 'Project', 'Meeting')) {
+    foreach ($templateName in @('Area', 'Daily', 'Weekly', 'Literature Note', 'Permanent Note', 'Project', 'Meeting')) {
         $template = [IO.File]::ReadAllText((Join-Path $vault "SYSTEM/Templates/$templateName.md"))
         if ($template -notmatch '(?m)^type:\s*\S+') {
             throw "Template lacks type property: $templateName"

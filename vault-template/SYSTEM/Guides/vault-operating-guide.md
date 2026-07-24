@@ -19,6 +19,9 @@ This note explains how to capture, file, connect, review, synchronize, and recov
 ```text
 HUB/
   Home.md
+  Map of Content.md
+  Mail Box.md
+  Priority Matrix.md
   Bases/
 STAGING/
   Unsorted/
@@ -39,24 +42,34 @@ DAILY/
   Weekly/
   Monthly/
 SYSTEM/
+  Components/
   Config/
   Guides/
+  Mobile Hub/
   Templates/
   Media/
 ```
 
 ### HUB
 
-[`HUB/Home.md`](../../HUB/Home.md) is core-first dashboard. It embeds three
-core Bases:
+[`HUB/Home.md`](../../HUB/Home.md) is Dusk-style dashboard. It embeds core
+Bases while Dataview, Tasks, Tabs, and Dusk CSS provide richer presentation:
 
 - `Projects`: active notes under `PARA/Projects`;
 - `Learning`: recent Literature and Permanent notes;
 - `Review Queue`: pending requests, agent proposals, and reviewed records.
 
-Bases add views without changing Markdown notes. If Bases is disabled, Home
-links and every note remain usable. Homepage plugin only opens Home on startup;
-it does not own dashboard data.
+- `Map of Content`: current Datacore explorer with table, card, list, filters,
+  grouping, and saved local configuration.
+- `Mail Box`: pending review, proposal, reviewed, and page-task surface. Review
+  queue items remain links; checking a page task never approves Hermes work.
+- `Priority Matrix`: current MIT-licensed Datacore matrix for notes and inline
+  tasks.
+
+Bases add ordinary tables without changing Markdown notes. Datacore owns rich
+reactive components. If rich plugins are disabled, Home links, Base embeds, and
+every note remain usable. Homepage only opens Home on startup; it does not own
+dashboard data.
 
 ### STAGING
 
@@ -95,11 +108,19 @@ Daily note is optional. Weekly and monthly notes should compress learning, not d
 ### SYSTEM
 
 - `Config`: inspectable root sorting rule and optional dashboard CSS source.
+- `Components`: source-attributed Dusk runtime code and private component
+  state. Do not place credentials here.
 - `Guides`: human and agent operating instructions.
 - `Templates`: optional core Obsidian templates: [Daily](../Templates/Daily.md),
   [Weekly](../Templates/Weekly.md), [Literature Note](../Templates/Literature%20Note.md),
   [Permanent Note](../Templates/Permanent%20Note.md), [Project](../Templates/Project.md),
-  and [Meeting](../Templates/Meeting.md).
+  [Area](../Templates/Area.md), [Meeting](../Templates/Meeting.md), and
+  template-only [Unsorted](../Templates/Unsorted.md).
+- `Mobile Hub`: narrower Home, Map, and Mail Box companions. These avoid
+  Datacore, JS Engine, and Tabs until physical Android verification passes:
+  [Mobile Home](../Mobile%20Hub/Mobile%20Home.md),
+  [Mobile Map of Content](../Mobile%20Hub/Mobile%20Map%20of%20Content.md), and
+  [Mobile Mail Box](../Mobile%20Hub/Mobile%20Mail%20Box.md).
 - `Media`: default vault-local attachment folder.
 
 Do not place personal knowledge in SYSTEM. Do not store credentials, databases, provider identifiers, raw logs, or backups here.
@@ -141,12 +162,14 @@ Templates are optional. Insert one after capture only when its shape saves work:
 - Project records outcome and next action.
 - Meeting records decisions and actions.
 
-Properties stay small:
+Properties stay small but support Dusk views:
 
 - `type` selects relevant Base view;
 - `status` exists only where action or maturity matters;
 - `created` records template insertion date;
 - `source` exists only on Literature notes;
+- Project may add `priority`, ISO `due`, and `area`;
+- Area may add `category`;
 - `aliases` and `tags` remain empty unless useful.
 
 No automatic `modified` property is included because core Templates cannot keep
@@ -169,15 +192,26 @@ root order:
 It does not recursively sort imported notes. Disable plugin to return to native
 alphabetical display; no path changes.
 
-Minimal theme and Minimal Theme Settings control presentation only. Optional
-Home styling source is `SYSTEM/Config/dashboard.css`; active copy lives at
-`.obsidian/snippets/dashboard.css`. Disable snippet or clear theme to restore
-default UI.
+Minimal theme and Minimal Theme Settings control presentation only. Dusk uses
+dark mode, warm red `#ba4949`, colorful headings, full-width media, and a
+bounded dashboard width. Home styling source is
+`SYSTEM/Config/dashboard.css`; active copy lives at
+`.obsidian/snippets/dashboard.css`. Other enabled snippets are the
+MIT-licensed legacy Dusk callout, multi-column, wide-view, gallery, and
+Datacore classes. Disable snippets or clear theme to restore default UI.
 
-Fast Note Sync, Homepage, Minimal Theme Settings, and Custom File Explorer
-sorting all load immediately. Delayed Custom Sort misses automatic initial
-application, while the other three need instant behavior. No lazy loader is
-installed because this small set has nothing safe to delay. Never delay FNS.
+Fast Note Sync, Homepage, Minimal Theme Settings, Custom File Explorer sorting,
+Datacore, Dataview, Tasks, Meta Bind, and JS Engine load immediately until
+clean-launch verification proves a narrower safe set. Lazy Loader may delay
+only optional presentation helpers such as Iconic, Omnisearch, or Editing
+Toolbar. Never delay FNS, Homepage, folder ordering, or a dashboard dependency.
+
+## Date display
+
+Typed date properties and daily filenames stay ISO `YYYY-MM-DD` for correct
+Obsidian sorting and portability. User-facing headings, dashboard cells,
+Dataview tables, and date inputs render `dd/mm/yyyy`. Do not replace typed ISO
+properties with slash-formatted strings.
 
 ## Weekly staging pass
 

@@ -5,7 +5,7 @@ aliases: []
 tags: []
 ---
 
-# {{date:YYYY-MM-DD}}
+# {{date:DD/MM/YYYY}}
 
 ## Focus
 

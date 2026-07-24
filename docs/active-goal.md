@@ -80,11 +80,20 @@ human-use gate or unrun physical Android matrix.
 - Open mobile compatibility reports confirm that manifest support does not
   equal rich-view parity. Desktop remains primary; plain mobile companion views
   and physical Android deferral remain required.
+- Dark Minimal Dusk shell, current Map of Content, current Priority Matrix,
+  adapted Mail Box, Project/Area templates, and three mobile companions are
+  deployed.
+- Windows runtime rendered Home, Map, Priority Matrix, Mail Box, Project, Area,
+  and mobile companion notes without visible component errors.
+- DataviewJS is enabled for reviewed Dusk-owned files; inline DataviewJS stays
+  disabled. Home displays `dd/mm/yyyy`, while stored typed dates remain ISO.
+- Two invalid empty Canvas files were the source of Datacore index errors.
+  Their paths were preserved and repaired to valid empty Canvas JSON.
 
 ## Next action
 
-Recreate the Dusk visual shell and four rich surfaces, then implement modular
-actions and measured optional lazy loading from the tracked
+Review and configure modular actions, attempt the discontinued Habit component
+in isolation, and measure optional lazy loading from the tracked
 [Dusk recreation plan](superpowers/plans/2026-07-24-dusk-runtime-recreation.md).
 
 ## Stop conditions
