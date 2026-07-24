@@ -12,6 +12,7 @@ These files preserve design sessions produced through planning skills. They may 
 
 ## Plans
 
+- [Dusk subagents](superpowers/plans/2026-07-24-dusk-subagents.md) — proposed
 - [Whole-system design hardening](superpowers/plans/2026-07-23-design-hardening.md) — completed
 - [FNS human-sync pilot](superpowers/plans/2026-07-22-fns-human-sync-pilot.md) — superseded
 - [Obsidian and Hermes release one](superpowers/plans/2026-07-22-obsidian-hermes-release-one.md) — superseded
