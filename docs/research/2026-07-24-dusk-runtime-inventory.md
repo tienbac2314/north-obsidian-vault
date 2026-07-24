@@ -188,6 +188,15 @@ wide-view, gallery, Datacore, and file-wrap snippets. Repository-owned
 `dashboard.css` supplies the dark hero, button grid, progress bar, responsive
 layout, and plugin-off fallback.
 
+The repository initializer is deliberately not a full Dusk installer. It
+reproduces the portable folder, Home, Base, template, mobile-companion, CSS,
+and operating-guide layer without copying third-party components or
+machine-local `.obsidian` state. The deployed rich layer is recoverable from
+FNS Configuration Sync and the verified external vault checkpoint. Exact
+source commits, versions, adapted paths, hashes, tests, and rollback boundaries
+are recorded here so this distinction cannot be mistaken for repository
+reproducibility.
+
 | Live file | Bytes | Adapted SHA-256 |
 |---|---:|---|
 | `HUB/Home.md` | 2,630 | `8CB2540A58E1E94AB576353D00ACE95F00303E0CC17DBA8407F2448BB1989850` |
