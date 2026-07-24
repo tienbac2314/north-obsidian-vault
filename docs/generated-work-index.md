@@ -4,6 +4,7 @@ These files preserve design sessions produced through planning skills. They may 
 
 ## Specifications
 
+- [Dusk subagents](superpowers/specs/2026-07-24-dusk-subagents-design.md) — proposed
 - [Obsidian and Hermes workspace](superpowers/specs/2026-07-22-obsidian-hermes-workspace-design.md) — superseded
 - [Git workflow migration](superpowers/specs/2026-07-22-git-workflow-migration-design.md) — superseded
 - [Markdown discoverability](superpowers/specs/2026-07-22-markdown-discoverability-design.md) — completed
