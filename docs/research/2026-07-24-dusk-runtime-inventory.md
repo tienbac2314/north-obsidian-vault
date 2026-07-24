@@ -190,13 +190,15 @@ layout, and plugin-off fallback.
 
 | Live file | Bytes | Adapted SHA-256 |
 |---|---:|---|
-| `HUB/Home.md` | 2,598 | `FD933366905F05C9DEDDC006D4A95BBE7F9F94AF7018E13FCF5617257CC8CE7E` |
+| `HUB/Home.md` | 2,630 | `8CB2540A58E1E94AB576353D00ACE95F00303E0CC17DBA8407F2448BB1989850` |
 | `HUB/Map of Content.md` | 269,634 | `28A15D7653031FF56C2D971F09FFB096394F30E9976F685B923C422EF7C3AC0D` |
 | `HUB/Mail Box.md` | 17,356 | `3E0A262666EDB599B62C615637C22AE86F2BD6EE2F199E960BA941236AAEB6E4` |
 | `HUB/Priority Matrix.md` | 11,073 | `481C01578CF1F5CC17DACE0788B85E288A25E339A5AC77CB9838F1C10E0386E8` |
 | `SYSTEM/Components/Dusk/MapOfContent/map_of_content_data.json` | 2,198 | `733AB28413315A07FC00A533C7DB4A94145A69AE9261472C12424EA107433187` |
-| `SYSTEM/Components/Dusk/PriorityMatrix/PriorityMatrix.jsx` | 292,017 | `F01E5512B171F3FF39E9F7112946C456B9EBC7305F49ECDA93CEA178B945E9D4` |
+| `SYSTEM/Components/Dusk/PriorityMatrix/PriorityMatrix.jsx` | 292,273 | `66613B9D2F9A832DFC4EE4B68A254B4F498B7CBE8A4C902AA95E487B54AA8C5B` |
 | `SYSTEM/Components/Dusk/PriorityMatrix/priority_matrix_data.json` | 3,222 | `DE1AE02DF5A598B17B9B20FD8E769209B9FB35A48BC51D90BF333BAEFBD17C7E` |
+| `SYSTEM/Components/Dusk/DynamicForm/DynamicFormScript.js` | 80,383 | `D19F933F76A6CA5DFE1BCB90FD3A792977934DB1B86C5E309F6E3E99C2B2D33C` |
+| `SYSTEM/Components/Dusk/DynamicForm/dynamic_form_config.json` | 1,558 | `16F04E7D215B54161FB719F6BC3C5B689758732F0466BCA7B37A3F21AF624A72` |
 
 Adaptations are narrow:
 
@@ -205,6 +207,8 @@ Adaptations are narrow:
 - user-visible component dates use `en-GB` or `dd/MM/yyyy`;
 - MOC still includes Notion but excludes SYSTEM, HUB, and DAILY;
 - Priority Matrix excludes SYSTEM, HUB, Notion, and archive;
+- Priority Matrix displays due dates as `dd/mm/yyyy` but writes its typed
+  `due_date` property as ISO;
 - Mail Box queries the two active agent-review folders plus explicit
   `page_task: true` notes, and never treats review links as approval;
 - empty Mail Box pagination clamps one page instead of displaying page zero;
@@ -239,7 +243,86 @@ unreviewed DataviewJS copied into imported or downloaded notes.
 Two pre-existing Canvas files contained only `{}`. Datacore consistently
 reported `nodes is not iterable`. Their paths were preserved and content was
 repaired to the valid empty Canvas shape `{"nodes":[],"edges":[]}`; clean
-startup verification remains a later gate.
+startup then showed no Canvas or Datacore error.
+
+## Action layer and optional startup
+
+QuickAdd contains two bounded choices:
+
+- `Capture unsorted note` creates from `SYSTEM/Templates/Unsorted.md` under
+  `STAGING/Unsorted` and increments filename collisions;
+- `Dynamic Form` executes only the reviewed copy under
+  `SYSTEM/Components/Dusk/DynamicForm`.
+
+Dynamic Form received narrow path guards before execution. Configuration stays
+inside its component directory. New notes can target only the seven accepted
+capture and knowledge roots. Titles reject traversal, separators, dot
+segments, and invalid Windows filename characters. Static inspection found no
+network, shell, delete, rename, or external-provider call. Runtime tests:
+
+- created a synthetic note in `STAGING/Unsorted`;
+- rejected `../escape-attempt` with an invalid-path message;
+- created no file outside the allowed root;
+- removed the exact synthetic note afterward.
+
+Note Toolbar now provides one floating `dusk_nav` menu on Markdown notes:
+Home, Map, Mail, Matrix, Today, Capture, and Search. Home, Daily Notes,
+QuickAdd, and Omnisearch command IDs all exist. The Map file action opened
+`HUB/Map of Content.md` in a new tab. This replaces Dusk's large toolbar
+configuration and its missing Hider and per-file-hotkey dependencies.
+
+Lazy Loader remains because optional plugins now exist. Critical plugins,
+including FNS, Homepage, Custom Sort, Datacore, Dataview, Tasks, QuickAdd,
+Meta Bind, JS Engine, Tabs, theme controls, and Note Toolbar remain immediate.
+Editing Toolbar loads after five seconds. Iconic and Omnisearch load after
+fifteen seconds. A clean launch kept Home and FNS available immediately; all
+three delayed instances reported loaded after their windows, and the rendered
+workspace showed no component error.
+
+Lazy Loader removes delayed IDs from Obsidian's persisted enabled set while
+loading their plugin instances itself. Therefore the final
+`community-plugins.json` contains 15 immediate IDs, while runtime inspection
+reports 18 loaded instances.
+
+Habit Streak RPG stopped at isolated preflight and was not deployed. Static
+inspection found no network, shell, delete, or rename call, but the captured
+release is explicitly discontinued and stores custom category state in
+device-local `window.localStorage`. That prevents FNS from providing the same
+state on Windows and Android. Adding a known-divergent game subsystem would
+reduce, not improve, the requested seamless workflow. No maintained
+like-for-like replacement was added.
+
+Priority Matrix received a synthetic interaction test. A note with
+`eisenhower_status: urgent_important` appeared in Do First with
+`25/07/2026`, then drag to Schedule wrote
+`eisenhower_status: not_urgent_important` while retaining the ISO
+`due_date: 2026-07-25`. The exact synthetic note was removed.
+
+## Final Windows integrity and startup
+
+The final Notion tree still matches the pre-rich manifest:
+
+- current files: 164;
+- current bytes: 1,095,099;
+- differing path, length, or SHA-256 rows: 0.
+
+FNS secret-bearing configuration SHA-256 remains
+`1FB34C99B1CB13992BD2AE23D789B6E2C3D90559615AE8B2694D336F1F789DAB`.
+The final runtime reported `Sync Complete (Incremental)`. No secret value was
+printed.
+
+Launch-to-main-window results after action and loader configuration:
+
+| Trial | Milliseconds |
+|---|---:|
+| 1 | 916 |
+| 2 | 824 |
+| 3 | 847 |
+
+Median: 847 ms. Mean: 862 ms. This remains a narrow launch metric, not a claim
+about Android or background index completion. Final Home opened in Reading
+view with both sidebars collapsed, floating action menu present, all delayed
+plugins loaded, and no visible component error.
 
 ## Rejected source behavior
 
@@ -250,10 +333,10 @@ startup verification remains a later gate.
 - Dusk sample or dummy notes;
 - private workspace and hotkey state;
 - slash-formatted date filenames;
+- discontinued Habit Streak RPG state that cannot sync through FNS;
 - NotebookLM recommendation to move Notion or add another FNS instance.
 
 ## Next gate
 
-Review Dynamic Form and Habit Streak RPG, configure capture and Note Toolbar
-actions, then measure optional lazy loading. Rich surfaces already work with
-immediate startup.
+Run repository verification and independent final review. Physical Android
+surface testing and the four-week human-use gate remain user work after merge.

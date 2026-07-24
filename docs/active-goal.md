@@ -89,12 +89,27 @@ human-use gate or unrun physical Android matrix.
   disabled. Home displays `dd/mm/yyyy`, while stored typed dates remain ISO.
 - Two invalid empty Canvas files were the source of Datacore index errors.
   Their paths were preserved and repaired to valid empty Canvas JSON.
+- Dynamic Form passed static review, an allowed-root create test, and a
+  traversal-rejection test. Exact synthetic output was removed.
+- Note Toolbar provides one compact floating menu for Home, Map, Mail, Matrix,
+  Today, Capture, and Search without Dusk's missing hotkey or Hider plugins.
+- Priority Matrix displayed `25/07/2026`; dragging a synthetic note from Do
+  First to Schedule wrote the expected status property. Test note was removed.
+- Habit Streak RPG was rejected at isolated preflight because its discontinued
+  build stores device-specific state in `window.localStorage`, outside FNS.
+- Lazy Loader keeps critical plugins instant, delays Editing Toolbar by five
+  seconds, and delays Iconic and Omnisearch by fifteen seconds. Clean runtime
+  inspection confirmed all delayed instances loaded without visible errors.
+- Final launch-to-window trials were 916, 824, and 847 ms; median 847 ms.
+- Notion still matches all 164 baseline path, length, and SHA-256 rows. FNS
+  configuration hash remains unchanged and runtime reports incremental sync
+  complete.
 
 ## Next action
 
-Review and configure modular actions, attempt the discontinued Habit component
-in isolation, and measure optional lazy loading from the tracked
-[Dusk recreation plan](superpowers/plans/2026-07-24-dusk-runtime-recreation.md).
+Run full repository verification, complete independent final review, fix
+material findings, update PR #4, and leave physical Android plus four-week
+human observation explicit.
 
 ## Stop conditions
 

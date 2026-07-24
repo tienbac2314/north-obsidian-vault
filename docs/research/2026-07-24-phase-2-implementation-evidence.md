@@ -2,7 +2,9 @@
 
 Date: 2026-07-24
 
-Status: Windows Phase 2 setup and Phase 2.5 customization implemented. Physical
+Status: retained core-first checkpoint. DEC-037 later expanded this runtime
+into the rich Dusk recreation recorded in
+[the Dusk runtime inventory](2026-07-24-dusk-runtime-inventory.md). Physical
 Android customization checks and Release 2 four-week human observation remain
 open.
 
@@ -136,8 +138,8 @@ Full rollback:
 5. retain FNS service state and surviving peer until empty-replacement risk is
    excluded.
 
-No rollback requires Google Drive, another sync engine, or Dusk's old plugin
-runtime.
+No rollback requires Google Drive or another sync engine. Rich Dusk rollback
+details now live in the linked runtime inventory.
 
 ## Remaining evidence
 
