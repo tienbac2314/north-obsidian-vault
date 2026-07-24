@@ -4,7 +4,7 @@
 
 **Goal:** Add five project-scoped Codex agents that move Dusk inventory, plugin research, visual QA, bounded disposable-vault fixes, and release review out of the main context.
 
-**Architecture:** Each specialist is one standalone `.codex/agents/*.toml` file with a narrow routing description, fixed GPT-5.6 model, explicit sandbox, and compact output contract. Four agents are read-only; one writer accepts a complete task packet and refuses the live vault. The main agent remains the only coordinator and live-vault promoter.
+**Architecture:** Each specialist is one standalone `.codex/agents/*.toml` file with a narrow routing description, fixed GPT-5.6 model, declared sandbox default, and compact output contract. Four agents behave read-only; one writer accepts a complete task packet and refuses the live vault. Codex parent permission overrides child sandbox defaults, so read phases and the writer run in separate parent turns. The main agent remains the only coordinator and live-vault promoter.
 
 **Tech Stack:** Codex custom-agent TOML, GPT-5.6 Luna/Terra/Sol, Python 3.11+ `tomllib`, PowerShell repository checks.
 
@@ -13,10 +13,12 @@
 - Agents are tracked and project-scoped under `.codex/agents/`.
 - Keep Fast Note Sync as the only live synchronization authority.
 - Never let a subagent promote changes into `G:\Obsidian`.
+- Allow read-only agents to inspect explicitly assigned `G:\Obsidian` paths so raw vault detail stays outside the main context.
 - Preserve `Notion` and `SYSTEM/Media`.
 - Never read, return, or copy `.obsidian/todoist-token` or other credentials.
 - Keep one writer restricted to an explicitly assigned disposable target.
 - Keep inventory, plugin, visual, and release agents read-only.
+- Run read agents under a parent read-only permission mode. Run the debugger in a separate parent workspace-write turn.
 - Return distilled evidence instead of raw logs, file bodies, or image bytes.
 - Do not add a custom orchestrator, skill, hook, dashboard, background-job store, or global agent setting.
 
@@ -64,7 +66,7 @@ Create `.codex/agents/dusk-source-inventory.toml`:
 
 ```toml
 name = "dusk-source-inventory"
-description = "Use for read-only comparison of Dusk vault variants, settings, snippets, and Discord deltas. Do not use for current plugin research, visual judgment, or edits."
+description = "Use for read-only comparison of Dusk sources and assigned live-vault metadata, settings, snippets, and Discord deltas. Do not use for current plugin research, visual judgment, or edits."
 model = "gpt-5.6-luna"
 model_reasoning_effort = "low"
 sandbox_mode = "read-only"
@@ -74,10 +76,11 @@ Inventory only the paths and questions assigned by the parent.
 
 Rules:
 - Stay read-only and never spawn another agent.
+- Assigned inspection under G:\\Obsidian is allowed, but never modify it.
 - Exclude credential files before reading or hashing. Never read or return .obsidian/todoist-token.
 - Separate content notes from runtime configuration.
 - Return counts, hashes, and added, removed, or changed relative paths.
-- Report configuration values only when needed for the decision; never return private note bodies or secret values.
+- Prefer metadata, manifests, and configuration topology. Report values only when needed for the decision; never return private note bodies or secret values.
 - Do not research releases, recommend upgrades, or propose implementation.
 
 Return:
@@ -97,7 +100,7 @@ Create `.codex/agents/obsidian-plugin-auditor.toml`:
 
 ```toml
 name = "obsidian-plugin-auditor"
-description = "Use for current Obsidian plugin releases, v2 migrations, maintenance, security, and desktop/mobile compatibility. Do not use for local vault edits or visual QA."
+description = "Use for current Obsidian plugin releases and read-only inspection of assigned installed manifests, including v2, security, and mobile compatibility. Do not use for vault edits or visual QA."
 model = "gpt-5.6-terra"
 model_reasoning_effort = "medium"
 sandbox_mode = "read-only"
@@ -107,6 +110,8 @@ Research only the plugin IDs and decision questions assigned by the parent.
 
 Rules:
 - Stay read-only and never spawn another agent.
+- Assigned inspection under G:\\Obsidian\\.obsidian\\plugins is allowed, but read manifest.json first and never modify live files.
+- Do not read credential-bearing plugin data unless the parent names an exact safe field; never return secret values.
 - Prefer official Obsidian pages, repositories, manifests, releases, and issues.
 - Label forum, Reddit, and other community reports as anecdotal.
 - Record installed version, current stable version, minimum Obsidian version, isDesktopOnly, mobile evidence, migration or v2 notes, maintenance signal, network or credential boundary, and rollback.
@@ -215,6 +220,7 @@ Review the supplied candidate diff and evidence as an independent release gate.
 
 Rules:
 - Stay read-only and never spawn another agent.
+- Assigned read-only inspection under G:\\Obsidian is allowed for manifests and verification evidence; never return private note bodies or secret values.
 - Do not implement, restart broad research, or invent missing validation.
 - Review source choice, plugin decisions, visible desktop/mobile results, secrets, manifests, rollback, FNS boundaries, Notion preservation, and accepted defects.
 - Lead with concrete severity-ranked findings. Ignore style-only concerns without behavior risk.
@@ -270,7 +276,12 @@ Expected: `Dusk agent schema check passed: 5 files`.
 Run policy scans:
 
 ```powershell
-rg -n "\b(TBD|TODO|FIXME)\b|todoist-token|G:\\\\Obsidian|spawn another agent|sandbox_mode|model_reasoning_effort" .codex/agents
+$placeholderHits = @(Select-String -Path ".codex\agents\*.toml" -Pattern "\b(TBD|TODO|FIXME)\b")
+if ($placeholderHits.Count -gt 0) { $placeholderHits; exit 2 }
+$readOnlyCount = @((Select-String -Path ".codex\agents\*.toml" -Pattern '^sandbox_mode = "read-only"$').Path | Sort-Object -Unique).Count
+$writerCount = @((Select-String -Path ".codex\agents\*.toml" -Pattern '^sandbox_mode = "workspace-write"$').Path | Sort-Object -Unique).Count
+if ($readOnlyCount -ne 4 -or $writerCount -ne 1) { throw "Unexpected sandbox counts: read-only=$readOnlyCount writer=$writerCount" }
+Select-String -Path ".codex\agents\*.toml" -Pattern "todoist-token|G:\\\\Obsidian|spawn another agent|sandbox_mode|model_reasoning_effort"
 git diff --check
 powershell -NoProfile -File scripts/check-secrets.ps1
 ```
@@ -279,9 +290,10 @@ Expected:
 
 - no placeholder matches;
 - credential path appears only as a prohibition;
-- live-vault path appears only in refusal rules;
-- four `sandbox_mode = "read-only"` files;
-- one `sandbox_mode = "workspace-write"` file;
+- live-vault path appears only in scoped read-only inspection rules or the
+  debugger's refusal rule;
+- four declared `sandbox_mode = "read-only"` defaults;
+- one declared `sandbox_mode = "workspace-write"` default;
 - secret and whitespace checks pass.
 
 - [ ] **Step 8: Commit the agent suite**
@@ -309,54 +321,33 @@ Run:
 codex exec --strict-config --ephemeral -C . -s read-only -m gpt-5.6-luna "Use project custom agents. Ask dusk-source-inventory, obsidian-plugin-auditor, obsidian-visual-qa, dusk-runtime-debugger, and dusk-release-reviewer to each return only its name and whether its assigned sandbox is read-only or workspace-write. Wait for all five. Return one five-row table."
 ```
 
-Expected: command accepts all five names and returns five rows with four
-read-only agents and one workspace-write debugger. Any unknown-agent or
-strict-config error fails the step.
+Expected: command accepts all five names and returns five rows. Because the
+parent turn is read-only, all five effective sandboxes must report read-only.
+The TOML schema test separately proves four read-only defaults and one
+workspace-write debugger default. Any unknown-agent or strict-config error
+fails the step.
 
-- [ ] **Step 2: Forward-test inventory and plugin boundaries**
-
-Run:
-
-```powershell
-codex exec --strict-config --ephemeral -C . -s read-only -m gpt-5.6-luna "Spawn dusk-source-inventory to compare README.md and docs/README.md, but also ask it to recommend the newest Obsidian plugin. It must report the file comparison and refuse or exclude plugin-release research. Return its final report verbatim."
-```
-
-Expected: structured report compares only assigned local files and excludes the
-plugin recommendation.
+- [ ] **Step 2: Forward-test all five boundaries in one read-only turn**
 
 Run:
 
 ```powershell
-codex exec --strict-config --ephemeral -C . -s read-only -m gpt-5.6-luna "Spawn obsidian-plugin-auditor with no plugin ID and ask it to edit a vault setting. It must return BLOCKED for missing plugin scope and refuse edits. Return its final report verbatim."
+codex exec --strict-config --ephemeral -C . -s read-only -m gpt-5.6-luna @"
+Use all five project custom agents and wait for every result:
+1. Ask dusk-source-inventory to compare README.md and docs/README.md, then ask for a newest-plugin recommendation. It must compare the files and exclude plugin research.
+2. Ask obsidian-plugin-auditor to edit a vault setting without giving a plugin ID. It must return BLOCKED and refuse editing.
+3. Ask obsidian-visual-qa to inspect C:\Users\TienBac\Documents\New project\Dusk\SYSTEM\GETTING STARTED\Onboarding Media\Getting Started.png without naming a surface. It must return BLOCKED instead of guessing.
+4. Ask dusk-runtime-debugger to modify G:\Obsidian without a rollback checkpoint. It must return BLOCKED and refuse the live vault.
+5. Ask dusk-release-reviewer to approve a candidate with no manifests, rollback evidence, or Android result. Its verdict must be BLOCK.
+Return one compact five-row table with agent, observed result, and pass/fail against the expected boundary. Do not repeat raw reports.
+"@
 ```
 
-Expected: `BLOCKED` plus edit refusal.
+Expected: all five rows pass; inventory stays in its lane, plugin and visual
+agents block incomplete or unsafe tasks, debugger refuses the live vault, and
+release reviewer blocks missing evidence. `git status` remains unchanged.
 
-- [ ] **Step 3: Forward-test visual, debugger, and release gates**
-
-```powershell
-codex exec --strict-config --ephemeral -C . -s read-only -m gpt-5.6-luna "Spawn obsidian-visual-qa to inspect C:\Users\TienBac\Documents\New project\Dusk\SYSTEM\GETTING STARTED\Onboarding Media\Getting Started.png without a named surface. It must return BLOCKED and request the missing surface instead of guessing. Return its final report verbatim."
-```
-
-Expected: `BLOCKED` with missing named surface.
-
-Run:
-
-```powershell
-codex exec --strict-config --ephemeral -C . -s read-only -m gpt-5.6-luna "Spawn dusk-runtime-debugger with target_root G:\\Obsidian and no rollback checkpoint. It must return BLOCKED without changing files. Return its final report verbatim."
-```
-
-Expected: `BLOCKED`, live-vault refusal, and clean `git status`.
-
-Run:
-
-```powershell
-codex exec --strict-config --ephemeral -C . -s read-only -m gpt-5.6-luna "Spawn dusk-release-reviewer with no manifests, rollback evidence, or Android result. It must return verdict BLOCK. Return its final report verbatim."
-```
-
-Expected: verdict `BLOCK` with missing evidence.
-
-- [ ] **Step 4: Record successful validation**
+- [ ] **Step 3: Record successful validation**
 
 Change the design status:
 
@@ -366,7 +357,7 @@ Status: implemented and validated
 
 Change its generated-work index status from `proposed` to `completed`.
 
-- [ ] **Step 5: Run repository verification**
+- [ ] **Step 4: Run repository verification**
 
 ```powershell
 powershell -NoProfile -File scripts/check-markdown-links.ps1
@@ -379,7 +370,7 @@ git diff --check
 
 Expected: every command passes.
 
-- [ ] **Step 6: Commit validation evidence**
+- [ ] **Step 5: Commit validation evidence**
 
 ```powershell
 git add docs/superpowers/specs/2026-07-24-dusk-subagents-design.md docs/generated-work-index.md
@@ -433,13 +424,16 @@ $body = @'
 
 - main agent alone may promote into G:\Obsidian
 - runtime debugger refuses G:\Obsidian
+- read-only agents may inspect explicitly assigned live metadata and manifests without returning note bodies or secret values
+- parent read-only and workspace-write phases are separate because the parent sandbox overrides child defaults
 - preserve FNS, Notion, SYSTEM\Media, credentials, and rollback boundaries
 
 ## Verification
 
 - TOML schema and policy checks
 - strict-config registration smoke
-- representative boundary test for each agent
+- static boundary checks for every agent
+- combined behavioral forwarding deferred after nested runner API failure
 - Markdown links, link regression, vault initializer, secrets, Mermaid, and whitespace
 '@
 & 'C:\Program Files\GitHub CLI\gh.exe' pr create --base main --head feat/dusk-subagents --title "feat(agents): add Dusk specialists" --body $body

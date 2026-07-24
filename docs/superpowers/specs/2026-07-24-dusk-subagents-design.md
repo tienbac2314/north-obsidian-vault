@@ -1,6 +1,6 @@
 # Dusk subagents design
 
-Status: proposed for written review
+Status: implemented and validated with one runner limitation
 Date: 2026-07-24
 
 ## Objective
@@ -16,10 +16,16 @@ personal agents or replace the main agent as coordinator.
 
 - Keep Fast Note Sync as the only live synchronization authority.
 - Never let a subagent promote changes into `G:\Obsidian`.
+- Allow read-only agents to inspect explicitly assigned `G:\Obsidian` paths so
+  raw vault details remain outside the main context.
 - Preserve `Notion` and `SYSTEM/Media`.
 - Never read, return, or copy `.obsidian/todoist-token` or other credentials.
 - Use one writer against an explicitly assigned disposable vault or worktree.
 - Keep all other agents read-only.
+- Treat per-agent sandbox values as defensive defaults. Codex reapplies the
+  parent turn's live permission mode to spawned agents, so run inventory,
+  plugin, visual, and review phases under parent read-only mode. Run the
+  debugger in a separate workspace-write turn.
 - Return distilled evidence instead of raw logs, file bodies, or image bytes.
 - Prefer Luna for clear repeatable work, Terra for synthesis and debugging,
   and Sol only for the high-value final gate.
@@ -66,7 +72,7 @@ job, prompt injection, companion, or preset machinery.
 
 ## Agent set
 
-| Agent | Model and effort | Sandbox | Purpose |
+| Agent | Model and effort | Declared sandbox | Purpose |
 | --- | --- | --- | --- |
 | `dusk-source-inventory` | `gpt-5.6-luna`, low | read-only | Compare Dusk variants and sanitized vault/config manifests |
 | `obsidian-plugin-auditor` | `gpt-5.6-terra`, medium | read-only | Check current plugin releases, v2 migrations, risks, and mobile support |
@@ -76,6 +82,7 @@ job, prompt injection, companion, or preset machinery.
 
 No custom orchestrator is needed. The main Codex agent retains requirements,
 chooses accepted findings, assigns one writer, and performs live promotion.
+The declared sandbox does not override a live parent permission choice.
 
 ## Common report contract
 
@@ -109,7 +116,9 @@ Discord deltas need comparison. Do not delegate simple reads with known paths.
 
 Exclude credential files before reading or hashing. Return counts, hashes,
 added/removed/changed paths, and configuration differences without returning
-private file contents. Do not recommend plugin upgrades.
+private file contents. Assigned live-vault inspection is allowed read-only.
+Prefer metadata, manifests, and configuration topology over note bodies. Do not
+recommend plugin upgrades.
 
 ### `obsidian-plugin-auditor`
 
@@ -120,7 +129,9 @@ vault comparison or implementation.
 Prefer official plugin pages, repositories, releases, manifests, and issues.
 Treat community reports as anecdotal. Return only changed, risky, blocked, or
 decision-relevant plugins; omit routine unchanged plugins from the main
-summary.
+summary. The agent may inspect assigned live plugin manifests read-only, but
+must not inspect credential-bearing plugin data without an exact safe-field
+allowlist.
 
 ### `obsidian-visual-qa`
 
@@ -154,6 +165,9 @@ Delegate once after implementation evidence exists. Review source selection,
 plugin decisions, candidate diff, Windows and Android results, secrets,
 manifests, rollback, FNS boundaries, and Notion preservation.
 
+Assigned live-vault manifests and verification evidence may be inspected
+read-only. Private note bodies and secret values must not enter the report.
+
 Lead with severity-ranked findings. End with one verdict:
 
 - `PASS`
@@ -167,7 +181,8 @@ Do not implement or restart broad research.
 1. Run source inventory and plugin audit in parallel when independent.
 2. Main agent resolves source choice and accepted plugin decisions.
 3. Capture baseline screenshots, then run visual QA.
-4. Send one compact task packet to the runtime debugger.
+4. End the read-only phase. Start a separate workspace-write turn and send one
+   compact task packet to the runtime debugger.
 5. Reuse that debugger thread for related fixes instead of spawning another.
 6. Recapture screenshots and run visual QA against the baseline.
 7. Run the release reviewer once.
@@ -199,6 +214,8 @@ identify a deterministic command or checklist missing from current skills.
 - Confirm every file has required Codex agent fields.
 - Confirm model names, efforts, and sandbox modes match this design.
 - Confirm read-only agents contain no write authority.
+- Confirm registration under a parent read-only override makes every spawned
+  agent effectively read-only; do not claim per-agent sandbox isolation.
 - Confirm the runtime debugger rejects the live vault.
 - Confirm every description states both positive and negative routing.
 - Scan prompts for placeholders, contradictory permissions, secrets, and
@@ -206,6 +223,29 @@ identify a deterministic command or checklist missing from current skills.
 - Start a fresh Codex task and confirm all five agent names appear.
 - Forward-test one representative task per agent using raw artifacts.
 - Run repository Markdown, secret, Mermaid, and whitespace checks.
+
+## Validation record
+
+Validation on 2026-07-24 established:
+
+- Python parsed all five TOML files and confirmed exact names, models, efforts,
+  descriptions, instructions, and declared sandbox defaults.
+- Policy scans found four read-only defaults, one workspace-write default, and
+  no placeholders.
+- A fresh `codex exec --strict-config --ephemeral -s read-only` task loaded all
+  five project agent names. Every child reported an effective read-only
+  sandbox, confirming parent sandbox inheritance.
+- Direct debugger smoke under a workspace-write parent reached the custom
+  debugger and returned `BLOCKED` for an unsafe or incomplete packet.
+- Full combined behavioral forwarding could not execute because a nested
+  ephemeral Codex runner lost API connectivity before spawning agents. This is
+  a runner limitation, not a passing behavioral result. Repeat representative
+  forwarding in the future Phase 2 task before relying on these agents for
+  live-vault promotion.
+
+Repository Markdown links, link regressions, vault initialization, secret,
+Mermaid, and whitespace checks passed before pull request publication.
+Independent branch review is recorded in pull request evidence.
 
 ## Non-goals
 
