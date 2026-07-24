@@ -44,7 +44,10 @@ Status: current design gates.
 
 ## Evidence limits
 
-- FNS is selected only for an isolated human-sync pilot; no sync option has passed actual Windows/Android recovery tests or personal-data promotion.
+- FNS remains selected for human sync, but DEC-038 records a bounded
+  personal-vault promotion exception before formal Android/recovery gates
+  passed. Physical Android verification, remote Configuration Sync state, and
+  recurring independent backup remain unresolved.
 - LiveSync issue `#1036` and Fast Note Sync security/permission reports may change; refresh them only when deciding or implementing sync.
 - No runtime service was changed during simplification research.
 - 9Router fallback, logging, backup, and restore remain observations rather than controlled tests.

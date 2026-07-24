@@ -53,6 +53,13 @@ Excluded:
 
 Release 1A may promote to a bounded human-only personal vault after every applicable gate passes. Promotion does not authorize Hermes, external writers, provider disclosure, or automation. Backup cadence, retention, recovery destination, and configuration sync must be explicit first.
 
+DEC-038 records one corrective exception: explicit Phase 2 instructions placed
+the existing Notion import inside the already connected whole-vault FNS
+transport before this gate was recorded. Preserve that state, keep agent/API
+paths and Configuration Sync disabled, and block further sensitive expansion
+until Android and independent-backup gates pass. Exception is not proof that
+Release 1B passed.
+
 ### Later release: proposal-only Hermes
 
 Hermes begins only after:
@@ -165,9 +172,11 @@ reversible rich-workspace experiment under
 It recreates Homepage, Map of Content, Mail Box, and area/project surfaces
 using maintained current plugins and inspected Dusk components. Datacore owns
 rich reactive views; native Bases remains preferred for ordinary file/property
-tables. The experiment may use Dataview, Tasks, Templater, QuickAdd, Meta Bind,
-JS Engine, Style Settings, and Lazy Loader only where an accepted Dusk behavior
-requires them. FNS remains sole live sync, Notion remains byte-identical, and
+tables. The retained runtime uses Dataview, Tasks, QuickAdd, Meta Bind, Style
+Settings, and Lazy Loader only where an accepted Dusk behavior requires them;
+Templater and JS Engine were evaluated, then removed because no deployed
+surface consumed them. FNS remains sole live sync, Notion remains
+byte-identical, and
 no Dusk credential, private content, or secret-bearing plugin data is copied.
 Failure of the rich runtime must leave ordinary Markdown, FNS, and recovery
 usable.

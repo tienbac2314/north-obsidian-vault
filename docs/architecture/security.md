@@ -20,14 +20,23 @@ Obsidian community plugins, FNS server, Android background behavior, copied web/
 
 ## FNS controls
 
-- Use isolated synthetic vault and disposable account until promotion.
+- Use isolated synthetic vault and disposable account until promotion. The
+  current named vault is a bounded human-only exception under DEC-038; do not
+  extend it to more sensitive content, another account, or another client.
 - Pin plugin and server releases for each test cycle; record public versions.
 - Bind service port to loopback and expose only through dedicated TLS tunnel ingress. Keep existing tunnel routes and processes unchanged.
 - Disable public registration after controlled bootstrap.
 - Use unique credentials for pilot; never reuse Hermes, 9Router, backup, or other service keys.
 - Keep server database, config, backups, logs, tokens, endpoints, and account identifiers outside repository.
 - Disable FNS MCP, REST consumers, Git automation, filesystem mirror, sharing, and third-party headless clients.
-- Disable configuration sync until safe cross-platform subset is proven.
+- Keep Configuration Sync disabled. It was unintentionally enabled on Windows
+  during Phase 2 and corrected after independent review. Verify Android is
+  also disabled before reconnecting it; do not treat remote configuration as
+  backup.
+- Treat `dataviewjs` and `datacorejsx` fences as executable code. Dataview's
+  execution switch is vault-global, not path-scoped. Scan imported, downloaded,
+  synchronized, and agent-written notes before rendering them; only reviewed
+  HUB blocks are accepted in current runtime.
 - Keep Cloud Preview automatic local deletion off.
 - Test vault-token isolation and external-file survival before any API or agent promotion.
 

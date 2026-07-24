@@ -85,9 +85,10 @@ Phase 2.5 keeps the core-first files as fallback but layers a rich Dusk runtime
 over them. Homepage opens the main dashboard. Datacore renders the current Map
 of Content, Mail Box, Priority Matrix, and other reactive components. Native
 Bases renders ordinary project, learning, and review tables when it reaches
-the same behavior with less code. Dataview, Tasks, Templater, QuickAdd, Meta
-Bind, JS Engine, and Style Settings may support inspected Dusk workflows.
-Minimal theme and bounded CSS reproduce Dusk's dark visual language.
+the same behavior with less code. Dataview, Tasks, QuickAdd, Meta Bind, and
+Style Settings support inspected Dusk workflows. Templater and JS Engine were
+removed after review found no deployed consumer. Minimal theme and bounded CSS
+reproduce Dusk's dark visual language.
 
 Desktop is primary. Separate mobile dashboard notes may use narrower layouts
 over the same Markdown and properties. Physical Android verification remains

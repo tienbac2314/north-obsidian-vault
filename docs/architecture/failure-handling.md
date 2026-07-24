@@ -94,7 +94,10 @@ Passing copy command is not proof. Empty-path restore, rebuilt client, history/t
 - Failed FNS gate: shut down FNS for that vault, preserve copies, and stop. Do not add Syncthing alongside it.
 - Failed attachment gate: reject personal promotion for affected file class; do not hide failure with a second attachment authority.
 - Failed FNS upgrade: restore pinned server state and matching client release before continuing.
-- Failed personal-data gate: return to synthetic vault; personal notes remain outside pilot.
+- Failed personal-data gate: normally return to synthetic vault and keep
+  personal notes outside pilot. For current DEC-038 exception, do not
+  destructively unsync bytes already promoted; freeze scope, preserve offline
+  checkpoint, and close missing Android/backup controls first.
 - Failed Hermes gate later: disable schedule and access credentials; human Obsidian/FNS system remains useful.
 - Failed apply transaction or rollback later: revoke executor, preserve journal and preimages, recover touched files, and keep proposal-only workflow.
 

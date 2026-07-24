@@ -9,6 +9,11 @@ customization work. It prepares the bounded personal pilot described by
 [the phased roadmap](phased-roadmap.md), but it cannot complete that release's
 four-week human-use exit gate in one implementation session.
 
+Corrective DEC-038 records that the explicit Notion-in-live-vault requirement
+already crossed the synthetic boundary. This phase contains that existing
+personal data; it does not count skipped Android, recurring-backup, or formal
+promotion gates as passed.
+
 The agent has standing authority to make bounded best-judgment decisions,
 self-review them against this contract, and continue without synchronous
 approval. Physical Android testing and human observation must be recorded as
@@ -157,6 +162,10 @@ FNS, Homepage, Datacore, and dashboard-critical dependencies load immediately.
 Custom Sort remains immediate because delayed startup misses its layout hook.
 Lazy Loader may remain only when at least one optional plugin is measurably
 safe to delay.
+
+Keep FNS Configuration Sync disabled on every device. Plugin configuration is
+machine-local and recoverable only from verified offline checkpoint until a
+cross-platform subset receives a separate decision and test.
 
 ## Performance and sync safety
 

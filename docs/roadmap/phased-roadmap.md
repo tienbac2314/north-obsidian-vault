@@ -1,6 +1,7 @@
 # Evidence-gated roadmap
 
-Status: current program roadmap under accepted modular decisions through DEC-036. Each release requires its own entry gates and decision.
+Status: current program roadmap under accepted modular decisions through
+DEC-038. Each release requires its own entry gates and decision.
 
 Phases describe promotion order and lasting boundaries, not a backlog of components waiting for installation. Every release must remain useful if every later release is abandoned.
 

@@ -84,11 +84,13 @@ startup, and a clean relaunch then parsed and applied the order automatically.
 Every other retained plugin also requires instant behavior. Lazy Loader was
 therefore removed rather than kept as an idle manager.
 
-FNS Configuration Sync restored the first local removal of disabled Importer
-and Lazy Loader folders from its remote configuration state. Both folders were
-removed again while FNS was connected so normal `SettingDelete` synchronization
-could record the deletion. A later FNS-connected relaunch did not restore them.
-Recovery copies remain outside active vault.
+During this core-first checkpoint, FNS Configuration Sync restored the first
+local removal of disabled Importer and Lazy Loader folders from remote
+configuration state. That exposed an authority violation: DEC-035 had not
+authorized Configuration Sync. Independent rich-runtime review later disabled
+it and verified persistence after plugin reload. Current recovery uses the
+offline final rich-vault checkpoint, not remote configuration. Earlier remote
+rows and Android's local toggle remain a controlled follow-up.
 
 ## Startup measurement
 
