@@ -81,12 +81,28 @@ Vault files remain one attachment content authority. Platform-native gestures pr
 
 ## Phase 2 workspace surface
 
-Core Bases, Properties, Templates, Daily Notes, Bookmarks, Search, Backlinks,
-and File Recovery provide Dusk-like navigation without its plugin chain.
-Minimal theme, Minimal Theme Settings, Homepage, shallow root sorting, and one
-CSS snippet are reversible presentation helpers; they gain no agent or network
-authority. All retained community plugins load immediately. No loader is
-installed because this minimal set has no safe delayed plugin.
+Phase 2.5 keeps the core-first files as fallback but layers a rich Dusk runtime
+over them. Homepage opens the main dashboard. Datacore renders the current Map
+of Content, Mail Box, Priority Matrix, and other reactive components. Native
+Bases renders ordinary project, learning, and review tables when it reaches
+the same behavior with less code. Dataview, Tasks, Templater, QuickAdd, Meta
+Bind, JS Engine, and Style Settings may support inspected Dusk workflows.
+Minimal theme and bounded CSS reproduce Dusk's dark visual language.
+
+Desktop is primary. Separate mobile dashboard notes may use narrower layouts
+over the same Markdown and properties. Physical Android verification remains
+deferred; manifests must declare mobile support before installation.
+
+FNS, Homepage, Datacore, and any plugin needed to render the startup dashboard
+load immediately. Lazy Loader may delay only independently usable plugins whose
+late initialization passes a clean-relaunch test. User-visible dates use
+`dd/mm/yyyy`; ISO `YYYY-MM-DD` remains canonical inside typed date properties
+and filenames where Obsidian parsing requires it.
+
+Every Dusk source file is selected individually from the public legacy
+repository or user-supplied Discord material. Never copy `.obsidian` wholesale,
+Todoist tokens, plugin data with secrets, sample/private notes, or credentials.
+The rich layer gains no network, sync, agent, or deletion authority.
 
 All FNS optional Storage Configuration providers remain disabled. They are
 backup/export targets, not live transport. Google Drive has no native adapter;

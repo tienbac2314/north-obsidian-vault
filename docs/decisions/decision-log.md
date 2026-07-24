@@ -244,7 +244,8 @@ Statuses: Accepted, Proposed, Rejected, Postponed, Superseded.
 
 ## DEC-036: Use core-first Dusk experience
 
-- Status: Accepted for Phase 2 implementation.
+- Status: Superseded for Phase 2.5 by DEC-037. Completed core-first files remain
+  rollback fallback.
 - Decision: Keep FNS as sole live sync. Leave all optional FNS Storage Configuration providers disabled; Google Drive is not native, and rclone/WebDAV or mounted-drive bridges add credentials, daemon, proxy, caching, and recovery boundaries without improving live capture.
 - Experience: Reproduce useful Dusk navigation with core Bases, Properties, Templates, Daily Notes, Bookmarks, Search, Backlinks, and File Recovery; Minimal theme `8.2.2`; Minimal Theme Settings `8.2.3`; Homepage `4.4.4`; and shallow Custom File Explorer sorting `3.1.6`. Use one small inspectable dashboard CSS snippet. FNS, Homepage, theme settings, and Custom File Explorer sorting load immediately. Runtime testing found delayed Custom Sort misses its initial layout hook; every other retained plugin must be instant. Reject idle Lazy Loader because this set has no safe delayed plugin.
 - Templates: Use optional Daily, Weekly, Literature, Permanent, Project, and Meeting templates with only consumed properties. Omit automatically stale `modified` fields and mandatory capture metadata.
@@ -253,3 +254,18 @@ Statuses: Accepted, Proposed, Rejected, Postponed, Superseded.
 - Preservation: Notion import remains at existing paths and must match pre-change path, length, and SHA-256 manifest. Current customization neither sorts it nor authorizes Hermes.
 - Evidence: [Phase 2 storage and customization review](../research/2026-07-24-phase-2-customization.md).
 - Rollback: Markdown, Bases, and templates remain readable without plugins. Disable retained plugin IDs, clear theme/snippet settings, or restore verified pre-change vault copy. Never add a second live sync engine as rollback.
+
+## DEC-037: Recreate current Dusk experience
+
+- Status: Accepted for Phase 2.5 implementation under standing best-judgment authority.
+- Decision: Recreate all four Dusk surfaces and latest available modular components as closely as practical. Use current Datacore for rich reactive views and native Bases for ordinary file/property tables when behavior is equivalent. Preserve the completed core-first Home and Bases as rollback fallback rather than primary experience.
+- Sources: Public `DuskWasHere/dusk-obsidian-vault` is explicitly legacy. User-supplied `new from discord` is the latest available local component set and contains Map of Content, Priority Matrix, Dynamic Form, and discontinued Habit Streak RPG. Current Priority Matrix source also exists at `DuskWasHere/Priority_Matrix`. Access signed-in Discord through Coccoc only when these sources are broken or incomplete.
+- Experience: Use Minimal's dark Dusk palette, Dusk spacing and visual hierarchy, Homepage, Map of Content, Mail Box/page tasks, area/project pages, quick capture, templates, buttons, and responsive mobile companion notes. Desktop receives full density; mobile uses the same notes and properties with narrower layouts.
+- Runtime: Candidate dependencies include Datacore, Dataview, Tasks, Templater, QuickAdd, Meta Bind, JS Engine, Style Settings, Note Toolbar, and Lazy Loader. Retain only candidates required by a working reproduced behavior, but do not remove visible capability merely to minimize count. FNS, Homepage, Datacore, Custom Sort, and startup-dashboard dependencies remain immediate. Delay only independently verified optional plugins.
+- Dates: Render user-facing dates as `dd/mm/yyyy`. Keep typed date properties and sortable filenames in ISO `YYYY-MM-DD`; never put slash-formatted dates in filenames.
+- Preservation: FNS remains sole live synchronization authority. Keep every FNS optional storage provider disabled. Preserve `G:\Obsidian\Notion` byte-for-byte. Never copy Dusk credentials, Todoist token, secret-bearing plugin data, sample/private notes, or its `.obsidian` directory wholesale.
+- Degraded mode: Removing community plugins may reduce dashboards to source code or Markdown fallback, but must not make ordinary notes, attachments, FNS, or independent recovery unusable.
+- Verification: Fresh pre-change recovery copy; exact Notion manifest before and after; current-release and manifest audit; clean Windows relaunch; all four surfaces; component actions; visible date format; FNS plugin/config integrity; startup before and after; secret scan; repository suite; independent final review. Physical Android remains explicitly deferred.
+- Supersedes: DEC-036 experience and plugin exclusions only. DEC-019, DEC-028 through DEC-035, release-one boundaries, Hermes authorization gates, and FNS single-authority rules remain accepted.
+- Evidence: [Dusk runtime redesign review](../research/2026-07-24-dusk-runtime-redesign.md).
+- Rollback: Disable rich plugins and return Homepage to core `HUB/Home.md`, or restore the fresh verified pre-rich-runtime vault copy. Rollback never adds another sync engine.

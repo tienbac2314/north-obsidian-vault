@@ -5,13 +5,16 @@ Updated: 2026-07-24
 ## Objective
 
 Execute [Phase 2 setup and Obsidian customization](roadmap/phase-2-customization.md):
-research current FNS storage and maintained Obsidian options, preserve the
-Notion import unchanged, port useful Dusk behavior without its obsolete runtime,
-customize `G:\Obsidian` with a minimal fast plugin set, verify recovery and sync
-safety, document decisions, and deliver a reviewed pull request.
+preserve FNS and the unchanged Notion import while recreating the latest
+available Dusk experience as closely as practical in `G:\Obsidian`. Ship all
+four Dusk surfaces, current Datacore components, dark Dusk styling, useful
+templates and actions, selective startup optimization, and user-facing
+`dd/mm/yyyy` dates. Verify recovery, sync safety, startup, and Windows runtime;
+document decisions and deviations; update the existing reviewed pull request.
 
-Status: Windows implementation complete on `feat/obsidian-phase2`; PR
-[#4](https://github.com/tienbac2314/north-obsidian-vault/pull/4) is open.
+Status: rich Dusk redesign approved on `feat/obsidian-phase2`; PR
+[#4](https://github.com/tienbac2314/north-obsidian-vault/pull/4) remains open
+while implementation continues.
 
 This work prepares Release 2. It does not complete the roadmap's four-week
 human-use gate or unrun physical Android matrix.
@@ -28,13 +31,17 @@ human-use gate or unrun physical Android matrix.
 - `G:\Obsidian\Notion` currently contains 164 files. Its paths and bytes are
   preservation inputs, not transformation scope.
 - Pre-change vault plugins were FNS `2.4.0` and Importer `1.8.12`.
-- Dusk inventory contains 58 plugin artifacts and 27 template/code/CSS files;
-  no Dusk credential or plugin data file has been read.
+- Legacy Dusk inventory contains 58 plugin artifacts and 27
+  template/code/CSS files. Newer local Discord material contains Datacore Map
+  of Content, Priority Matrix, discontinued Habit Streak RPG, and a
+  QuickAdd-dependent Dynamic Form. No Dusk credential or secret-bearing plugin
+  data file has been read.
 - FNS `3.6.0` storage adapters and Google Drive bridges were reviewed. All
   optional providers remain disabled under DEC-036.
 - NotebookLM discovery and adversarial synthesis completed; material claims
   were independently checked.
-- Accepted core-first Dusk/QOL set is recorded in DEC-036 and current research.
+- DEC-037 supersedes the core-first Phase 2 experience in DEC-036. Release-one
+  safety boundaries remain unchanged.
 - Windows launch-to-window baseline median is 901 ms across three trials.
 - Full 312-file vault recovery copy and matching SHA-256 manifests were created
   outside vault and repository before customization.
@@ -51,13 +58,18 @@ human-use gate or unrun physical Android matrix.
   configuration, then recoverably archived beside the pre-change backup.
 - Public FNS health, loaded Windows plugin, unchanged FNS configuration hash,
   and deployment contract tests pass.
-- Final repository suite passes on a clean branch. Atomic commits were pushed
-  normally and PR #4 is open against current `main`.
+- Baseline repository suite passes on a clean branch. Atomic commits already
+  remain pushed normally and PR #4 is open against current `main`.
+- NotebookLM authentication was refreshed and both designated notebooks were
+  queried. Their claims remain non-authoritative until independently verified.
+- Current objective, design, and execution checklist are preserved in tracked
+  files before rich runtime mutation.
 
 ## Next action
 
-Review and merge PR #4. When Android is available, run the deferred physical
-customization smoke matrix, then begin the Release 2 four-week human-use gate.
+Create a fresh verified recovery checkpoint, inventory exact current Dusk
+sources and plugin releases, then implement the rich runtime task-by-task from
+the tracked [Dusk recreation plan](superpowers/plans/2026-07-24-dusk-runtime-recreation.md).
 
 ## Stop conditions
 
@@ -66,6 +78,9 @@ customization smoke matrix, then begin the Release 2 four-week human-use gate.
 - Do not add a second synchronization authority.
 - Do not claim Android or four-week human evidence that was not run.
 - Preserve a verified recovery copy before vault customization.
+- Keep machine-readable date properties in ISO form when required by Obsidian;
+  format visible dates as `dd/mm/yyyy`.
+- Never copy Dusk wholesale. Select and inspect exact non-secret files.
 
 ## Authority
 

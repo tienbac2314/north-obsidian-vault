@@ -159,15 +159,18 @@ SYSTEM/
 
 Only exact requests in `STAGING/Pending Agent Review` and workflow-created proposals moved into `STAGING/Reviewed` have later workflow meaning, and only after Hermes promotion plus authenticated approval where required. `STAGING/Unsorted` replaces Dusk's narrower `ZETA/FLEETING` role: raw material may later become PARA or Zettelkasten content. No vault `README.md` or extra top-level capture folder is required. Other folders and initial home note are core human navigation inspired by Dusk, not mandatory metadata schema.
 
-Release one borrows Dusk's structure, not its runtime. Phase 2 extends that
-core-first experience with core Bases and a small, reversible UI set: Minimal
-theme, Minimal Theme Settings, Homepage, shallow Custom File Explorer sorting,
-and one inspectable dashboard CSS snippet. Do not copy Dusk's `.obsidian`
-directory, scripts, dashboards, sample content, plugin settings, or Todoist
-credential. Dataview, Datacore, QuickAdd, Tasks, Templater, Lazy Loader, Meta
-Bind, JS Engine, Charts, Todoist, Iconic, and other chained runtime remain
-excluded. Detailed choice and versions:
-[DEC-036](decisions/decision-log.md#dec-036-use-core-first-dusk-experience).
+Release one borrows Dusk's structure, not its runtime. Phase 2.5 is a separate,
+reversible rich-workspace experiment under
+[DEC-037](decisions/decision-log.md#dec-037-recreate-current-dusk-experience).
+It recreates Homepage, Map of Content, Mail Box, and area/project surfaces
+using maintained current plugins and inspected Dusk components. Datacore owns
+rich reactive views; native Bases remains preferred for ordinary file/property
+tables. The experiment may use Dataview, Tasks, Templater, QuickAdd, Meta Bind,
+JS Engine, Style Settings, and Lazy Loader only where an accepted Dusk behavior
+requires them. FNS remains sole live sync, Notion remains byte-identical, and
+no Dusk credential, private content, or secret-bearing plugin data is copied.
+Failure of the rich runtime must leave ordinary Markdown, FNS, and recovery
+usable.
 
 Detailed human and agent operation ships inside vault at `SYSTEM/Guides/vault-operating-guide.md`; repository source is [vault operating guide](../vault-template/SYSTEM/Guides/vault-operating-guide.md). Guide explains folder purposes, capture, filing, linking, attachments, templates, review decisions, agent permissions, failures, and promotion gates. Guide documents authority but never activates automation.
 

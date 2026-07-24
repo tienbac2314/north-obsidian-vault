@@ -16,10 +16,10 @@ pending rather than claimed.
 
 ## Outcome
 
-Prepare and implement a useful, fast, low-clutter Obsidian workspace on
-`G:\Obsidian` while keeping Fast Note Sync as the sole live synchronization
-authority. Preserve useful Dusk experience without inheriting its obsolete
-plugin set, brittle scripts, private content, or credentials. Preserve the
+Prepare and implement a rich, coherent Obsidian workspace on `G:\Obsidian`
+while keeping Fast Note Sync as the sole live synchronization authority.
+Recreate the latest available Dusk experience as closely as practical without
+copying credentials, private content, or uninspected plugin state. Preserve the
 Notion import unchanged for later Hermes work.
 
 Work from current `main` on a short-lived feature branch. Preserve atomic
@@ -80,24 +80,34 @@ phase justifies. See [current evidence](../research/2026-07-24-phase-2-customiza
 
 ## Dusk experience port
 
-Inventory Dusk dashboards, templates, properties, commands, CSS behavior, and
-plugin dependencies. Reproduce each useful visible behavior with the smallest
-maintained, understandable implementation.
+Inventory Dusk dashboards, templates, properties, commands, CSS behavior,
+plugin dependencies, public legacy source, and user-supplied Discord updates.
 
-- Keep a Dusk component only when it solves a concrete need and has an
-  acceptable current maintenance, security, startup, and mobile profile.
-- Fix small compatibility failures.
-- Replace large obsolete or brittle dependencies with maintained alternatives.
-- Omit a behavior only with a documented reason and rollback implication.
+- Ship Homepage, Map of Content, Mail Box/task dashboard, and area/project
+  pages.
+- Prefer current Datacore for rich interactive components. Use native Bases
+  for ordinary file/property tables when behavior remains equivalent.
+- Include the current Map of Content and Priority Matrix. Attempt the
+  discontinued Habit Streak RPG only behind a removable component boundary;
+  record a replacement or omission if current Datacore cannot run it safely.
+- Use the QuickAdd Dynamic Form when current source passes inspection and
+  bounded create-note testing.
+- Fix small compatibility failures. Replace large broken dependencies with the
+  closest maintained equivalent.
+- Treat visual and workflow parity as the target. Plugin-count minimalism alone
+  is not a reason to remove a required Dusk behavior.
 - Do not copy Dusk's `.obsidian` directory wholesale.
-- Avoid mandatory DataviewJS, JS Engine, Meta Bind, or chained plugin runtime
-  unless no simpler maintained implementation can provide the required
-  behavior.
+- Select exact dashboards, scripts, snippets, settings, and assets. Never copy
+  Todoist tokens, provider configuration, secret-bearing plugin data, sample
+  notes, or private content.
+- Use signed-in Discord through Coccoc only when supplied/public sources are
+  broken or omit required current files.
 
 ## Templates and properties
 
-Simplify starter templates. Raw capture stays template-optional and fast.
-Retain only properties that support a real workflow, such as:
+Keep raw capture template-optional and fast. Recreate Dusk's useful template
+and property behaviors, but remove fields with no active consumer. Useful
+properties include:
 
 - note type;
 - status;
@@ -106,12 +116,14 @@ Retain only properties that support a real workflow, such as:
 - aliases;
 - tags.
 
-Avoid heavy frontmatter, mandatory forms, duplicated metadata, fragile
-automation, and fields without a known consumer.
+User-visible dates render as `dd/mm/yyyy`. Typed Obsidian date properties and
+sortable filenames remain ISO `YYYY-MM-DD`; slashes must never enter filenames
+because they create directories. Avoid duplicated metadata and fields without
+a known consumer.
 
 ## Minimal QOL scope
 
-Research and test a deliberately small set covering:
+Research and test a curated set covering:
 
 - explicit top-level folder ordering;
 - controlled or lazy community-plugin startup;
@@ -122,8 +134,8 @@ Research and test a deliberately small set covering:
 - mobile compatibility;
 - reduced ribbon, sidebar, and status-bar clutter.
 
-Do not install a plugin solely because Dusk or a video used it. Every retained
-plugin needs:
+Do not install a plugin solely because Dusk used it. Each retained plugin must
+map to a reproduced behavior and needs:
 
 - one explicit problem it solves;
 - current maintenance evidence;
@@ -135,25 +147,16 @@ plugin needs:
 Remove Obsidian Importer after the Notion import is verified complete if no
 continuing workflow needs it.
 
-Accepted set:
+Accepted baseline remains FNS, Minimal theme, Minimal Theme Settings, Homepage,
+and Custom File Explorer sorting. Rich-runtime candidates are Datacore,
+Dataview, Tasks, Templater, QuickAdd, Meta Bind, JS Engine, Style Settings,
+Note Toolbar, and Lazy Loader. Install only current inspected releases and
+record exact retained versions after runtime testing.
 
-- Fast Note Sync `2.4.0`, instant startup;
-- Minimal theme `8.2.2`;
-- Minimal Theme Settings `8.2.3`, instant startup;
-- Homepage `4.4.4`, instant startup;
-- Custom File Explorer sorting `3.1.6`, one shallow root rule.
-
-Core Bases replaces dynamic Dataview/Datacore tables. Core Search remains
-starter search. Core `SYSTEM/Media` plus original filenames replaces automatic
-attachment rename/move plugins. Rejected additions and issue evidence live in
-current research file.
-
-Windows implementation keeps every retained current plugin instant. Delaying
-Custom File Explorer sorting loaded its code but missed automatic initial
-application, so it was returned to instant startup. FNS, Homepage, and theme
-settings also require instant startup. Lazy Loader was tested and removed
-because no current plugin can use it safely; keeping an idle manager would be
-bloat.
+FNS, Homepage, Datacore, and dashboard-critical dependencies load immediately.
+Custom Sort remains immediate because delayed startup misses its layout hook.
+Lazy Loader may remain only when at least one optional plugin is measurably
+safe to delay.
 
 ## Performance and sync safety
 

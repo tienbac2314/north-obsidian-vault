@@ -4,12 +4,16 @@ These files preserve design sessions produced through planning skills. They may 
 
 ## Specifications
 
+- [Dusk runtime recreation](superpowers/specs/2026-07-24-dusk-runtime-recreation-design.md) - current working specification; accepted content promoted through DEC-037
+
 - [Obsidian and Hermes workspace](superpowers/specs/2026-07-22-obsidian-hermes-workspace-design.md) — superseded
 - [Git workflow migration](superpowers/specs/2026-07-22-git-workflow-migration-design.md) — superseded
 - [Markdown discoverability](superpowers/specs/2026-07-22-markdown-discoverability-design.md) — completed
 - [Obsidian and OpenViking](superpowers/specs/2026-07-20-obsidian-openviking-workspace-design.md) — superseded
 
 ## Plans
+
+- [Dusk runtime recreation](superpowers/plans/2026-07-24-dusk-runtime-recreation.md) - active
 
 - [Whole-system design hardening](superpowers/plans/2026-07-23-design-hardening.md) — completed
 - [FNS human-sync pilot](superpowers/plans/2026-07-22-fns-human-sync-pilot.md) — superseded
