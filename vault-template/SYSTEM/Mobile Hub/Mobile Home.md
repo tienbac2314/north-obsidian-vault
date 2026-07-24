@@ -48,7 +48,7 @@ id: capture_note
 style: primary
 actions:
   - type: command
-    command: quickadd:runQuickAdd
+    command: quickadd:choice:8e928b13-838c-4743-bc4e-97a756c4d8e4
 ```
 
 ```meta-bind-button
