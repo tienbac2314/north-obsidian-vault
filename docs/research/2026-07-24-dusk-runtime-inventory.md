@@ -2,8 +2,8 @@
 
 Date: 2026-07-24
 
-Status: active implementation evidence for DEC-037. No source listed here is
-installed merely by appearing in this inventory.
+Status: active implementation evidence for DEC-037 and corrective DEC-038. No
+source listed here is installed merely by appearing in this inventory.
 
 ## Pre-rich-runtime checkpoint
 
@@ -56,6 +56,18 @@ G:\Obsidian Backups\phase-2-rich-reviewed-20260724-135623
 Source and backup each contain 405 files and 84,262,266 bytes. Their manifests
 have zero differing rows and share SHA-256
 `DAFF9524D9BE745A1FAE227C28446D9CC5E5B5A1B059E5EC67F36DFAA3443928`.
+
+Independent review then added distinct core-only rollback pages and exact
+switch/restore instructions. Obsidian was closed again before final completion
+checkpoint:
+
+```text
+G:\Obsidian Backups\phase-2-dusk-complete-20260724-141701
+```
+
+Source and backup each contain 409 files and 84,267,967 bytes. Their manifests
+have zero differing rows and share SHA-256
+`716C45484B445A6252CF0A2AD391F2524EAC0990525E7D3378408705503E9D74`.
 
 ## Windows baseline
 
@@ -379,6 +391,11 @@ all three mobile companions, Project template, and Area template in Reading
 view. Each expected surface marker rendered, each had one floating action
 button, and none exposed a Datacore, Dataview, render, or Obsidian error view.
 Complete matrix passed again after removing unused Templater and JS Engine.
+Final cold launch initially exposed Homepage's `openWhenEmpty: false` edge
+after verification tabs were closed. Setting it to `true`, saving, and
+relaunching opened `HUB/Home.md` directly with sidebars collapsed, one visible
+floating toolbar, 16 loaded plugins, no visible error view, FNS sync enabled,
+and Configuration Sync disabled.
 Virtualized file-tree inspection across the complete scroll range retained:
 `HUB`, `STAGING`, `DAILY`, `PARA`, `ZETA`, `Notion`, `SYSTEM`.
 
@@ -394,8 +411,8 @@ git diff --check origin/main...HEAD
 git diff --check
 ```
 
-Results: 241 local links across 85 root-reachable Markdown files, link-checker
-tests passed, initializer tests passed, 104 tracked files passed filename-only
+Results: 246 local links across 89 root-reachable Markdown files, link-checker
+tests passed, initializer tests passed, 108 tracked files passed filename-only
 secret scanning, nine Mermaid diagrams rendered, and whitespace check passed.
 Final branch-range whitespace validation was added after review found that
 plain `git diff --check` does not inspect already committed changes.

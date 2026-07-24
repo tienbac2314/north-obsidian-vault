@@ -57,8 +57,9 @@ human-use gate or unrun physical Android matrix.
 - At the earlier core-first checkpoint, Importer and Lazy Loader were removed.
   DEC-037 later reintroduced Lazy Loader for three verified optional delays;
   Importer remains removed.
-- Public FNS health, loaded Windows plugin, unchanged FNS configuration hash,
-  and deployment contract tests pass.
+- At the earlier core-first checkpoint, public FNS health, loaded Windows
+  plugin, unchanged FNS configuration hash, and deployment contract tests
+  passed. Final review later changed only Configuration Sync from on to off.
 - Baseline repository suite passes on a clean branch. Atomic commits already
   remain pushed normally and PR #4 is open against current `main`.
 - NotebookLM authentication was refreshed and both designated notebooks were
@@ -117,9 +118,13 @@ human-use gate or unrun physical Android matrix.
   Configuration Sync now persists disabled while note sync stays enabled.
   DEC-038 records the already-connected Notion tree as a bounded personal-data
   exception rather than falsely claiming the synthetic gate held.
-- Final reviewed offline rich-vault checkpoint has 405 files and 84,262,266
-  bytes with zero manifest differences. It replaces Configuration Sync as
-  rich-runtime recovery.
+- Final completion checkpoint has 409 files and 84,267,967 bytes with zero
+  manifest differences. It replaces Configuration Sync as rich-runtime
+  recovery.
+- Distinct `SYSTEM/Core Hub` pages plus tested enabled-plugin switch provide
+  small rollback without overwriting rich HUB files or disabling FNS.
+- Homepage now opens Home even from empty workspace; cold relaunch passed with
+  sidebars collapsed, one visible floating toolbar, and no visible error.
 
 ## Next action
 

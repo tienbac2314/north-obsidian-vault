@@ -320,7 +320,9 @@ result.
 
 - [x] Generate a disposable portable vault and prove fallback `HUB/Home.md`
   has no executable community-plugin blocks, all primary HUB links exist, and
-  initializer remains repeat-safe. Keep live runtime intact.
+  initializer remains repeat-safe. Ship distinct `SYSTEM/Core Hub` rollback
+  pages and exact plugin-list switch/restore steps so rich HUB files stay
+  intact. Keep live runtime active.
 
 - [x] Record physical Android checklist as pending.
 

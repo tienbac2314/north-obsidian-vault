@@ -66,6 +66,7 @@ $requiredDirectories = @(
     'SYSTEM/Components',
     'SYSTEM/Guides',
     'SYSTEM/Config',
+    'SYSTEM/Core Hub',
     'SYSTEM/Mobile Hub',
     'SYSTEM/Templates',
     'SYSTEM/Media'
@@ -82,6 +83,10 @@ $starterFiles = @(
     'HUB/Bases/Review Queue.base',
     'SYSTEM/Config/dashboard.css',
     'SYSTEM/Config/sortspec.md',
+    'SYSTEM/Core Hub/Home Core.md',
+    'SYSTEM/Core Hub/Mail Box Core.md',
+    'SYSTEM/Core Hub/Map of Content Core.md',
+    'SYSTEM/Core Hub/Priority Matrix Core.md',
     'SYSTEM/Guides/vault-operating-guide.md',
     'SYSTEM/Mobile Hub/Mobile Home.md',
     'SYSTEM/Mobile Hub/Mobile Mail Box.md',

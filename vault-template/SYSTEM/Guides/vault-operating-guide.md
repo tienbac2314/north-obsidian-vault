@@ -66,16 +66,51 @@ Bases while Dataview, Tasks, Tabs, and Dusk CSS provide richer presentation:
 - `Priority Matrix`: current MIT-licensed Datacore matrix for notes and inline
   tasks.
 
-Repository initializer ships core-only fallback pages for
+Repository initializer ships a distinct core-only rollback suite:
+[Home Core](../Core%20Hub/Home%20Core.md),
+[Map of Content Core](../Core%20Hub/Map%20of%20Content%20Core.md),
+[Mail Box Core](../Core%20Hub/Mail%20Box%20Core.md), and
+[Priority Matrix Core](../Core%20Hub/Priority%20Matrix%20Core.md). Rich live
+pages never overwrite these paths.
+Fresh initialized vaults also receive portable
 [Map of Content](../../HUB/Map%20of%20Content.md),
 [Mail Box](../../HUB/Mail%20Box.md), and
-[Priority Matrix](../../HUB/Priority%20Matrix.md). Live rich pages may replace
-them without changing Home navigation.
+[Priority Matrix](../../HUB/Priority%20Matrix.md) starter pages at rich-runtime
+paths.
 
 Bases add ordinary tables without changing Markdown notes. Datacore owns rich
-reactive components. If rich plugins are disabled, Home links, Base embeds, and
-every note remain usable. Homepage only opens Home on startup; it does not own
+reactive components. Homepage only opens selected startup file; it does not own
 dashboard data.
+
+### Small rich-runtime rollback
+
+This keeps FNS note/attachment sync, Homepage, and folder order active while
+disabling every rich dashboard dependency.
+
+1. In `Settings > Homepage`, set Homepage file to
+   `SYSTEM/Core Hub/Home Core.md`.
+2. Open `SYSTEM/Core Hub/Home Core.md`, then close Obsidian.
+3. Run:
+
+```powershell
+$pluginFile = 'G:\Obsidian\.obsidian\community-plugins.json'
+$backupFile = "$pluginFile.rich-$(Get-Date -Format 'yyyyMMdd-HHmmss')"
+Copy-Item -LiteralPath $pluginFile -Destination $backupFile
+$pluginIds = @('fast-note-sync', 'homepage', 'custom-sort')
+$json = ConvertTo-Json -InputObject $pluginIds
+$utf8 = New-Object System.Text.UTF8Encoding($false)
+[IO.File]::WriteAllText($pluginFile, $json + [Environment]::NewLine, $utf8)
+```
+
+4. Start Obsidian. Confirm `Home Core` opens and FNS reports sync complete.
+
+Do not delete plugin folders or configuration. To restore rich runtime, close
+Obsidian, copy recorded `.rich-<timestamp>` file back over
+`community-plugins.json`, start Obsidian, and set Homepage file to
+`HUB/Home.md`. If this small rollback fails, use repository decision/evidence
+files to identify exact latest `G:\Obsidian Backups\phase-2-dusk-complete-*`
+checkpoint. Restore only after closing Obsidian and preserving current vault
+separately.
 
 ### STAGING
 

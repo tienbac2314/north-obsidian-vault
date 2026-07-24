@@ -48,6 +48,7 @@ $requiredDirectories = @(
     'SYSTEM/Components',
     'SYSTEM/Guides',
     'SYSTEM/Config',
+    'SYSTEM/Core Hub',
     'SYSTEM/Mobile Hub',
     'SYSTEM/Templates',
     'SYSTEM/Media'
@@ -64,6 +65,10 @@ $requiredFiles = @(
     'HUB/Bases/Review Queue.base',
     'SYSTEM/Config/dashboard.css',
     'SYSTEM/Config/sortspec.md',
+    'SYSTEM/Core Hub/Home Core.md',
+    'SYSTEM/Core Hub/Mail Box Core.md',
+    'SYSTEM/Core Hub/Map of Content Core.md',
+    'SYSTEM/Core Hub/Priority Matrix Core.md',
     'SYSTEM/Guides/vault-operating-guide.md',
     'SYSTEM/Mobile Hub/Mobile Home.md',
     'SYSTEM/Mobile Hub/Mobile Mail Box.md',
@@ -108,6 +113,18 @@ try {
     foreach ($baseName in @('Areas', 'Learning', 'Projects', 'Review Queue')) {
         if ($homeContent -notmatch [regex]::Escape("![[HUB/Bases/$baseName.base")) {
             throw "Home does not embed required core Base: $baseName"
+        }
+    }
+
+    $coreHomeContent = [IO.File]::ReadAllText((Join-Path $vault 'SYSTEM/Core Hub/Home Core.md'))
+    if ($coreHomeContent -match '(?m)^```(?:dataviewjs|datacorejsx|tasks|meta-bind-button)' -or
+        $coreHomeContent -match '(?m)^`````tabs' -or
+        $coreHomeContent -match 'BUTTON\[') {
+        throw 'Core rollback Home depends on executable community-plugin blocks.'
+    }
+    foreach ($coreSurface in @('Map of Content Core', 'Mail Box Core', 'Priority Matrix Core')) {
+        if ($coreHomeContent -notmatch [regex]::Escape("[[SYSTEM/Core Hub/$coreSurface")) {
+            throw "Core rollback Home does not link required surface: $coreSurface"
         }
     }
 
