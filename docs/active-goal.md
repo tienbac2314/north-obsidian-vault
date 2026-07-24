@@ -4,13 +4,30 @@ Updated: 2026-07-24
 
 ## Objective
 
-Reach first usable synthetic Windows and Android Fast Note Sync vault with agreed plain-Markdown layout. Implement through verified checkpoints and stop at physical-device, account, or safety gate before personal migration.
+Preserve the completed Phase 1 FNS foundation, record the abandoned hand-built
+Phase 2 attempt, and prepare a concise import-first Dusk evaluation without
+changing the live vault.
 
-Status: complete on 2026-07-24. This closes the Phase 1 human-sync foundation,
-not the later personal-data promotion decision.
+Status: Phase 1 complete. Phase 2 PR #4 was closed without merge and its live
+changes were rolled back on 2026-07-24. No Dusk import source, plugin set, or
+promotion plan is currently accepted.
 
 ## Checkpoint
 
+- [DEC-039](decisions/decision-log.md#dec-039-archive-hand-built-phase-2-and-restart-import-first)
+  supersedes the hand-built Dusk recreation from closed PR #4.
+- Exact PR #4 history remains on archived branch `feat/obsidian-phase2` at
+  `5c689ef`; the [reversal record](archive/2026-07-24-phase-2-reversal.md)
+  indexes reusable evidence and rollback state.
+- Live vault returned to its pre-Phase-2 content baseline with Notion preserved,
+  only FNS enabled, FNS Configuration Sync disabled, and Obsidian core Sync
+  disabled.
+- [DEC-038](decisions/decision-log.md#dec-038-record-existing-personal-vault-exception)
+  records existing Notion content as a bounded current-state exception, not a
+  completed personal-data promotion.
+- Project-scoped Dusk inventory, plugin, visual, debugger, and release-review
+  agents are merged through PR #5. Main agent alone may promote live-vault
+  changes.
 - PR #2 is merged. Branch `feat/fns-release-one` starts from verified `origin/main`.
 - Current upstream releases are FNS server `3.6.0` and Obsidian plugin `2.4.0`; server image digest and ARM64 manifest are recorded in deployment contract.
 - Open server issues `#339`, `#342`, and `#346` still block personal data and agent consumers.
@@ -75,18 +92,28 @@ not the later personal-data promotion decision.
 
 ## Next action
 
-No action is required for this completed Phase 1 foundation. Keep using only
-synthetic content until a later personal-data promotion decision.
+Begin import-first Dusk design from current `main`. Read the
+[reversal record](archive/2026-07-24-phase-2-reversal.md), reuse archived
+observations only after revalidation, identify the exact user-tested source,
+and approve a concise design before disposable-vault implementation. Do not
+revive or merge PR #4.
 
 ## Deferred promotion work
 
+- Dusk source choice, populated versus empty base, Discord deltas, plugin
+  upgrades, AI-note tooling, mobile defects, and live promotion remain
+  undecided.
+- Existing Notion bytes remain a bounded exception; do not add more personal or
+  employer content until promotion gates are reconciled.
 - Full Android battery/background, offline, conflict, rename/move, restart, and
   attachment matrix remains future promotion evidence.
 - Current Windows archive is off VPS and ACL-restricted, but does not protect
   against simultaneous Windows and VPS loss.
 - A rebuilt-client drill and seven-day synthetic observation remain optional
   follow-on promotion work, not Phase 1 installation work.
-- Public TLS endpoint plus unresolved FNS security reports restrict pilot to synthetic content.
+- Public TLS endpoint plus unresolved FNS security reports restrict the pilot to
+  synthetic fixtures and the preserved DEC-038 Notion exception; no additional
+  personal or employer content is authorized.
 
 ## Authority
 

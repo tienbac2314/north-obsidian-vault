@@ -236,8 +236,45 @@ Statuses: Accepted, Proposed, Rejected, Postponed, Superseded.
 
 ## DEC-035: Isolate pilot behind dedicated tunnel
 
-- Status: Accepted implementation amendment to DEC-022.
+- Status: Accepted implementation amendment to DEC-022; content boundary amended by DEC-038.
 - Decision: Use one new Cloudflare Tunnel and DNS route dedicated to synthetic FNS pilot. Bind pinned FNS container only to Oracle loopback. Keep existing managed tunnel, PM2 tunnel, routes, origins, Hermes, and 9Router unchanged.
 - Evidence: Read-only Stage 2 preflight found dormant empty host Nginx, two existing Cloudflare tunnel processes, valid local tunnel credentials, and no safe existing Nginx boundary to reuse. See [2026-07-23 implementation evidence](../research/2026-07-23-fns-implementation-evidence.md).
-- Boundary: Public TLS hostname still reaches FNS-authenticated surface. Open security and authorization issues therefore keep deployment synthetic-only. No personal or employer content, FNS MCP consumer, external REST consumer, sharing, Git automation, mirror, configuration sync, headless client, or Cloud Preview deletion is authorized.
+- Boundary: Public TLS hostname still reaches FNS-authenticated surface. Open
+  security and authorization issues permit only synthetic fixtures plus
+  existing Notion bytes preserved by DEC-038. No additional personal or
+  employer content, FNS MCP consumer, external REST consumer, sharing, Git
+  automation, mirror, configuration sync, headless client, or Cloud Preview
+  deletion is authorized.
 - Rollback: Stop dedicated FNS Compose project and dedicated tunnel. Preserve state for inspection. Existing ingress processes and routes remain untouched.
+
+## DEC-036: Try core-first Dusk customization
+
+- Status: Superseded by DEC-037; preserved history from closed PR #4.
+- Decision: The first Phase 2 attempt used Obsidian core features plus a small plugin set and kept richer Dusk behavior as optional experiments.
+- Outcome: It provided a plain fallback but did not match the requested Dusk experience closely enough.
+- Evidence: Exact implementation history remains on archived branch `feat/obsidian-phase2`.
+
+## DEC-037: Hand-recreate rich Dusk runtime
+
+- Status: Superseded by DEC-039; never merged into `main`.
+- Decision: The second Phase 2 attempt recreated Dusk surfaces from selected scripts, CSS, dashboards, plugins, and Discord-derived components.
+- Outcome: Windows experiments produced useful findings, but the approach overengineered a vault whose legacy Dusk variants already worked on Windows and Android. Pull request [#4](https://github.com/tienbac2314/north-obsidian-vault/pull/4) was closed without merge and the live vault was rolled back.
+- Boundary: Archived plugin choices, architecture, roadmap, and runtime files are evidence only. They do not authorize implementation.
+- Evidence: [Phase 2 reversal](../archive/2026-07-24-phase-2-reversal.md).
+
+## DEC-038: Record existing personal-vault exception
+
+- Status: Accepted current-state correction; rollback details amended by DEC-039.
+- Trigger: The existing `Notion` import was already inside the FNS-backed live vault, so actual state no longer matched DEC-035's synthetic-only boundary.
+- Decision: Preserve existing Notion bytes and normal human-only FNS synchronization as a bounded exception. Do not describe this as completed Release 1B promotion or authorization for additional personal or employer content.
+- Controls: FNS remains sole live transport. Obsidian core Sync, FNS Configuration Sync, API/MCP consumers, sharing, Git automation, Hermes, and external writers remain disabled. Preserve an independent copy and require remaining Android, privacy, and recovery gates before broader promotion.
+- Rationale: Documenting existing state is safer than pretending the personal import is synthetic or destructively removing it.
+
+## DEC-039: Archive hand-built Phase 2 and restart import-first
+
+- Status: Accepted.
+- Decision: Close PR #4 without merge, restore the live vault to its verified pre-Phase-2 content baseline, preserve the complete attempt in branch and backup archives, and replace hand-built recreation with a new direct-import-first design cycle.
+- Scope: Reuse archived observations selectively. Compare user-tested Dusk variants, establish exact source authority, reproduce legacy behavior in a disposable vault, apply Discord deltas separately, and evaluate plugin upgrades incrementally.
+- Boundary: No source, plugin set, Android defect, or promotion plan is accepted by this decision. No archived plan may modify `G:\Obsidian`. Live promotion requires a new concise design and implementation plan, Windows and Android evidence or explicit accepted defects, secret exclusion, backup manifest, rollback proof, and independent review.
+- Rationale: Preserve useful research while removing redundant reconstruction and documentation from the implementation path.
+- Evidence: [Phase 2 reversal](../archive/2026-07-24-phase-2-reversal.md).

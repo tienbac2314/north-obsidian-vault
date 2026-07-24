@@ -2,6 +2,10 @@
 
 Status: superseded history. Nothing under `docs/archive/` is current implementation authority.
 
+## Abandoned implementation attempts
+
+- [2026-07-24 Phase 2 Dusk recreation reversal](2026-07-24-phase-2-reversal.md)
+
 ## Historical research
 
 - [Official sources investigation](research/official-sources.md)

@@ -2,6 +2,10 @@
 
 Status: current executable release-one roadmap under DEC-027, DEC-028, and DEC-034. Execute sequentially and stop at failed gate.
 
+Current-state amendment: DEC-038 records existing Notion content as a bounded
+exception to the synthetic-only boundary. It does not mark any unrun stage
+complete or authorize additional personal data.
+
 ## Outcome
 
 Deliver a human-only Obsidian workspace whose Windows/Android synchronization, attachment behavior, and independent recovery have been proven with synthetic data before bounded personal migration. “Production-worthy” means recoverable and understandable under failure, not feature-rich.
@@ -37,7 +41,9 @@ Hermes vault access is not part of this release. It begins a later release only 
 ## Fixed constraints
 
 - Follow [system design](../system-design.md), [recommended architecture](../architecture/recommended-architecture.md), [failure handling](../architecture/failure-handling.md), and [security contract](../architecture/security.md).
-- Use synthetic content and disposable FNS vault until promotion decision.
+- Use synthetic fixtures for every remaining release-one test. Preserve the
+  existing DEC-038 Notion exception unchanged; it supplies no promotion
+  evidence and authorizes no additional personal data.
 - Keep credentials, private endpoints, account data, fixture hashes, raw logs, databases, and archives outside repository.
 - Record public versions, sanitized counts, latency bands, warning categories, recovery time, and pass/fail only.
 - One failed safety gate stops promotion. Do not compensate by stacking another transport or enabling more plugins.

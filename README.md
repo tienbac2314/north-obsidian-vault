@@ -1,6 +1,6 @@
 # Obsidian and Hermes personal engineering workspace
 
-Design and evidence for a low-friction junior-SWE learning system. Obsidian remains useful alone. Fast Note Sync enters a synthetic human-only pilot as the sole live synchronization transport for notes and attachments; Hermes proposal automation stays behind later evidence gates.
+Design and evidence for a low-friction junior-SWE learning system. Obsidian remains useful alone. Fast Note Sync is the sole live synchronization transport for notes and attachments. Original synthetic promotion gates remain incomplete; an existing Notion import is documented as a bounded human-only exception. Hermes proposal automation stays behind later evidence gates.
 
 Runtime stays minimal. Documentation remains detailed enough to explain user behavior, authority, failure, security, recovery, experiments, and promotion order.
 
