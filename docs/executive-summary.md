@@ -6,7 +6,9 @@ This project designs a low-friction personal engineering workspace, not a note-c
 
 Release one is deliberately small in runtime scope but deeply specified:
 
-- Fast Note Sync is the only whole-vault transport in a synthetic human-only pilot.
+- Fast Note Sync is the only whole-vault transport. Original synthetic
+  promotion gates remain incomplete; existing Notion content is a bounded
+  current-state exception under DEC-038, not proof of Release 2.
 - Screenshots, images, video, audio, PDF, and other files remain ordinary vault attachments on both Windows and Android; FNS synchronizes their native links and bytes.
 - FNS Cloud Preview automatic local deletion stays off. No Drive, S3, CDN, or other live attachment-offload plugin enters release one.
 - Independent recovery must restore FNS state, vault content, attachments, and history/trash evidence. Sync history is convenient recovery, not backup.

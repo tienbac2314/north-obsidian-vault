@@ -42,9 +42,26 @@ Status: current design gates.
 - Does a fixed embedding contract outperform plain filename, link, and text search?
 - Is any Telegram-to-Obsidian capture path still useful after direct Obsidian habit is established?
 
+## Import-first Dusk evaluation
+
+- Which exact dark Dusk copy passed the user's Windows and Android test?
+- Should the first disposable baseline use populated Dusk or an empty variant
+  with the same runtime?
+- Which Discord-derived components are newer than the tested baseline and
+  still wanted?
+- Which legacy plugins should remain pinned, migrate to current or v2 releases,
+  be replaced, or be removed?
+- Which mobile defects are acceptable for a desktop-first first release?
+- What is the unidentified AI note-tool popup, and what note, credential,
+  network, retention, write, and mobile boundaries does it introduce?
+- Which `.obsidian` files can be imported through an explicit allowlist without
+  enabling Obsidian Sync, FNS Configuration Sync, or credential-bearing state?
+
 ## Evidence limits
 
-- FNS is selected only for an isolated human-sync pilot; no sync option has passed actual Windows/Android recovery tests or personal-data promotion.
+- FNS remains selected for a bounded human-only pilot. Existing Notion content
+  is the DEC-038 exception; no sync option has completed every Windows/Android,
+  recovery, and broader personal-data promotion gate.
 - LiveSync issue `#1036` and Fast Note Sync security/permission reports may change; refresh them only when deciding or implementing sync.
 - No runtime service was changed during simplification research.
 - 9Router fallback, logging, backup, and restore remain observations rather than controlled tests.

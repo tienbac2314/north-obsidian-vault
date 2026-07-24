@@ -53,6 +53,12 @@ Excluded:
 
 Release 1A may promote to a bounded human-only personal vault after every applicable gate passes. Promotion does not authorize Hermes, external writers, provider disclosure, or automation. Backup cadence, retention, recovery destination, and configuration sync must be explicit first.
 
+Current-state correction: the existing Notion import already resides inside the
+FNS-backed live vault. [DEC-038](decisions/decision-log.md#dec-038-record-existing-personal-vault-exception)
+records this bounded exception without claiming Release 1B passed or
+authorizing more personal data. [DEC-039](decisions/decision-log.md#dec-039-archive-hand-built-phase-2-and-restart-import-first)
+records the later Phase 2 rollback and import-first restart.
+
 ### Later release: proposal-only Hermes
 
 Hermes begins only after:
@@ -161,6 +167,11 @@ Only exact requests in `STAGING/Pending Agent Review` and workflow-created propo
 
 Release one borrows Dusk's structure, not its runtime. Fast Note Sync is the only community plugin required by this design; folders, properties, links, embeds, templates, and the first home note use Obsidian core features. Do not copy Dusk's `.obsidian` directory, scripts, CSS, dashboards, sample content, plugin settings, or Todoist credential. Datacore, QuickAdd, Tasks, and other optional plugins require a later single-plugin experiment tied to a concrete unmet need.
 
+The closed Phase 2 attempt does not amend this runtime contract. A later
+import-first design may propose a broader Dusk runtime, but only after source,
+plugin, mobile, secret, backup, and rollback decisions are accepted. See the
+[Phase 2 reversal](archive/2026-07-24-phase-2-reversal.md).
+
 Detailed human and agent operation ships inside vault at `SYSTEM/Guides/vault-operating-guide.md`; repository source is [vault operating guide](../vault-template/SYSTEM/Guides/vault-operating-guide.md). Guide explains folder purposes, capture, filing, linking, attachments, templates, review decisions, agent permissions, failures, and promotion gates. Guide documents authority but never activates automation.
 
 Repository [vault initializer](../scripts/initialize-vault-template.ps1) creates missing folders and copies meaningful Home, guide, and core templates without overwriting existing files. It does not install plugins, copy Dusk `.obsidian`, enable FNS or Hermes, migrate notes, change settings, or delete content. Stage 4 proves repeat safety and opens scaffold on Windows and Android.
@@ -217,7 +228,11 @@ Default pilot settings:
 - images, video, audio, PDF, and arbitrary binary fixtures included;
 - FNS Cloud Preview automatic local deletion: off.
 
-FNS clients and server can read synchronized attachments. Personal or restricted content remains outside pilot until FNS privacy, recovery, and policy gates pass. An independent backup destination is selected separately and never becomes live attachment authority.
+FNS clients and server can read synchronized attachments. Other personal or
+restricted content remains outside the pilot until FNS privacy, recovery, and
+policy gates pass; only existing Notion bytes are preserved under DEC-038. An
+independent backup destination is selected separately and never becomes live
+attachment authority.
 
 ## Later Hermes proposal boundary
 
@@ -273,14 +288,18 @@ Detailed matrix and recovery order: [failure handling](architecture/failure-hand
 - Disable registration after controlled bootstrap.
 - Keep secrets, tokens, databases, archives, private endpoints, and raw logs outside repository.
 - Keep Hermes credentials separate from sync credentials.
-- Send no personal or employer content to FNS, Hermes, 9Router, backup providers, or model providers before relevant policy and promotion gate.
+- Except for existing Notion bytes preserved under DEC-038, send no personal or
+  employer content to FNS, Hermes, 9Router, backup providers, or model
+  providers before the relevant policy and promotion gate.
 - Record sanitized counts, versions, latency bands, warning categories, and pass/fail; never note bodies or identifiers.
 
 Full trust analysis: [security contract](architecture/security.md).
 
 ## Promotion gates
 
-Use synthetic data until every applicable gate passes:
+Use synthetic data for every new test until each applicable gate passes.
+Existing Notion bytes remain a human-only DEC-038 exception and provide no
+promotion evidence:
 
 - Windows and physical Android initial and delayed convergence;
 - offline same-note conflict, case-only rename, folder move, delete, restart, and upgrade;

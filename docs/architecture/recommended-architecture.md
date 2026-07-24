@@ -96,6 +96,11 @@ After proposal-only and learning-loop validation, Release 4A may separately gran
 
 ## Promotion order
 
+This remains the required gate order. Existing Notion content entered the
+FNS-backed vault before those gates completed; DEC-038 records the exception
+without marking steps complete. DEC-039 returns Dusk customization to an
+import-first design gate.
+
 1. Restore rich documentation authority and keep runtime unchanged.
 2. Deploy private synthetic FNS environment.
 3. Prove Windows/Android sync, native attachment, conflict, and history behavior.
