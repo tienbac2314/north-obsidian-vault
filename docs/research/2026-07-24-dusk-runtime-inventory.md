@@ -34,6 +34,29 @@ FNS secret-bearing configuration content was not printed. Its baseline file
 SHA-256 is
 `1FB34C99B1CB13992BD2AE23D789B6E2C3D90559615AE8B2694D336F1F789DAB`.
 
+After final review disabled Configuration Sync, Obsidian was closed and a
+corrective pre-pruning checkpoint was created:
+
+```text
+G:\Obsidian Backups\phase-2-rich-final-20260724-134829
+```
+
+Source and backup each contain 412 files and 84,843,806 bytes. Their manifests
+have zero differing rows and share SHA-256
+`1DBE80FFFBB46A0279B6C302AF558E090CF405EC61E127BC34F3B8BB8BC83A24`.
+This checkpoint preserves Templater and JS Engine rollback copies.
+
+After independent review removed those unused plugins and the reduced runtime
+passed all nine surfaces again, exact final reviewed checkpoint was created:
+
+```text
+G:\Obsidian Backups\phase-2-rich-reviewed-20260724-135623
+```
+
+Source and backup each contain 405 files and 84,262,266 bytes. Their manifests
+have zero differing rows and share SHA-256
+`DAFF9524D9BE745A1FAE227C28446D9CC5E5B5A1B059E5EC67F36DFAA3443928`.
+
 ## Windows baseline
 
 Obsidian version: `1.12.7`.
@@ -127,10 +150,10 @@ SHA-256 digests matched every downloaded asset that exposed a digest. Dataview
 and Style Settings predate release-asset digests; their local SHA-256 values are
 retained in implementation evidence.
 
-Obsidian `1.12.7` cannot load the newest QuickAdd, Meta Bind, or Templater:
-their current manifests require Obsidian `1.13.x`. The newest compatible
-releases are pinned instead. Dataview's `0.5.70` release serves a manifest whose
-internal version is `0.5.68`; the release asset is used without rewriting it.
+Obsidian `1.12.7` cannot load the newest QuickAdd or Meta Bind: their current
+manifests require Obsidian `1.13.x`. The newest compatible releases are pinned
+instead. Dataview's `0.5.70` release serves a manifest whose internal version
+is `0.5.68`; the release asset is used without rewriting it.
 
 Scorecard labels are automated triage, not approval. Health and Review are
 recorded separately.
@@ -140,10 +163,8 @@ recorded separately.
 | `datacore` | 0.1.29 | 1.4.11 | Excellent / Caution | Map of Content and Priority Matrix reactive views |
 | `dataview` | 0.5.68 from 0.5.70 release | 0.13.11 | Good / Risks | Homepage and mobile-compatible fallback queries |
 | `obsidian-tasks-plugin` | 8.3.0 | 1.8.7 | Excellent / Caution | task queries and completion write-back |
-| `templater-obsidian` | 2.20.6 | 1.12.2 | Excellent / Caution | date and note templates |
 | `quickadd` | 2.12.3 | 1.11.4 | Excellent / Caution | capture actions and reviewed Dynamic Form |
 | `obsidian-meta-bind-plugin` | 1.4.15 | 1.10.0 | Excellent / Satisfactory | interactive dashboard buttons and inputs |
-| `js-engine` | 0.3.6 | 1.4.0 | Excellent / Caution | legacy Dusk widgets that cannot be expressed declaratively |
 | `obsidian-style-settings` | 1.0.9 | 0.11.5 | Good / Satisfactory | Dusk visual controls |
 | `note-toolbar` | 1.34.11 | 1.11.0 | Excellent / Satisfactory | compact dashboard and mobile actions |
 | `lazy-plugins` | 1.0.24 | 1.6.0 | Excellent / Passed | measured delay for optional plugins only |
@@ -154,11 +175,9 @@ recorded separately.
 
 All manifests declare `isDesktopOnly: false`. That declaration does not prove
 feature parity. Current open reports include incomplete Datacore rendering on
-iOS, Templater startup failure on iPhone/iPad, JS Engine imports failing on
-mobile, Lazy Loader applying desktop configuration on mobile, and Tabs cutting
+iOS, Lazy Loader applying desktop configuration on mobile, and Tabs cutting
 off a grouped Base on mobile. Desktop keeps rich surfaces; mobile companion
-notes avoid Datacore, JS Engine, Tabs, and delayed startup until physical
-Android testing.
+notes avoid Datacore, Tabs, and delayed startup until physical Android testing.
 
 The following legacy dependencies are not retained:
 
@@ -171,11 +190,20 @@ The following legacy dependencies are not retained:
   the visible result.
 - Todoist, Custom Frames, Projects, Pomodoro, Charts View, and password
   protection: no selected local-first Dusk surface requires them.
+- Templater `2.20.6`: tracked and live templates use core syntax; creation
+  trigger, folder templates, startup templates, and system commands were off.
+- JS Engine `0.3.6`: no deployed note, component, action, or toolbar called it.
+
+Templater and JS Engine passed initial compatibility preflight but were removed
+after independent no-bloat review. Recoverable copies remain in the final
+offline checkpoint and its `retired-after-review` folder.
 
 ## First dependency launch
 
-All 18 enabled plugins, including the four pre-existing plugins, appeared in
+All 18 preflight plugins, including the four pre-existing plugins, appeared in
 both Obsidian's enabled and loaded plugin registries after one clean launch.
+Final reviewed runtime contains 16 plugins after removing two unused
+candidates.
 The active file remained `HUB/Home.md`. FNS configuration SHA-256 remained
 `1FB34C99B1CB13992BD2AE23D789B6E2C3D90559615AE8B2694D336F1F789DAB`.
 No Fast Note Sync file was overwritten.
@@ -192,7 +220,7 @@ The repository initializer is deliberately not a full Dusk installer. It
 reproduces the portable folder, Home, Base, template, mobile-companion, CSS,
 and operating-guide layer without copying third-party components or
 machine-local `.obsidian` state. The deployed rich layer is recoverable from
-FNS Configuration Sync and the verified external vault checkpoint. Exact
+the verified final reviewed external checkpoint, never from Configuration Sync. Exact
 source commits, versions, adapted paths, hashes, tests, and rollback boundaries
 are recorded here so this distinction cannot be mistaken for repository
 reproducibility.
@@ -224,7 +252,7 @@ Adaptations are narrow:
 - Todoist, Custom Frames, password state, and sample notes remain absent.
 
 Three repository-owned mobile companions use Markdown, Tasks, Dataview, and
-Bases instead of Datacore, JS Engine, or Tabs:
+Bases instead of Datacore or Tabs:
 
 - `SYSTEM/Mobile Hub/Mobile Home.md`;
 - `SYSTEM/Mobile Hub/Mobile Map of Content.md`;
@@ -245,9 +273,13 @@ Windows rendered all selected surfaces in Reading view:
   Dataview tables;
 - all three mobile companions rendered at desktop width with no visible error.
 
-DataviewJS is enabled for Dusk-owned dashboard code; inline DataviewJS remains
-disabled. This is an intentional code-execution boundary. Do not execute
-unreviewed DataviewJS copied into imported or downloaded notes.
+DataviewJS is enabled globally because Dataview has no path allowlist; inline
+DataviewJS remains disabled. A vault-wide filename-and-fence scan found one
+`dataviewjs` block in reviewed `HUB/Home.md` and three `datacorejsx` blocks in
+reviewed HUB surfaces, with none under Notion. This is an accepted
+code-execution risk, not enforcement. Before opening imported or downloaded
+notes in Reading view, search for executable code fences and remove or review
+them. Future FNS peers and imported notes remain untrusted.
 
 Two pre-existing Canvas files contained only `{}`. Datacore consistently
 reported `nodes is not iterable`. Their paths were preserved and content was
@@ -282,7 +314,7 @@ configuration and its missing Hider and per-file-hotkey dependencies.
 
 Lazy Loader remains because optional plugins now exist. Critical plugins,
 including FNS, Homepage, Custom Sort, Datacore, Dataview, Tasks, QuickAdd,
-Meta Bind, JS Engine, Tabs, theme controls, and Note Toolbar remain immediate.
+Meta Bind, Tabs, theme controls, and Note Toolbar remain immediate.
 Editing Toolbar loads after five seconds. Iconic and Omnisearch load after
 fifteen seconds. A clean launch kept Home and FNS available immediately; all
 three delayed instances reported loaded after their windows, and the rendered
@@ -290,8 +322,8 @@ workspace showed no component error.
 
 Lazy Loader removes delayed IDs from Obsidian's persisted enabled set while
 loading their plugin instances itself. Therefore the final
-`community-plugins.json` contains 15 immediate IDs, while runtime inspection
-reports 18 loaded instances.
+`community-plugins.json` contains 13 immediate IDs, while runtime inspection
+reports 16 loaded instances after three delayed plugins load.
 
 Habit Streak RPG stopped at isolated preflight and was not deployed. Static
 inspection found no network, shell, delete, or rename call, but the captured
@@ -315,10 +347,19 @@ The final Notion tree still matches the pre-rich manifest:
 - current bytes: 1,095,099;
 - differing path, length, or SHA-256 rows: 0.
 
-FNS secret-bearing configuration SHA-256 remains
-`1FB34C99B1CB13992BD2AE23D789B6E2C3D90559615AE8B2694D336F1F789DAB`.
-The final runtime reported `Sync Complete (Incremental)`. No secret value was
-printed.
+Independent review found FNS Configuration Sync enabled contrary to DEC-035.
+It was changed from `true` to `false`, saved, and remained false after plugin
+reload while note/attachment sync remained enabled. The resulting
+secret-bearing configuration SHA-256 is
+`785BC5D998A77909E51E36B96BD9EAF5A9104554D5E9D12B409ACF456074EE8E`.
+No setting value other than these booleans and no secret value was printed.
+Earlier remote configuration rows may remain, and Android's local toggle is
+unverified; verify it is off before reconnecting Android.
+
+The final runtime reported `Sync Complete (Incremental)`. Because FNS is
+whole-vault transport, the existing 164-file Notion import must be treated as
+already promoted personal data under DEC-038, not as a synthetic pilot success
+or completed Release 1B gate.
 
 Launch-to-main-window results after action and loader configuration:
 
@@ -337,6 +378,7 @@ Final live matrix reopened Home, Map of Content, Mail Box, Priority Matrix,
 all three mobile companions, Project template, and Area template in Reading
 view. Each expected surface marker rendered, each had one floating action
 button, and none exposed a Datacore, Dataview, render, or Obsidian error view.
+Complete matrix passed again after removing unused Templater and JS Engine.
 Virtualized file-tree inspection across the complete scroll range retained:
 `HUB`, `STAGING`, `DAILY`, `PARA`, `ZETA`, `Notion`, `SYSTEM`.
 
@@ -348,12 +390,15 @@ powershell -NoProfile -File scripts/test-markdown-links.ps1
 powershell -NoProfile -File scripts/test-initialize-vault-template.ps1
 powershell -NoProfile -File scripts/check-secrets.ps1
 powershell -NoProfile -File scripts/check-mermaid.ps1
+git diff --check origin/main...HEAD
 git diff --check
 ```
 
-Results: 236 local links across 82 root-reachable Markdown files, link-checker
-tests passed, initializer tests passed, 101 tracked files passed filename-only
+Results: 241 local links across 85 root-reachable Markdown files, link-checker
+tests passed, initializer tests passed, 104 tracked files passed filename-only
 secret scanning, nine Mermaid diagrams rendered, and whitespace check passed.
+Final branch-range whitespace validation was added after review found that
+plain `git diff --check` does not inspect already committed changes.
 
 ## Rejected source behavior
 

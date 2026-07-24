@@ -15,8 +15,7 @@ in repository while third-party component source remains in the user vault
 unless redistribution terms are explicit.
 
 **Tech Stack:** Obsidian 1.12.x, Fast Note Sync, Datacore, Bases, Dataview,
-Tasks, Templater, QuickAdd, Meta Bind, JS Engine, Minimal theme, PowerShell,
-Markdown, Git.
+Tasks, QuickAdd, Meta Bind, Minimal theme, PowerShell, Markdown, Git.
 
 ## Global Constraints
 
@@ -68,7 +67,7 @@ source, hash, destination, and reason.
 - Create: `docs/superpowers/specs/2026-07-24-dusk-runtime-recreation-design.md`
 - Create: `docs/superpowers/plans/2026-07-24-dusk-runtime-recreation.md`
 
-- [ ] Run Markdown link, secret, and whitespace checks.
+- [x] Run Markdown link, secret, and whitespace checks.
 
 ```powershell
 powershell -NoProfile -File scripts/check-markdown-links.ps1
@@ -78,7 +77,7 @@ git diff --check
 
 Expected: all exit `0`.
 
-- [ ] Commit approved scope.
+- [x] Commit approved scope.
 
 ```powershell
 git add docs
@@ -94,10 +93,10 @@ git push
 - Create: `docs/research/2026-07-24-dusk-runtime-inventory.md`
 - Modify: `docs/active-goal.md`
 
-- [ ] Close Obsidian after resolving exact process path. Create
+- [x] Close Obsidian after resolving exact process path. Create
   `G:\Obsidian Backups\phase-2-pre-rich-dusk-<timestamp>\vault`.
 
-- [ ] Generate sorted SHA-256 manifests for live source and backup. Compare
+- [x] Generate sorted SHA-256 manifests for live source and backup. Compare
   exact relative path, length, and hash. Generate separate Notion manifest.
 
 Expected:
@@ -106,7 +105,7 @@ Expected:
 - Notion baseline has 164 files unless a new user file was intentionally added;
 - backup remains outside vault and repository.
 
-- [ ] Record, without values:
+- [x] Record, without values:
 
 - Obsidian version;
 - current enabled plugin IDs and versions;
@@ -116,14 +115,14 @@ Expected:
 - selected component hashes;
 - filenames rejected because they can contain credentials.
 
-- [ ] Verify inventory contains no token-like value.
+- [x] Verify inventory contains no token-like value.
 
 ```powershell
 powershell -NoProfile -File scripts/check-secrets.ps1
 git diff --check
 ```
 
-- [ ] Commit inventory.
+- [x] Commit inventory.
 
 ```powershell
 git add docs/research/2026-07-24-dusk-runtime-inventory.md docs/active-goal.md
@@ -138,7 +137,7 @@ git push
 - Modify: `docs/research/2026-07-24-dusk-runtime-inventory.md`
 - Modify: `docs/active-goal.md`
 
-- [ ] For each candidate dependency, verify official repository, latest stable
+- [x] For each candidate dependency, verify official repository, latest stable
   release, manifest `isDesktopOnly`, minimum Obsidian version, release date,
   open compatibility issues, scorecard Health and Review, and exact Dusk
   behavior consuming it.
@@ -159,17 +158,17 @@ lazy-plugins
 tabs
 ```
 
-- [ ] Download exact release assets to a temporary directory. Compare each
+- [x] Download exact release assets to a temporary directory. Compare each
   downloaded asset SHA-256 with the release API digest when supplied. Inspect
   manifest and configuration schema before live installation.
 
-- [ ] Install only dependencies consumed by selected dashboards. Never
+- [x] Install only dependencies consumed by selected dashboards. Never
   overwrite Fast Note Sync plugin files or configuration.
 
-- [ ] Launch Obsidian once with components absent. Verify every plugin loads
+- [x] Launch Obsidian once with components absent. Verify every plugin loads
   independently and no FNS config hash changes.
 
-- [ ] Commit retained/rejected matrix.
+- [x] Commit retained/rejected matrix.
 
 ```powershell
 git add docs/research/2026-07-24-dusk-runtime-inventory.md docs/active-goal.md
@@ -200,31 +199,31 @@ G:\Obsidian\SYSTEM\Config\Snippets\
 G:\Obsidian\SYSTEM\Templates\
 ```
 
-- [ ] Reconstruct dark Minimal settings and Dusk snippets field-by-field.
+- [x] Reconstruct dark Minimal settings and Dusk snippets field-by-field.
   Keep warm red accent `#ba4949`, Dusk dark scheme, colorful headings, and
   bounded full-width dashboard classes.
 
-- [ ] Recreate Homepage with current folder paths and no Todoist/custom-frame
+- [x] Recreate Homepage with current folder paths and no Todoist/custom-frame
   network dependency. All primary navigation buttons resolve.
 
-- [ ] Deploy current Map of Content and Priority Matrix components. Adapt only
+- [x] Deploy current Map of Content and Priority Matrix components. Adapt only
   path/config values. Preserve source attribution and hashes.
 
-- [ ] Recreate Mail Box using current STAGING review paths and page-task
+- [x] Recreate Mail Box using current STAGING review paths and page-task
   properties. Review queue and ordinary inline Tasks stay visibly distinct.
 
-- [ ] Recreate area/project templates and contextual related-note tables.
+- [x] Recreate area/project templates and contextual related-note tables.
   Use Bases for ordinary file tables and Datacore for rich controls.
 
-- [ ] Create narrower mobile Home, Map of Content, and Mail Box notes using
+- [x] Create narrower mobile Home, Map of Content, and Mail Box notes using
   same source paths and properties.
 
-- [ ] Put implementation `.base`, `.jsx`, JavaScript, and JSON under `SYSTEM`;
+- [x] Put implementation `.base`, `.jsx`, JavaScript, and JSON under `SYSTEM`;
   keep HUB human-facing.
 
-- [ ] Render dates as `dd/MM/yyyy`; verify stored typed values remain ISO.
+- [x] Render dates as `dd/MM/yyyy`; verify stored typed values remain ISO.
 
-- [ ] Commit repository-owned shell, guide, and inventory updates.
+- [x] Commit repository-owned shell, guide, and inventory updates.
 
 ```powershell
 powershell -NoProfile -File scripts/test-initialize-vault-template.ps1
@@ -243,25 +242,25 @@ git push
 - Modify: `docs/research/2026-07-24-dusk-runtime-inventory.md`
 - Modify: `docs/active-goal.md`
 
-- [ ] Inspect Dynamic Form script for filesystem, network, system-command,
+- [x] Inspect Dynamic Form script for filesystem, network, system-command,
   overwrite, and path-traversal behavior. Configure QuickAdd with reviewed
   vault-relative destinations and collision-safe note naming.
 
-- [ ] Verify Priority Matrix property write-back against synthetic notes.
+- [x] Verify Priority Matrix property write-back against synthetic notes.
 
-- [ ] Attempt Habit Streak RPG in isolated component folder. Keep it only when
+- [x] Attempt Habit Streak RPG in isolated component folder. Keep it only when
   clean relaunch and basic create/update action work without console error.
   Otherwise record exact failure and install no broad replacement unless a
   maintained mobile-declared alternative matches its concrete behavior.
 
-- [ ] Reproduce Dusk capture, daily-note, focus, and mobile floating-action
+- [x] Reproduce Dusk capture, daily-note, focus, and mobile floating-action
   workflows using smallest retained command set.
 
-- [ ] Configure Lazy Loader only after immediate runtime works. Delay one
+- [x] Configure Lazy Loader only after immediate runtime works. Delay one
   optional plugin at a time and clean-relaunch. Revert any delayed plugin that
   misses initialization.
 
-- [ ] Commit action and startup decisions.
+- [x] Commit action and startup decisions.
 
 ```powershell
 git add docs/research/2026-07-24-dusk-runtime-inventory.md docs/active-goal.md
@@ -276,10 +275,10 @@ git push
 - Modify: `docs/research/2026-07-24-phase-2-implementation-evidence.md`
 - Modify: `docs/active-goal.md`
 
-- [ ] Run three clean startup trials and compare median and mean with fresh
+- [x] Run three clean startup trials and compare median and mean with fresh
   pre-rich measurements. Record measurement definition.
 
-- [ ] Inspect runtime and screenshots for:
+- [x] Inspect runtime and screenshots for:
 
 ```text
 Homepage
@@ -290,7 +289,7 @@ Priority Matrix
 mobile companion notes at desktop width
 ```
 
-- [ ] Run synthetic action matrix:
+- [x] Run or explicitly disposition synthetic action matrix:
 
 - navigation;
 - create note;
@@ -303,19 +302,29 @@ mobile companion notes at desktop width
 - attachment embed;
 - offline edit/reopen.
 
-- [ ] Verify FNS public health, Windows plugin load, unchanged secret config
-  hash, and existing current-file/attachment behavior without repeating
-  destructive personal-vault history tests.
+Disposition: navigation, bounded note creation, template rendering, Datacore
+refresh, Priority Matrix write-back, visible-date format, and ISO property
+storage passed. Existing Phase 1 current-file, attachment, history, trash, and
+offline evidence was not destructively repeated against the personal vault.
+Physical Android remains pending. Base and task query rendering passed; this
+phase did not claim a new synthetic inline-edit or task-completion write-back
+result.
 
-- [ ] Regenerate Notion manifest and compare every relative path, length, and
+- [x] Verify FNS public health, Windows plugin load, expected secret config
+  hash, and existing current-file/attachment behavior without repeating
+  destructive personal-vault history tests. Independent review changed only
+  the authorized Configuration Sync toggle from on to off.
+
+- [x] Regenerate Notion manifest and compare every relative path, length, and
   SHA-256 with baseline.
 
-- [ ] Disable rich plugins temporarily and prove fallback `HUB/Home.md` opens.
-  Restore selected runtime and clean-relaunch.
+- [x] Generate a disposable portable vault and prove fallback `HUB/Home.md`
+  has no executable community-plugin blocks, all primary HUB links exist, and
+  initializer remains repeat-safe. Keep live runtime intact.
 
-- [ ] Record physical Android checklist as pending.
+- [x] Record physical Android checklist as pending.
 
-- [ ] Commit evidence.
+- [x] Commit evidence.
 
 ```powershell
 powershell -NoProfile -File scripts/check-markdown-links.ps1
@@ -345,6 +354,7 @@ powershell -NoProfile -File scripts/test-markdown-links.ps1
 powershell -NoProfile -File scripts/test-initialize-vault-template.ps1
 powershell -NoProfile -File scripts/check-secrets.ps1
 powershell -NoProfile -File scripts/check-mermaid.ps1
+git diff --check origin/main...HEAD
 git diff --check
 ```
 

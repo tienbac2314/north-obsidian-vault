@@ -48,14 +48,15 @@ human-use gate or unrun physical Android matrix.
 - Core-first Home, three Bases, six simple templates, one shallow folder-order
   rule, Minimal theme, Homepage, Minimal Theme Settings, and Custom Sort are
   installed on Windows.
-- Runtime inspection confirmed Home startup, plugin load, Base rendering,
+- Earlier core-first runtime inspection confirmed Home startup, plugin load, Base rendering,
   theme/snippet activation, exact root-folder order, and zero visible error
   views. Custom Sort stays instant after delayed startup missed its layout hook;
   idle Lazy Loader was removed.
 - Final post-change normal launch mean is 880 ms across three trials versus 940 ms
   baseline. Notion still matches all 164 baseline paths, lengths, and hashes.
-- Importer and Lazy Loader are removed from enabled runtime and synchronized
-  configuration, then recoverably archived beside the pre-change backup.
+- At the earlier core-first checkpoint, Importer and Lazy Loader were removed.
+  DEC-037 later reintroduced Lazy Loader for three verified optional delays;
+  Importer remains removed.
 - Public FNS health, loaded Windows plugin, unchanged FNS configuration hash,
   and deployment contract tests pass.
 - Baseline repository suite passes on a clean branch. Atomic commits already
@@ -72,10 +73,12 @@ human-use gate or unrun physical Android matrix.
   Priority Matrix commit and MIT license were verified.
 - Fourteen selected Dusk dependencies were downloaded from official releases.
   Every available GitHub SHA-256 digest matched.
-- QuickAdd `2.12.3`, Meta Bind `1.4.15`, and Templater `2.20.6` are pinned as
-  newest releases compatible with Obsidian `1.12.7`; their newest releases
-  require Obsidian `1.13.x`.
-- One clean launch showed all 18 enabled plugins in Obsidian's loaded registry.
+- QuickAdd `2.12.3` and Meta Bind `1.4.15` are pinned as newest releases
+  compatible with Obsidian `1.12.7`; their newest releases require Obsidian
+  `1.13.x`.
+- One preflight launch showed all 18 candidate plugins in Obsidian's loaded
+  registry. Independent review later removed unused Templater and JS Engine;
+  final runtime has 16.
   FNS configuration hash remained unchanged.
 - Open mobile compatibility reports confirm that manifest support does not
   equal rich-view parity. Desktop remains primary; plain mobile companion views
@@ -101,15 +104,22 @@ human-use gate or unrun physical Android matrix.
   seconds, and delays Iconic and Omnisearch by fifteen seconds. Clean runtime
   inspection confirmed all delayed instances loaded without visible errors.
 - Final launch-to-window trials were 916, 824, and 847 ms; median 847 ms.
-- Notion still matches all 164 baseline path, length, and SHA-256 rows. FNS
-  configuration hash remains unchanged and runtime reports incremental sync
-  complete.
+- Notion still matches all 164 baseline path, length, and SHA-256 rows. Review
+  changed only FNS Configuration Sync from enabled to disabled; note sync
+  remained enabled and runtime reported incremental sync complete.
 - Final live matrix passed for nine desktop-rendered rich and mobile-companion
   files. Complete virtualized root order remained
   `HUB`, `STAGING`, `DAILY`, `PARA`, `ZETA`, `Notion`, `SYSTEM`.
 - Full repository gate passes: links and reachability, link regression tests,
   vault initializer, filename-only secret scan, nine Mermaid renders, and
   whitespace.
+- Independent review found and corrected two authority violations. FNS
+  Configuration Sync now persists disabled while note sync stays enabled.
+  DEC-038 records the already-connected Notion tree as a bounded personal-data
+  exception rather than falsely claiming the synthetic gate held.
+- Final reviewed offline rich-vault checkpoint has 405 files and 84,262,266
+  bytes with zero manifest differences. It replaces Configuration Sync as
+  rich-runtime recovery.
 
 ## Next action
 

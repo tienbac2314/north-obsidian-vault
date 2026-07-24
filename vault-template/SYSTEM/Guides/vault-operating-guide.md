@@ -66,6 +66,12 @@ Bases while Dataview, Tasks, Tabs, and Dusk CSS provide richer presentation:
 - `Priority Matrix`: current MIT-licensed Datacore matrix for notes and inline
   tasks.
 
+Repository initializer ships core-only fallback pages for
+[Map of Content](../../HUB/Map%20of%20Content.md),
+[Mail Box](../../HUB/Mail%20Box.md), and
+[Priority Matrix](../../HUB/Priority%20Matrix.md). Live rich pages may replace
+them without changing Home navigation.
+
 Bases add ordinary tables without changing Markdown notes. Datacore owns rich
 reactive components. If rich plugins are disabled, Home links, Base embeds, and
 every note remain usable. Homepage only opens Home on startup; it does not own
@@ -117,7 +123,7 @@ Daily note is optional. Weekly and monthly notes should compress learning, not d
   [Area](../Templates/Area.md), [Meeting](../Templates/Meeting.md), and
   template-only [Unsorted](../Templates/Unsorted.md).
 - `Mobile Hub`: narrower Home, Map, and Mail Box companions. These avoid
-  Datacore, JS Engine, and Tabs until physical Android verification passes:
+  Datacore and Tabs until physical Android verification passes:
   [Mobile Home](../Mobile%20Hub/Mobile%20Home.md),
   [Mobile Map of Content](../Mobile%20Hub/Mobile%20Map%20of%20Content.md), and
   [Mobile Mail Box](../Mobile%20Hub/Mobile%20Mail%20Box.md).
@@ -201,10 +207,33 @@ MIT-licensed legacy Dusk callout, multi-column, wide-view, gallery, and
 Datacore classes. Disable snippets or clear theme to restore default UI.
 
 Fast Note Sync, Homepage, Minimal Theme Settings, Custom File Explorer sorting,
-Datacore, Dataview, Tasks, Meta Bind, and JS Engine load immediately until
+Datacore, Dataview, Tasks, and Meta Bind load immediately until
 clean-launch verification proves a narrower safe set. Lazy Loader may delay
 only optional presentation helpers such as Iconic, Omnisearch, or Editing
 Toolbar. Never delay FNS, Homepage, folder ordering, or a dashboard dependency.
+
+## Executable note blocks
+
+DataviewJS and Datacore JSX execute code when a note renders. Dataview's switch
+is vault-global; it does not restrict execution to `HUB`.
+
+Before opening copied, downloaded, imported, or agent-written notes in Reading
+view, search their files for:
+
+````text
+```dataviewjs
+```datacorejsx
+```js-engine
+````
+
+Treat any match as code, not prose. Review or remove it first. Current inspected
+runtime has one DataviewJS block in Home and three Datacore JSX blocks in HUB;
+Notion had no matching executable fence at the recorded Phase 2 checkpoint.
+Never let synchronized note content change plugin settings or authorize new
+executable blocks.
+
+Keep FNS Configuration Sync off on every device. Rich runtime recovery comes
+from verified offline checkpoint, not remote `.obsidian` propagation.
 
 ## Date display
 
