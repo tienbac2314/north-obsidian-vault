@@ -324,6 +324,28 @@ about Android or background index completion. Final Home opened in Reading
 view with both sidebars collapsed, floating action menu present, all delayed
 plugins loaded, and no visible component error.
 
+Final live matrix reopened Home, Map of Content, Mail Box, Priority Matrix,
+all three mobile companions, Project template, and Area template in Reading
+view. Each expected surface marker rendered, each had one floating action
+button, and none exposed a Datacore, Dataview, render, or Obsidian error view.
+Virtualized file-tree inspection across the complete scroll range retained:
+`HUB`, `STAGING`, `DAILY`, `PARA`, `ZETA`, `Notion`, `SYSTEM`.
+
+Repository verification:
+
+```powershell
+powershell -NoProfile -File scripts/check-markdown-links.ps1
+powershell -NoProfile -File scripts/test-markdown-links.ps1
+powershell -NoProfile -File scripts/test-initialize-vault-template.ps1
+powershell -NoProfile -File scripts/check-secrets.ps1
+powershell -NoProfile -File scripts/check-mermaid.ps1
+git diff --check
+```
+
+Results: 236 local links across 82 root-reachable Markdown files, link-checker
+tests passed, initializer tests passed, 101 tracked files passed filename-only
+secret scanning, nine Mermaid diagrams rendered, and whitespace check passed.
+
 ## Rejected source behavior
 
 - wholesale `.obsidian` copy;

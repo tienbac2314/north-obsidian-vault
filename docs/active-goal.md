@@ -104,12 +104,17 @@ human-use gate or unrun physical Android matrix.
 - Notion still matches all 164 baseline path, length, and SHA-256 rows. FNS
   configuration hash remains unchanged and runtime reports incremental sync
   complete.
+- Final live matrix passed for nine desktop-rendered rich and mobile-companion
+  files. Complete virtualized root order remained
+  `HUB`, `STAGING`, `DAILY`, `PARA`, `ZETA`, `Notion`, `SYSTEM`.
+- Full repository gate passes: links and reachability, link regression tests,
+  vault initializer, filename-only secret scan, nine Mermaid renders, and
+  whitespace.
 
 ## Next action
 
-Run full repository verification, complete independent final review, fix
-material findings, update PR #4, and leave physical Android plus four-week
-human observation explicit.
+Complete independent final review, fix material findings, update PR #4, and
+leave physical Android plus four-week human observation explicit.
 
 ## Stop conditions
 
