@@ -64,12 +64,19 @@ human-use gate or unrun physical Android matrix.
   queried. Their claims remain non-authoritative until independently verified.
 - Current objective, design, and execution checklist are preserved in tracked
   files before rich runtime mutation.
+- Fresh pre-rich recovery checkpoint contains 334 files and 64,550,986 bytes.
+  Source and backup manifests match exactly. Notion baseline remains 164 files
+  and 1,095,099 bytes.
+- Fresh launch-to-main-window baseline is 958, 869, and 916 ms; median 916 ms.
+- Public legacy Dusk and user-supplied Discord sources were hashed. Current
+  Priority Matrix commit and MIT license were verified.
 
 ## Next action
 
-Create a fresh verified recovery checkpoint, inventory exact current Dusk
-sources and plugin releases, then implement the rich runtime task-by-task from
-the tracked [Dusk recreation plan](superpowers/plans/2026-07-24-dusk-runtime-recreation.md).
+Resolve current plugin releases and scorecards, install exact inspected
+dependencies one group at a time, then implement the rich runtime task-by-task
+from the tracked
+[Dusk recreation plan](superpowers/plans/2026-07-24-dusk-runtime-recreation.md).
 
 ## Stop conditions
 

@@ -21,6 +21,7 @@ Summaries navigate. They never replace detailed modules. Minimalization applies 
 
 ## Current evidence
 
+- [Dusk runtime source and recovery inventory](research/2026-07-24-dusk-runtime-inventory.md)
 - [Dusk runtime redesign review](research/2026-07-24-dusk-runtime-redesign.md)
 - [Phase 2 FNS storage and Obsidian customization review](research/2026-07-24-phase-2-customization.md)
 - [Phase 2 Windows implementation evidence](research/2026-07-24-phase-2-implementation-evidence.md)
