@@ -344,11 +344,11 @@ git push
 - Modify: `docs/active-goal.md`
 - Modify: PR #4 body
 
-- [ ] Review requirements line-by-line against DEC-037 and this plan. Inspect
+- [x] Review requirements line-by-line against DEC-037 and this plan. Inspect
   branch diff from `origin/main`; fix Critical and Important findings in new
   commits.
 
-- [ ] Run complete repository suite.
+- [x] Run complete repository suite.
 
 ```powershell
 powershell -NoProfile -File scripts/check-markdown-links.ps1
@@ -362,7 +362,7 @@ git diff --check
 
 Expected: every command exits `0`.
 
-- [ ] Verify clean branch and pushed commits.
+- [x] Verify clean branch and pushed commits.
 
 ```powershell
 git status --short --branch
@@ -370,10 +370,10 @@ git log --oneline --decorate origin/main..HEAD
 git push
 ```
 
-- [ ] Update PR #4 with scope, decisions, retained plugin inventory, exact
+- [x] Update PR #4 with scope, decisions, retained plugin inventory, exact
   verification, rollback, parity gaps, and deferred Android/four-week gates.
 
-- [ ] Mark goal complete only after PR is ready and no required work remains.
+- [x] Confirm completion gate: PR ready and no required work remains.
 
 ## Self-review
 

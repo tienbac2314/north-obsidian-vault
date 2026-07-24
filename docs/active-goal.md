@@ -12,9 +12,10 @@ templates and actions, selective startup optimization, and user-facing
 `dd/mm/yyyy` dates. Verify recovery, sync safety, startup, and Windows runtime;
 document decisions and deviations; update the existing reviewed pull request.
 
-Status: rich Dusk redesign approved on `feat/obsidian-phase2`; PR
-[#4](https://github.com/tienbac2314/north-obsidian-vault/pull/4) remains open
-while implementation continues.
+Status: Phase 2/2.5 implementation and independent review complete on
+`feat/obsidian-phase2`. PR
+[#4](https://github.com/tienbac2314/north-obsidian-vault/pull/4) is open,
+mergeable, and ready for human merge.
 
 This work prepares Release 2. It does not complete the roadmap's four-week
 human-use gate or unrun physical Android matrix.
@@ -128,8 +129,10 @@ human-use gate or unrun physical Android matrix.
 
 ## Next action
 
-Complete independent final review, fix material findings, update PR #4, and
-leave physical Android plus four-week human observation explicit.
+Merge PR #4 when ready. Before Android reconnects, verify Configuration Sync is
+off locally and run physical smoke matrix. Keep further personal-data expansion
+frozen until Android and recurring independent-backup gates pass. Four-week
+human observation remains next Release 2 gate.
 
 ## Stop conditions
 
