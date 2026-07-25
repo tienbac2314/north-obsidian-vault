@@ -63,6 +63,8 @@ Rendered application surfaces must be judged in settled reading view.
   least five seconds for rendering to settle, record a rendering failure.
 - Label every capture with platform, vault, surface, mode, orientation, and
   scroll position.
+- Begin original screenshot filenames with `windows__` or `android__` so
+  strict platform and resolution checks can classify them without inference.
 
 Desktop acceptance captures require a verified maximized Obsidian window.
 
@@ -72,6 +74,16 @@ Desktop acceptance captures require a verified maximized Obsidian window.
   windows unless that state is explicitly under test.
 - Capture the full application area and record desktop resolution and Obsidian
   content dimensions in the evidence manifest.
+- Pixel dimensions alone do not prove maximization. Verify both the configured
+  capture resolution and the visible window bounds or restore-down control.
+- Establish the accepted desktop and Android screenshot dimensions in the
+  current task packet before capture. Android may have separate portrait and
+  landscape dimensions. Do not infer them from resized chat uploads or contact
+  sheets.
+- Use native, unscaled screenshot files from the approved capture channel.
+  Reject thumbnails, downscaled exports, cropped panes, and mirror-window
+  captures unless that capture channel and its exact dimensions were explicitly
+  approved.
 
 For each dynamic surface:
 
@@ -119,13 +131,18 @@ evidence.
 For large screenshot sets, generate bounded contact sheets before opening every
 image individually. To triage the complete discovery tree without ingesting
 vault media, use discovery mode; it includes only images below directories named
-`screenshots` or `evidence` and excludes `.obsidian` paths:
+`screenshots` or `evidence` and excludes `.obsidian` paths. Resolve these
+values from the approved capture channels before running the builder:
 
 ```powershell
 powershell -NoProfile -File scripts/build-evidence-contact-sheets.ps1 `
   -InputRoot G:\Dusk-Goal1-Discovery-20260725 `
   -OutputRoot G:\Dusk-Goal1-Discovery-20260725\goal1-current-evidence\contact-sheets `
-  -DiscoverEvidenceSets
+  -DiscoverEvidenceSets `
+  -DesktopExpectedResolution ($approvedDesktopResolutions -join ',') `
+  -AndroidExpectedResolution ($approvedAndroidResolutions -join ',') `
+  -FailOnResolutionMismatch `
+  -RequirePlatformClassification
 ```
 
 For one bounded run, omit `-DiscoverEvidenceSets` and point `InputRoot` directly
@@ -134,8 +151,9 @@ both modes refuse more than 500 images by default; override those bounds only
 when the broader scope is intentional. Contact sheets reduce
 repeated image-analysis calls and make missing coverage,
 duplicates, invalid modes, and non-maximized windows easier to spot. Their CSV
-manifest records original paths, timestamps, dimensions, SHA-256 hashes, and
-exact-duplicate relationships. They are derived navigation aids, not acceptance
+manifest records original paths, timestamps, dimensions, platform hints,
+resolution-policy results, SHA-256 hashes, and exact-duplicate relationships.
+They are derived navigation aids, not acceptance
 evidence. Keep them and their manifests outside Git. Open and cite the original
 image for every finding, classification, or PASS decision; never rely on a
 contact sheet alone for fine text, command results, or defect severity.
@@ -159,6 +177,10 @@ surface
 view_mode
 window_state
 orientation
+platform_hint
+actual_resolution
+expected_resolution
+resolution_status
 plugin_state
 configuration_state
 coverage

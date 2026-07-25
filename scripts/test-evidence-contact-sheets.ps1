@@ -13,33 +13,40 @@ if (-not (Test-Path -LiteralPath $builder -PathType Leaf)) {
 
 Add-Type -AssemblyName System.Drawing
 
-function Invoke-ChildPowerShell {
+function Assert-ExpectedScriptFailure {
     param(
         [Parameter(Mandatory = $true)]
-        [string[]]$ArgumentList
+        [scriptblock]$Action,
+
+        [Parameter(Mandatory = $true)]
+        [string]$ExpectedPattern,
+
+        [Parameter(Mandatory = $true)]
+        [string]$FailureMessage
     )
 
-    # Windows PowerShell 5.1 turns redirected native stderr into ErrorRecord
-    # objects. With the suite-wide Stop preference, an expected child failure
-    # would terminate this test before its exit code and message can be
-    # asserted. Scope Continue only to the child invocation and restore the
-    # caller preference immediately afterward.
-    $previousErrorActionPreference = $ErrorActionPreference
+    $failed = $false
+    $captured = @()
     try {
-        $ErrorActionPreference = 'Continue'
-        $output = @(& powershell @ArgumentList 2>&1)
-        $exitCode = $LASTEXITCODE
+        $captured = @(& $Action *>&1)
     }
-    finally {
-        $ErrorActionPreference = $previousErrorActionPreference
+    catch {
+        $failed = $true
+        $captured += $_.Exception.Message
+        if ($null -ne $_.ErrorDetails -and
+            -not [string]::IsNullOrWhiteSpace($_.ErrorDetails.Message)) {
+            $captured += $_.ErrorDetails.Message
+        }
     }
 
-    [pscustomobject]@{
-        ExitCode = $exitCode
-        Output = @($output)
+    $text = (@($captured | ForEach-Object { [string]$_ }) -join "`n")
+    if (-not $failed -or $text -notmatch $ExpectedPattern) {
+        if ([string]::IsNullOrWhiteSpace($text)) {
+            $text = '<no output>'
+        }
+        throw "$FailureMessage`nObserved output:`n$text"
     }
 }
-
 function New-TestImage {
     param(
         [Parameter(Mandatory = $true)][string]$Path,
@@ -91,7 +98,9 @@ try {
         -OutputRoot $outputRoot `
         -ImagesPerSheet 2 `
         -Columns 2 `
-        -GroupDepth 1
+        -GroupDepth 1 `
+        -DesktopExpectedResolution '320x180,300x200,280x220' `
+        -AndroidExpectedResolution '180x320,320x180'
     if ($LASTEXITCODE -ne 0) {
         throw "Contact-sheet builder failed with exit code $LASTEXITCODE."
     }
@@ -113,6 +122,13 @@ try {
     }
     if ($oldRow.Orientation -ne 'landscape') {
         throw 'Landscape orientation was not recorded for the test image.'
+    }
+    if ($oldRow.PlatformHint -ne 'desktop' -or $oldRow.ResolutionStatus -ne 'pass') {
+        throw 'Desktop platform or configured resolution was not recorded as passing.'
+    }
+    $portraitRow = $manifest | Where-Object { $_.RelativePath -match 'portrait\.png$' }
+    if ($portraitRow.PlatformHint -ne 'android' -or $portraitRow.ResolutionStatus -ne 'pass') {
+        throw 'Android platform or configured resolution was not recorded as passing.'
     }
     if ([string]::IsNullOrWhiteSpace($oldRow.Sha256)) {
         throw 'SHA-256 was not recorded for the original image.'
@@ -138,7 +154,9 @@ try {
         -OutputRoot $outputRoot `
         -ImagesPerSheet 2 `
         -Columns 2 `
-        -GroupDepth 1
+        -GroupDepth 1 `
+        -DesktopExpectedResolution '320x180,300x200,280x220' `
+        -AndroidExpectedResolution '180x320,320x180'
     if ($LASTEXITCODE -ne 0) {
         throw "Contact-sheet rerun failed with exit code $LASTEXITCODE."
     }
@@ -147,16 +165,31 @@ try {
         throw "Generated contact sheets were re-ingested on rerun; expected 6 rows, found $($rerunManifest.Count)."
     }
 
-    $limitResult = Invoke-ChildPowerShell -ArgumentList @(
-        '-NoProfile',
-        '-File', $builder,
-        '-InputRoot', $inputRoot,
-        '-OutputRoot', $outputRoot,
-        '-MaximumImages', '5'
-    )
-    if ($limitResult.ExitCode -eq 0 -or ($limitResult.Output -join "`n") -notmatch 'exceeds MaximumImages') {
-        throw 'MaximumImages guard did not reject an oversized input set.'
+    Assert-ExpectedScriptFailure `
+        -ExpectedPattern 'Resolution policy failed' `
+        -FailureMessage 'Resolution mismatch policy did not reject nonconforming screenshots.' `
+        -Action {
+            & $builder `
+                -InputRoot $inputRoot `
+                -OutputRoot $outputRoot `
+                -DesktopExpectedResolution '1920x1040' `
+                -AndroidExpectedResolution '1600x800' `
+                -FailOnResolutionMismatch
+        }
+    $mismatchManifest = @(Import-Csv -LiteralPath $manifestPath)
+    if (@($mismatchManifest | Where-Object { $_.ResolutionStatus -eq 'mismatch' }).Count -ne 6) {
+        throw 'Resolution mismatch rows were not retained in the manifest.'
     }
+
+    Assert-ExpectedScriptFailure `
+        -ExpectedPattern 'exceeds MaximumImages' `
+        -FailureMessage 'MaximumImages guard did not reject an oversized input set.' `
+        -Action {
+            & $builder `
+                -InputRoot $inputRoot `
+                -OutputRoot $outputRoot `
+                -MaximumImages 5
+        }
     if (-not (Test-Path -LiteralPath $manifestPath -PathType Leaf)) {
         throw 'A failed bounded rerun removed the previously generated manifest.'
     }
@@ -164,15 +197,14 @@ try {
     $vaultTree = Join-Path $tempRoot 'vault-tree'
     New-Item -ItemType Directory -Path (Join-Path $vaultTree '.obsidian') -Force | Out-Null
     New-TestImage -Path (Join-Path $vaultTree 'screenshots/test.png') -Width 200 -Height 120 -Text 'vault tree'
-    $vaultResult = Invoke-ChildPowerShell -ArgumentList @(
-        '-NoProfile',
-        '-File', $builder,
-        '-InputRoot', $vaultTree,
-        '-OutputRoot', (Join-Path $tempRoot 'vault-tree-output')
-    )
-    if ($vaultResult.ExitCode -eq 0 -or ($vaultResult.Output -join "`n") -notmatch 'contains an Obsidian vault tree') {
-        throw 'Vault-tree guard did not reject an input containing .obsidian.'
-    }
+    Assert-ExpectedScriptFailure `
+        -ExpectedPattern 'contains an Obsidian vault tree' `
+        -FailureMessage 'Vault-tree guard did not reject an input containing .obsidian.' `
+        -Action {
+            & $builder `
+                -InputRoot $vaultTree `
+                -OutputRoot (Join-Path $tempRoot 'vault-tree-output')
+        }
 
     $discoveryRoot = Join-Path $tempRoot 'discovery-tree'
     New-TestImage -Path (Join-Path $discoveryRoot 'screenshots/root.png') -Width 240 -Height 140 -Text 'root evidence'
@@ -195,7 +227,18 @@ try {
         throw 'Discovery mode ingested vault configuration or media images.'
     }
 
-    Write-Host 'Evidence contact-sheet tests passed: 10 cases.'
+    Assert-ExpectedScriptFailure `
+        -ExpectedPattern 'Platform classification failed' `
+        -FailureMessage 'Required platform classification did not reject ambiguous evidence names.' `
+        -Action {
+            & $builder `
+                -InputRoot $discoveryRoot `
+                -OutputRoot $discoveryOutput `
+                -DiscoverEvidenceSets `
+                -RequirePlatformClassification
+        }
+
+    Write-Host 'Evidence contact-sheet tests passed: 13 cases.'
 }
 finally {
     $resolved = [IO.Path]::GetFullPath($tempRoot)

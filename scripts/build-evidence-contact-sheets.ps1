@@ -33,7 +33,15 @@ param(
 
     [switch]$DiscoverEvidenceSets,
 
-    [switch]$AllowVaultTrees
+    [switch]$AllowVaultTrees,
+
+    [string[]]$DesktopExpectedResolution = @(),
+
+    [string[]]$AndroidExpectedResolution = @(),
+
+    [switch]$FailOnResolutionMismatch,
+
+    [switch]$RequirePlatformClassification
 )
 
 Set-StrictMode -Version Latest
@@ -88,11 +96,51 @@ function Get-TruncatedLabel {
     return $Value.Substring(0, $MaximumLength - 3) + '...'
 }
 
+
+function ConvertTo-ResolutionSet {
+    param(
+        [Parameter(Mandatory = $true)]
+        [AllowEmptyCollection()]
+        [string[]]$Values,
+        [Parameter(Mandatory = $true)][string]$ParameterName
+    )
+
+    $set = New-Object 'System.Collections.Generic.HashSet[string]' -ArgumentList ([StringComparer]::OrdinalIgnoreCase)
+    foreach ($rawValue in $Values) {
+        foreach ($value in @($rawValue -split '[,;]')) {
+            if ([string]::IsNullOrWhiteSpace($value)) {
+                continue
+            }
+            if ($value -notmatch '^\s*(\d+)\s*[xX]\s*(\d+)\s*$') {
+                throw "$ParameterName contains an invalid resolution '$value'. Use WIDTHxHEIGHT values separated by commas, for example 1920x1040,1365x768."
+            }
+            $normalized = '{0}x{1}' -f [int]$Matches[1], [int]$Matches[2]
+            $null = $set.Add($normalized)
+        }
+    }
+    return ,$set
+}
+
+function Get-PlatformHint {
+    param([Parameter(Mandatory = $true)][string]$RelativePath)
+
+    $normalized = $RelativePath.ToLowerInvariant()
+    if ($normalized -match '(^|[\\/_. -])(android|mobile)([\\/_. -]|$)') {
+        return 'android'
+    }
+    if ($normalized -match '(^|[\\/_. -])(desktop|windows|win|pc)([\\/_. -]|$)') {
+        return 'desktop'
+    }
+    return 'unclassified'
+}
+
 if (-not (Test-Path -LiteralPath $InputRoot -PathType Container)) {
     throw "InputRoot is not an existing directory: $InputRoot"
 }
 
 $inputPath = (Resolve-Path -LiteralPath $InputRoot).Path
+$desktopResolutionSet = ConvertTo-ResolutionSet -Values $DesktopExpectedResolution -ParameterName 'DesktopExpectedResolution'
+$androidResolutionSet = ConvertTo-ResolutionSet -Values $AndroidExpectedResolution -ParameterName 'AndroidExpectedResolution'
 New-Item -ItemType Directory -Path $OutputRoot -Force | Out-Null
 $outputPath = (Resolve-Path -LiteralPath $OutputRoot).Path
 if ($inputPath -eq $outputPath) {
@@ -268,12 +316,45 @@ try {
                     else {
                         'square'
                     }
+                    $platformHint = Get-PlatformHint -RelativePath $item.RelativePath
+                    $actualResolution = if ($width -gt 0 -and $height -gt 0) { '{0}x{1}' -f $width, $height } else { '' }
+                    $expectedResolutionSet = $null
+                    if ($platformHint -eq 'desktop') {
+                        $expectedResolutionSet = $desktopResolutionSet
+                    }
+                    elseif ($platformHint -eq 'android') {
+                        $expectedResolutionSet = $androidResolutionSet
+                    }
+
+                    if ($status -ne 'ok') {
+                        $resolutionStatus = 'unreadable'
+                    }
+                    elseif ($platformHint -eq 'unclassified') {
+                        $resolutionStatus = if ($RequirePlatformClassification) { 'unclassified-platform' } else { 'not-checked' }
+                    }
+                    elseif ($null -eq $expectedResolutionSet -or $expectedResolutionSet.Count -eq 0) {
+                        $resolutionStatus = 'not-configured'
+                    }
+                    elseif ($expectedResolutionSet.Contains($actualResolution)) {
+                        $resolutionStatus = 'pass'
+                    }
+                    else {
+                        $resolutionStatus = 'mismatch'
+                    }
+
+                    $expectedResolution = if ($null -eq $expectedResolutionSet -or $expectedResolutionSet.Count -eq 0) {
+                        ''
+                    }
+                    else {
+                        (@($expectedResolutionSet) | Sort-Object) -join ';'
+                    }
+
                     $firstPath = $firstPathByHash[$item.Sha256]
                     $duplicateOf = if ($firstPath -eq $item.RelativePath) { '' } else { $firstPath }
                     $duplicateLabel = if ([string]::IsNullOrWhiteSpace($duplicateOf)) { 'unique' } else { 'duplicate' }
-                    $label = "{0}`n{1:yyyy-MM-dd HH:mm:ss} | {2}x{3} {4} | {5} | {6} | {7}" -f (
+                    $label = "{0}`n{1:yyyy-MM-dd HH:mm:ss} | {2}x{3} {4} | {5} {6} | {7} | {8} | {9}" -f (
                         Get-TruncatedLabel -Value $item.RelativePath
-                    ), $item.File.LastWriteTime, $width, $height, $orientation, $classificationHint, $duplicateLabel, $status
+                    ), $item.File.LastWriteTime, $width, $height, $orientation, $platformHint, $resolutionStatus, $classificationHint, $duplicateLabel, $status
                     $labelRect = New-Object -TypeName Drawing.RectangleF -ArgumentList $imageX, $labelY, $ThumbnailWidth, ($LabelHeight - 6)
                     $graphics.DrawString($label, $labelFont, $labelBrush, $labelRect, $format)
 
@@ -287,6 +368,10 @@ try {
                         Width = $width
                         Height = $height
                         Orientation = $orientation
+                        PlatformHint = $platformHint
+                        ActualResolution = $actualResolution
+                        ExpectedResolution = $expectedResolution
+                        ResolutionStatus = $resolutionStatus
                         SourceBytes = $item.File.Length
                         Sha256 = $item.Sha256
                         DuplicateOf = $duplicateOf
@@ -329,9 +414,23 @@ $summary = [ordered]@{
     columns = $Columns
     diagnosticCutoff = $DiagnosticCutoff.ToString('o')
     discoverEvidenceSets = [bool]$DiscoverEvidenceSets
-    policy = 'Contact sheets are triage aids. Final findings and acceptance must cite and inspect original images.'
+    desktopExpectedResolution = @($desktopResolutionSet | Sort-Object)
+    androidExpectedResolution = @($androidResolutionSet | Sort-Object)
+    resolutionMismatchCount = @($manifest | Where-Object { $_.ResolutionStatus -eq 'mismatch' }).Count
+    resolutionPolicyMissingCount = @($manifest | Where-Object { $_.ResolutionStatus -eq 'not-configured' }).Count
+    unclassifiedPlatformCount = @($manifest | Where-Object { $_.ResolutionStatus -eq 'unclassified-platform' }).Count
+    policy = 'Contact sheets are triage aids. Pixel dimensions do not prove that an Obsidian window was maximized. Final findings and acceptance must cite and inspect original images.'
 }
 $summary | ConvertTo-Json -Depth 5 | Set-Content -LiteralPath (Join-Path $outputPath 'contact-sheet-summary.json') -Encoding UTF8
 
 Write-Host "Evidence contact sheets created: $sheetCount sheet(s), $($images.Count) image(s)."
 Write-Host "Manifest: $manifestPath"
+
+$resolutionPolicyFailures = @($manifest | Where-Object { $_.ResolutionStatus -in @('mismatch', 'not-configured') })
+$unclassifiedPlatforms = @($manifest | Where-Object { $_.ResolutionStatus -eq 'unclassified-platform' })
+if ($FailOnResolutionMismatch -and $resolutionPolicyFailures.Count -gt 0) {
+    throw "Resolution policy failed: $($resolutionPolicyFailures.Count) image(s) were mismatched or lacked a configured platform resolution. Inspect $manifestPath."
+}
+if ($RequirePlatformClassification -and $unclassifiedPlatforms.Count -gt 0) {
+    throw "Platform classification failed: $($unclassifiedPlatforms.Count) image(s) could not be classified as desktop or Android. Inspect $manifestPath."
+}

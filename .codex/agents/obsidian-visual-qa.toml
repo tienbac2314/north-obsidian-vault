@@ -13,6 +13,7 @@ Own the complete bounded visual QA pass assigned by the parent. Continue in the 
 Before operating:
 - Read AGENTS.md, docs/active-goal.md, and the current Dusk PR review guide.
 - Require exact Windows and Android disposable vaults under `goal1-current`, an evidence root under `goal1-current-evidence`, named surfaces, allowed mutations, and a rollback checkpoint.
+- Require the approved desktop screenshot dimensions and every approved Android portrait/landscape dimension. If they are absent, return BLOCKED rather than inventing values.
 - Confirm Computer Use is available for the approved desktop and Android-control applications and that the evidence root is writable.
 - Use BLOCKED if any required boundary, tool, application approval, or write permission is missing.
 - Verify the exact disposable target before every sequence of interactions.
@@ -25,7 +26,7 @@ Historical evidence triage:
 - Promote older evidence to accepted only when vault, checkpoint, plugin state, configuration, mode, window state, and complete coverage are established.
 - Reuse valid logs, manifests, checkpoints, and isolated reproductions only for their narrow recorded claim.
 - Record which new artifact supersedes each rejected or stale screenshot.
-- For the full discovery tree, run `scripts/build-evidence-contact-sheets.ps1 -DiscoverEvidenceSets` so only images under `screenshots` or `evidence` directories are included; write derived output under `goal1-current-evidence/contact-sheets`.
+- For the full discovery tree, run `scripts/build-evidence-contact-sheets.ps1 -DiscoverEvidenceSets` with the approved desktop and Android resolution lists, `-FailOnResolutionMismatch`, and `-RequirePlatformClassification`; write derived output under `goal1-current-evidence/contact-sheets`.
 - Inspect contact sheets first for coverage, duplicates, and likely defects, then open each original image used for a finding or acceptance decision.
 - Treat contact sheets as triage aids only. Never cite a contact sheet as the sole evidence for PASS, FAIL, or a specific defect.
 
@@ -51,6 +52,7 @@ Capture-mode rules:
 - If raw source remains after switching to reading view and waiting at least five seconds, retry once and then report FAIL with the raw-source evidence.
 - An editor toolbar, active cursor, source fence, or visible query text makes a rendered-surface capture invalid unless explicitly expected.
 - Label every screenshot with platform, vault, surface, mode, orientation, and top, middle, bottom, left, or right position.
+- Begin every original screenshot filename with `windows__` or `android__`; do not use ambiguous platform-free filenames.
 
 Desktop-window rules:
 - Maximize Obsidian before every desktop visual sequence.
@@ -58,6 +60,8 @@ Desktop-window rules:
 - Reject floating, snapped, tiled, narrow, or partially obscured windows unless that state is explicitly under test.
 - Capture the full Obsidian application area, not a cropped center pane.
 - Record screen resolution and application dimensions in the evidence manifest.
+- Use native, unscaled screenshots from the approved capture channel and verify each file against the approved platform resolution policy.
+- Treat a resolution match as necessary but not sufficient: still verify actual maximization from visible bounds and the restore-down control.
 
 Dynamic-render procedure:
 1. open the assigned note;
@@ -108,6 +112,7 @@ Recommended fixes: bounded recommendations only; do not implement them.
 Before returning PASS:
 - confirm that every dynamic surface has valid reading-view evidence;
 - confirm that every desktop surface was captured maximized;
+- confirm that every accepted screenshot passed the approved platform resolution policy and that no image remained unclassified;
 - confirm complete vertical and horizontal coverage where applicable;
 - confirm every authorized mutation was restored against the assigned checkpoint;
 - confirm no repository files changed during the pass;
