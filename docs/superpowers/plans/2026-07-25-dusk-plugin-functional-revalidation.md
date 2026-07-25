@@ -1,5 +1,9 @@
 # Dusk Plugin Functional Revalidation Plan
 
+Status: incomplete execution record. Independent functional review returned
+FAIL. Current findings and blockers live in
+[Dusk plugin functional revalidation](../../research/2026-07-25-dusk-plugin-functional-revalidation.md).
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use
 > superpowers:subagent-driven-development (recommended) or
 > superpowers:executing-plans to implement this plan task-by-task. Steps use

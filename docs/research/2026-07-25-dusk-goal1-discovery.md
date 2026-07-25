@@ -2,19 +2,21 @@
 
 Date: 2026-07-25
 
-Status: functionally corrected. Independent release re-review pending.
+Status: incomplete. Independent functional re-review returned FAIL; PR #7
+remains draft.
 
 ## Outcome
 
-Goal 1 establishes enough evidence to reject wholesale live import and define
-a bounded Goal 2 experiment. Functional revalidation proved that current
-Datacore dashboards render on Windows and Android in reading view, and that
-the tested Dataview surfaces require only two explicit JavaScript-query flags.
-It also proved that compatible local plugins can be re-enabled after updates.
+Goal 1 has enough evidence to reject wholesale live import, but not enough to
+close discovery or start Goal 2. Functional revalidation proved that tested
+Datacore dashboards can render on Windows and Android in reading view, and that
+tested Dataview surfaces require two explicit JavaScript-query flags. It also
+proved that compatible local plugins can be re-enabled after updates. It did
+not prove complete workflow usability, host attribution, or safe promotion.
 No personalization, live-vault write, source change, final plugin selection,
 or Discord-component promotion occurred.
 
-Recommended Goal 2 starting hypothesis:
+Conditional Goal 2 starting hypothesis after an independent PASS:
 
 1. sanitize `Dusk_light_empty` into a new disposable and test that empty base
    directly;
@@ -55,7 +57,7 @@ This is a design recommendation, not permission to modify `G:\Obsidian`.
 | 15 | Zoomed-out risks/opportunities | [Risks and simpler experiments](2026-07-25-dusk-surface-and-security-map.md#zoomed-out-risks) |
 | 16 | Archived PR #4 revalidation | [Confirmed/stale/contradicted/unknown ledger](2026-07-25-dusk-pr4-revalidation.md) |
 | 17 | Goal 2 recommendation | [Goal 2 scope](#goal-2-recommendation) |
-| 18 | Independent review verdict | [Prior PASS; functional re-review pending](2026-07-25-dusk-goal1-review.md) |
+| 18 | Independent review verdict | [FAIL; PR #7 remains draft](2026-07-25-dusk-goal1-review.md) |
 
 The [functional revalidation](2026-07-25-dusk-plugin-functional-revalidation.md)
 supersedes prior editing-mode dashboard conclusions. The
@@ -67,6 +69,12 @@ runtime report: source-copy equality, physical startup/popup timeline,
 load/update matrix for both variants, surface screenshots, errors/disabled
 plugin evidence, rotation/background findings, mixed-language probe, and
 blocker list.
+
+Those screenshots prove technical rendering only. Visual QA found horizontal
+overflow on Android and visible error-like content and clipping on full
+Android Home. The user also confirmed that Android plugins were manually
+enabled after import and that DatacoreJS works on the tablet; imported disabled
+state is not treated as incompatibility or configuration drift.
 
 ## Fixed authority and safety result
 
@@ -211,7 +219,7 @@ sub-1.5-second target without evidence. None of those recommendations is
 accepted. NotebookLM remains an adversarial research partner, not source of
 truth.
 
-## Unknowns that move to Goal 2
+## Open Goal 1 blockers and later Goal 2 unknowns
 
 - exact minimal plugin set for the selected user workflows;
 - Highlightr/Settings Search minimum trigger;
@@ -228,13 +236,21 @@ truth.
 - current Habit Streak RPG provenance/license;
 - uninstall-time AI/config/secret cleanup;
 - whether core Bases can replace any accepted Dusk interactive surface.
+- initiator attribution for `cdn.ko-fi.com`, `storage.ko-fi.com`,
+  `i.ytimg.com`, and `img.buymeacoffee.com`;
+- full Android Home visual defects and horizontal overflow;
+- failed Home ribbon/button navigation and exposed Todoist configuration;
+- remaining QuickAdd, Meta Bind, Mail Box, timeline, and other write-path
+  behavior with state restoration.
 
-These are bounded experiments, not reasons to repeat broad discovery.
+Host attribution, current visual defects, and unverified required workflows
+must be resolved or explicitly classified before Goal 1 can pass. Other items
+may move to bounded Goal 2 experiments only after an independent PASS.
 
 ## Goal 2 recommendation
 
-Goal 2 should evaluate one sanitized disposable `Dusk_light_empty` in this
-order:
+After Goal 1 receives an independent PASS, Goal 2 should evaluate one sanitized
+disposable `Dusk_light_empty` in this order:
 
 1. prove the empty copy starts on Windows and Android with the same exclusion
    contract;

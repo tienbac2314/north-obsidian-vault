@@ -2,7 +2,7 @@
 
 Date: 2026-07-25
 
-Status: complete. Independent release re-review pending.
+Status: incomplete. Independent re-review failed; PR #7 remains draft.
 
 ## TL;DR
 
@@ -27,8 +27,9 @@ Status: complete. Independent release re-review pending.
   Todoist opened an API-token setup dialog.
 - Both Android variants passed cold-restart persistence with all selected
   plugins loaded and Dataview JavaScript settings retained.
-- Goal 2 may now start with personalization review. This result still does not
-  authorize changes to `G:\Obsidian`.
+- Plugin-load and basic reading-render evidence passed, but expanded workflow
+  and visual review found release blockers. Goal 2 personalization is not
+  cleared, and this result does not authorize changes to `G:\Obsidian`.
 
 ## Why the prior result changed
 
@@ -97,7 +98,7 @@ network or credential use.
 
 Editing Toolbar remained usable with its AI feature off.
 
-## Reading-view results
+## Initial reading-view results
 
 Ten surfaces were opened in reading view on Windows and Android for both
 variants:
@@ -115,7 +116,8 @@ variants:
 
 All 40 variant/platform checks reached reading mode. No tested surface showed
 the Dataview-JavaScript-disabled message, raw Datacore fence, or missing-button
-error.
+error. These checks prove that the surfaces can render. They do not prove
+visual quality, navigation, write behavior, or workflow usability.
 
 Observed functional results:
 
@@ -125,11 +127,143 @@ Observed functional results:
 - project and area views rendered fields and dependent tables.
 - daily, weekly, and monthly views rendered dynamic task/calendar output.
 - Getting Started rendered normally.
-- the project template rendered its configured reading view; raw Templater
-  source execution remains outside this test.
+- the project template source rendered its configured reading view; template
+  application was tested later.
 
 The daily fixture still reports `Note is not connected to a journal`. That is
 a Journals configuration gap, not a Dataview or Datacore failure.
+
+## Expanded workflow and visual review
+
+The expanded review used direct Computer Use against this exact disposable:
+
+```text
+G:\Dusk-Goal1-Discovery-20260725\workflow-rerun\desktop-vaults\Dusk_light_workflow_pc
+```
+
+The Obsidian window was maximized to 1920 by 1040 before judging or capturing
+each final state. Earlier 1024 by 800 Windows screenshots remain diagnostic
+evidence only; they are not valid desktop-usability evidence. Both sidebars
+were left open to exercise the imported workspace.
+
+Every note opened in editing mode after navigation, even when the prior note
+was in reading mode. The title and outline could update before the center pane,
+and some dynamic content needed about five seconds to settle. Each valid
+capture therefore required:
+
+1. verify the exact disposable window and 1920 by 1040 size;
+2. open the target;
+3. wait for its content;
+4. switch explicitly from editing to reading mode;
+5. wait again before judging or saving the screenshot.
+
+Observed results:
+
+| Check | Result |
+|---|---|
+| Files sidebar | Passed; tree navigation worked |
+| Recent Files sidebar | Passed; recent-note list rendered |
+| Search sidebar | Passed; query and options rendered |
+| Bookmarks sidebar | Opened successfully; empty state only |
+| Home ribbon action | Failed to navigate in the expanded run |
+| Home `Map of Contents` button | Accepted clicks but did not navigate |
+| Home `Daily Note` button | Accepted clicks but did not navigate |
+| Home Todoist panel | Exposed raw `filter`, `project`, and `sorting` configuration in reading view |
+| Daily note | Rendered in reading view; still not connected to a journal |
+| Daily task checkbox | Toggled source task, added current completion date, then restored original unchecked state |
+| Weekly note | Rendered calendar, tasks, goals, summary, and reflections |
+| Monthly note | Rendered after full wait; early raw `tabs`/`dataviewjs` frame was transient load delay |
+| Area family | Rendered properties, overview, Datacore tabs, and component table |
+| Project family | Rendered fields, description, notes, and definition of done |
+| Templater application | Applied project template and rendered its fields |
+| Template picker | Listed whole vault, including ZETA content, rather than a clearly bounded template set |
+| Template output | Created `Untitled.md` in current `DAILY/MONTHLY` folder without name or location prompt |
+
+The synthetic template output and empty probe directory were archived outside
+the vault instead of deleted:
+
+```text
+G:\Dusk-Goal1-Discovery-20260725\workflow-rerun\cleanup-archive\desktop-light
+```
+
+Final maximized screenshots are under:
+
+```text
+G:\Dusk-Goal1-Discovery-20260725\workflow-rerun\screenshots\computer-use-maximized
+```
+
+They cover daily, weekly, monthly, area, project, and applied-template reading
+states. No 1024 by 800 capture is accepted in that set.
+
+### Android and prior visual evidence
+
+Luna visual review covered all 40 earlier functional screenshots, not only
+Home or recent files. Daily, weekly, monthly, project, area, templates, Getting
+Started, Map of Content, and Mail Box technically rendered. It also found:
+
+- old 1024 by 800 Windows captures wrapped and clipped imported layouts;
+- Android tables required horizontal scrolling and remained a usability risk;
+- full Android Home contained visible red/error-like content, stray text, and
+  clipping that a render-only pass did not explain;
+- the daily Journals warning remained visible;
+- sidebar navigation, template execution, and writes were not proven by those
+  screenshots.
+
+The direct expanded run closed some of those gaps but did not replace physical
+Android workflow testing. The user's observed Android DatacoreJS success is
+consistent with reading-mode evidence. The user's manual Android plugin
+enablement after import must be preserved and must not be misclassified as
+configuration drift.
+
+### User correction ledger
+
+| User correction | Evidence handling |
+|---|---|
+| Android plugins were manually enabled after import | Preserved as intentional user state; disabled-on-import is not classified as incompatibility or drift |
+| DatacoreJS works on the tablet, though user review was incomplete | Consistent with physical-Android reading-mode renders; not expanded into a full workflow claim |
+| Editing mode shows source while reading mode shows intended dashboard behavior | Every later note check switched explicitly to reading mode after navigation |
+| Daily, weekly, monthly, project, area, templates, and sidebars need review, not only Home/recent files | Luna reviewed all 40 initial screenshots; direct Windows run added periodic, project, area, sidebar, task, and template checks |
+| Desktop Obsidian must be maximized and each check captured before moving on | Direct workflow captures use maximized 1920 by 1040 windows and one labeled screenshot per accepted check |
+
+### Template and write dependency map
+
+Static review found `Dusk_light` and full `Dusk` template trees byte-identical.
+Daily templates depend on Tasks, Templater, Dataview/DataviewJS, and Journals.
+Weekly and monthly templates depend on Journals placeholders,
+DataviewJS/Dataview rollups, and Templater.
+
+Write destinations are broader than the initial render test:
+
+- Tasks checkboxes update the originating Markdown task;
+- Timeline add writes under `# New Tasks` in the selected file;
+- Timeline completion invokes the Tasks plugin against the originating task;
+- Mail Box checkboxes update status fields in selected-note frontmatter;
+- Meta Bind project and meeting inputs update current-note frontmatter;
+- Templater toggle scripts can update active-note frontmatter and Iconic state.
+
+The Home daily command maps to
+`journals:journal:calendar:open-day`. Home create maps to an opaque QuickAdd
+choice ID. Allowed static files do not prove the nested QuickAdd
+choice-to-template mapping.
+
+## Independent re-review failure
+
+Independent re-review did not pass. It found:
+
+1. full Windows post-reload log contains unattributed requests to
+   `cdn.ko-fi.com`, `storage.ko-fi.com`, `i.ytimg.com`, and
+   `img.buymeacoffee.com`;
+2. report equated technical rendering with usability despite Home, Android,
+   narrow-window, and Journals defects;
+3. user corrections were not tracked explicitly;
+4. task mutation, applied-template behavior, sidebar controls, and Home
+   commands were initially untested.
+
+Expanded review addressed fourth item partly and added user-correction tracking
+above. Host attribution, Home navigation, Android visual defects, safe
+Journals configuration, and physical-Android write workflows remain open.
+Request-host list alone does not identify a plugin or prove user-data egress,
+so no attribution is asserted.
 
 ## Network and credential gates
 
@@ -159,11 +293,14 @@ Android cold starts still emitted WebView tile-memory warnings and repeated
 Mali `BAD ALLOC` messages. No crash, ANR, missing loaded plugin, or failed
 reading surface was captured.
 
-Still untested:
+Still untested or incomplete:
 
-- writes through Datacore, Meta Bind, Tasks, QuickAdd, or Templater;
+- writes through Datacore and Meta Bind;
+- QuickAdd's intended nested creation workflow;
+- Templater naming and placement beyond unsafe `Untitled.md` result;
+- Tasks writes beyond one restored disposable checkbox mutation;
 - Journals safe configuration and migration;
-- touch behavior for every interactive control;
+- physical-Android touch and write behavior for every interactive control;
 - offline, long-background, battery, conflict, rename, move, and attachment
   behavior;
 - FNS convergence for a selected personalized configuration;
@@ -177,11 +314,12 @@ Raw evidence remains outside Git:
 G:\Dusk-Goal1-Discovery-20260725\functional-rerun
 ```
 
-It contains:
+Functional and workflow roots contain:
 
 - exact clone and classification manifests;
 - Windows and Android enabled/loaded plugin snapshots;
-- 54 reading-view and restart screenshots;
+- 54 initial reading-view and restart screenshots;
+- six labeled 1920 by 1040 workflow screenshots;
 - per-surface extracted reading text;
 - network-gate request records;
 - Windows reload errors;
@@ -189,10 +327,11 @@ It contains:
 
 ## Decision
 
-The corrected evidence supports beginning Goal 2 personalization review. Use
-the light empty variant as the starting hypothesis, preserve working Dusk
-surfaces, reconstruct only explicit non-secret settings, and choose the first
-workflow before reducing plugins.
+Keep PR #7 draft. Corrected evidence supports `Dusk_light_empty` only as a
+future starting hypothesis. It does not yet support beginning Goal 2
+personalization. Host attribution, Home navigation, safe Journals behavior,
+Android visual defects, and selected write workflows require correction or an
+explicitly accepted deferral followed by independent PASS.
 
 Do not remove a plugin merely because it was disabled immediately after
 import. Re-enable and test current compatible versions first. Do not treat

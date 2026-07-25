@@ -5,6 +5,19 @@ Date: 2026-07-25
 Use this guide to review PR #7 and leave the decisions needed for Goal 2.
 Reviewing this PR does not change `G:\Obsidian`.
 
+Current state: PR #7 remains draft after an independent functional FAIL. Use
+this guide to review evidence and defects now. Do not make personalization
+choices until a later independent review returns PASS.
+
+Current blockers:
+
+- four request hosts lack initiator attribution;
+- full Android Home has visible error-like content and clipping;
+- Android tables have horizontal overflow;
+- Home ribbon and two Home navigation buttons failed;
+- Home exposes raw Todoist configuration;
+- Journals and several write-capable workflows remain unresolved.
+
 ## Ten-minute review
 
 Read in this order:
@@ -27,19 +40,32 @@ authority.
 Approve the evidence correction only if these claims are clear:
 
 - reading view, not editing mode, determines rendered dashboard behavior;
-- Map and Mail Box Datacore views work on PC and physical Android;
+- Map and Mail Box Datacore views can render on PC and physical Android;
 - Dataview JavaScript required only two explicit booleans for tested surfaces;
 - current compatible local plugins load after update and re-enable;
 - desktop-only plugins are excluded only on Android;
 - network and credential plugins are tested separately and end off;
 - source vaults and `G:\Obsidian` were not changed;
-- passing discovery does not approve live promotion.
+- render success does not prove workflow usability;
+- imported disabled state is not proof of Android incompatibility;
+- passing discovery would not approve live promotion.
 
 Leave a PR comment if any file still says current Map or Mail Box behavior is
 blocked, shows raw Datacore in reading view, or treats imported disabled state
 as proof of incompatibility.
 
-## Personalization decisions
+For screenshot review, require maximized 1920 by 1040 Windows captures. Switch
+explicitly between editing and reading mode, wait about five seconds for
+dynamic views, and save a labeled screenshot before moving to the next check.
+Older 1024 by 800 captures are diagnostic only.
+
+Current maximized screenshots:
+
+```text
+G:\Dusk-Goal1-Discovery-20260725\workflow-rerun\screenshots\computer-use-maximized
+```
+
+## Personalization decisions after PASS
 
 Reply in PR comments or send the completed list back to Codex.
 
@@ -138,7 +164,8 @@ Plugins needing explicit follow-up:
 
 ## Approval meaning
 
-PR approval means:
+PR approval after blockers are resolved and independent review returns PASS
+means:
 
 - Goal 1 evidence is accurate enough for personalization;
 - your checked decisions can seed a Goal 2 design.
@@ -151,6 +178,6 @@ PR approval does not mean:
 - sync personal notes;
 - remove every plugin not yet understood.
 
-After review, next artifact should be a short Goal 2 design for one disposable
-vault and one selected workflow. Implementation follows only after that design
-and its verification plan are accepted.
+After a PASS and user review, next artifact should be a short Goal 2 design for
+one disposable vault and one selected workflow. Implementation follows only
+after that design and its verification plan are accepted.

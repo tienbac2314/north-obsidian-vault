@@ -2,7 +2,7 @@
 
 Date: 2026-07-25
 
-Verdict: **PRIOR PASS SUPERSEDED; FUNCTIONAL RE-REVIEW PENDING**
+Verdict: **FAIL; PR #7 REMAINS DRAFT**
 
 ## Functional correction
 
@@ -17,8 +17,41 @@ Dataview JavaScript was genuinely disabled in fresh defaults. Enabling only
 selected baselines load 44 light and 52 full plugins on Windows, plus 42 light
 and 49 full plugins on Android, after restart.
 
-PR #7 must remain draft until an independent reviewer checks the amended
-evidence, boundaries, guide, and repository verification.
+The functional release re-review failed. PR #7 must remain draft until its
+findings are resolved and a new independent review returns PASS.
+
+## Functional re-review findings
+
+The independent re-review found four release blockers:
+
+1. `windows-full-post-reload.json` records requests to `cdn.ko-fi.com`,
+   `storage.ko-fi.com`, `i.ytimg.com`, and `img.buymeacoffee.com` without an
+   initiator. Host attribution remains unknown.
+2. Initial reading-view checks established technical rendering, not full
+   usability. Full Android Home has visible error-like content and clipping;
+   Home exposes raw Todoist filter configuration; older 1024 by 800 Windows
+   captures are too narrow for usability judgment.
+3. User corrections were not recorded as an explicit ledger.
+4. Sidebar commands, Home navigation, template execution, task mutation, and
+   write-capable plugin behavior lacked direct workflow evidence.
+
+The main-agent expanded run partially closes finding 4. At maximized 1920 by
+1040 it covered Files, Recent Files, Search, Bookmarks, periodic notes,
+projects, areas, a restored daily checkbox mutation, and Templater application.
+It also found:
+
+- Bookmarks opened but contained no entries;
+- Home ribbon navigation and Home `Map of Contents` and `Daily Note` buttons
+  did not navigate;
+- Home rendered raw Todoist `filter`, `project`, and `sorting` configuration;
+- Monthly Dataview output needed about five seconds after switching to reading
+  mode;
+- Templater created `Untitled.md` in the current `DAILY/MONTHLY` folder and
+  exposed the whole vault in its picker without a naming or location prompt.
+
+The synthetic note and empty probe folder were archived outside the tested
+vault. These observations do not resolve host attribution, Android Home visual
+defects, Journals configuration, or remaining write workflows.
 
 ## Scope
 
@@ -44,8 +77,8 @@ to `G:\Obsidian`.
 - Prior **BLOCKED** dashboard labels are superseded by reading-view functional
   evidence.
 - Ten corrected `Dusk_light` portrait and ten landscape captures cover the
-  major requested surfaces. Visual QA found no new landscape-wide overflow;
-  one Home tab label remains clipped.
+  major requested surfaces. Later visual QA found Android horizontal overflow
+  and visible full-Home defects that prevent a broad usability PASS.
 - `Dusk_light_empty` is an untested Goal 2 hypothesis. Populated runtime
   behavior and excluded source settings do not transfer by assumption.
 
@@ -76,13 +109,16 @@ to `G:\Obsidian`.
 - Settings Search/Highlightr and Novel Word Count errors remain.
 - Exact minimum plugin set remains undecided.
 
-These are Goal 2 gates, not accepted live defects.
+These remain Goal 1 release blockers or explicitly deferred Goal 2 gates. They
+are not accepted live defects.
 
-## Prior review decision
+## Current review decision
 
-The prior reviewer allowed Goal 1 to close. Current re-review must decide
-whether that closure remains justified. Goal 2 must still start with a freshly sanitized
-`Dusk_light_empty` disposable, direct Windows and Android testing, and
-field-by-field reconstruction of only the non-secret settings needed by one
-chosen workflow. Quarantined copies must never be committed, synced, or reused
-as promotion evidence.
+The prior Goal 1 closure is withdrawn. Goal 1 remains open, PR #7 remains
+draft, and Goal 2 must not start.
+
+If a later independent review returns PASS, Goal 2 should start with a freshly
+sanitized `Dusk_light_empty` disposable, direct Windows and Android testing,
+and field-by-field reconstruction of only the non-secret settings needed by
+one chosen workflow. Quarantined copies must never be committed, synced, or
+reused as promotion evidence.

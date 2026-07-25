@@ -2,7 +2,8 @@
 
 Date: 2026-07-25
 
-Status: corrected Goal 1 disposable-runtime evidence. No live-vault
+Status: corrected plugin-load and render evidence. Expanded workflow review
+remains incomplete; independent functional review returned FAIL. No live-vault
 promotion.
 
 ## Safety correction and evidence classes
@@ -171,12 +172,42 @@ view for both variants on Windows and physical Android. All 40 checks reached
 reading mode. None showed the disabled-Dataview notice, raw Datacore fence, or
 missing-button error.
 
+These 40 checks prove technical rendering only. They do not establish complete
+workflow behavior or usability. Older Windows captures at 1024 by 800 are
+diagnostic evidence because sidebars and content wrap or clip too severely for
+desktop usability judgment. Android visual QA found horizontal table overflow
+and visible error-like content and clipping on full Home.
+
 Map of Content rendered its searchable paginated Datacore table. Mail Box
 rendered its inbox and filters. Home and periodic notes rendered dynamic task,
-calendar, navigation, and recent-file output. The daily fixture still reports
-`Note is not connected to a journal`, so safe Journals configuration remains
-unresolved. Raw Templater execution and interactive write behavior remain
-outside this read-only surface test.
+calendar, navigation, and recent-file output. Home also exposed raw Todoist
+`filter`, `project`, and `sorting` configuration. The daily fixture still
+reports `Note is not connected to a journal`, so safe Journals configuration
+remains unresolved.
+
+An expanded maximized Windows run at 1920 by 1040 directly checked Files,
+Recent Files, Search, Bookmarks, daily, weekly, monthly, project, area, a
+restored task-checkbox mutation, and project-template application. Every note
+required an explicit switch to reading mode and up to five seconds for dynamic
+content. Bookmarks was empty. Home ribbon navigation and Home `Map of Contents`
+and `Daily Note` buttons did not navigate. Templater exposed the whole vault in
+its picker and created `Untitled.md` in the current `DAILY/MONTHLY` folder
+without a naming or location prompt.
+
+The six labeled screenshots are under:
+
+```text
+G:\Dusk-Goal1-Discovery-20260725\workflow-rerun\screenshots\computer-use-maximized
+```
+
+The synthetic applied-template note and empty probe folder were moved to:
+
+```text
+G:\Dusk-Goal1-Discovery-20260725\workflow-rerun\cleanup-archive\desktop-light
+```
+
+QuickAdd, Meta Bind, Mail Box, timeline, and remaining write behavior are still
+unverified.
 
 The populated variant's plugin binaries, manifests, non-sensitive settings,
 CSS, templates, and note structure can inform `Dusk_light_empty`. Source
@@ -259,6 +290,11 @@ DataviewJS, Datacore, JS Engine, QuickAdd, Templater, and Meta Bind retain
 their documented network, credential, executable-note, or write boundaries.
 Presence of plugin binaries is not permission to enable them.
 
+The independent re-review also found unattributed request hosts in
+`windows-full-post-reload.json`: `cdn.ko-fi.com`, `storage.ko-fi.com`,
+`i.ytimg.com`, and `img.buymeacoffee.com`. The capture contains host names but
+no initiator, so this report makes no plugin attribution.
+
 ## Mobile blockers versus acceptable defects
 
 Blockers before unchanged-stack promotion:
@@ -267,6 +303,9 @@ Blockers before unchanged-stack promotion:
   explicit reconstruction;
 - full Dusk cold start approached 20 seconds;
 - executable-note and write workflows remain untested;
+- Home navigation failures and exposed Todoist configuration remain;
+- full Android Home visual defects and horizontal overflow remain;
+- four request hosts lack initiator attribution;
 - Commander requires update before first useful mobile load;
 - Settings Search/Highlightr and Novel Word Count failures remain;
 - mixed-language search remains unresolved;
@@ -282,9 +321,13 @@ Acceptable discovery-stage defects:
 
 ## Runtime conclusion
 
-Corrected evidence rejects whole-vault configuration import but confirms that
-the current Dusk dashboards are viable on Windows and Android. Goal 2 should
-start from an empty light copy, apply compatible updates, enable its tested
-local baseline, set the two proven Dataview flags, and reconstruct any other
-required non-secret setting field by field. No source `data.json` should be
-copied wholesale.
+Corrected evidence rejects whole-vault configuration import and confirms that
+tested Dusk dashboards can technically render on Windows and Android. It does
+not establish broad usability or complete workflow behavior. Goal 1 remains
+open and PR #7 remains draft until the functional blockers are resolved and a
+new independent review returns PASS.
+
+Only after that PASS should Goal 2 start from an empty light copy, apply
+compatible updates, enable its tested local baseline, set the two proven
+Dataview flags, and reconstruct any other required non-secret setting field by
+field. No source `data.json` should be copied wholesale.

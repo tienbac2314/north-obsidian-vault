@@ -7,9 +7,9 @@ Updated: 2026-07-25
 Complete Dusk Goal 1 discovery from the fixed local source bundle and physical
 Android copy before asking about personalization or changing the live vault.
 
-Status: Goal 1 functional correction completed on 2026-07-25. PR #7 remains
-draft pending independent re-review. No Dusk import, plugin decision,
-personalization choice, or promotion plan is accepted.
+Status: Goal 1 remains incomplete on 2026-07-25. Independent functional
+re-review returned FAIL and PR #7 remains draft. No Dusk import, plugin
+decision, personalization choice, or promotion plan is accepted.
 
 ## Checkpoint
 
@@ -23,18 +23,19 @@ personalization choice, or promotion plan is accepted.
 - [Goal 1 discovery](research/2026-07-25-dusk-goal1-discovery.md) covers all 18
   requested deliverables and physical-Android additions.
 - [Independent review](research/2026-07-25-dusk-goal1-review.md) previously
-  returned **PASS**. That verdict is superseded pending review of the
-  functional correction.
+  returned **PASS**. Functional re-review superseded it with **FAIL**.
 - [Functional revalidation](research/2026-07-25-dusk-plugin-functional-revalidation.md)
   proves 44/44 light and 52/52 full selected plugins on Windows, plus 42/42
   light and 49/49 full selected plugins on Android after restart.
 - Initial runtime copies containing 31 source plugin `data.json` files are
   quarantined and excluded from promotion evidence. Corrected pre-open
   checkpoints contain zero plugin `data.json`, token, or risky-name paths.
-- Home, Map of Content, Mail Box, and dependent dynamic surfaces render in
+- Home, Map of Content, Mail Box, and dependent dynamic surfaces can render in
   reading view on Windows and Android after enabling the two explicit
-  Dataview JavaScript flags. Earlier raw Datacore findings came from editing
-  mode.
+  Dataview JavaScript flags. This proves rendering, not complete usability.
+  Full Android Home defects, horizontal overflow, Home navigation failures,
+  raw Todoist configuration, unknown request-host initiators, Journals, and
+  remaining write workflows still block closure.
 - [Source manifest](research/2026-07-25-dusk-source-manifest.md) records 1,571
   files and 421 directories. PC and tablet safe manifests match at SHA-256
   `D7E55C61CD6395F938F1842CBED66D71D22DCD8480BA5EE2628CD5452CB3B6AB`;
@@ -121,8 +122,9 @@ personalization choice, or promotion plan is accepted.
 
 ## Next action
 
-Complete independent re-review and return PR #7 to ready only on PASS. The
-user can then use the
+Resolve functional re-review blockers, rerun direct maximized Windows and
+physical-Android checks, update evidence, and obtain an independent PASS.
+Return PR #7 to ready only after that PASS. The user can then use the
 [PR review guide](research/2026-07-25-dusk-pr-review-guide.md) to select one
 Goal 2 workflow. Do not personalize or promote into `G:\Obsidian` before a
 concise design and implementation plan are accepted.
