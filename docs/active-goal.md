@@ -60,12 +60,29 @@ instructions.
 - Maximize desktop Obsidian before judgment. Distinguish editing from reading
   mode, wait for dynamic content, and save a labeled screenshot before moving
   to the next check.
+- On both PC and Android, scroll each surface from top to bottom and
+  horizontally where available. Inspect content, sidebars, toolbars, and final
+  rows before judging; one viewport is incomplete evidence.
 - Main agent owns decisions and file edits. Future UI work should use at most
   one Luna visual subagent for visual and Computer Use checks. Do not recreate
   the prior multi-agent swarm.
 - Keep network, credential, sync, publish, sharing, AI, and external-writer
   features gated unless a scoped test requires one.
 - Preserve atomic commits. Do not collapse findings into one final checkpoint.
+
+## Default Dusk structure
+
+- User-facing roots: `DAILY`, `HUB`, `PARA`, `STICKY`, `SYSTEM`, and `ZETA`.
+  Source also contains `.trash`; do not treat it as a designed workflow root.
+- `SYSTEM/TEMPLATE/FORMAT` contains 18 templates covering areas, projects,
+  daily/weekly/monthly notes, meetings, Zettelkasten notes, contacts,
+  documentation, and workstation notes.
+- `SYSTEM/TEMPLATE/CODE` contains three todo-toggle templates.
+- `SYSTEM/TEMPLATE/CSS` contains Calendar and Timeline note, CSS, and JavaScript
+  view assets.
+
+Review whole structure and template behavior before personalization. Do not
+infer default design from Home or one template.
 
 ## Completion gate
 
