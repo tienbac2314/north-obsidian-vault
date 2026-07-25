@@ -76,9 +76,15 @@ current instructions.
 - On both PC and Android, scroll each surface from top to bottom and
   horizontally where available. Inspect content, sidebars, toolbars, and final
   rows before judging; one viewport is incomplete evidence.
-- Main agent owns decisions, file edits, and Computer Use interactions. Future
-  UI work may use at most one Luna visual subagent for read-only review of
-  captured screenshots. Do not recreate multi-agent orchestration.
+- Main agent owns decisions, repository and source edits, runtime fixes,
+  commits, and final interpretation.
+- Reuse one `obsidian-visual-qa` Luna subagent for each complete bounded visual
+  pass. Luna owns Computer Use, Windows and Android navigation, complete
+  scrolling, screenshot capture, evidence indexing, and explicitly authorized
+  reversible synthetic interactions in assigned disposable vaults.
+- Luna must not implement fixes or modify repository, source, live, or
+  user-restored vault state. Do not run parallel UI operators or duplicate
+  Luna's completed visual pass in the main thread.
 - Keep network, credential, sync, publish, sharing, AI, and external-writer
   features gated unless a scoped test requires one.
 - Preserve atomic commits. Do not collapse findings into one final checkpoint.

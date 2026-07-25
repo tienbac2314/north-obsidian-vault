@@ -25,6 +25,10 @@ instruction.
 - Verify time-sensitive compatibility, security, and release claims against
   current primary sources.
 - Keep `docs/active-goal.md` current before handoff or context compaction.
+- When the active goal assigns a dedicated UI agent, give that agent one
+  complete task packet and let it own the bounded Computer Use pass, evidence
+  capture, and restoration. The main agent retains decisions, fixes, repository
+  edits, commits, and release authority.
 
 ## Documentation
 
