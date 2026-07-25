@@ -42,17 +42,30 @@ instructions.
 
 ## Open blockers
 
-1. Attribute four request hosts recorded without initiators:
+1. First priority: reproduce and fix Android daily-note creation. Trace
+   Journals command/configuration, Templater invocation, destination path,
+   filename, frontmatter, and reading-view result. Current Android new-note
+   behavior is broken and the daily template is a suspected dependency.
+2. After fixing daily creation, create one synthetic note through the intended
+   command in every default root on both PC and Android: `DAILY`, `HUB`, `PARA`,
+   `STICKY`, `SYSTEM`, and `ZETA`. Exercise each applicable template family,
+   verify exact output path/content/rendering, then restore state and archive
+   residue.
+3. Complete runtime review of supplied Dusk Discord/GitHub changes. Static
+   inventory covers Dynamic Form, Priority Matrix full/light/Git copies, Habit
+   Streak RPG, Map of Content update, styling, Discord notes, older-zip
+   templates, and full-Dusk plugin additions. Exact current GitHub diffs and
+   PC/Android create/write behavior remain unproved.
+4. Attribute four request hosts recorded without initiators:
    `cdn.ko-fi.com`, `storage.ko-fi.com`, `i.ytimg.com`, and
    `img.buymeacoffee.com`.
-2. Diagnose full Android Home error-like content, clipping, and horizontal
+5. Diagnose full Android Home error-like content, clipping, and horizontal
    overflow.
-3. Diagnose failed Home ribbon, `Map of Contents`, and `Daily Note` navigation.
-4. Remove or explain raw Todoist configuration rendered on Home.
-5. Reconstruct and test safe Journals configuration.
-6. Test required QuickAdd, Meta Bind, Mail Box, timeline, and remaining write
+6. Diagnose failed Home ribbon, `Map of Contents`, and `Daily Note` navigation.
+7. Remove or explain raw Todoist configuration rendered on Home.
+8. Test required QuickAdd, Meta Bind, Mail Box, timeline, and remaining write
    paths with synthetic fixtures and restored state.
-7. Obtain a new release verdict after evidence and documentation are corrected.
+9. Obtain a new release verdict after evidence and documentation are corrected.
 
 ## Execution rules
 
