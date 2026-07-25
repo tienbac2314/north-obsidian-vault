@@ -7,8 +7,8 @@ Updated: 2026-07-25
 Complete Dusk Goal 1 discovery from the fixed local source bundle and physical
 Android copy before asking about personalization or changing the live vault.
 
-Status: Goal 1 discovery completed on 2026-07-25 with independent
-release-review verdict **PASS**. No Dusk import, plugin decision,
+Status: Goal 1 functional correction completed on 2026-07-25. PR #7 remains
+draft pending independent re-review. No Dusk import, plugin decision,
 personalization choice, or promotion plan is accepted.
 
 ## Checkpoint
@@ -22,15 +22,19 @@ personalization choice, or promotion plan is accepted.
   screenshot, UI-tree, log, and filesystem access.
 - [Goal 1 discovery](research/2026-07-25-dusk-goal1-discovery.md) covers all 18
   requested deliverables and physical-Android additions.
-- [Independent review](research/2026-07-25-dusk-goal1-review.md) returned
-  **PASS** after corrected source-safe reruns and paired portrait/landscape
-  coverage for ten major Android surfaces.
+- [Independent review](research/2026-07-25-dusk-goal1-review.md) previously
+  returned **PASS**. That verdict is superseded pending review of the
+  functional correction.
+- [Functional revalidation](research/2026-07-25-dusk-plugin-functional-revalidation.md)
+  proves 44/44 light and 52/52 full selected plugins on Windows, plus 42/42
+  light and 49/49 full selected plugins on Android after restart.
 - Initial runtime copies containing 31 source plugin `data.json` files are
   quarantined and excluded from promotion evidence. Corrected pre-open
   checkpoints contain zero plugin `data.json`, token, or risky-name paths.
-- Corrected Home, Map of Content, Mail Box, and dependent dynamic surfaces are
-  blocked by excluded configuration. This blocks unchanged import but does not
-  block discovery closure.
+- Home, Map of Content, Mail Box, and dependent dynamic surfaces render in
+  reading view on Windows and Android after enabling the two explicit
+  Dataview JavaScript flags. Earlier raw Datacore findings came from editing
+  mode.
 - [Source manifest](research/2026-07-25-dusk-source-manifest.md) records 1,571
   files and 421 directories. PC and tablet safe manifests match at SHA-256
   `D7E55C61CD6395F938F1842CBED66D71D22DCD8480BA5EE2628CD5452CB3B6AB`;
@@ -117,11 +121,11 @@ personalization choice, or promotion plan is accepted.
 
 ## Next action
 
-Ask the single highest-impact Goal 2 personalization question. After the user
-answers, write a concise Goal 2 design for one freshly sanitized
-`Dusk_light_empty` disposable and one selected workflow. Do not personalize or
-promote into `G:\Obsidian` before that design and its implementation plan are
-accepted.
+Complete independent re-review and return PR #7 to ready only on PASS. The
+user can then use the
+[PR review guide](research/2026-07-25-dusk-pr-review-guide.md) to select one
+Goal 2 workflow. Do not personalize or promote into `G:\Obsidian` before a
+concise design and implementation plan are accepted.
 
 ## Deferred promotion work
 

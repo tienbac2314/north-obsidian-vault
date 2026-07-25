@@ -2,16 +2,17 @@
 
 Date: 2026-07-25
 
-Status: complete. Independent release-review verdict: **PASS**.
+Status: functionally corrected. Independent release re-review pending.
 
 ## Outcome
 
 Goal 1 establishes enough evidence to reject wholesale live import and define
-a bounded Goal 2 experiment. Corrected source-safe runtime copies prove that
-Dusk's static shell can be inspected without credentials, but also prove that
-major dashboards depend on plugin configuration that cannot be copied
-wholesale. No personalization, live-vault write, source change, final plugin
-selection, or Discord-component promotion occurred.
+a bounded Goal 2 experiment. Functional revalidation proved that current
+Datacore dashboards render on Windows and Android in reading view, and that
+the tested Dataview surfaces require only two explicit JavaScript-query flags.
+It also proved that compatible local plugins can be re-enabled after updates.
+No personalization, live-vault write, source change, final plugin selection,
+or Discord-component promotion occurred.
 
 Recommended Goal 2 starting hypothesis:
 
@@ -19,7 +20,8 @@ Recommended Goal 2 starting hypothesis:
    directly;
 2. preserve its Dusk structure, Home/Map/Mail Box, templates, visual language,
    and onboarding rather than reconstructing them;
-3. replay compatible updates, then rebuild only documented non-secret plugin
+3. replay compatible updates, enable the tested local baseline, set the two
+   explicit Dataview JavaScript flags, then rebuild any other non-secret
    settings field by field;
 4. keep sync, sharing, publishing, embedded frames, Todoist, AI, BRAT, and
    credentialed features off;
@@ -53,7 +55,12 @@ This is a design recommendation, not permission to modify `G:\Obsidian`.
 | 15 | Zoomed-out risks/opportunities | [Risks and simpler experiments](2026-07-25-dusk-surface-and-security-map.md#zoomed-out-risks) |
 | 16 | Archived PR #4 revalidation | [Confirmed/stale/contradicted/unknown ledger](2026-07-25-dusk-pr4-revalidation.md) |
 | 17 | Goal 2 recommendation | [Goal 2 scope](#goal-2-recommendation) |
-| 18 | Independent review verdict | [PASS](2026-07-25-dusk-goal1-review.md) |
+| 18 | Independent review verdict | [Prior PASS; functional re-review pending](2026-07-25-dusk-goal1-review.md) |
+
+The [functional revalidation](2026-07-25-dusk-plugin-functional-revalidation.md)
+supersedes prior editing-mode dashboard conclusions. The
+[PR review guide](2026-07-25-dusk-pr-review-guide.md) turns the corrected
+evidence into bounded personalization decisions.
 
 Android-specific requested deliverables are covered by the source manifest and
 runtime report: source-copy equality, physical startup/popup timeline,
@@ -116,19 +123,23 @@ unknown.
 
 ### Mobile
 
-Static source surfaces render on the physical tablet, but corrected dynamic
-surfaces do not. Home reports DataviewJS disabled, Map and Mail Box expose raw
-DatacoreJS, and full Home exposes raw button tokens. Project, area, onboarding,
-and template-source views remain readable. Ten major light surfaces have
-paired portrait/landscape captures; rotation added no major new overflow beyond
-one clipped Home tab label. Quick Explorer, Status Bar Organizer, and the
-full-only Image Toolkit cannot support Android by manifest.
+Functional revalidation corrected the earlier mobile conclusion. The raw
+Datacore and button source was captured in editing mode, where source is
+expected. In reading view, Home, Map of Content, Mail Box, project, area,
+daily, weekly, monthly, Getting Started, and project-template surfaces render
+on the physical tablet in both variants. Map and Mail Box display working
+Datacore interfaces.
 
-Corrected light became usable by a 10.7-second probe and full by about 19.7
-seconds. Neither corrected run reached recovery, but repeated Mali GPU
-allocation errors remained; no crash or ANR was captured. Full startup and
-missing safe dashboard configuration independently block unchanged-stack
-promotion.
+The Dataview warning was real. Enabling only `enableDataviewJs` and
+`enableInlineDataviewJs` restored tested Dataview output without copying source
+plugin settings. Android light then loaded 42 of 42 selected local plugins and
+full loaded 49 of 49 after cold restart. Quick Explorer, Status Bar Organizer,
+and the full-only Image Toolkit remain excluded on Android by manifest.
+
+Repeated Mali GPU allocation and WebView tile-memory warnings remain; no crash,
+ANR, missing selected plugin, or failed tested reading surface was captured.
+Startup performance, write behavior, and Journals configuration still block
+unchanged-stack promotion.
 
 ### Executable and network features
 
@@ -253,9 +264,7 @@ personalization.
 
 ## Independent verdict
 
-Independent release review returned **PASS** after the unsafe-copy finding was
-corrected, all reports were rewritten against source-safe reruns, and ten
-major Android surfaces gained paired portrait and landscape evidence. The
-[review record](2026-07-25-dusk-goal1-review.md) closes discovery only.
-Dynamic-dashboard failures and remaining write, FNS, migration, and performance
-unknowns continue to block live promotion.
+The earlier independent **PASS** preceded the functional correction. Its
+editing-mode dashboard conclusions are superseded. Independent re-review is
+required before PR #7 returns to ready status. Remaining write, FNS, Journals,
+and performance unknowns continue to block live promotion.

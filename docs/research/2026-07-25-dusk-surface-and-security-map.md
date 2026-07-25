@@ -30,13 +30,13 @@ community runtime dependencies.
 
 | Surface | Source implementation | Reads | Can write or execute | Desktop / Android finding |
 |---|---|---|---|---|
-| Home | Tabs, Dataview, DataviewJS, JS Engine, Meta Bind buttons, QuickAdd command, Todoist block, CSS | Tasks, daily state, configured links | DataviewJS/JS Engine execute; QuickAdd creates; Meta Bind invokes commands; Todoist can use network | **Blocked on both:** task cards showed `Dataview JS queries are disabled`; full Home also exposed raw `BUTTON[...]` and Datacore source. Todoist stayed off |
-| Map of Content | Inline `datacorejsx` and JSON configuration | Vault metadata, configured exclusions/grouping | JSX can create files, edit configuration, and invoke vault APIs | **Blocked on both:** displayed raw DatacoreJS source, not interactive map UI |
-| Mail Box | Inline `datacorejsx`, page-task properties, filters | Note properties, status, dates, paths | JSX controls can update task/page state | **Blocked on both:** displayed raw DatacoreJS source, not inbox UI |
+| Home | Tabs, Dataview, DataviewJS, JS Engine, Meta Bind buttons, QuickAdd command, Todoist block, CSS | Tasks, daily state, configured links | DataviewJS/JS Engine execute; QuickAdd creates; Meta Bind invokes commands; Todoist can use network | Renders on both after two explicit Dataview flags; Todoist stays separately gated |
+| Map of Content | Inline `datacorejsx` and JSON configuration | Vault metadata, configured exclusions/grouping | JSX can create files, edit configuration, and invoke vault APIs | Searchable paginated Datacore table renders on both in reading view; writes untested |
+| Mail Box | Inline `datacorejsx`, page-task properties, filters | Note properties, status, dates, paths | JSX controls can update task/page state | Datacore inbox and filters render on both in reading view; writes untested |
 | Project page | Meta Bind inputs and project properties | Connections, dates, priority, status | Inputs write frontmatter directly | Readable on Android; write behavior not exercised |
 | Area page | Dataview and Tasks queries plus Templater-generated tags | Area-linked projects/tasks | Tasks completion and generated templates write note content | Readable; lower task content needs scrolling |
-| Daily note | Calendar navigation, Dataview/DataviewJS, Tasks | Dated tasks and meetings | Tasks completion; DataviewJS execution; template creation | Static text readable; dynamic Overview blocked by disabled DataviewJS |
-| Weekly/monthly | Calendar timeline and DataviewJS task aggregation | Vault-wide tasks and date fields | Query code executes; templates create notes | Static text readable; dynamic Overview blocked by disabled DataviewJS |
+| Daily note | Calendar navigation, Dataview/DataviewJS, Tasks | Dated tasks and meetings | Tasks completion; DataviewJS execution; template creation | Dynamic output renders; fixture is not connected to a Journal |
+| Weekly/monthly | Calendar timeline and DataviewJS task aggregation | Vault-wide tasks and date fields | Query code executes; templates create notes | Dynamic task and calendar output renders on both |
 | Capture | QuickAdd choice and templates; Discord Dynamic Form is separate | Template/configured prompt values | QuickAdd scripts and Dynamic Form create folders/notes at configured paths | Built-in source action visible; creation not exercised |
 | Templates/properties | Templater expressions, Meta Bind, exact English keys | File/folder/date context | Templater runs JavaScript and frontmatter writes | Raw template opened; execution not proved |
 | Search | Core Search and Omnisearch | Note bodies, names, metadata | Local index/config writes | Existing English queries worked; new Vietnamese fixture unresolved |

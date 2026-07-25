@@ -37,8 +37,8 @@ pre-update checkpoint, not downgrading a single `main.js`.
 | [Commander](https://github.com/jsmorabito/obsidian-commander) `cmdr` ([page](https://obsidian.md/plugins?id=cmdr)) | Adds commands to ribbons and other UI; Dusk navigation controls | 0.5.2 -> 0.5.7 | on | 1.4.4 / both | 0.5.7. UI configuration writes | Update only after Android gate |
 | [Custom File Explorer sorting](https://github.com/sebastianmc/obsidian-custom-sort) `custom-sort` ([page](https://obsidian.md/plugins?id=custom-sort)) | Rule-based file ordering; Dusk folder presentation | 2.1.14 -> 3.1.6 | on | 1.7.2 / both | 3.1.6. Reads folder metadata and sort specifications | Defer until folder schema exists |
 | [Daily Note Navbar](https://github.com/karstenpedersen/obsidian-daily-note-navbar) `daily-note-navbar` ([page](https://obsidian.md/plugins?id=daily-note-navbar)) | Previous/next links for daily notes | 0.2.0 -> 0.2.1 | off | 0.15.0 / both | 0.2.1. Local navigation | Optional |
-| [Datacore](https://github.com/blacksmithgu/datacore) `datacore` ([page](https://obsidian.md/plugins?id=datacore)) | Executable query views; Home, Mail Box, Priority Matrix, habit components | 0.1.19 -> 0.1.29 | on | 1.4.11 / both | 0.1.29 compatible. Executes JSX/JavaScript with vault API access | Defer; high write/execution boundary |
-| [Dataview](https://github.com/blacksmithgu/obsidian-dataview) `dataview` ([page](https://obsidian.md/plugins?id=dataview)) | Metadata queries and DataviewJS dashboards | 0.5.67 -> 0.5.68 | on | 0.13.11 / both | 0.5.70 upstream; 0.5.68 was compatible. DataviewJS executes code | Defer executable views |
+| [Datacore](https://github.com/blacksmithgu/datacore) `datacore` ([page](https://obsidian.md/plugins?id=datacore)) | Executable query views; Home, Mail Box, Priority Matrix, habit components | 0.1.19 -> 0.1.29 | on | 1.4.11 / both | 0.1.29 compatible. Map and Mail Box render on both; JSX has vault API access | Keep for tested Dusk surfaces; gate writes and review code |
+| [Dataview](https://github.com/blacksmithgu/obsidian-dataview) `dataview` ([page](https://obsidian.md/plugins?id=dataview)) | Metadata queries and DataviewJS dashboards | 0.5.67 -> 0.5.68 | on | 0.13.11 / both | 0.5.70 upstream; 0.5.68 was compatible. Two explicit flags restore tested output | Keep for tested Dusk surfaces; gate executable queries |
 | [Editing Toolbar](https://github.com/pkm-er/obsidian-editing-toolbar) `editing-toolbar` ([page](https://obsidian.md/plugins?id=editing-toolbar)) | Floating formatting toolbar; now also offers AI rewriting | 2.4.16 -> 4.0.11 | on | 0.14.0 / both | 4.0.11. Optional network/model/API-key boundary | Keep AI off; evaluate toolbar alone |
 | [Garble Text](https://github.com/kurakart/garble-text) `garble-text` ([page](https://obsidian.md/plugins?id=garble-text)) | Obscures visible text for screenshots/focus | 1.2.0 -> 1.2.0 | on | 0.12.10 / both | 1.2.0, no release since 2022. View transformation | Remove/defer unless concrete need |
 | [Highlightr](https://github.com/chetachiezikeuzor/Highlightr-Plugin) `highlightr-plugin` ([page](https://obsidian.md/plugins?id=highlightr-plugin)) | Colored text highlights | 1.2.2 -> 1.2.2 | on | 0.12.8 / both | 1.2.2, stale. Interacts badly with Settings Search | Hold |
@@ -104,10 +104,13 @@ pre-update checkpoint, not downgrading a single `main.js`.
   `Dusk_light` was ready between 5.7 and 10.7 seconds; corrected full `Dusk`
   was ready between 11.7 and 19.7 seconds. Neither corrected run reached
   Obsidian's recovery screen.
-- Excluding source `data.json` left DataviewJS disabled and Datacore surfaces
-  unconfigured. Home task cards displayed the disabled-query notice; Map of
-  Content and Mail Box displayed raw Datacore source instead of working UI.
-  Goal 1 therefore blocks promotion of dynamic dashboard behavior.
+- Excluding source `data.json` left Dataview JavaScript disabled. Setting only
+  `enableDataviewJs` and `enableInlineDataviewJs` restored tested output.
+  Earlier raw Datacore findings came from editing mode. Map of Content and Mail
+  Box render in reading view on Windows and Android.
+- Functional baselines load 44 light plugins on Windows and 42 on Android.
+  Android excludes the two desktop-only plugins. Network and credential
+  plugins remain separate gates.
 
 ## Cross-cutting disposition
 
