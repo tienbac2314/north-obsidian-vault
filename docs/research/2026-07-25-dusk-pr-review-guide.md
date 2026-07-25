@@ -231,7 +231,9 @@ Plugins already proven desktop-only need no Android troubleshooting:
 
 Plugins needing explicit follow-up:
 
-- Journals, because the daily fixture is not connected;
+- Journals, because post-update desktop/mobile Home, Note Toolbar, and the
+  daily hotkey still use the removed 1.x command ID, while the daily fixture is
+  not connected despite a configured schema-v3 daily journal;
 - Novel Word Count, because minimal workspaces produce a file-explorer error;
 - Highlightr plus Settings Search, because their interaction still throws;
 - every write-capable or executable-note plugin used by the selected workflow.

@@ -31,8 +31,10 @@ current instructions.
 - PR #6 is merged at `571fde4`; DEC-039 remains reversal authority.
 - Sole source is
   `C:\Users\TienBac\Documents\New project\dusk-obsidian-vault-master`.
-- Raw evidence and disposables stay under
-  `G:\Dusk-Goal1-Discovery-20260725`, outside `G:\Obsidian`.
+- Historical evidence stays under `G:\Dusk-Goal1-Discovery-20260725`.
+  Current mutable disposables and new evidence must stay under its
+  `goal1-current` and `goal1-current-evidence` subdirectories, outside
+  `G:\Obsidian` and read-only checkpoints.
 - Selected plugin loads passed after restart: Windows light 44/44, Windows full
   52/52, Android light 42/42, Android full 49/49.
 - User Android `Dusk_light` was restored at 45/45 enabled plugins with both
@@ -46,8 +48,13 @@ current instructions.
 
 1. First priority: reproduce and fix Android daily-note creation. Trace
    Journals command/configuration, Templater invocation, destination path,
-   filename, frontmatter, and reading-view result. Current Android new-note
-   behavior is broken and the daily template is a suspected dependency.
+   filename, frontmatter, and reading-view result. Legacy Journals 1.4.3
+   configuration has an empty daily `dateFormat`. Post-update Journals 2.1.10
+   configuration contains a schema-v3 daily journal with `YYYY-MM-DD`, but
+   desktop/mobile Home, Note Toolbar, and the daily hotkey still reference
+   the removed 1.x command ID, and the tested daily fixture reports that it is
+   not connected to a journal. Treat those as separate facts until runtime
+   reproduction isolates the cause.
 2. After fixing daily creation, create one synthetic note through the intended
    command in every default root on both PC and Android: `DAILY`, `HUB`, `PARA`,
    `STICKY`, `SYSTEM`, and `ZETA`. Exercise each applicable template family,
@@ -64,7 +71,8 @@ current instructions.
 5. Diagnose full Android Home error-like content, clipping, and horizontal
    overflow.
 6. Diagnose failed Home ribbon, `Map of Contents`, and `Daily Note` navigation.
-7. Remove or explain raw Todoist configuration rendered on Home.
+7. Remove or explain raw Todoist configuration rendered on desktop and mobile
+   Home.
 8. Test required QuickAdd, Meta Bind, Mail Box, timeline, and remaining write
    paths with synthetic fixtures and restored state.
 9. Obtain a new release verdict after evidence and documentation are corrected.

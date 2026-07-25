@@ -152,6 +152,47 @@ function New-BaselineVault {
     })
 }
 
+function Set-CurrentJournalsFixture {
+    param([Parameter(Mandatory = $true)][string]$Path)
+
+    Write-JsonFile -Path (Join-Path $Path '.obsidian/plugins/journals/data.json') -Value ([ordered]@{
+        version = 3
+        commands = @()
+        journals = [ordered]@{
+            'personal daily' = [ordered]@{
+                name = 'personal daily'
+                write = [ordered]@{
+                    type = 'day'
+                }
+                nameTemplate = '{{date}}'
+                dateFormat = 'YYYY-MM-DD'
+                folder = 'DAILY/DAILY'
+                templates = @('SYSTEM/TEMPLATE/FORMAT/Daily.md')
+                commands = @(
+                    [ordered]@{
+                        name = "Open today's note"
+                        type = 'same'
+                        context = 'today'
+                    }
+                )
+            }
+        }
+    })
+
+    [IO.File]::WriteAllText(
+        (Join-Path $Path 'HUB/Homepage.md'),
+        "command: journals:personal-daily:open-today's-note`n"
+    )
+    New-Item -ItemType Directory -Path (Join-Path $Path 'SYSTEM/MOBILE HUB') -Force | Out-Null
+    [IO.File]::WriteAllText(
+        (Join-Path $Path 'SYSTEM/MOBILE HUB/Mobile Homepage.md'),
+        "command: journals:personal-daily:open-today's-note`n"
+    )
+    Write-JsonFile -Path (Join-Path $Path '.obsidian/hotkeys.json') -Value ([ordered]@{
+        "journals:personal-daily:open-today's-note" = @()
+    })
+}
+
 $tempBase = [IO.Path]::GetFullPath([IO.Path]::GetTempPath())
 $tempRoot = Join-Path $tempBase ("dusk-workflow-checker-test-" + [Guid]::NewGuid().ToString('N'))
 $baseline = Join-Path $tempRoot 'baseline'
@@ -164,6 +205,82 @@ try {
     )
     Assert-Pass -Label 'Baseline with exact format' -Result (
         Invoke-Checker -VaultPath $baseline -ExpectedDailyDateFormat 'YYYY-MM-DD'
+    )
+
+
+    $currentBaseline = Join-Path $tempRoot 'current-schema-baseline'
+    Copy-Item -LiteralPath $baseline -Destination $currentBaseline -Recurse
+    Set-CurrentJournalsFixture -Path $currentBaseline
+    Assert-Pass -Label 'Current Journals schema baseline' -Result (
+        Invoke-Checker -VaultPath $currentBaseline
+    )
+    Assert-Pass -Label 'Current Journals schema with exact format' -Result (
+        Invoke-Checker -VaultPath $currentBaseline -ExpectedDailyDateFormat 'YYYY-MM-DD'
+    )
+
+    $case = Join-Path $tempRoot 'current-format-mismatch'
+    Copy-Item -LiteralPath $currentBaseline -Destination $case -Recurse
+    Assert-Fail -Label 'Current schema explicit format mismatch' -ExpectedText 'Journals day dateFormat does not match the explicitly required daily format.' -Result (
+        Invoke-Checker -VaultPath $case -ExpectedDailyDateFormat 'YYYY.MM.DD'
+    )
+
+    $case = Join-Path $tempRoot 'current-empty-format'
+    Copy-Item -LiteralPath $currentBaseline -Destination $case -Recurse
+    $journalsPath = Join-Path $case '.obsidian/plugins/journals/data.json'
+    $journals = Get-Content -LiteralPath $journalsPath -Raw | ConvertFrom-Json
+    $journals.journals.'personal daily'.dateFormat = ''
+    Write-JsonFile -Path $journalsPath -Value $journals
+    Assert-Fail -Label 'Current schema empty daily format' -ExpectedText "Journals 'personal daily' dateFormat is empty." -Result (
+        Invoke-Checker -VaultPath $case
+    )
+
+    $case = Join-Path $tempRoot 'current-stale-legacy-command'
+    Copy-Item -LiteralPath $currentBaseline -Destination $case -Recurse
+    [IO.File]::WriteAllText(
+        (Join-Path $case 'HUB/Homepage.md'),
+        "command: journals:journal:calendar:open-day`n"
+    )
+    Assert-Fail -Label 'Current schema stale legacy command' -ExpectedText 'references an unsupported or unconfigured command ID: journals:journal:calendar:open-day' -Result (
+        Invoke-Checker -VaultPath $case
+    )
+
+    $case = Join-Path $tempRoot 'current-stale-mobile-command'
+    Copy-Item -LiteralPath $currentBaseline -Destination $case -Recurse
+    [IO.File]::WriteAllText(
+        (Join-Path $case 'SYSTEM/MOBILE HUB/Mobile Homepage.md'),
+        "command: journals:journal:calendar:open-day`n"
+    )
+    Assert-Fail -Label 'Current schema stale mobile command' -ExpectedText "Homepage 'SYSTEM/MOBILE HUB/Mobile Homepage.md' references an unsupported or unconfigured command ID: journals:journal:calendar:open-day" -Result (
+        Invoke-Checker -VaultPath $case
+    )
+
+    $case = Join-Path $tempRoot 'current-stale-hotkey-command'
+    Copy-Item -LiteralPath $currentBaseline -Destination $case -Recurse
+    Write-JsonFile -Path (Join-Path $case '.obsidian/hotkeys.json') -Value ([ordered]@{
+        'journals:journal:calendar:open-day' = @()
+    })
+    Assert-Fail -Label 'Current schema stale hotkey command' -ExpectedText 'Obsidian hotkey references an unsupported or unconfigured command ID: journals:journal:calendar:open-day' -Result (
+        Invoke-Checker -VaultPath $case
+    )
+
+    $case = Join-Path $tempRoot 'current-mobile-malformed-home'
+    Copy-Item -LiteralPath $currentBaseline -Destination $case -Recurse
+    [IO.File]::WriteAllText(
+        (Join-Path $case 'SYSTEM/MOBILE HUB/Mobile Homepage.md'),
+        "command: journals:personal-daily:open-today's-note`nproject: Inbox limit: 4`n"
+    )
+    Assert-Fail -Label 'Malformed Mobile Home Todoist syntax' -ExpectedText "Homepage 'SYSTEM/MOBILE HUB/Mobile Homepage.md' joins Todoist project and limit directives on one line." -Result (
+        Invoke-Checker -VaultPath $case
+    )
+
+    $case = Join-Path $tempRoot 'current-valid-multiline-todoist'
+    Copy-Item -LiteralPath $currentBaseline -Destination $case -Recurse
+    [IO.File]::WriteAllText(
+        (Join-Path $case 'SYSTEM/MOBILE HUB/Mobile Homepage.md'),
+        "command: journals:personal-daily:open-today's-note`nproject: Inbox`nlimit: 4`n"
+    )
+    Assert-Pass -Label 'Valid multiline Mobile Home Todoist syntax' -Result (
+        Invoke-Checker -VaultPath $case
     )
 
     $case = Join-Path $tempRoot 'format-mismatch'
@@ -235,7 +352,7 @@ try {
         Invoke-Checker -VaultPath $case
     )
 
-    Write-Host 'Dusk workflow checker tests passed: 14 cases.'
+    Write-Host 'Dusk workflow checker tests passed: 23 cases.'
 }
 finally {
     $resolved = [IO.Path]::GetFullPath($tempRoot)

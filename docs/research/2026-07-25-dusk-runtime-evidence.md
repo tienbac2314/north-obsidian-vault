@@ -95,8 +95,11 @@ Observed timeline:
 
 Journals 2.1.10 did **not** show a migration prompt in the corrected copies.
 The earlier migration was driven by copied source plugin configuration and is
-quarantined. Goal 1 therefore does not prove a safe Journals v1-to-v2
-configuration migration.
+quarantined. Those quarantined post-update checkpoints still provide narrow
+schema evidence: they contain a valid schema-v3 daily journal with
+`YYYY-MM-DD`, while desktop/mobile Home, Note Toolbar, and the daily hotkey
+retain the removed 1.x command ID.
+This does not prove a safe Journals v1-to-v2 configuration migration.
 
 ### Windows errors
 
@@ -235,6 +238,7 @@ and search with the selected base.
 | RT-07 | Android/GSI | Repeated Mali `BAD ALLOC`, no crash/ANR | Device/ROM risk; retest target device |
 | RT-08 | Android | URI-created Vietnamese note absent from captured search | Repeat normal in-app create/save/search |
 | RT-09 | Process | Initial copies included 31 source plugin `data.json` files | Quarantined; corrected rerun supersedes |
+| RT-10 | Both | Journals 2.x daily configuration exists, but seven Home, Note Toolbar, and hotkey references retain a removed 1.x command ID | Reproduce and replace references field by field in disposables |
 
 ## Desktop/mobile compatibility matrix
 
@@ -276,11 +280,11 @@ no initiator, so this report makes no plugin attribution.
 
 Blockers before unchanged-stack promotion:
 
-- Journals and any settings beyond the two proven Dataview flags still require
-  explicit reconstruction;
+- Journals safe-field reconstruction, stale 1.x command references, and the
+  disconnected daily fixture still require runtime correction;
 - full Dusk cold start approached 20 seconds;
 - executable-note and write workflows remain untested;
-- Home navigation failures and exposed Todoist configuration remain;
+- Home navigation failures and malformed Todoist configuration on both Home surfaces remain;
 - full Android Home visual defects and horizontal overflow remain;
 - four request hosts lack initiator attribution;
 - Commander requires update before first useful mobile load;

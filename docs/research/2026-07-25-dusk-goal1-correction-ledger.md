@@ -34,13 +34,13 @@ if wording ever drifts. This table tracks status only.
 
 | ID | Blocker | Status | Latest evidence | Remaining condition |
 | --- | --- | --- | --- | --- |
-| 1 | Android daily-note creation | Pending reproduction | Not yet recorded | Reproduce, correct, restart, and verify on Android and Windows |
+| 1 | Android daily-note creation | Pending | Checkpoint comparison and historical runtime evidence | Reproduce the user-visible failure fresh on Android, correct it, restart, and verify on both platforms |
 | 2 | Creation workflow for every default root | Blocked by 1 | Not yet recorded | Complete the command-template-destination matrix on both platforms |
 | 3 | Supplied Discord and GitHub runtime changes | Pending | Not yet recorded | Verify exact runtime and write behavior for each named addition |
 | 4 | Request-host attribution | Pending | Not yet recorded | Establish initiators without hostname-only inference |
 | 5 | Android Home rendering and overflow | Pending | Not yet recorded | Capture complete vertical and horizontal evidence and correct defects |
 | 6 | Home ribbon and navigation | Pending | Not yet recorded | Reproduce each failed control and verify corrected navigation |
-| 7 | Todoist configuration rendered on Home | Pending | Not yet recorded | Correct malformed or unsafe fallback behavior and verify with Todoist gated |
+| 7 | Todoist configuration rendered on Home | Pending | Both Home source files contain the joined directive | Correct both desktop and mobile fallback behavior and verify with Todoist gated |
 | 8 | QuickAdd, Meta Bind, Mail Box, timeline, and other writes | Pending | Not yet recorded | Exercise synthetic writes and restore every mutation |
 | 9 | Independent release verdict | Blocked by 1-8 | Not yet recorded | Repository checks pass and reviewer returns exactly `PASS` |
 
@@ -54,7 +54,11 @@ classifications here.
 
 | Run or evidence set | Classification | Narrow claim supported | Superseded by | Notes |
 | --- | --- | --- | --- | --- |
-| Pending | Pending | Pending | Pending | Pending |
+| Root `screenshots` set (39 captures) | Diagnostic-only | Early startup, plugin, and surface observations | Pending fresh acceptance pass | All captures predate 2026-07-25 06:00; several desktop windows are not maximized |
+| `safe-rerun/screenshots` (71 captures) | Diagnostic-only | Safe-copy startup and isolated plugin observations | Pending fresh acceptance pass | Includes editing-mode/raw-source and incomplete traversal captures |
+| `functional-rerun/screenshots` (54 captures) | Diagnostic-only | Reading-render, workflow, and plugin-gate observations | Pending fresh acceptance pass | Some Android reading captures are useful, but full traversal and current-state provenance are incomplete |
+| `workflow-rerun` visual evidence (25 captures) | Diagnostic-only | Six maximized Windows reading surfaces plus workflow setup state | Pending fresh acceptance pass | Does not cover Home, Map, or Mail Box completely; one Android Home artifact is unreadable |
+| Checkpoints, logs, and manifests | Accepted for narrow recorded claims | Version/configuration transitions, file-state comparisons, and bounded reproductions | Not applicable | Do not generalize beyond the exact checkpoint or configuration |
 
 ## Correction entries
 
@@ -67,36 +71,56 @@ Status: `Pending`
 
 Observed fact:
 
-- Not yet recorded.
+- Both variants use Journals 1.4.3 before update. Their enabled legacy daily
+  section points to `DAILY/DAILY` and the daily template, but its `dateFormat`
+  is empty.
+- Both post-update checkpoints use Journals 2.1.10 schema version 3. They contain
+  a configured `personal daily` journal with `dateFormat` `YYYY-MM-DD`, the same
+  destination and template, and an `Open today's note` command.
+- Desktop Home, Mobile Home, four Note Toolbar items, and the configured
+  hotkey still reference the removed Journals 1.x ID
+  `journals:journal:calendar:open-day` after update.
+- Both `HUB/Homepage.md` and `SYSTEM/MOBILE HUB/Mobile Homepage.md` join the
+  Todoist `project` and `limit` directives on one line.
+- Historical reading-view evidence shows the daily fixture reporting `Note is
+  not connected to a journal`.
+- The first workflow checker parsed only the Journals 1.x schema and therefore
+  incorrectly reported that the post-update configuration had no daily journal.
 
 Reproduction:
 
-- Platform and disposable vault: not yet recorded.
-- Visible command and resolved command ID: not yet recorded.
-- Expected destination, filename, template, and frontmatter: not yet recorded.
-- Actual result: not yet recorded.
-- External evidence path: not yet recorded.
+- Checkpoint comparison:
+  `G:\Dusk-Goal1-Discovery-20260725\workflow-rerun\evidence\dusk-config-checkpoint-comparison-20260725-222956.txt`.
+- Current Windows disposable:
+  `G:\Dusk-Goal1-Discovery-20260725\goal1-current\Dusk_light-daily-repro-20260725-223128`.
+- Fresh physical-Android command reproduction: pending.
+- Expected destination and template are established statically; final filename,
+  frontmatter, rendered output, and journal connection still require runtime
+  verification.
 
 Inference:
 
-- None recorded. Candidate causes remain hypotheses until isolated.
+- The plugin update changed Journals configuration and command-ID schemas. The
+  seven stale external command references are a confirmed compatibility defect.
+- The disconnected-note warning may be a separate indexing, naming, or journal
+  matching defect. Its cause is not established by the configuration files.
 
 Correction:
 
-- Affected relative path or non-secret field: not yet recorded.
-- Before state: not yet recorded.
-- After state: not yet recorded.
-- Reason this is the smallest safe correction: not yet recorded.
+- Repository checker updated to validate both the legacy calendar schema and
+  Journals 2.x schema version 3, including template arrays and current
+  journal-command IDs.
+- Vault correction is pending fresh Android reproduction. Do not copy an older
+  Journals `data.json` wholesale.
 
 Verification:
 
-- Windows result: not yet recorded.
-- Physical Android result: not yet recorded.
-- Editing and settled reading view: not yet recorded.
-- Restart or cold-start persistence: not yet recorded.
-- Search, navigation, and journal connection: not yet recorded.
-- Synthetic mutation cleanup: not yet recorded.
-- Source, live, and user-vault invariants: not yet recorded.
+- Checker unit coverage now includes both Journals schemas, exact-format checks,
+  empty formats, current command IDs, and stale legacy command references.
+- Native PowerShell rerun on Windows: pending.
+- Windows and physical-Android runtime correction: pending.
+- Restart, search, navigation, rendered output, and journal connection: pending.
+- Synthetic mutation cleanup and source/live/user-vault invariants: pending.
 
 Commit:
 

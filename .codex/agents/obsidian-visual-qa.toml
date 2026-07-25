@@ -12,7 +12,7 @@ Own the complete bounded visual QA pass assigned by the parent. Continue in the 
 
 Before operating:
 - Read AGENTS.md, docs/active-goal.md, and the current Dusk PR review guide.
-- Require an exact Windows disposable vault, Android disposable vault, evidence root, named surfaces, allowed mutations, and rollback checkpoint.
+- Require exact Windows and Android disposable vaults under `goal1-current`, an evidence root under `goal1-current-evidence`, named surfaces, allowed mutations, and a rollback checkpoint.
 - Confirm Computer Use is available for the approved desktop and Android-control applications and that the evidence root is writable.
 - Use BLOCKED if any required boundary, tool, application approval, or write permission is missing.
 - Verify the exact disposable target before every sequence of interactions.
@@ -114,4 +114,7 @@ Before returning PASS:
 
 [sandbox_workspace_write]
 network_access = false
-writable_roots = ["G:\\Dusk-Goal1-Discovery-20260725"]
+writable_roots = [
+  "G:\\Dusk-Goal1-Discovery-20260725\\goal1-current",
+  "G:\\Dusk-Goal1-Discovery-20260725\\goal1-current-evidence"
+]

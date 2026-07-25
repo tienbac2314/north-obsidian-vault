@@ -142,8 +142,12 @@ Observed functional results:
 - the project template source rendered its configured reading view; template
   application was tested later.
 
-The daily fixture still reports `Note is not connected to a journal`. That is
-a Journals configuration gap, not a Dataview or Datacore failure.
+The daily fixture still reports `Note is not connected to a journal`. Archive
+re-review shows that the post-update Journals 2.1.10 configuration does contain
+a schema-v3 `personal daily` journal with `YYYY-MM-DD`, the intended folder,
+and the daily template. The warning therefore proves a journal-connection or
+matching failure, not absence of a configured daily journal, and it is not a
+Dataview or Datacore failure.
 
 ## Expanded workflow and visual review
 
@@ -180,7 +184,7 @@ Observed results:
 | Home ribbon action | Failed to navigate in the expanded run |
 | Home `Map of Contents` button | Accepted clicks but did not navigate |
 | Home `Daily Note` button | Accepted clicks but did not navigate |
-| Home Todoist panel | Exposed raw `filter`, `project`, and `sorting` configuration in reading view |
+| Home Todoist panel | Exposed raw `filter`, `project`, and `sorting` configuration in reading view; both desktop and mobile Home source files join `project` and `limit` on one line |
 | Daily note | Rendered in reading view; still not connected to a journal |
 | Daily task checkbox | Toggled source task, added current completion date, then restored original unchecked state |
 | Weekly note | Rendered calendar, tasks, goals, summary, and reflections |
@@ -253,8 +257,11 @@ Write destinations are broader than the initial render test:
 - Meta Bind project and meeting inputs update current-note frontmatter;
 - Templater toggle scripts can update active-note frontmatter and Iconic state.
 
-The Home daily command maps to
-`journals:journal:calendar:open-day`. Home create maps to an opaque QuickAdd
+Desktop Home, Mobile Home, four Note Toolbar actions, and the configured
+hotkey map to the Journals 1.x ID `journals:journal:calendar:open-day`.
+Post-update Journals 2.1.10 derives the configured daily command as
+`journals:personal-daily:open-today's-note`; the seven external references were
+not migrated. Home create maps to an opaque QuickAdd
 choice ID. Allowed static files do not prove the nested QuickAdd
 choice-to-template mapping.
 

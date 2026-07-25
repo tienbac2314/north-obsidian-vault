@@ -236,6 +236,32 @@ function Get-JsonCommandIds {
     return $results.ToArray()
 }
 
+function Get-JournalsCommandSlug {
+    param([AllowEmptyString()][string]$Value)
+
+    if ([string]::IsNullOrWhiteSpace($Value)) {
+        return ''
+    }
+
+    return ([regex]::Replace($Value.Trim(), '\s', '-')).ToLowerInvariant()
+}
+
+function Add-CurrentJournalsCommand {
+    param(
+        [Parameter(Mandatory = $true)][string]$JournalName,
+        [Parameter(Mandatory = $true)][string]$CommandName
+    )
+
+    $journalSlug = Get-JournalsCommandSlug -Value $JournalName
+    $commandSlug = Get-JournalsCommandSlug -Value $CommandName
+    if ([string]::IsNullOrWhiteSpace($journalSlug) -or
+        [string]::IsNullOrWhiteSpace($commandSlug)) {
+        return
+    }
+
+    $null = $script:knownCommands.Add("journals:${journalSlug}:${commandSlug}")
+}
+
 function Test-SupportedCommandReference {
     param(
         [Parameter(Mandatory = $true)][string]$CommandId,
@@ -243,7 +269,7 @@ function Test-SupportedCommandReference {
     )
 
     $supportedPrefixes = @(
-        'journals:journal:',
+        'journals:',
         'obsidian-hotkeys-for-specific-files:',
         'quickadd:choice:',
         'templater-obsidian:'
@@ -290,51 +316,118 @@ $quickAddCommandIds = @()
 
 $journalsPath = Join-Path $obsidianRoot 'plugins/journals/data.json'
 $journals = Read-JsonFile -Path $journalsPath -Label 'Journals configuration'
-$enabledDailySectionFound = $false
+$configuredDailyJournalFound = $false
 
 if ($null -ne $journals -and (Test-ObjectProperty -Object $journals -Name 'journals')) {
     foreach ($journalProperty in $journals.journals.PSObject.Properties) {
+        $journalName = [string]$journalProperty.Name
         $journal = $journalProperty.Value
-        if (-not (Test-ObjectProperty -Object $journal -Name 'type') -or
-            $journal.type -ne 'calendar') {
+        $configuredJournalName = Get-StringProperty -Object $journal -Name 'name'
+        if (-not [string]::IsNullOrWhiteSpace($configuredJournalName)) {
+            $journalName = $configuredJournalName
+        }
+
+        # Journals 1.x calendar schema.
+        if ((Test-ObjectProperty -Object $journal -Name 'type') -and
+            (Get-StringProperty -Object $journal -Name 'type') -eq 'calendar') {
+            foreach ($sectionName in @('day', 'week', 'month', 'quarter', 'year')) {
+                if (-not (Test-ObjectProperty -Object $journal -Name $sectionName)) {
+                    continue
+                }
+
+                $section = $journal.$sectionName
+                if (-not (Test-ObjectProperty -Object $section -Name 'enabled') -or
+                    -not [bool]$section.enabled) {
+                    continue
+                }
+
+                $sectionFolder = Get-StringProperty -Object $section -Name 'folder'
+                $sectionTemplate = Get-StringProperty -Object $section -Name 'template'
+                $sectionDateFormat = Get-StringProperty -Object $section -Name 'dateFormat'
+
+                Assert-VaultDirectory -RelativePath $sectionFolder -Context "Journals $sectionName folder"
+                Assert-VaultFile -RelativePath $sectionTemplate -Context "Journals $sectionName template"
+
+                Add-Check
+                if ([string]::IsNullOrWhiteSpace($sectionDateFormat)) {
+                    Add-Failure "Journals $sectionName dateFormat is empty."
+                }
+
+                foreach ($direction in @('', 'next-', 'prev-')) {
+                    $null = $knownCommands.Add("journals:journal:calendar:open-$direction$sectionName")
+                }
+
+                if ($sectionName -eq 'day') {
+                    $configuredDailyJournalFound = $true
+                    if (-not [string]::IsNullOrWhiteSpace($ExpectedDailyDateFormat)) {
+                        Add-Check
+                        if ($sectionDateFormat -ne $ExpectedDailyDateFormat) {
+                            Add-Failure 'Journals day dateFormat does not match the explicitly required daily format.'
+                        }
+                    }
+                }
+            }
             continue
         }
 
-        foreach ($sectionName in @('day', 'week', 'month', 'quarter', 'year')) {
-            if (-not (Test-ObjectProperty -Object $journal -Name $sectionName)) {
+        # Journals 2.x schema version 3. Each journal has one write type and a
+        # list of user-configured commands whose IDs are derived from names.
+        if ((Test-ObjectProperty -Object $journal -Name 'write') -and
+            (Test-ObjectProperty -Object $journal.write -Name 'type')) {
+            $writeType = Get-StringProperty -Object $journal.write -Name 'type'
+            if (@('day', 'week', 'month', 'quarter', 'year') -notcontains $writeType) {
                 continue
             }
 
-            $section = $journal.$sectionName
-            if (-not (Test-ObjectProperty -Object $section -Name 'enabled') -or
-                -not [bool]$section.enabled) {
-                continue
+            $journalLabel = "Journals '$journalName'"
+            $sectionFolder = Get-StringProperty -Object $journal -Name 'folder'
+            $sectionDateFormat = Get-StringProperty -Object $journal -Name 'dateFormat'
+
+            Assert-VaultDirectory -RelativePath $sectionFolder -Context "$journalLabel folder"
+
+            Add-Check
+            if (-not (Test-ObjectProperty -Object $journal -Name 'templates') -or
+                @($journal.templates).Count -eq 0) {
+                Add-Failure "$journalLabel templates are empty."
             }
-
-            $sectionFolder = Get-StringProperty -Object $section -Name 'folder'
-            $sectionTemplate = Get-StringProperty -Object $section -Name 'template'
-            $sectionDateFormat = Get-StringProperty -Object $section -Name 'dateFormat'
-
-            Assert-VaultDirectory -RelativePath $sectionFolder -Context "Journals $sectionName folder"
-            Assert-VaultFile -RelativePath $sectionTemplate -Context "Journals $sectionName template"
+            else {
+                foreach ($templatePath in @($journal.templates)) {
+                    Assert-VaultFile -RelativePath ([string]$templatePath) -Context "$journalLabel template"
+                }
+            }
 
             Add-Check
             if ([string]::IsNullOrWhiteSpace($sectionDateFormat)) {
-                Add-Failure "Journals $sectionName dateFormat is empty."
+                Add-Failure "$journalLabel dateFormat is empty."
             }
 
-            foreach ($direction in @('', 'next-', 'prev-')) {
-                $null = $knownCommands.Add("journals:journal:calendar:open-$direction$sectionName")
+            if (Test-ObjectProperty -Object $journal -Name 'commands') {
+                foreach ($command in @($journal.commands)) {
+                    $commandName = Get-StringProperty -Object $command -Name 'name'
+                    if (-not [string]::IsNullOrWhiteSpace($commandName)) {
+                        Add-CurrentJournalsCommand -JournalName $journalName -CommandName $commandName
+                    }
+                }
             }
 
-            if ($sectionName -eq 'day') {
-                $enabledDailySectionFound = $true
+            if ($writeType -eq 'day') {
+                $configuredDailyJournalFound = $true
                 if (-not [string]::IsNullOrWhiteSpace($ExpectedDailyDateFormat)) {
                     Add-Check
                     if ($sectionDateFormat -ne $ExpectedDailyDateFormat) {
-                        Add-Failure "Journals day dateFormat does not match the explicitly required daily format."
+                        Add-Failure 'Journals day dateFormat does not match the explicitly required daily format.'
                     }
                 }
+            }
+        }
+    }
+
+    if (Test-ObjectProperty -Object $journals -Name 'commands') {
+        foreach ($command in @($journals.commands)) {
+            $commandName = Get-StringProperty -Object $command -Name 'name'
+            $commandSlug = Get-JournalsCommandSlug -Value $commandName
+            if (-not [string]::IsNullOrWhiteSpace($commandSlug)) {
+                $null = $knownCommands.Add("journals::$commandSlug")
             }
         }
     }
@@ -344,8 +437,8 @@ else {
 }
 
 Add-Check
-if (-not $enabledDailySectionFound) {
-    Add-Failure 'No enabled calendar daily section was found in Journals configuration.'
+if (-not $configuredDailyJournalFound) {
+    Add-Failure 'No configured daily journal was found in Journals configuration.'
 }
 
 $templaterPath = Join-Path $obsidianRoot 'plugins/templater-obsidian/data.json'
@@ -486,6 +579,16 @@ foreach ($commandId in $quickAddCommandIds) {
     Test-SupportedCommandReference -CommandId $commandId -Context 'QuickAdd macro'
 }
 
+$hotkeysConfigPath = Join-Path $obsidianRoot 'hotkeys.json'
+if (Test-Path -LiteralPath $hotkeysConfigPath -PathType Leaf) {
+    $hotkeysConfig = Read-JsonFile -Path $hotkeysConfigPath -Label 'Obsidian hotkey configuration'
+    if ($null -ne $hotkeysConfig) {
+        foreach ($hotkeyProperty in $hotkeysConfig.PSObject.Properties) {
+            Test-SupportedCommandReference -CommandId ([string]$hotkeyProperty.Name) -Context 'Obsidian hotkey'
+        }
+    }
+}
+
 $homepageConfigPath = Join-Path $obsidianRoot 'plugins/homepage/data.json'
 $homepageConfig = Read-JsonFile -Path $homepageConfigPath -Label 'Homepage configuration'
 $homepageFiles = New-Object 'System.Collections.Generic.List[string]'
@@ -503,6 +606,13 @@ if ($null -ne $homepageConfig -and (Test-ObjectProperty -Object $homepageConfig 
             $homepageFiles.Add($homeRelativePath) | Out-Null
         }
     }
+}
+
+$mobileHomepageRelativePath = 'SYSTEM/MOBILE HUB/Mobile Homepage.md'
+$mobileHomepagePath = Join-Path $vaultRoot ($mobileHomepageRelativePath.Replace('/', [IO.Path]::DirectorySeparatorChar))
+if ((Test-Path -LiteralPath $mobileHomepagePath -PathType Leaf) -and
+    -not $homepageFiles.Contains($mobileHomepageRelativePath)) {
+    $homepageFiles.Add($mobileHomepageRelativePath) | Out-Null
 }
 
 $noteToolbarPath = Join-Path $obsidianRoot 'plugins/note-toolbar/data.json'
@@ -525,7 +635,7 @@ foreach ($homeRelativePath in $homepageFiles) {
     }
 
     Add-Check
-    if ($homeContent -match '(?m)^\s*(?:>\s*)*project:\s*.+\s+limit:\s*\d+\s*$') {
+    if ($homeContent -match '(?m)^[ \t]*(?:>[ \t]*)*project:[ \t]*[^\r\n]+[ \t]+limit:[ \t]*\d+[ \t]*$') {
         Add-Failure "Homepage '$homeRelativePath' joins Todoist project and limit directives on one line."
     }
 }
