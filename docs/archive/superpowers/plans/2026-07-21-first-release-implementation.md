@@ -1,8 +1,8 @@
 # Obsidian Workspace Release-One Implementation Plan
 
-Status: superseded non-authoritative plan. Do not execute. Current authority is [first production-worthy release](../../roadmap/mvp.md).
+Status: superseded non-authoritative plan. Do not execute. Current authority is [first production-worthy release](../../../roadmap/mvp.md).
 
-> **Status: superseded on 2026-07-21. Do not execute.** It implements removed workspace-service, SQLite, backup, OpenViking, and Telegram assumptions. Replacement plan requires approved replacement spec. Use [documentation status](../../README.md) and [active goal](../../active-goal.md).
+> **Status: superseded on 2026-07-21. Do not execute.** It implements removed workspace-service, SQLite, backup, OpenViking, and Telegram assumptions. Replacement plan requires approved replacement spec. Use [documentation status](../../../README.md) and [active goal](../../../active-goal.md).
 
 Previous status: paused before simplification.
 

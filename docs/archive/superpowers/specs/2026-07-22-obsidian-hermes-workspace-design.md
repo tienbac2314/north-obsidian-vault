@@ -1,8 +1,8 @@
 # Obsidian and Hermes workspace design
 
-Status: superseded non-authoritative specification under DEC-027. Current authority is [system design](../../system-design.md); do not implement this document directly.
+Status: superseded non-authoritative specification under DEC-027. Current authority is [system design](../../../system-design.md); do not implement this document directly.
 
-Date: 2026-07-22. Status: approved through standing best-judgment authorization after tracked-requirement and adversarial self-review. Sync and attachment sections were amended after the focused [2026-07-22 reevaluation](../../research/2026-07-22-sync-and-extension-reevaluation.md).
+Date: 2026-07-22. Status: approved through standing best-judgment authorization after tracked-requirement and adversarial self-review. Sync and attachment sections were amended after the focused [2026-07-22 reevaluation](../../../research/2026-07-22-sync-and-extension-reevaluation.md).
 
 This specification replaces the superseded [Obsidian and OpenViking workspace design](2026-07-20-obsidian-openviking-workspace-design.md). No runtime behavior is deployed by this document.
 

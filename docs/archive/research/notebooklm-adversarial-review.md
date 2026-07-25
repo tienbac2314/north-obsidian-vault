@@ -2,7 +2,7 @@
 
 Date: 2026-07-21. Private notebook/conversation identifiers intentionally omitted.
 
-Status: historical adversarial review. Its Syncthing-first verdict was superseded by the focused [2026-07-22 sync, history, and attachment reevaluation](2026-07-22-sync-and-extension-reevaluation.md); retained reasoning and retractions remain evidence.
+Status: historical adversarial review. Its Syncthing-first verdict was superseded by the focused [2026-07-22 sync, history, and attachment reevaluation](../../research/2026-07-22-sync-and-extension-reevaluation.md); retained reasoning and retractions remain evidence.
 
 ## Method
 

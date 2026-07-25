@@ -1,6 +1,6 @@
 # Skill-generated work index
 
-These files preserve design sessions produced through planning skills. They may contain stale choices or commands and are not current authority. Promote accepted content into [system design](system-design.md), relevant [architecture](architecture/recommended-architecture.md) or [behavior](behavior/capture-to-digest.md) module, [roadmap](roadmap/mvp.md), or [decision log](decisions/decision-log.md) before acting on it.
+These files preserve design sessions produced through planning skills. They may contain stale choices or commands and are not current authority. Promote accepted content into [system design](../system-design.md), relevant [architecture](../architecture/recommended-architecture.md) or [behavior](../behavior/capture-to-digest.md) module, [roadmap](../roadmap/mvp.md), or [decision log](../decisions/decision-log.md) before acting on it.
 
 ## Specifications
 

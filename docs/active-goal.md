@@ -21,8 +21,8 @@ draft. Goal 2 and live promotion are not authorized.
 4. [PR review guide](research/2026-07-25-dusk-pr-review-guide.md) for evidence
    review now; use its personalization checklist only after PASS.
 
-Plans under `docs/superpowers/` are historical execution records, not current
-instructions.
+Plans under `docs/archive/superpowers/` are historical execution records, not
+current instructions.
 
 ## Verified checkpoint
 
@@ -76,9 +76,9 @@ instructions.
 - On both PC and Android, scroll each surface from top to bottom and
   horizontally where available. Inspect content, sidebars, toolbars, and final
   rows before judging; one viewport is incomplete evidence.
-- Main agent owns decisions and file edits. Future UI work should use at most
-  one Luna visual subagent for visual and Computer Use checks. Do not recreate
-  the prior multi-agent swarm.
+- Main agent owns decisions, file edits, and Computer Use interactions. Future
+  UI work may use at most one Luna visual subagent for read-only review of
+  captured screenshots. Do not recreate multi-agent orchestration.
 - Keep network, credential, sync, publish, sharing, AI, and external-writer
   features gated unless a scoped test requires one.
 - Preserve atomic commits. Do not collapse findings into one final checkpoint.

@@ -32,8 +32,8 @@ Read in this order:
    write, code, network, and credential boundaries.
 
 In GitHub, use **Files changed**. Review research and authority files first.
-The plan under `docs/superpowers/plans/` is working history, not product
-authority.
+Plans under `docs/archive/superpowers/plans/` are preserved history, not
+product authority.
 
 ## What to verify
 

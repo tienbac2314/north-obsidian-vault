@@ -1,6 +1,6 @@
 # Git workflow migration design
 
-Status: superseded non-authoritative specification. Current authority is [Git workflow](../../git-workflow.md); do not execute this document independently.
+Status: superseded non-authoritative specification. Current authority is [Git workflow](../../../git-workflow.md); do not execute this document independently.
 
 Date: 2026-07-22. Status: approved concept; brevity revision pending review.
 

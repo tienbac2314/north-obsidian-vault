@@ -1,6 +1,6 @@
 # Markdown Discoverability Implementation Plan
 
-Status: completed historical plan. Non-authoritative; do not execute. Current behavior is enforced by [`scripts/check-markdown-links.ps1`](../../../scripts/check-markdown-links.ps1).
+Status: completed historical plan. Non-authoritative; do not execute. Current behavior is enforced by [`scripts/check-markdown-links.ps1`](../../../../scripts/check-markdown-links.ps1).
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 

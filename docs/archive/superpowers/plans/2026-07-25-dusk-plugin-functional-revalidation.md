@@ -2,8 +2,8 @@
 
 Status: historical execution plan. Do not rerun its agent orchestration.
 Independent functional review returned FAIL. Current continuation instructions
-live in [active goal](../../active-goal.md); findings live in
-[functional revalidation](../../research/2026-07-25-dusk-plugin-functional-revalidation.md).
+live in [active goal](../../../active-goal.md); findings live in
+[functional revalidation](../../../research/2026-07-25-dusk-plugin-functional-revalidation.md).
 
 **Goal:** Correct PR #7 with functional Windows and physical-Android evidence
 after compatible plugin updates, deliberate enablement, safe non-secret

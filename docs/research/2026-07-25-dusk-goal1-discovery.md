@@ -40,7 +40,7 @@ This is a design recommendation, not permission to modify `G:\Obsidian`.
 
 | # | Requested deliverable | Evidence |
 |---:|---|---|
-| 1 | Prerequisite report | [Goal 1 preflight](2026-07-25-dusk-goal1-preflight.md) |
+| 1 | Prerequisite report | [Goal 1 preflight](../archive/research/2026-07-25-dusk-goal1-preflight.md) |
 | 2 | Exact source/variant manifest | [Source manifest and Android comparison](2026-07-25-dusk-source-manifest.md) |
 | 3 | Dusk_light complete plugin ledger | [47-plugin ledger](2026-07-25-dusk-light-plugin-ledger.md) |
 | 4 | Dusk versus Dusk_light differences | [Variant ledger](2026-07-25-dusk-variant-and-discord-ledger.md#dusk-additions-over-dusk_light) |
@@ -55,7 +55,7 @@ This is a design recommendation, not permission to modify `G:\Obsidian`.
 | 13 | Startup/performance assessment | [Performance evidence](2026-07-25-dusk-runtime-evidence.md#performance-observations) |
 | 14 | Language-strategy analysis | [Three strategies](2026-07-25-dusk-language-strategies.md) |
 | 15 | Zoomed-out risks/opportunities | [Risks and simpler experiments](2026-07-25-dusk-surface-and-security-map.md#zoomed-out-risks) |
-| 16 | Archived PR #4 revalidation | [Confirmed/stale/contradicted/unknown ledger](2026-07-25-dusk-pr4-revalidation.md) |
+| 16 | Archived PR #4 revalidation | [Confirmed/stale/contradicted/unknown ledger](../archive/research/2026-07-25-dusk-pr4-revalidation.md) |
 | 17 | Goal 2 recommendation | [Goal 2 scope](#goal-2-recommendation) |
 | 18 | Independent review verdict | [FAIL; PR #7 remains draft](2026-07-25-dusk-goal1-review.md) |
 

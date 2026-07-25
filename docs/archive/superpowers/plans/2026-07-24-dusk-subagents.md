@@ -1,7 +1,7 @@
 # Dusk Subagents Implementation Plan
 
 Status: historical. Do not rerun this five-agent orchestration. Current
-ownership and subagent limits live in [active goal](../../active-goal.md).
+ownership and subagent limits live in [active goal](../../../active-goal.md).
 
 **Goal:** Add five project-scoped Codex agents that move Dusk inventory, plugin research, visual QA, bounded disposable-vault fixes, and release review out of the main context.
 

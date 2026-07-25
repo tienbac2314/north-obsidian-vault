@@ -266,6 +266,6 @@ This is a contextual choice driven by desired Obsidian UX. It is not a universal
 Earlier findings remain preserved by reference:
 
 - [2026-07-21 sync and agent extensions](../archive/research/sync-and-agent-extensions.md) contains the first official-source and community comparison.
-- [NotebookLM adversarial review](notebooklm-adversarial-review.md) records prior accepted challenges and retractions.
+- [NotebookLM adversarial review](../archive/research/notebooklm-adversarial-review.md) records prior accepted challenges and retractions.
 - [Decision log](../decisions/decision-log.md) records changes in recommendation without erasing old rationale.
 - Git history preserves every detailed checkpoint; archived [repository history](../archive/snapshots/repository-history.md) records the former permanent-dev and generated-clean split.

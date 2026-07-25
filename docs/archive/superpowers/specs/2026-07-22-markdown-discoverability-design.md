@@ -1,6 +1,6 @@
 # Markdown discoverability design
 
-Status: completed historical specification. Current behavior is enforced by [`scripts/check-markdown-links.ps1`](../../../scripts/check-markdown-links.ps1).
+Status: completed historical specification. Current behavior is enforced by [`scripts/check-markdown-links.ps1`](../../../../scripts/check-markdown-links.ps1).
 
 Date: 2026-07-22
 Status: Approved through standing user authorization to choose the best documented option

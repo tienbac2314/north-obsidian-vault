@@ -1,6 +1,6 @@
 # Fast Note Sync Human Pilot Implementation Plan
 
-Status: superseded non-authoritative plan under DEC-027. Do not execute. Current authority is [first production-worthy release](../../roadmap/mvp.md).
+Status: superseded non-authoritative plan under DEC-027. Do not execute. Current authority is [first production-worthy release](../../../roadmap/mvp.md).
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 

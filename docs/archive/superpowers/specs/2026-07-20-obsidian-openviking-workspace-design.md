@@ -1,8 +1,8 @@
 # Obsidian, Hermes, OpenViking, and 9Router workspace design
 
-Status: superseded non-authoritative specification. Preserve for provenance; do not implement. Current authority is [system design](../../system-design.md).
+Status: superseded non-authoritative specification. Preserve for provenance; do not implement. Current authority is [system design](../../../system-design.md).
 
-> **Status: superseded on 2026-07-21.** Preserve for design provenance; do not implement. Replacement specification will follow approval of current simplified design. Use [documentation status](../../README.md) and [active goal](../../active-goal.md).
+> **Status: superseded on 2026-07-21.** Preserve for design provenance; do not implement. Replacement specification will follow approval of current simplified design. Use [documentation status](../../../README.md) and [active goal](../../../active-goal.md).
 
 Previous status: approved baseline before simplification.
 

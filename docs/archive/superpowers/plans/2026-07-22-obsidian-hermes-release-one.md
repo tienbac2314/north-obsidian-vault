@@ -1,8 +1,8 @@
 # Obsidian and Hermes Release-One Implementation Plan
 
-Status: superseded non-authoritative plan. Do not execute. Current authority is [first production-worthy release](../../roadmap/mvp.md).
+Status: superseded non-authoritative plan. Do not execute. Current authority is [first production-worthy release](../../../roadmap/mvp.md).
 
-Status: superseded on 2026-07-22 by the FNS human-sync decision in [DEC-021](../../decisions/decision-log.md#dec-021-separate-human-sync-from-agent-rollout). Preserve as implementation history. Do not execute this Syncthing-first plan.
+Status: superseded on 2026-07-22 by the FNS human-sync decision in [DEC-021](../../../decisions/decision-log.md#dec-021-separate-human-sync-from-agent-rollout). Preserve as implementation history. Do not execute this Syncthing-first plan.
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 

@@ -78,13 +78,13 @@ Statuses: Accepted, Proposed, Rejected, Postponed, Superseded.
 
 - Status: Accepted
 - Decision: Retain independently verified challenges and retractions; reject stale, invented, contradictory, paid, or out-of-scope prescriptions.
-- Evidence: [NotebookLM adversarial review](../research/notebooklm-adversarial-review.md).
+- Evidence: [NotebookLM adversarial review](../archive/research/notebooklm-adversarial-review.md).
 
 ## DEC-014: Preserve detailed and clean Git histories
 
 - Status: Superseded by DEC-024
 - Decision: Permanent local/remote dev branch retains small verified commits. Generated clean branch contains one commit over `origin/main` and updates only through exact force-with-lease.
-- Evidence: [Skill-generated migration design](../superpowers/specs/2026-07-22-git-workflow-migration-design.md).
+- Evidence: [Skill-generated migration design](../archive/superpowers/specs/2026-07-22-git-workflow-migration-design.md).
 
 ## DEC-015: Keep release-one extension set minimal
 
@@ -101,12 +101,12 @@ Statuses: Accepted, Proposed, Rejected, Postponed, Superseded.
 ## DEC-017: Approve replacement workspace design
 
 - Status: Superseded by DEC-025
-- Decision: [`2026-07-22-obsidian-hermes-workspace-design.md`](../superpowers/specs/2026-07-22-obsidian-hermes-workspace-design.md) replaces earlier product architecture through standing best-judgment authorization and self-review.
+- Decision: [`2026-07-22-obsidian-hermes-workspace-design.md`](../archive/superpowers/specs/2026-07-22-obsidian-hermes-workspace-design.md) replaces earlier product architecture through standing best-judgment authorization and self-review.
 
 ## DEC-018: Approve gateway-first implementation plan
 
 - Status: Superseded by DEC-021
-- Decision: Execute [`2026-07-22-obsidian-hermes-release-one.md`](../superpowers/plans/2026-07-22-obsidian-hermes-release-one.md) in verified checkpoints. Stabilize one gateway supervisor before sync or vault access; prove physical-device sync and recovery before scheduled proposal writes.
+- Decision: Execute [`2026-07-22-obsidian-hermes-release-one.md`](../archive/superpowers/plans/2026-07-22-obsidian-hermes-release-one.md) in verified checkpoints. Stabilize one gateway supervisor before sync or vault access; prove physical-device sync and recovery before scheduled proposal writes.
 - Tradeoff: One stateless read-only Python scanner guarantees deterministic hashes and paths, and one stateless no-agent shell script records local Git history. This is more reliable than asking a model to calculate identity and remains smaller than a watcher, daemon, apply service, or workflow database.
 
 ## DEC-019: Pilot Fast Note Sync for human use
@@ -132,7 +132,7 @@ Statuses: Accepted, Proposed, Rejected, Postponed, Superseded.
 ## DEC-022: Approve FNS human-pilot plan
 
 - Status: Superseded by DEC-026
-- Decision: Execute [`2026-07-22-fns-human-sync-pilot.md`](../superpowers/plans/2026-07-22-fns-human-sync-pilot.md) in small verified checkpoints. Use synthetic content, one FNS transport, existing TLS Nginx ingress, stopped-service archive, off-VPS copy, empty-path restore, and seven-day observation before human-only promotion.
+- Decision: Execute [`2026-07-22-fns-human-sync-pilot.md`](../archive/superpowers/plans/2026-07-22-fns-human-sync-pilot.md) in small verified checkpoints. Use synthetic content, one FNS transport, existing TLS Nginx ingress, stopped-service archive, off-VPS copy, empty-path restore, and seven-day observation before human-only promotion.
 - Boundary: Passing plan does not authorize personal migration, Hermes vault access, MCP, REST integrations, headless sync, external filesystem writers, Git automation, or Cloud Preview local deletion.
 
 ## DEC-023: Pilot Drive Attachments on Windows
@@ -154,7 +154,7 @@ Statuses: Accepted, Proposed, Rejected, Postponed, Superseded.
 ## DEC-025: Promote concise final system design
 
 - Status: Superseded by DEC-027
-- Decision: `docs/spec.md` was current product and architecture authority. Research, archive, and `docs/superpowers/` remained evidence or working history unless accepted content was promoted into final design.
+- Decision: `docs/spec.md` was current product and architecture authority. Research, archive, and `docs/archive/superpowers/` remains preserved working history unless accepted content was promoted into final design.
 - Scope: Preserve Obsidian-first proposal workflow, FNS human pilot, Windows-only Drive Attachments ingress, Android ordinary-link access, recovery gates, and deferred Hermes writer.
 
 ## DEC-026: Promote concise first-rollout plan
@@ -171,7 +171,7 @@ Statuses: Accepted, Proposed, Rejected, Postponed, Superseded.
 - Amendment: DEC-028 replaces the Windows Drive Attachments portion with FNS-only native attachments; modular authority and every other DEC-027 boundary remain accepted.
 - Rationale: Minimalization means fewer runtime components and automatic powers, not less explanation. Architecture, data authority, security, failure, interactions, experiments, rollback, and phased promotion remain explicit so implementation does not depend on chat history.
 - History: Restore original large-document paths through a tracked-rename checkpoint before content renovation; only status and navigation links changed, and Git recognized moves at `R090` through `R100`. Preserve previous wording in Git history instead of duplicating one whole obsolete design tree under archive. Dev history keeps corrective checkpoints; generated clean PR publishes final coherent tree.
-- Boundary: Historical snapshots, research, and `docs/superpowers/` remain non-authoritative. No runtime work begins until this documentation PR merges.
+- Boundary: Historical snapshots, research, and `docs/archive/superpowers/` remain non-authoritative. No runtime work begins until this documentation PR merges.
 
 ## DEC-028: Keep release-one attachments inside FNS
 

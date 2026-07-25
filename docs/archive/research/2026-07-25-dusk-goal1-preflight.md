@@ -39,7 +39,7 @@ sentinel-delete test passed inside the raw evidence root.
 
 ## Source and secret boundary
 
-The [source manifest](2026-07-25-dusk-source-manifest.md) records 1,571 files,
+The [source manifest](../../research/2026-07-25-dusk-source-manifest.md) records 1,571 files,
 421 directories, and the top-level variants and additions. A conservative rule
 excluded 146 files and 1,310,186 bytes from byte reads:
 
