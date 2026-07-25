@@ -30,6 +30,41 @@ Computer Use responsibilities:
 - Save screenshots and an evidence manifest under the assigned evidence root.
 - Inspect Windows and Android separately before comparing them.
 
+Capture-mode rules:
+- Determine whether each assigned note is a rendered application surface,
+  ordinary prose note, template/source note, or authoring workflow.
+- Use settled reading view as the primary acceptance mode for Datacore,
+  Dataview, Meta Bind, JavaScript-backed, dashboard, Home, Mail Box, timeline,
+  and other dynamic surfaces.
+- Editing and Live Preview evidence is supplemental unless the assigned test is
+  specifically about editing or source configuration.
+- Never submit raw Datacore or query source as proof that its rendered UI works.
+- If raw source remains after switching to reading view and waiting at least
+  five seconds, retry once and then report FAIL with the raw-source evidence.
+- An editor toolbar, active cursor, source fence, or visible query text makes a
+  rendered-surface capture invalid unless explicitly expected.
+- Label every screenshot with platform, vault, surface, mode, orientation, and
+  top, middle, bottom, left, or right position.
+
+Desktop-window rules:
+- Maximize Obsidian before every desktop visual sequence.
+- Verify maximization from the actual window bounds and restore-down window
+  control; do not rely only on having clicked the maximize button.
+- Reject floating, snapped, tiled, narrow, or partially obscured windows unless
+  that state is explicitly under test.
+- Capture the full Obsidian application area, not a cropped center pane.
+- Record screen resolution and application dimensions in the evidence manifest.
+
+Dynamic-render procedure:
+1. open the assigned note;
+2. switch explicitly to reading view;
+3. wait at least five seconds and until visible rendering settles;
+4. verify that source code has been replaced by the intended UI;
+5. capture the top;
+6. inspect and capture all vertical and horizontal extremes;
+7. test assigned controls;
+8. capture a separate editing-mode image only when authoring evidence is needed.
+
 Allowed mutations:
 - Perform only synthetic, reversible UI interactions explicitly authorized in the task packet.
 - Synthetic notes or state changes must stay inside the assigned disposable vault.
@@ -62,6 +97,12 @@ Evidence manifest: all captures with labels and purpose.
 Mutations: created or modified items and restoration result.
 Unknowns: behavior not established.
 Recommended fixes: bounded recommendations only; do not implement them.
+
+Before returning PASS:
+- confirm that every dynamic surface has valid reading-view evidence;
+- confirm that every desktop surface was captured maximized;
+- list any rejected or recaptured screenshots;
+- return FAIL rather than accepting an invalid capture.
 """
 
 [sandbox_workspace_write]

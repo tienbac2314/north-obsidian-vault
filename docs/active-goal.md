@@ -89,6 +89,44 @@ current instructions.
   features gated unless a scoped test requires one.
 - Preserve atomic commits. Do not collapse findings into one final checkpoint.
 
+### Visual evidence acceptance
+
+Rendered application surfaces must be judged in settled reading view.
+
+- For Datacore, Dataview, Meta Bind, JavaScript-backed, dashboard, Home,
+  Mail Box, timeline, and other dynamic notes, the primary acceptance capture
+  must show the rendered interface in reading view.
+- Editing or Live Preview captures are supplemental and may be used only to
+  prove source text, authoring behavior, frontmatter, or editability.
+- A capture showing raw fenced code, Datacore source, query text, an active
+  cursor, or the editor toolbar is not valid rendered-surface evidence unless
+  that raw source is the surface intentionally under test.
+- If raw source remains visible after switching to reading view and waiting for
+  rendering, record a rendering failure. Do not accept the editing-mode capture
+  as a substitute.
+- Label every capture with platform, surface, mode, and scroll position.
+
+Desktop acceptance captures must use a verified maximized Obsidian window.
+
+- Do not assume that clicking maximize succeeded.
+- Before capture, verify that Obsidian fills the available desktop work area
+  and that the window control represents restore-down rather than maximize.
+- Reject and recapture screenshots from floating, tiled, snapped, partially
+  obscured, or unexpectedly narrow desktop windows unless that window state is
+  explicitly being tested.
+- Record the desktop resolution and Obsidian content dimensions in the evidence
+  manifest.
+
+For dynamic surfaces:
+
+1. switch explicitly to reading view;
+2. wait at least five seconds and until visible loading or layout movement stops;
+3. verify that expected controls and rendered content replaced the source;
+4. capture the top state;
+5. traverse vertically and horizontally as applicable;
+6. capture the bottom and overflow extremes;
+7. return to editing mode only when a separate authoring check is required.
+
 ## Default Dusk structure
 
 - User-facing roots: `DAILY`, `HUB`, `PARA`, `STICKY`, `SYSTEM`, and `ZETA`.
