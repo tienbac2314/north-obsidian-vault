@@ -29,6 +29,9 @@ network logs, source plugin `data.json`, or private note bodies.
 
 ## Blocker status
 
+These IDs mirror `docs/active-goal.md`; the active goal remains scope authority
+if wording ever drifts. This table tracks status only.
+
 | ID | Blocker | Status | Latest evidence | Remaining condition |
 | --- | --- | --- | --- | --- |
 | 1 | Android daily-note creation | Pending reproduction | Not yet recorded | Reproduce, correct, restart, and verify on Android and Windows |
@@ -43,6 +46,15 @@ network logs, source plugin `data.json`, or private note bodies.
 
 Use only these status values: `Pending`, `Reproduced`, `Corrected`, `Verified`,
 `Blocked`, or `Explicitly accepted by user`.
+
+## Historical evidence triage summary
+
+Keep the detailed artifact manifest outside Git. Record only sanitized run-level
+classifications here.
+
+| Run or evidence set | Classification | Narrow claim supported | Superseded by | Notes |
+| --- | --- | --- | --- | --- |
+| Pending | Pending | Pending | Pending | Pending |
 
 ## Correction entries
 
@@ -127,7 +139,8 @@ Record exact commands and results. Do not convert an unrun check into a pass.
 | `powershell -NoProfile -File scripts/test-initialize-vault-template.ps1` | Not run | Pending final repository state |
 | `powershell -NoProfile -File scripts/check-secrets.ps1` | Not run | Pending final repository state |
 | `powershell -NoProfile -File scripts/check-mermaid.ps1` | Not run | Pending final repository state |
-| `powershell -NoProfile -File scripts/test-dusk-workflow-config.ps1 -VaultPath <restored-disposable-vault>` | Not run | Must target the restored disposable, not source or live vaults |
+| `powershell -NoProfile -File scripts/check-dusk-workflow-config.ps1 -VaultPath <restored-disposable-vault> -ExpectedDailyDateFormat <verified-format>` | Not run | Supply the exact format only after reproduction establishes the intended configuration; target the restored disposable, not source or live vaults |
+| `powershell -NoProfile -File scripts/test-dusk-workflow-config.ps1` | Not run | Required when the Dusk workflow checker changes |
 | `git diff --check` | Not run | Pending final repository state |
 | `git status --short` | Not run | Pending final repository state |
 

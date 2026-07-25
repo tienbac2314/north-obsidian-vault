@@ -18,8 +18,10 @@ draft. Goal 2 and live promotion are not authorized.
    verdict and release blockers.
 3. [Goal 1 discovery](research/2026-07-25-dusk-goal1-discovery.md) for the
    18-deliverable index and conditional Goal 2 recommendation.
-4. [PR review guide](research/2026-07-25-dusk-pr-review-guide.md) for evidence
-   review now; use its personalization checklist only after PASS.
+4. [PR review guide](research/2026-07-25-dusk-pr-review-guide.md) for visual
+   evidence acceptance, historical-evidence reuse, and later personalization.
+5. [Correction ledger](research/2026-07-25-dusk-goal1-correction-ledger.md) for
+   current blocker status, corrections, restoration, and validation results.
 
 Plans under `docs/archive/superpowers/` are historical execution records, not
 current instructions.
@@ -69,63 +71,29 @@ current instructions.
 
 ## Execution rules
 
-- Use disposable vaults only. Never modify `G:\Obsidian` or source vaults.
-- Maximize desktop Obsidian before judgment. Distinguish editing from reading
-  mode, wait for dynamic content, and save a labeled screenshot before moving
-  to the next check.
-- On both PC and Android, scroll each surface from top to bottom and
-  horizontally where available. Inspect content, sidebars, toolbars, and final
-  rows before judging; one viewport is incomplete evidence.
-- Main agent owns decisions, repository and source edits, runtime fixes,
+- Use disposable vaults only. Never modify `G:\Obsidian`, either source vault,
+  or the user-restored Android vault.
+- The main agent owns decisions, repository edits, disposable-vault fixes,
   commits, and final interpretation.
-- Reuse one `obsidian-visual-qa` Luna subagent for each complete bounded visual
-  pass. Luna owns Computer Use, Windows and Android navigation, complete
-  scrolling, screenshot capture, evidence indexing, and explicitly authorized
-  reversible synthetic interactions in assigned disposable vaults.
+- Use one `obsidian-visual-qa` Luna thread for the complete bounded visual work.
+  Luna owns Computer Use, Windows and Android navigation, complete scrolling,
+  screenshot capture, evidence indexing, and explicitly authorized reversible
+  synthetic interactions. Reuse the same thread for recaptures.
 - Luna must not implement fixes or modify repository, source, live, or
   user-restored vault state. Do not run parallel UI operators or duplicate
   Luna's completed visual pass in the main thread.
+- Follow the [PR review guide](research/2026-07-25-dusk-pr-review-guide.md) for
+  accepted visual evidence and historical-evidence classification. Dynamic
+  surfaces require settled reading-view evidence; desktop captures require a
+  verified maximized window and complete vertical/horizontal traversal.
+- Inventory existing evidence before recapture. Treat pre-2026-07-25 06:00
+  screenshots as diagnostic-only by default; retain valid narrow claims from
+  logs, manifests, checkpoints, and isolated reproductions.
 - Keep network, credential, sync, publish, sharing, AI, and external-writer
   features gated unless a scoped test requires one.
+- Reproduce first, apply the smallest safe correction, update the correction
+  ledger, restore every synthetic mutation, and verify the relevant checkpoint.
 - Preserve atomic commits. Do not collapse findings into one final checkpoint.
-
-### Visual evidence acceptance
-
-Rendered application surfaces must be judged in settled reading view.
-
-- For Datacore, Dataview, Meta Bind, JavaScript-backed, dashboard, Home,
-  Mail Box, timeline, and other dynamic notes, the primary acceptance capture
-  must show the rendered interface in reading view.
-- Editing or Live Preview captures are supplemental and may be used only to
-  prove source text, authoring behavior, frontmatter, or editability.
-- A capture showing raw fenced code, Datacore source, query text, an active
-  cursor, or the editor toolbar is not valid rendered-surface evidence unless
-  that raw source is the surface intentionally under test.
-- If raw source remains visible after switching to reading view and waiting for
-  rendering, record a rendering failure. Do not accept the editing-mode capture
-  as a substitute.
-- Label every capture with platform, surface, mode, and scroll position.
-
-Desktop acceptance captures must use a verified maximized Obsidian window.
-
-- Do not assume that clicking maximize succeeded.
-- Before capture, verify that Obsidian fills the available desktop work area
-  and that the window control represents restore-down rather than maximize.
-- Reject and recapture screenshots from floating, tiled, snapped, partially
-  obscured, or unexpectedly narrow desktop windows unless that window state is
-  explicitly being tested.
-- Record the desktop resolution and Obsidian content dimensions in the evidence
-  manifest.
-
-For dynamic surfaces:
-
-1. switch explicitly to reading view;
-2. wait at least five seconds and until visible loading or layout movement stops;
-3. verify that expected controls and rendered content replaced the source;
-4. capture the top state;
-5. traverse vertically and horizontally as applicable;
-6. capture the bottom and overflow extremes;
-7. return to editing mode only when a separate authoring check is required.
 
 ## Default Dusk structure
 
@@ -144,11 +112,6 @@ infer default design from Home or one template.
 ## Completion gate
 
 Goal 1 closes only when blockers are resolved or explicitly accepted, PC and
-physical-Android evidence match claims, repository checks pass, and review
-returns PASS. Until then, keep PR #7 draft and do not ask personalization
-questions.
-
-Current product authority remains in [system design](system-design.md),
-[architecture](architecture/recommended-architecture.md),
-[behavior](behavior/capture-to-digest.md), [roadmap](roadmap/mvp.md),
-[decisions](decisions/decision-log.md), and [Git workflow](git-workflow.md).
+physical-Android evidence match claims, repository checks pass, all synthetic
+mutations are restored, and the independent reviewer returns exactly `PASS`.
+Until then, keep PR #7 draft and do not ask personalization questions.

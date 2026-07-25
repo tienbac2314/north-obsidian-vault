@@ -6,17 +6,9 @@ Use this guide to review PR #7 and leave the decisions needed for Goal 2.
 Reviewing this PR does not change `G:\Obsidian`.
 
 Current state: PR #7 remains draft after an independent functional FAIL. Use
-this guide to review evidence and defects now. Do not make personalization
-choices until a later independent review returns PASS.
-
-Current blockers:
-
-- four request hosts lack initiator attribution;
-- full Android Home has visible error-like content and clipping;
-- Android tables have horizontal overflow;
-- Home ribbon and two Home navigation buttons failed;
-- Home exposes raw Todoist configuration;
-- Journals and several write-capable workflows remain unresolved.
+[active goal](../active-goal.md) as the sole current blocker list. Do not make
+personalization choices until a later independent review returns exactly
+`PASS`.
 
 ## Ten-minute review
 
@@ -54,16 +46,98 @@ Leave a PR comment if any file still says current Map or Mail Box behavior is
 blocked, shows raw Datacore in reading view, or treats imported disabled state
 as proof of incompatibility.
 
-For screenshot review, require maximized 1920 by 1040 Windows captures. Switch
-explicitly between editing and reading mode, wait about five seconds for
-dynamic views, and save a labeled screenshot before moving to the next check.
-Older 1024 by 800 captures are diagnostic only.
+## Visual evidence acceptance
 
-Current maximized screenshots:
+Rendered application surfaces must be judged in settled reading view.
+
+- Datacore, Dataview, Meta Bind, JavaScript-backed, dashboard, Home, Mail Box,
+  timeline, and other dynamic notes require a primary acceptance capture of the
+  rendered interface in reading view.
+- Editing or Live Preview captures are supplemental and may prove source text,
+  authoring behavior, frontmatter, or editability. They do not replace rendered
+  evidence.
+- Raw fenced code, Datacore source, query text, an active cursor, or the editor
+  toolbar makes a rendered-surface capture invalid unless that source is the
+  surface intentionally under test.
+- If source remains visible after switching to reading view and waiting at
+  least five seconds for rendering to settle, record a rendering failure.
+- Label every capture with platform, vault, surface, mode, orientation, and
+  scroll position.
+
+Desktop acceptance captures require a verified maximized Obsidian window.
+
+- Verify that Obsidian fills the available desktop work area and that the
+  window control represents restore-down rather than maximize.
+- Reject floating, tiled, snapped, partially obscured, or unexpectedly narrow
+  windows unless that state is explicitly under test.
+- Capture the full application area and record desktop resolution and Obsidian
+  content dimensions in the evidence manifest.
+
+For each dynamic surface:
+
+1. switch explicitly to reading view;
+2. wait at least five seconds and until visible layout movement stops;
+3. verify that the intended interface replaced source text;
+4. capture the top state;
+5. traverse vertically and horizontally where applicable;
+6. capture bottom and overflow extremes;
+7. test assigned controls and record destinations;
+8. use a separate editing-mode capture only when authoring evidence is needed.
+
+Existing candidate screenshots are under:
 
 ```text
 G:\Dusk-Goal1-Discovery-20260725\workflow-rerun\screenshots\computer-use-maximized
 ```
+
+They remain candidates until classified under the rules below.
+
+## Historical evidence reuse
+
+Inventory relevant evidence under `G:\Dusk-Goal1-Discovery-20260725` before
+recapturing a surface. Classify each artifact as `accepted`, `diagnostic-only`,
+`superseded`, or `invalid`.
+
+Screenshots created before 2026-07-25 06:00 local time default to
+`diagnostic-only`. Promote an older screenshot to `accepted` only when its exact
+vault, run directory, checkpoint, plugin state, configuration state, view mode,
+window state, and complete surface coverage are established. Timestamp alone is
+not sufficient; copied files may have misleading filesystem times.
+
+Editing-mode, raw-source, non-maximized, partially configured, or
+plugin-disabled screenshots may guide debugging but cannot support final visual
+acceptance. Logs, manifests, checkpoints, isolated reproductions, and before or
+after state records may remain valid for their narrow recorded claim. Do not
+generalize a result beyond the configuration in which it was observed.
+
+Do not delete historical evidence. Record which later artifact supersedes each
+rejected or stale screenshot. Final PASS decisions may cite only accepted
+evidence.
+
+The detailed external manifest should record at least:
+
+```text
+relative_path
+last_write_time
+run_directory
+platform
+vault_variant
+checkpoint
+surface
+view_mode
+window_state
+orientation
+plugin_state
+configuration_state
+coverage
+classification
+claim_supported
+superseded_by
+notes
+```
+
+Keep raw manifests and screenshots outside Git. Commit only sanitized summaries
+and accepted-evidence references.
 
 ## Personalization decisions after PASS
 

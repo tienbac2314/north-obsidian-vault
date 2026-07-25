@@ -38,6 +38,7 @@ Open specialized ledgers only for their named question.
 - [Dusk source and variant manifest](research/2026-07-25-dusk-source-manifest.md)
 - [Dusk Goal 1 discovery synthesis](research/2026-07-25-dusk-goal1-discovery.md)
 - [Dusk Goal 1 independent review](research/2026-07-25-dusk-goal1-review.md)
+- [Dusk Goal 1 correction ledger](research/2026-07-25-dusk-goal1-correction-ledger.md)
 - [Dusk plugin functional revalidation](research/2026-07-25-dusk-plugin-functional-revalidation.md)
 - [Dusk PR review and personalization guide](research/2026-07-25-dusk-pr-review-guide.md)
 - [Dusk_light plugin ledger](research/2026-07-25-dusk-light-plugin-ledger.md)

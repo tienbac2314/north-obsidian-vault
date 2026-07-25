@@ -116,7 +116,7 @@ Approval receipt lives outside vault, FNS, repository, proposal content, and mod
 - Commit no credentials, private endpoints, provider/account identifiers, raw logs, databases, dumps, archives, OAuth data, or personal note content.
 - Research records use public versions, sanitized counts, error categories, and pass/fail.
 - Source links sit beside claims; community reports remain anecdotal.
-- Current authority, research evidence, generated work, and archive stay visibly separated.
+- Current authority, research evidence, and preserved history stay visibly separated.
 
 ## Security acceptance tests
 

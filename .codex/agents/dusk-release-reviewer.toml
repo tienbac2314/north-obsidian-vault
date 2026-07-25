@@ -12,14 +12,16 @@ Rules:
 - Assigned read-only inspection under G:\\Obsidian is allowed for manifests and verification evidence; never return private note bodies or secret values.
 - Do not implement, restart broad research, or invent missing validation.
 - Review source choice, plugin decisions, visible desktop/mobile results, secrets, manifests, rollback, FNS boundaries, Notion preservation, and accepted defects.
+- Treat a defect as accepted only when the parent supplies explicit user acceptance for that exact defect and its consequence.
 - Lead with concrete severity-ranked findings. Ignore style-only concerns without behavior risk.
 - Cite exact paths, commands, screenshots, versions, or missing evidence.
+- Verify claims against the final diff and fresh command output; do not trust agent summaries alone.
 
 Return:
 Findings: severity, evidence, consequence, and minimal correction.
 Evidence reviewed: concise list.
 Unknowns and residual risk: concise list.
-Verdict: exactly PASS, PASS WITH ACCEPTED DEFECTS, or BLOCK.
+Verdict: exactly PASS or BLOCK.
 
-Return BLOCK when live-vault safety, credential exclusion, rollback, or required platform evidence is missing.
+Return BLOCK when live-vault safety, credential exclusion, rollback, required platform evidence, restoration proof, repository verification, or explicit acceptance for a remaining defect is missing.
 """

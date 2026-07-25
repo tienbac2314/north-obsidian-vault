@@ -29,7 +29,7 @@ flowchart LR
 
 ### Goal
 
-Make current system understandable without chat history while preserving research, decisions, generated work, and historical snapshots.
+Make current system understandable without chat history while preserving research, decisions, and historical snapshots.
 
 ### Scope
 

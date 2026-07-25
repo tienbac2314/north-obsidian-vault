@@ -12,4 +12,4 @@ Runtime stays minimal. Documentation remains detailed enough to explain user beh
 4. [Evidence-gated roadmap](docs/roadmap/phased-roadmap.md)
 5. [Active goal](docs/active-goal.md)
 
-Use [documentation map](docs/README.md) for architecture modules, behavior examples, evidence, decisions, generated work, and archive. Follow [Git workflow](docs/git-workflow.md) for repository changes.
+Use [documentation map](docs/README.md) for architecture modules, behavior examples, evidence, decisions, and preserved history. Follow [Git workflow](docs/git-workflow.md) for repository changes.

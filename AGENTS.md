@@ -60,6 +60,7 @@ git diff --check
 ```
 
 Also run `scripts/test-markdown-links.ps1` when the link checker changes,
+`scripts/test-dusk-workflow-config.ps1` when the Dusk workflow checker changes,
 `scripts/test-initialize-vault-template.ps1` when initialization or template
 behavior changes, and `scripts/check-mermaid.ps1` when diagrams change. Run any
 additional checks required by the task. Never claim an unrun check passed.

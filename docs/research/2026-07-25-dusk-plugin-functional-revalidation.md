@@ -9,6 +9,13 @@ user corrections, write-path mapping, and raw evidence locations. The
 [runtime report](2026-07-25-dusk-runtime-evidence.md) retains startup chronology;
 the [review](2026-07-25-dusk-goal1-review.md) retains release verdict.
 
+Visual-evidence status is governed by the
+[PR review guide](2026-07-25-dusk-pr-review-guide.md). Screenshot statements in
+this report describe the recorded run, not automatic release acceptance.
+Pre-2026-07-25 06:00 captures and any unclassified editing-mode,
+non-maximized, partially configured, or plugin-disabled captures are
+`diagnostic-only` until triaged.
+
 ## TL;DR
 
 - Earlier Android and Windows dashboard failures were misclassified because
@@ -191,7 +198,7 @@ the vault instead of deleted:
 G:\Dusk-Goal1-Discovery-20260725\workflow-rerun\cleanup-archive\desktop-light
 ```
 
-Final maximized screenshots are under:
+Candidate maximized screenshots are under:
 
 ```text
 G:\Dusk-Goal1-Discovery-20260725\workflow-rerun\screenshots\computer-use-maximized
@@ -228,7 +235,7 @@ configuration drift.
 | DatacoreJS works on the tablet, though user review was incomplete | Consistent with physical-Android reading-mode renders; not expanded into a full workflow claim |
 | Editing mode shows source while reading mode shows intended dashboard behavior | Every later note check switched explicitly to reading mode after navigation |
 | Daily, weekly, monthly, project, area, templates, and sidebars need review, not only Home/recent files | Luna reviewed all 40 initial screenshots; direct Windows run added periodic, project, area, sidebar, task, and template checks |
-| Desktop Obsidian must be maximized and each check captured before moving on | Direct workflow captures use maximized 1920 by 1040 windows and one labeled screenshot per accepted check |
+| Desktop Obsidian must be maximized and each check captured before moving on | Direct workflow captures recorded maximized 1920 by 1040 windows and one labeled screenshot per check; final acceptance still requires triage under the PR review guide |
 
 ### Template and write dependency map
 

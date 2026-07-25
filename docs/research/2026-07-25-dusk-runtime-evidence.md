@@ -6,6 +6,11 @@ Status: corrected plugin-load and render evidence. Expanded workflow review
 remains incomplete; independent functional review returned FAIL. No live-vault
 promotion.
 
+Visual-evidence acceptance is governed by the
+[PR review guide](2026-07-25-dusk-pr-review-guide.md). Pre-2026-07-25 06:00
+screenshots and unclassified captures are diagnostic history, not final PASS
+evidence.
+
 ## Safety correction and evidence classes
 
 Independent review found that the initial runtime copies accidentally
