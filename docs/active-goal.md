@@ -70,11 +70,16 @@ current instructions.
    `img.buymeacoffee.com`.
 5. Diagnose full Android Home error-like content, clipping, and horizontal
    overflow.
-6. Diagnose failed Home ribbon, `Map of Contents`, and `Daily Note` navigation.
+6. Diagnose failed Home ribbon, `Map of Contents`, and `Daily Note`
+   navigation. Replace or remove the stale `Map of Contents` and `Inbox`
+   specific-file hotkeys only after confirming the intended current commands in
+   a disposable vault.
 7. Remove or explain raw Todoist configuration rendered on desktop and mobile
    Home.
 8. Test required QuickAdd, Meta Bind, Mail Box, timeline, and remaining write
-   paths with synthetic fixtures and restored state.
+   paths with synthetic fixtures and restored state. Include the stale
+   `toggle_todo_revert.md-new-tab` specific-file binding and obsolete Templater
+   `insert-` hotkey in this write-path review.
 9. Obtain a new release verdict after evidence and documentation are corrected.
 
 ## Execution rules

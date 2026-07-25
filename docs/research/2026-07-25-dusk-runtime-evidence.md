@@ -239,6 +239,7 @@ and search with the selected base.
 | RT-08 | Android | URI-created Vietnamese note absent from captured search | Repeat normal in-app create/save/search |
 | RT-09 | Process | Initial copies included 31 source plugin `data.json` files | Quarantined; corrected rerun supersedes |
 | RT-10 | Both | Journals 2.x daily configuration exists, but seven Home, Note Toolbar, and hotkey references retain a removed 1.x command ID | Reproduce and replace references field by field in disposables |
+| RT-11 | Both | Three specific-file hotkeys are no longer configured and one Templater hotkey retains an obsolete `insert-` command prefix | Confirm intended bindings, then replace or remove each stale entry field by field |
 
 ## Desktop/mobile compatibility matrix
 

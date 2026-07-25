@@ -39,9 +39,9 @@ if wording ever drifts. This table tracks status only.
 | 3 | Supplied Discord and GitHub runtime changes | Pending | Not yet recorded | Verify exact runtime and write behavior for each named addition |
 | 4 | Request-host attribution | Pending | Not yet recorded | Establish initiators without hostname-only inference |
 | 5 | Android Home rendering and overflow | Pending | Not yet recorded | Capture complete vertical and horizontal evidence and correct defects |
-| 6 | Home ribbon and navigation | Pending | Not yet recorded | Reproduce each failed control and verify corrected navigation |
+| 6 | Home ribbon and navigation | Pending | Checker reports stale `Map of Contents` and `Inbox` specific-file bindings plus legacy Journals navigation commands | Reproduce intended controls, replace or remove stale bindings, and verify corrected navigation |
 | 7 | Todoist configuration rendered on Home | Pending | Both Home source files contain the joined directive | Correct both desktop and mobile fallback behavior and verify with Todoist gated |
-| 8 | QuickAdd, Meta Bind, Mail Box, timeline, and other writes | Pending | Not yet recorded | Exercise synthetic writes and restore every mutation |
+| 8 | QuickAdd, Meta Bind, Mail Box, timeline, and other writes | Pending | Checker reports stale `toggle_todo_revert.md-new-tab` and Templater `insert-` bindings | Exercise synthetic writes, correct or remove stale bindings, and restore every mutation |
 | 9 | Independent release verdict | Blocked by 1-8 | Not yet recorded | Repository checks pass and reviewer returns exactly `PASS` |
 
 Use only these status values: `Pending`, `Reproduced`, `Corrected`, `Verified`,
@@ -86,6 +86,10 @@ Observed fact:
   not connected to a journal`.
 - The first workflow checker parsed only the Journals 1.x schema and therefore
   incorrectly reported that the post-update configuration had no daily journal.
+- The corrected 23-case checker passed on Windows and reported 13 failures
+  across 160 checks in the current disposable: seven stale Journals references,
+  three stale specific-file hotkeys, one obsolete Templater hotkey, and two
+  malformed Home Todoist directives.
 
 Reproduction:
 
@@ -115,12 +119,46 @@ Correction:
 
 Verification:
 
-- Checker unit coverage now includes both Journals schemas, exact-format checks,
-  empty formats, current command IDs, and stale legacy command references.
-- Native PowerShell rerun on Windows: pending.
+- The 23-case Windows suite passed before this review. Regression coverage now
+  also includes configured and stale specific-file and Templater hotkeys; the
+  expanded 28-case suite requires a fresh Windows rerun.
 - Windows and physical-Android runtime correction: pending.
 - Restart, search, navigation, rendered output, and journal connection: pending.
 - Synthetic mutation cleanup and source/live/user-vault invariants: pending.
+
+Commit:
+
+- Not yet recorded.
+
+### CORR-006: stale non-Journals hotkeys
+
+Status: `Pending`
+
+Observed fact:
+
+- `.obsidian/hotkeys.json` contains three specific-file commands that are not
+  present in the plugin's configured file list:
+  `SYSTEM/TEMPLATE/CODE/toggle_todo_revert.md-new-tab`,
+  `HUB/Map of Contents.md`, and `HUB/Inbox.md`.
+- The configured current targets include `HUB/Map of Content.md` and
+  `HUB/Mail Box.md`; do not infer that these are intended replacements without
+  runtime confirmation.
+- The Templater hotkey uses
+  `templater-obsidian:insert-SYSTEM/TEMPLATE/CODE/toggle_todo.md`, while the
+  installed Templater version registers the enabled template path directly as
+  `templater-obsidian:SYSTEM/TEMPLATE/CODE/toggle_todo.md`.
+
+Correction:
+
+- Pending bounded UI reproduction and field-by-field replacement or removal in
+  the current disposable. Do not copy a whole hotkey or plugin configuration
+  from a checkpoint.
+
+Verification:
+
+- Confirm each intended binding in Obsidian's command registry and exercise it
+  on Windows and physical Android where applicable.
+- Rerun the workflow checker and the expanded 28-case regression suite.
 
 Commit:
 

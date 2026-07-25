@@ -234,6 +234,8 @@ Plugins needing explicit follow-up:
 - Journals, because post-update desktop/mobile Home, Note Toolbar, and the
   daily hotkey still use the removed 1.x command ID, while the daily fixture is
   not connected despite a configured schema-v3 daily journal;
+- Hotkeys for specific files and Templater, because four configured bindings
+  reference commands that the current plugin configurations no longer register;
 - Novel Word Count, because minimal workspaces produce a file-explorer error;
 - Highlightr plus Settings Search, because their interaction still throws;
 - every write-capable or executable-note plugin used by the selected workflow.

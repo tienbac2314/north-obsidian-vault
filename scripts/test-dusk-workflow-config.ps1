@@ -263,6 +263,95 @@ try {
         Invoke-Checker -VaultPath $case
     )
 
+    $case = Join-Path $tempRoot 'valid-templater-hotkey'
+    Copy-Item -LiteralPath $currentBaseline -Destination $case -Recurse
+    $templatePath = 'SYSTEM/TEMPLATE/FORMAT/Toggle.md'
+    [IO.File]::WriteAllText((Join-Path $case $templatePath), "# Toggle`n")
+    $templaterPath = Join-Path $case '.obsidian/plugins/templater-obsidian/data.json'
+    $templater = Get-Content -LiteralPath $templaterPath -Raw | ConvertFrom-Json
+    $templater.enabled_templates_hotkeys = @($templatePath)
+    Write-JsonFile -Path $templaterPath -Value $templater
+    Write-JsonFile -Path (Join-Path $case '.obsidian/hotkeys.json') -Value ([ordered]@{
+        "templater-obsidian:$templatePath" = @()
+    })
+    Assert-Pass -Label 'Configured Templater hotkey command' -Result (
+        Invoke-Checker -VaultPath $case
+    )
+
+    $case = Join-Path $tempRoot 'stale-templater-insert-hotkey'
+    Copy-Item -LiteralPath $currentBaseline -Destination $case -Recurse
+    $templatePath = 'SYSTEM/TEMPLATE/FORMAT/Toggle.md'
+    [IO.File]::WriteAllText((Join-Path $case $templatePath), "# Toggle`n")
+    $templaterPath = Join-Path $case '.obsidian/plugins/templater-obsidian/data.json'
+    $templater = Get-Content -LiteralPath $templaterPath -Raw | ConvertFrom-Json
+    $templater.enabled_templates_hotkeys = @($templatePath)
+    Write-JsonFile -Path $templaterPath -Value $templater
+    Write-JsonFile -Path (Join-Path $case '.obsidian/hotkeys.json') -Value ([ordered]@{
+        "templater-obsidian:insert-$templatePath" = @()
+    })
+    Assert-Fail -Label 'Stale Templater insert-prefix hotkey' -ExpectedText "Obsidian hotkey references an unsupported or unconfigured command ID: templater-obsidian:insert-$templatePath" -Result (
+        Invoke-Checker -VaultPath $case
+    )
+
+    $case = Join-Path $tempRoot 'valid-specific-file-hotkey'
+    Copy-Item -LiteralPath $currentBaseline -Destination $case -Recurse
+    $specificFilePath = 'HUB/Mail Box.md'
+    [IO.File]::WriteAllText((Join-Path $case $specificFilePath), "# Mail Box`n")
+    Write-JsonFile -Path (Join-Path $case '.obsidian/plugins/obsidian-hotkeys-for-specific-files/data.json') -Value ([ordered]@{
+        files = @(
+            [ordered]@{
+                useMoment = $false
+                file = $specificFilePath
+            }
+        )
+    })
+    Write-JsonFile -Path (Join-Path $case '.obsidian/hotkeys.json') -Value ([ordered]@{
+        "obsidian-hotkeys-for-specific-files:$specificFilePath" = @()
+        "obsidian-hotkeys-for-specific-files:$specificFilePath-new-tab" = @()
+    })
+    Assert-Pass -Label 'Configured specific-file hotkey commands' -Result (
+        Invoke-Checker -VaultPath $case
+    )
+
+    $case = Join-Path $tempRoot 'stale-specific-file-hotkey'
+    Copy-Item -LiteralPath $currentBaseline -Destination $case -Recurse
+    $specificFilePath = 'HUB/Mail Box.md'
+    [IO.File]::WriteAllText((Join-Path $case $specificFilePath), "# Mail Box`n")
+    Write-JsonFile -Path (Join-Path $case '.obsidian/plugins/obsidian-hotkeys-for-specific-files/data.json') -Value ([ordered]@{
+        files = @(
+            [ordered]@{
+                useMoment = $false
+                file = $specificFilePath
+            }
+        )
+    })
+    Write-JsonFile -Path (Join-Path $case '.obsidian/hotkeys.json') -Value ([ordered]@{
+        'obsidian-hotkeys-for-specific-files:HUB/Inbox.md' = @()
+    })
+    Assert-Fail -Label 'Stale specific-file hotkey command' -ExpectedText 'Obsidian hotkey references an unsupported or unconfigured command ID: obsidian-hotkeys-for-specific-files:HUB/Inbox.md' -Result (
+        Invoke-Checker -VaultPath $case
+    )
+
+    $case = Join-Path $tempRoot 'stale-specific-file-new-tab-hotkey'
+    Copy-Item -LiteralPath $currentBaseline -Destination $case -Recurse
+    $specificFilePath = 'HUB/Mail Box.md'
+    [IO.File]::WriteAllText((Join-Path $case $specificFilePath), "# Mail Box`n")
+    Write-JsonFile -Path (Join-Path $case '.obsidian/plugins/obsidian-hotkeys-for-specific-files/data.json') -Value ([ordered]@{
+        files = @(
+            [ordered]@{
+                useMoment = $false
+                file = $specificFilePath
+            }
+        )
+    })
+    $staleNewTabCommand = 'obsidian-hotkeys-for-specific-files:SYSTEM/TEMPLATE/CODE/toggle_todo_revert.md-new-tab'
+    $staleNewTabHotkeys = [ordered]@{}
+    $staleNewTabHotkeys[$staleNewTabCommand] = @()
+    Write-JsonFile -Path (Join-Path $case '.obsidian/hotkeys.json') -Value $staleNewTabHotkeys
+    Assert-Fail -Label 'Stale specific-file new-tab hotkey command' -ExpectedText "Obsidian hotkey references an unsupported or unconfigured command ID: $staleNewTabCommand" -Result (
+        Invoke-Checker -VaultPath $case
+    )
+
     $case = Join-Path $tempRoot 'current-mobile-malformed-home'
     Copy-Item -LiteralPath $currentBaseline -Destination $case -Recurse
     [IO.File]::WriteAllText(
@@ -352,7 +441,7 @@ try {
         Invoke-Checker -VaultPath $case
     )
 
-    Write-Host 'Dusk workflow checker tests passed: 23 cases.'
+    Write-Host 'Dusk workflow checker tests passed: 28 cases.'
 }
 finally {
     $resolved = [IO.Path]::GetFullPath($tempRoot)

@@ -261,9 +261,12 @@ Desktop Home, Mobile Home, four Note Toolbar actions, and the configured
 hotkey map to the Journals 1.x ID `journals:journal:calendar:open-day`.
 Post-update Journals 2.1.10 derives the configured daily command as
 `journals:personal-daily:open-today's-note`; the seven external references were
-not migrated. Home create maps to an opaque QuickAdd
-choice ID. Allowed static files do not prove the nested QuickAdd
-choice-to-template mapping.
+not migrated. The same checker run found three specific-file hotkeys whose
+paths are no longer configured and one Templater hotkey that retains an obsolete
+`insert-` prefix. Together with malformed Todoist directives on both Home
+surfaces, the current disposable reports 13 structural failures across 160
+checks. Home create maps to an opaque QuickAdd choice ID. Allowed static files
+do not prove the nested QuickAdd choice-to-template mapping.
 
 ## Independent re-review failure
 
