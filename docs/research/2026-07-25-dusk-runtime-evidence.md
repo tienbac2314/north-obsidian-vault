@@ -138,11 +138,14 @@ For both variants:
 7. Post-update plugin-manifest hashes matched the corresponding Windows copy
    exactly: 47 of 47 for light and 57 of 57 for full.
 
-The corrected light cold-start probe was not usable at 5.7 seconds and was
-usable by 10.7 seconds. Full Dusk showed `Loading plugins...` near 11.7
-seconds and was usable by about 19.7 seconds. Neither corrected run reached
-the recovery screen. Repeated Mali `BAD ALLOC` messages remained, with no
-captured Java crash, ANR, SIGSEGV, or plugin exception. Full Dusk used about
+### Performance observations
+
+The corrected light cold-start probe was still loading at 5.7 seconds and
+showed its target view by 10.7 seconds. Full Dusk showed `Loading plugins...`
+near 11.7 seconds and its target view by about 19.7 seconds. These timings do
+not establish interaction readiness or usability. Neither corrected run
+reached the recovery screen. Repeated Mali `BAD ALLOC` messages remained, with
+no captured Java crash, ANR, SIGSEGV, or plugin exception. Full Dusk used about
 165.6 MiB PSS and 343.8 MiB RSS after load.
 
 Five seconds in the background preserved the same PID. Resume returned the
@@ -223,7 +226,7 @@ and search with the selected base.
 | RT-03 | Windows | Highlightr/Settings Search `parentNode` error | Isolate in Goal 2 |
 | RT-04 | Windows | Novel Word Count missing file-explorer leaf | Do not depend on minimal/mobile workspace |
 | RT-05 | Both | Fresh Dataview defaults disable JavaScript queries | Two explicit booleans restored tested output |
-| RT-06 | Android | Full cold start usable only by about 19.7 seconds | Unchanged full stack is a blocker |
+| RT-06 | Android | Full cold-start target view appeared by about 19.7 seconds | Interaction readiness remains unproven; unchanged full stack is a blocker |
 | RT-07 | Android/GSI | Repeated Mali `BAD ALLOC`, no crash/ANR | Device/ROM risk; retest target device |
 | RT-08 | Android | URI-created Vietnamese note absent from captured search | Repeat normal in-app create/save/search |
 | RT-09 | Process | Initial copies included 31 source plugin `data.json` files | Quarantined; corrected rerun supersedes |
@@ -238,10 +241,10 @@ and search with the selected base.
 | Static note/theme shell | Rendered | Rendered | Candidate |
 | DataviewJS dashboards | Render after two safe flags | Render after two safe flags | Candidate |
 | Datacore Map / Mail Box | Render in reading view | Render in reading view | Candidate |
-| Full Dusk cold start | Four-second plugin-load upper bound | About 19.7-second usable upper bound | Mobile blocker |
-| Light cold start | All 43 loaded after reload | About 10.7-second usable upper bound | Needs reduction |
-| Rotation | Paired screenshots | 2000 by 1200 Home capture | Acceptable defect level |
-| Background/resume | Not applicable | Same PID after five seconds | Passed short probe |
+| Full Dusk cold start | Four-second plugin-load upper bound | Target view by about 19.7 seconds | Interaction readiness unknown |
+| Light cold start | All 43 loaded after reload | Target view by about 10.7 seconds | Interaction readiness unknown |
+| Rotation | Paired screenshots | One 2000 by 1200 Home capture | Limited render probe; touch and overflow incomplete |
+| Background/resume | Not applicable | Same PID after five seconds | Limited process-survival probe |
 | Mixed language display | Unicode-safe files | Unicode-safe visible note | Candidate |
 | Mixed language search | Not repeated | Zero result with URI confounder | Unknown |
 | Quick Explorer / Status Bar Organizer | Desktop-only manifests | Not loadable by design | Never mobile dependency |

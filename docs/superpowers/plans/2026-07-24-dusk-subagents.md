@@ -1,6 +1,7 @@
 # Dusk Subagents Implementation Plan
 
-> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
+Status: historical. Do not rerun this five-agent orchestration. Current
+ownership and subagent limits live in [active goal](../../active-goal.md).
 
 **Goal:** Add five project-scoped Codex agents that move Dusk inventory, plugin research, visual QA, bounded disposable-vault fixes, and release review out of the main context.
 

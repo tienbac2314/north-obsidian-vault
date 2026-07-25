@@ -4,7 +4,7 @@ These files preserve design sessions produced through planning skills. They may 
 
 ## Specifications
 
-- [Dusk subagents](superpowers/specs/2026-07-24-dusk-subagents-design.md) — completed
+- [Dusk subagents](superpowers/specs/2026-07-24-dusk-subagents-design.md) — historical; do not rerun
 - [Obsidian and Hermes workspace](superpowers/specs/2026-07-22-obsidian-hermes-workspace-design.md) — superseded
 - [Git workflow migration](superpowers/specs/2026-07-22-git-workflow-migration-design.md) — superseded
 - [Markdown discoverability](superpowers/specs/2026-07-22-markdown-discoverability-design.md) — completed
@@ -14,7 +14,7 @@ These files preserve design sessions produced through planning skills. They may 
 
 - [Dusk plugin functional revalidation](superpowers/plans/2026-07-25-dusk-plugin-functional-revalidation.md) — historical; do not rerun
 - [Dusk Goal 1 discovery](superpowers/plans/2026-07-25-dusk-goal1-discovery.md) — historical; do not rerun
-- [Dusk subagents](superpowers/plans/2026-07-24-dusk-subagents.md) — completed
+- [Dusk subagents](superpowers/plans/2026-07-24-dusk-subagents.md) — historical; do not rerun
 - [Whole-system design hardening](superpowers/plans/2026-07-23-design-hardening.md) — completed
 - [FNS human-sync pilot](superpowers/plans/2026-07-22-fns-human-sync-pilot.md) — superseded
 - [Obsidian and Hermes release one](superpowers/plans/2026-07-22-obsidian-hermes-release-one.md) — superseded

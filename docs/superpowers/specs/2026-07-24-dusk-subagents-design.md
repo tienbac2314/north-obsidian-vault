@@ -1,6 +1,7 @@
 # Dusk subagents design
 
-Status: implemented and validated with one runner limitation
+Status: historical. Do not reuse this five-agent orchestration. Current
+ownership and subagent limits live in [active goal](../../active-goal.md).
 Date: 2026-07-24
 
 ## Objective

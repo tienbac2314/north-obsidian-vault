@@ -45,14 +45,14 @@ This is a design recommendation, not permission to modify `G:\Obsidian`.
 | 3 | Dusk_light complete plugin ledger | [47-plugin ledger](2026-07-25-dusk-light-plugin-ledger.md) |
 | 4 | Dusk versus Dusk_light differences | [Variant ledger](2026-07-25-dusk-variant-and-discord-ledger.md#dusk-additions-over-dusk_light) |
 | 5 | `new from discord` component ledger | [Discord ledger](2026-07-25-dusk-variant-and-discord-ledger.md#new-from-discord-ledger) |
-| 6 | First-open/startup timeline | [Windows and Android timelines](2026-07-25-dusk-runtime-evidence.md#windows-first-open-timeline) |
-| 7 | Plugin update/migration timeline | [Update evidence](2026-07-25-dusk-runtime-evidence.md#windows-update-and-migration-timeline) |
+| 6 | First-open/startup timeline | [Windows and Android timelines](2026-07-25-dusk-runtime-evidence.md#windows-first-open-and-update-timeline) |
+| 7 | Plugin update/migration timeline | [Update evidence](2026-07-25-dusk-runtime-evidence.md#windows-first-open-and-update-timeline) |
 | 8 | Popup/new feature catalog | [Popup catalog](2026-07-25-dusk-runtime-evidence.md#popup-and-newly-discovered-feature-catalog) |
-| 9 | Bug/failure catalog | [RT-01 through RT-08](2026-07-25-dusk-runtime-evidence.md#error-and-failure-catalog) |
+| 9 | Bug/failure catalog | [RT-01 through RT-09](2026-07-25-dusk-runtime-evidence.md#failure-catalog) |
 | 10 | Desktop/mobile compatibility matrix | [Physical-device matrix](2026-07-25-dusk-runtime-evidence.md#desktopmobile-compatibility-matrix) |
 | 11 | Dusk surface/workflow map | [Surface dependency map](2026-07-25-dusk-surface-and-security-map.md) |
 | 12 | Security/privacy/network review | [Security model](2026-07-25-dusk-surface-and-security-map.md#security-and-privacy-model) |
-| 13 | Startup/performance assessment | [Performance evidence](2026-07-25-dusk-runtime-evidence.md#performance-assessment) |
+| 13 | Startup/performance assessment | [Performance evidence](2026-07-25-dusk-runtime-evidence.md#performance-observations) |
 | 14 | Language-strategy analysis | [Three strategies](2026-07-25-dusk-language-strategies.md) |
 | 15 | Zoomed-out risks/opportunities | [Risks and simpler experiments](2026-07-25-dusk-surface-and-security-map.md#zoomed-out-risks) |
 | 16 | Archived PR #4 revalidation | [Confirmed/stale/contradicted/unknown ledger](2026-07-25-dusk-pr4-revalidation.md) |

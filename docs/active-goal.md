@@ -18,8 +18,8 @@ draft. Goal 2 and live promotion are not authorized.
    verdict and release blockers.
 3. [Goal 1 discovery](research/2026-07-25-dusk-goal1-discovery.md) for the
    18-deliverable index and conditional Goal 2 recommendation.
-4. [PR review guide](research/2026-07-25-dusk-pr-review-guide.md) only after
-   Goal 1 receives a PASS.
+4. [PR review guide](research/2026-07-25-dusk-pr-review-guide.md) for evidence
+   review now; use its personalization checklist only after PASS.
 
 Plans under `docs/superpowers/` are historical execution records, not current
 instructions.
