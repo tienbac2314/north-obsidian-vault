@@ -114,6 +114,38 @@ Do not delete historical evidence. Record which later artifact supersedes each
 rejected or stale screenshot. Final PASS decisions may cite only accepted
 evidence.
 
+### Contact-sheet triage
+
+For large screenshot sets, generate bounded contact sheets before opening every
+image individually. To triage the complete discovery tree without ingesting
+vault media, use discovery mode; it includes only images below directories named
+`screenshots` or `evidence` and excludes `.obsidian` paths:
+
+```powershell
+powershell -NoProfile -File scripts/build-evidence-contact-sheets.ps1 `
+  -InputRoot G:\Dusk-Goal1-Discovery-20260725 `
+  -OutputRoot G:\Dusk-Goal1-Discovery-20260725\goal1-current-evidence\contact-sheets `
+  -DiscoverEvidenceSets
+```
+
+For one bounded run, omit `-DiscoverEvidenceSets` and point `InputRoot` directly
+at its screenshot/evidence directory. Standard mode refuses vault trees, and
+both modes refuse more than 500 images by default; override those bounds only
+when the broader scope is intentional. Contact sheets reduce
+repeated image-analysis calls and make missing coverage,
+duplicates, invalid modes, and non-maximized windows easier to spot. Their CSV
+manifest records original paths, timestamps, dimensions, SHA-256 hashes, and
+exact-duplicate relationships. They are derived navigation aids, not acceptance
+evidence. Keep them and their manifests outside Git. Open and cite the original
+image for every finding, classification, or PASS decision; never rely on a
+contact sheet alone for fine text, command results, or defect severity.
+
+When the builder changes, run:
+
+```powershell
+powershell -NoProfile -File scripts/test-evidence-contact-sheets.ps1
+```
+
 The detailed external manifest should record at least:
 
 ```text

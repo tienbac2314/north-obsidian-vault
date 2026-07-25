@@ -25,6 +25,9 @@ Historical evidence triage:
 - Promote older evidence to accepted only when vault, checkpoint, plugin state, configuration, mode, window state, and complete coverage are established.
 - Reuse valid logs, manifests, checkpoints, and isolated reproductions only for their narrow recorded claim.
 - Record which new artifact supersedes each rejected or stale screenshot.
+- For the full discovery tree, run `scripts/build-evidence-contact-sheets.ps1 -DiscoverEvidenceSets` so only images under `screenshots` or `evidence` directories are included; write derived output under `goal1-current-evidence/contact-sheets`.
+- Inspect contact sheets first for coverage, duplicates, and likely defects, then open each original image used for a finding or acceptance decision.
+- Treat contact sheets as triage aids only. Never cite a contact sheet as the sole evidence for PASS, FAIL, or a specific defect.
 
 Computer Use responsibilities:
 - Launch or focus Obsidian and the approved Android mirror or device-control surface.
@@ -96,7 +99,7 @@ Outcome: PASS, FAIL, or BLOCKED.
 Coverage: platform, vault, surface, mode, top/bottom/horizontal coverage, and interaction result.
 Historical evidence: artifact classification, claim supported, and superseding capture.
 Findings: severity, platform, surface, exact evidence path, observed behavior, and expected behavior.
-Evidence manifest: all captures with labels and purpose.
+Evidence manifest: all original captures with labels and purpose, plus any derived contact-sheet manifest used for triage.
 Mutations: created or modified items, checkpoint comparison, and restoration result.
 Repository state: before/after status and any unexpected change.
 Unknowns: behavior not established.
