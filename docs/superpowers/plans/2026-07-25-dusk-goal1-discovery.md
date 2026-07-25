@@ -1,6 +1,9 @@
 # Dusk Goal 1 Discovery Implementation Plan
 
-> **For agentic workers:** REQUIRED SUB-SKILL: Use the project-scoped Dusk agents and the orchestration sequence in the approved [Dusk subagents design](../specs/2026-07-24-dusk-subagents-design.md). Keep one main coordinator and one writer per disposable target.
+Status: historical execution plan. Do not rerun its multi-agent orchestration.
+Current continuation instructions live in
+[active goal](../../active-goal.md); current evidence lives in
+[functional revalidation](../../research/2026-07-25-dusk-plugin-functional-revalidation.md).
 
 **Goal:** Produce complete, reproducible Windows and physical-Android Dusk discovery evidence before any personalization or live-vault change.
 

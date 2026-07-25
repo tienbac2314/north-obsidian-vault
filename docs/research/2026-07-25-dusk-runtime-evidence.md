@@ -166,48 +166,17 @@ Dataview JS queries are disabled. You can enable them in the Dataview settings.
 Setting only `enableDataviewJs` and `enableInlineDataviewJs` to true restored
 the tested Dataview output. No source plugin configuration was copied.
 
-Functional evidence covers Home, Map of Content, Mail Box, project, area,
-daily, weekly, monthly, Getting Started, and a project template in reading
-view for both variants on Windows and physical Android. All 40 checks reached
-reading mode. None showed the disabled-Dataview notice, raw Datacore fence, or
-missing-button error.
+All 40 initial checks reached reading mode without the disabled-Dataview notice,
+raw Datacore fence, or missing-button error. They prove technical rendering
+only. They do not establish complete workflow behavior or usability.
 
-These 40 checks prove technical rendering only. They do not establish complete
-workflow behavior or usability. Older Windows captures at 1024 by 800 are
-diagnostic evidence because sidebars and content wrap or clip too severely for
-desktop usability judgment. Android visual QA found horizontal table overflow
-and visible error-like content and clipping on full Home.
-
-Map of Content rendered its searchable paginated Datacore table. Mail Box
-rendered its inbox and filters. Home and periodic notes rendered dynamic task,
-calendar, navigation, and recent-file output. Home also exposed raw Todoist
-`filter`, `project`, and `sorting` configuration. The daily fixture still
-reports `Note is not connected to a journal`, so safe Journals configuration
-remains unresolved.
-
-An expanded maximized Windows run at 1920 by 1040 directly checked Files,
-Recent Files, Search, Bookmarks, daily, weekly, monthly, project, area, a
-restored task-checkbox mutation, and project-template application. Every note
-required an explicit switch to reading mode and up to five seconds for dynamic
-content. Bookmarks was empty. Home ribbon navigation and Home `Map of Contents`
-and `Daily Note` buttons did not navigate. Templater exposed the whole vault in
-its picker and created `Untitled.md` in the current `DAILY/MONTHLY` folder
-without a naming or location prompt.
-
-The six labeled screenshots are under:
-
-```text
-G:\Dusk-Goal1-Discovery-20260725\workflow-rerun\screenshots\computer-use-maximized
-```
-
-The synthetic applied-template note and empty probe folder were moved to:
-
-```text
-G:\Dusk-Goal1-Discovery-20260725\workflow-rerun\cleanup-archive\desktop-light
-```
-
-QuickAdd, Meta Bind, Mail Box, timeline, and remaining write behavior are still
-unverified.
+Expanded maximized Windows checks, Luna visual findings, user corrections,
+write-path mapping, screenshot locations, and archived synthetic residue are
+recorded once in
+[functional revalidation](2026-07-25-dusk-plugin-functional-revalidation.md#expanded-workflow-and-visual-review).
+That report documents Home navigation failures, raw Todoist configuration,
+Android Home defects, horizontal overflow, Journals warning, Templater
+placement, and remaining unverified write paths.
 
 The populated variant's plugin binaries, manifests, non-sensitive settings,
 CSS, templates, and note structure can inform `Dusk_light_empty`. Source

@@ -19,6 +19,12 @@ Summaries navigate. They never replace detailed modules. Minimalization applies 
 
 ## Current evidence
 
+For Dusk continuation, read [active goal](active-goal.md), current
+[functional evidence](research/2026-07-25-dusk-plugin-functional-revalidation.md),
+then [review verdict](research/2026-07-25-dusk-goal1-review.md). Open specialized
+ledgers only for their named question; do not load every report as startup
+context.
+
 - [Dusk Goal 1 preflight](research/2026-07-25-dusk-goal1-preflight.md)
 - [Dusk source and variant manifest](research/2026-07-25-dusk-source-manifest.md)
 - [Dusk Goal 1 discovery synthesis](research/2026-07-25-dusk-goal1-discovery.md)

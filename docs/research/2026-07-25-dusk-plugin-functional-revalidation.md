@@ -4,6 +4,11 @@ Date: 2026-07-25
 
 Status: incomplete. Independent re-review failed; PR #7 remains draft.
 
+This file is current functional evidence authority. It owns workflow findings,
+user corrections, write-path mapping, and raw evidence locations. The
+[runtime report](2026-07-25-dusk-runtime-evidence.md) retains startup chronology;
+the [review](2026-07-25-dusk-goal1-review.md) retains release verdict.
+
 ## TL;DR
 
 - Earlier Android and Windows dashboard failures were misclassified because

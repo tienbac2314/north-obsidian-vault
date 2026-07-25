@@ -4,157 +4,77 @@ Updated: 2026-07-25
 
 ## Objective
 
-Complete Dusk Goal 1 discovery from the fixed local source bundle and physical
-Android copy before asking about personalization or changing the live vault.
+Finish Dusk Goal 1 discovery from the fixed source bundle and physical Android
+copy before asking about personalization or changing the live vault.
 
-Status: Goal 1 remains incomplete on 2026-07-25. Independent functional
-re-review returned FAIL and PR #7 remains draft. No Dusk import, plugin
-decision, personalization choice, or promotion plan is accepted.
+Status: **incomplete**. Functional re-review returned **FAIL**. PR #7 remains
+draft. Goal 2 and live promotion are not authorized.
 
-## Checkpoint
+## Read order
 
-- Pull request #6 is merged at `571fde4`; current `main` contains reversal
-  authority.
-- Sole current Dusk source authority is
+1. [Functional revalidation](research/2026-07-25-dusk-plugin-functional-revalidation.md)
+   for current findings, user corrections, and raw evidence paths.
+2. [Independent review](research/2026-07-25-dusk-goal1-review.md) for current
+   verdict and release blockers.
+3. [Goal 1 discovery](research/2026-07-25-dusk-goal1-discovery.md) for the
+   18-deliverable index and conditional Goal 2 recommendation.
+4. [PR review guide](research/2026-07-25-dusk-pr-review-guide.md) only after
+   Goal 1 receives a PASS.
+
+Plans under `docs/superpowers/` are historical execution records, not current
+instructions.
+
+## Verified checkpoint
+
+- PR #6 is merged at `571fde4`; DEC-039 remains reversal authority.
+- Sole source is
   `C:\Users\TienBac\Documents\New project\dusk-obsidian-vault-master`.
-- [Goal 1 preflight](research/2026-07-25-dusk-goal1-preflight.md) passed for
-  repository, source, storage, Obsidian, research, browser, custom-agent, ADB,
-  screenshot, UI-tree, log, and filesystem access.
-- [Goal 1 discovery](research/2026-07-25-dusk-goal1-discovery.md) covers all 18
-  requested deliverables and physical-Android additions.
-- [Independent review](research/2026-07-25-dusk-goal1-review.md) previously
-  returned **PASS**. Functional re-review superseded it with **FAIL**.
-- [Functional revalidation](research/2026-07-25-dusk-plugin-functional-revalidation.md)
-  proves 44/44 light and 52/52 full selected plugins on Windows, plus 42/42
-  light and 49/49 full selected plugins on Android after restart.
-- Initial runtime copies containing 31 source plugin `data.json` files are
-  quarantined and excluded from promotion evidence. Corrected pre-open
-  checkpoints contain zero plugin `data.json`, token, or risky-name paths.
-- Home, Map of Content, Mail Box, and dependent dynamic surfaces can render in
-  reading view on Windows and Android after enabling the two explicit
-  Dataview JavaScript flags. This proves rendering, not complete usability.
-  Full Android Home defects, horizontal overflow, Home navigation failures,
-  raw Todoist configuration, unknown request-host initiators, Journals, and
-  remaining write workflows still block closure.
-- [Source manifest](research/2026-07-25-dusk-source-manifest.md) records 1,571
-  files and 421 directories. PC and tablet safe manifests match at SHA-256
-  `D7E55C61CD6395F938F1842CBED66D71D22DCD8480BA5EE2628CD5452CB3B6AB`;
-  146 sensitive/configuration files remain intentionally unopened.
-- Raw evidence and disposable copies use
+- Raw evidence and disposables stay under
   `G:\Dusk-Goal1-Discovery-20260725`, outside `G:\Obsidian`.
-- Goal 1 is discovery only. Source bundle, tablet source, `G:\Obsidian`, FNS
-  account/configuration, and current authority receive no runtime promotion.
-- [DEC-039](decisions/decision-log.md#dec-039-archive-hand-built-phase-2-and-restart-import-first)
-  supersedes the hand-built Dusk recreation from closed PR #4.
-- Exact PR #4 history remains on archived branch `feat/obsidian-phase2` at
-  `5c689ef`; the [reversal record](archive/2026-07-24-phase-2-reversal.md)
-  indexes reusable evidence and rollback state.
-- Live vault returned to its pre-Phase-2 content baseline with Notion preserved,
-  only FNS enabled, FNS Configuration Sync disabled, and Obsidian core Sync
-  disabled.
-- [DEC-038](decisions/decision-log.md#dec-038-record-existing-personal-vault-exception)
-  records existing Notion content as a bounded current-state exception, not a
-  completed personal-data promotion.
-- Project-scoped Dusk inventory, plugin, visual, debugger, and release-review
-  agents are merged through PR #5. Main agent alone may promote live-vault
-  changes.
-- PR #2 is merged. Branch `feat/fns-release-one` starts from verified `origin/main`.
-- Current upstream releases are FNS server `3.6.0` and Obsidian plugin `2.4.0`; server image digest and ARM64 manifest are recorded in deployment contract.
-- Open server issues `#339`, `#342`, and `#346` still block personal data and agent consumers.
-- Stage 1 contract now defines pinned Compose, loopback bind, closed-by-default registration, secret-bearing runtime config, dedicated tunnel, stopped-service backup, empty-path restore, and rollback.
-- Stage 2 read-only Oracle preflight passed architecture, Docker, Compose, disk, loopback port, target-path, and no-existing-FNS checks.
-- Preflight disproved old Nginx assumption. DEC-035 selects new dedicated Cloudflare Tunnel without editing existing routes or tunnel processes.
-- Pinned FNS server is healthy on IPv6 loopback. Dedicated tunnel and DNS route return TLS health `200` from Windows. WebGUI registration probe returns closed-registration code `410`.
-- Stopped-service archive checksum and `runtime/` paths passed. Empty-path same-VPS restore started healthy on alternate loopback port, returned `200`, matched live storage file count, and retained closed registration. Restore tree is preserved.
-- Obsidian `1.12.7` is installed. Disposable Windows vault contains agreed 18-directory layout, Home, guide, and four core templates.
-- Human accepted the disposable vault trust warning. Restricted Mode is off,
-  verified FNS plugin `2.4.0` is enabled, and its Remote Configuration panel is
-  reachable.
-- One user-selected disposable credential created exactly one synthetic
-  account. Its recoverable password record is Windows DPAPI-encrypted outside
-  repository and vault.
-- Registration was closed immediately after account creation. A second valid
-  WebGUI registration request returned application code `410`; no second
-  account exists.
-- Sole synthetic user is now administrator. Registration remains closed and
-  loopback and public health checks still pass.
-- Windows Obsidian uses one dedicated REST plus WebSocket token restricted to
-  exact `FNS Pilot` vault. Recoverable authorization record is DPAPI-encrypted
-  outside repository and vault. Account-wide bootstrap token was revoked.
-- Initial and repeated full sync completed. Remote vault contains seven
-  synthetic notes and one native SVG attachment.
-- Windows gates passed for note convergence, two-version history, recycle-bin
-  deletion, restoration to original path, and native attachment sync.
-- Human completed physical Android plugin enrollment and reported successful
-  initial setup before disconnecting phone. WebGUI later confirmed prior
-  Android token use; Android behavior matrix remains unrun.
-- Exactly two current manual device tokens remain. Both use REST plus
-  WebSocket, 365-day validity, and exact `FNS Pilot` restriction. Windows
-  remained WebSocket-online after scope correction; superseded manual attempts
-  were revoked without changing WebGUI sessions.
-- Live and repository configuration now use 365-day manual-token default.
-- Empty Storage Configuration Type dropdown is explained by all optional FNS
-  storage providers being disabled. This is expected Release 1 configuration
-  plus an upstream missing empty-state message, not browser failure.
-- Fresh populated stopped-service archive passed server and Windows checksum
-  verification. Off-VPS copy is outside repository and vault under restricted
-  Windows ACL; temporary readable VPS export was removed.
-- Populated empty-path restore returned health `200`, retained closed
-  registration, and matched 105 live storage files. Isolated restore
-  container/network were removed; restored files remain preserved.
-- Plain-vault recovery copy contains all eight synthetic user files under the
-  six approved content roots, matches source SHA-256 hashes, excludes
-  `.obsidian` and FNS credentials, and has a restricted Windows ACL.
-- Human opened the plain-vault recovery copy as an ordinary Obsidian vault and
-  confirmed required folders, notes, and SVG attachment were readable.
-- Active Windows vault moved to the requested non-system data volume by
-  copy/hash/verify/delete. All 24 files and 1,572,986 bytes matched before old
-  source removal. Obsidian reopened the new root, FNS `2.4.0` re-enabled after
-  the expected first-open trust prompt, full sync completed, and service status
-  returned connected.
-- Manual protocol-import test briefly created synthetic `FNS+Pilot` because
-  form encoding represented space as `+`. Correct import restored exact vault
-  name, and accidental remote vault was deleted after equality checks.
-- Hermes and 9Router remain outside deployment and receive no vault workload.
-- Ground-up setup documentation is now a conventional standalone OSS-style
-  guide. It supports direct human use or automation without assuming a live
-  human-agent choreography.
+- Selected plugin loads passed after restart: Windows light 44/44, Windows full
+  52/52, Android light 42/42, Android full 49/49.
+- User Android `Dusk_light` was restored at 45/45 enabled plugins with both
+  Dataview JavaScript flags true. Manual post-import enablement is intentional,
+  not incompatibility or configuration drift.
+- Reading view can render tested Datacore and Dataview surfaces. This does not
+  prove navigation, write behavior, visual quality, or workflow usability.
+- Source, tablet source, live vault, and production FNS received no promotion.
 
-## Next action
+## Open blockers
 
-Resolve functional re-review blockers, rerun direct maximized Windows and
-physical-Android checks, update evidence, and obtain an independent PASS.
-Return PR #7 to ready only after that PASS. The user can then use the
-[PR review guide](research/2026-07-25-dusk-pr-review-guide.md) to select one
-Goal 2 workflow. Do not personalize or promote into `G:\Obsidian` before a
-concise design and implementation plan are accepted.
+1. Attribute four request hosts recorded without initiators:
+   `cdn.ko-fi.com`, `storage.ko-fi.com`, `i.ytimg.com`, and
+   `img.buymeacoffee.com`.
+2. Diagnose full Android Home error-like content, clipping, and horizontal
+   overflow.
+3. Diagnose failed Home ribbon, `Map of Contents`, and `Daily Note` navigation.
+4. Remove or explain raw Todoist configuration rendered on Home.
+5. Reconstruct and test safe Journals configuration.
+6. Test required QuickAdd, Meta Bind, Mail Box, timeline, and remaining write
+   paths with synthetic fixtures and restored state.
+7. Obtain a new release verdict after evidence and documentation are corrected.
 
-## Deferred promotion work
+## Execution rules
 
-- Dusk source choice, populated versus empty base, Discord deltas, plugin
-  upgrades, AI-note tooling, mobile defects, and live promotion remain
-  undecided.
-- Existing Notion bytes remain a bounded exception; do not add more personal or
-  employer content until promotion gates are reconciled.
-- Full Android battery/background, offline, conflict, rename/move, restart, and
-  attachment matrix remains future promotion evidence.
-- Current Windows archive is off VPS and ACL-restricted, but does not protect
-  against simultaneous Windows and VPS loss.
-- A rebuilt-client drill and seven-day synthetic observation remain optional
-  follow-on promotion work, not Phase 1 installation work.
-- Public TLS endpoint plus unresolved FNS security reports restrict the pilot to
-  synthetic fixtures and the preserved DEC-038 Notion exception; no additional
-  personal or employer content is authorized.
+- Use disposable vaults only. Never modify `G:\Obsidian` or source vaults.
+- Maximize desktop Obsidian before judgment. Distinguish editing from reading
+  mode, wait for dynamic content, and save a labeled screenshot before moving
+  to the next check.
+- Main agent owns decisions and file edits. Future UI work should use at most
+  one Luna visual subagent for visual and Computer Use checks. Do not recreate
+  the prior multi-agent swarm.
+- Keep network, credential, sync, publish, sharing, AI, and external-writer
+  features gated unless a scoped test requires one.
+- Preserve atomic commits. Do not collapse findings into one final checkpoint.
 
-## Authority
+## Completion gate
 
-- [Executive summary](executive-summary.md)
-- [System design](system-design.md)
-- [Architecture modules](architecture/recommended-architecture.md)
-- [Behavior and experiments](behavior/capture-to-digest.md)
-- [First release](roadmap/mvp.md)
-- [Phased roadmap](roadmap/phased-roadmap.md)
-- [Decision log](decisions/decision-log.md)
-- [Git workflow](git-workflow.md)
+Goal 1 closes only when blockers are resolved or explicitly accepted, PC and
+physical-Android evidence match claims, repository checks pass, and review
+returns PASS. Until then, keep PR #7 draft and do not ask personalization
+questions.
 
-`docs/archive/`, `docs/superpowers/`, chat history, and NotebookLM output remain history or working evidence unless promoted into current modules or accepted decisions.
+Current product authority remains in [system design](system-design.md),
+[architecture](architecture/recommended-architecture.md),
+[behavior](behavior/capture-to-digest.md), [roadmap](roadmap/mvp.md),
+[decisions](decisions/decision-log.md), and [Git workflow](git-workflow.md).

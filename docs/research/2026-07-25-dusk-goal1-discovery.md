@@ -280,7 +280,6 @@ personalization.
 
 ## Independent verdict
 
-The earlier independent **PASS** preceded the functional correction. Its
-editing-mode dashboard conclusions are superseded. Independent re-review is
-required before PR #7 returns to ready status. Remaining write, FNS, Journals,
-and performance unknowns continue to block live promotion.
+Functional re-review returned **FAIL** and withdrew the earlier **PASS**.
+[Current review](2026-07-25-dusk-goal1-review.md) lists release blockers. PR #7
+remains draft; Goal 2 and live promotion remain unauthorized.
