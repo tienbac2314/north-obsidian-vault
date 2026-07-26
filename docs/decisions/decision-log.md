@@ -278,3 +278,28 @@ Statuses: Accepted, Proposed, Rejected, Postponed, Superseded.
 - Boundary: No source, plugin set, Android defect, or promotion plan is accepted by this decision. No archived plan may modify `G:\Obsidian`. Live promotion requires a new concise design and implementation plan, Windows and Android evidence or explicit accepted defects, secret exclusion, backup manifest, rollback proof, and independent review.
 - Rationale: Preserve useful research while removing redundant reconstruction and documentation from the implementation path.
 - Evidence: [Phase 2 reversal](../archive/2026-07-24-phase-2-reversal.md).
+
+## DEC-040: Reset Phase 2 Preparation
+
+- Status: Accepted.
+- Decision: Recover from current `main` without rewriting history. Use project
+  stages Phase 1, Phase 2 Preparation, and Phase 2 Execution while preserving
+  roadmap Release 0 through Release 5 as separate promotion gates.
+- Source: Use populated `Dusk_light` as future behavioral reference. Consider
+  `Dusk_light_empty` only after comparison. Do not run full Dusk as a second
+  end-to-end candidate; permit at most three bounded experiments for proven
+  gaps.
+- Evidence: Treat PR #4, PR #7, audit packages, old screenshots, and old plugin
+  state as historical diagnostics. Future acceptance requires fresh disposable
+  desktop and Android evidence.
+- Operation: Remove obsolete five-agent orchestration and its two generated
+  documents from the candidate tree. Preserve recoverable copies in the cold
+  archive before any external cleanup.
+- Safety: Recovery performs no Obsidian, ADB, Android, FNS, package-installer,
+  Computer Use, live-vault, source-vault, personal-data, or credential change.
+  Every external deletion, branch deletion, worktree removal, PR closure, and
+  remote mutation requires an exact reviewed manifest and separate approval.
+- Review: One main implementer owns decisions and edits. One fresh Sol xhigh
+  reviewer checks recovery read-only. Future UI work may use at most one Luna
+  visual Computer Use subagent under the main agent.
+- Design: [Phase 2 Preparation reset](../architecture/phase-2-preparation-reset.md).

@@ -1,8 +1,7 @@
 # Phase 2 Preparation reset
 
 Status: approved on 2026-07-27. This design governs repository recovery and
-future Phase 2 Preparation; it does not authorize Phase 2 Execution or live
-promotion.
+Phase 2 Preparation; it does not authorize Phase 2 Execution or live promotion.
 
 ## Purpose
 

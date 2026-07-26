@@ -11,7 +11,9 @@ Read [executive summary](executive-summary.md) for orientation, then use modules
 - Behavior: [capture to growth](behavior/capture-to-digest.md), [Hermes approved apply and link gardening](behavior/hermes-apply-and-link-gardening.md), [interaction examples](behavior/interaction-examples.md), and [experiments](behavior/experiments.md).
 - In-vault manual: [vault operating guide](../vault-template/SYSTEM/Guides/vault-operating-guide.md).
 - Roadmap: [first production-worthy release](roadmap/mvp.md) and [evidence-gated roadmap](roadmap/phased-roadmap.md).
-- Decisions: [decision log](decisions/decision-log.md) and [unresolved questions](decisions/unresolved-questions.md).
+- Decisions: [decision log](decisions/decision-log.md),
+  [DEC-040 Phase 2 Preparation reset](decisions/decision-log.md#dec-040-reset-phase-2-preparation),
+  and [unresolved questions](decisions/unresolved-questions.md).
 - Current checkpoint: [active goal](active-goal.md).
 - Repository operation: [Git workflow](git-workflow.md).
 

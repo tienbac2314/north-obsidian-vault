@@ -10,6 +10,17 @@ it does not mark Release 1 or 2 complete. DEC-039 archives the abandoned
 hand-built Dusk attempt and returns customization to an import-first design
 gate.
 
+## Project-stage mapping
+
+Project stages describe current work; releases describe promotion evidence.
+They are related but not interchangeable.
+
+| Project stage | Current meaning | Release effect |
+|---|---|---|
+| Phase 1 | Existing FNS foundation and safe baseline | Does not waive incomplete Release 1 gates |
+| Phase 2 Preparation | Dusk inspection, candidate selection, fresh disposable desktop/Android evidence, safety/test contract, and approved customization plan | Promotes no release |
+| Phase 2 Execution | Implement and validate approved customized workspace | Must satisfy applicable Release 1 and Release 2 gates |
+
 ## Program map
 
 ```mermaid
