@@ -431,8 +431,9 @@ New-Item -ItemType Directory -Path $archiveRoot | Out-Null
 
 - [ ] **Step 3: Preserve Git graph and unique unreachable commit**
 
-Create and verify one `--all` repository bundle. Create binary patches and
-`git archive` ZIP snapshots for these exact refs:
+Create and verify one `--all` repository bundle plus one individual bundle per
+ref. Create binary patches and `git archive` ZIP snapshots for these exact
+refs:
 
 ```text
 codex/docs-phase2-reversal
@@ -473,6 +474,8 @@ $refs = @(
 foreach ($ref in $refs) {
     $safe = $ref.Replace('/', '__')
     $base = git merge-base main $ref
+    git bundle create (Join-Path $gitArchive "$safe.bundle") $ref
+    git bundle verify (Join-Path $gitArchive "$safe.bundle")
     git diff --binary --full-index "--output=$(Join-Path $gitArchive "$safe.patch")" "$base..$ref"
     git archive --format=zip "--output=$(Join-Path $gitArchive "$safe.zip")" $ref
 }
@@ -483,8 +486,9 @@ git diff-tree --root --binary --full-index --patch "--output=$(Join-Path $gitArc
 git cat-file commit $lost | Set-Content -LiteralPath (Join-Path $gitArchive 'unreachable-f97eff4.commit.txt') -Encoding UTF8
 ```
 
-Expected: each command exits 0 and archive contains one bundle, seven branch
-patches, seven branch ZIPs, and three unreachable-commit artifacts.
+Expected: each command exits 0 and archive contains one all-refs bundle, seven
+individual branch bundles, seven branch patches, seven branch ZIPs, and three
+unreachable-commit artifacts.
 
 - [ ] **Step 4: Preserve clean historical worktree snapshots**
 
