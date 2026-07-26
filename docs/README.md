@@ -7,7 +7,7 @@ Root [`README.md`](../README.md) is repository entrypoint. [`AGENTS.md`](../AGEN
 Read [executive summary](executive-summary.md) for orientation, then use modules needed for decision or implementation:
 
 - [System design](system-design.md) - complete product behavior, release boundaries, authority, stack, and promotion gates.
-- Architecture: [recommended architecture](architecture/recommended-architecture.md), [options](architecture/options.md), [data contracts](architecture/data-model.md), [failure handling](architecture/failure-handling.md), [security](architecture/security.md), and [diagrams](architecture/diagrams.md).
+- Architecture: [recommended architecture](architecture/recommended-architecture.md), [Phase 2 Preparation reset](architecture/phase-2-preparation-reset.md), [options](architecture/options.md), [data contracts](architecture/data-model.md), [failure handling](architecture/failure-handling.md), [security](architecture/security.md), and [diagrams](architecture/diagrams.md).
 - Behavior: [capture to growth](behavior/capture-to-digest.md), [Hermes approved apply and link gardening](behavior/hermes-apply-and-link-gardening.md), [interaction examples](behavior/interaction-examples.md), and [experiments](behavior/experiments.md).
 - In-vault manual: [vault operating guide](../vault-template/SYSTEM/Guides/vault-operating-guide.md).
 - Roadmap: [first production-worthy release](roadmap/mvp.md) and [evidence-gated roadmap](roadmap/phased-roadmap.md).
