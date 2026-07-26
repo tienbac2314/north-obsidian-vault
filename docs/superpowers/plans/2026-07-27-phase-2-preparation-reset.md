@@ -911,6 +911,7 @@ and every bundle passes.
 Restore every branch bundle and check every non-empty patch in new repositories:
 
 ```powershell
+$archiveRoot = 'G:\Dusk-Phase2-Cold-Archive-20260727'
 $restoreRunId = "$(git rev-parse --short=12 HEAD)-$(Get-Date -Format 'yyyyMMdd-HHmmssfff')"
 $restoreRoot = Join-Path $archiveRoot "verification\final-bundle-restores-$restoreRunId"
 if (Test-Path -LiteralPath $restoreRoot) { throw 'Unique restore root collision' }
@@ -954,6 +955,7 @@ or create a PR unless user separately requests it.
 After pushing candidate, perform clean-room checkout and content exclusion:
 
 ```powershell
+$archiveRoot = 'G:\Dusk-Phase2-Cold-Archive-20260727'
 $cleanRunId = "$(git rev-parse --short=12 HEAD)-$(Get-Date -Format 'yyyyMMdd-HHmmssfff')"
 $cleanRoom = Join-Path $archiveRoot "verification\final-clean-room-$cleanRunId"
 if (Test-Path -LiteralPath $cleanRoom) { throw 'Unique clean-room path collision' }
@@ -973,6 +975,7 @@ After all verification artifacts exist, preserve final durable state and create
 the definitive bidirectional archive ledger:
 
 ```powershell
+$archiveRoot = 'G:\Dusk-Phase2-Cold-Archive-20260727'
 $stateRoot = 'C:\Users\TienBac\Documents\New project\Dusk-Phase2-Recovery-State'
 $finalRunId = "$(git rev-parse --short=12 HEAD)-$(Get-Date -Format 'yyyyMMdd-HHmmssfff')"
 $finalState = Join-Path $archiveRoot "state\final-recovery-state-$finalRunId"
