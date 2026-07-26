@@ -1,7 +1,8 @@
 # Phase 2 Preparation reset
 
-Status: candidate written specification. Recovery direction and Option A were
-approved on 2026-07-27; this exact repository text awaits user review.
+Status: approved on 2026-07-27. This design governs repository recovery and
+future Phase 2 Preparation; it does not authorize Phase 2 Execution or live
+promotion.
 
 ## Purpose
 
@@ -22,8 +23,8 @@ Project phases and roadmap releases answer different questions:
 | Project stage | Meaning | Roadmap relationship |
 |---|---|---|
 | Phase 1 | Existing FNS foundation and current safe baseline | Does not claim every Release 1 exit gate passed |
-| Phase 2 Preparation | Source selection, design, test contract, archive, and approval | Prepares later Dusk work without promoting a release |
-| Phase 2 Execution | Future disposable desktop and Android validation, correction, and promotion decision | Must respect every applicable Release 1 and Release 2 gate |
+| Phase 2 Preparation | Inspect Dusk, select candidate, create fresh disposable desktop/Android evidence, define safety/test contract, and approve customization plan | Promotes no release |
+| Phase 2 Execution | Implement and validate approved customized workspace | Must respect every applicable Release 1 and Release 2 gate |
 
 Roadmap labels `Release 0` through `Release 5` remain unchanged. Current files
 must not use `Goal 1` as another name for Phase 2 Preparation.
@@ -70,17 +71,17 @@ page tasks, daily/weekly/monthly notes, dynamic actions, templates, hotkeys,
 search, desktop/mobile Home behavior, and mobile sorting.
 
 `Dusk_light_empty` may become the later customization candidate after source
-comparison. Full Dusk is not a second end-to-end candidate. Phase 2 Execution
+comparison. Full Dusk is not a second end-to-end candidate. Phase 2 Preparation
 may run at most three bounded full-Dusk experiments, and only for gaps first
 proven against `Dusk_light`.
 
 GitHub, Discord, package, and plugin evidence must be refreshed when Phase 2
-Execution begins. Historical captures may identify questions but cannot pass a
+Preparation begins. Historical captures may identify questions but cannot pass a
 current gate.
 
-## Future validation contract
+## Future Phase 2 Preparation validation contract
 
-Phase 2 Execution must create fresh evidence from disposable vaults. It must:
+Phase 2 Preparation must create fresh evidence from disposable vaults. It must:
 
 - keep `G:\Obsidian`, source vaults, FNS state, personal notes, and credentials
   outside test scope;
@@ -103,7 +104,7 @@ Daily creation on Android is first priority because prior evidence showed a
 broken new-note/template path. Weekly and monthly creation follow the same
 end-to-end contract.
 
-Future execution uses one main agent as decider and editor. At most one Luna
+Future Phase 2 Preparation uses one main agent as decider and editor. At most one Luna
 visual Computer Use subagent may operate the UI; it remains read-only outside
 explicit disposable-test writes. Recovery uses one separate Sol xhigh reviewer
 only after plan and destructive manifest exist.

@@ -1,8 +1,8 @@
 # Phase 2 Preparation Reset Implementation Plan
 
-> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
+> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:executing-plans to implement this plan task-by-task. Do not dispatch implementation subagents. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Produce one lean Phase 1-complete repository state, one verified cold archive of failed Phase 2 material, and one safe handoff for future Phase 2 Execution.
+**Goal:** Produce one lean Phase 1-complete repository state, one verified cold archive of failed Phase 2 material, and one safe handoff for future Phase 2 Preparation.
 
 **Architecture:** Keep current `main` history and implement recovery on `docs/phase2-preparation-reset`. Promote only concise current authority and historical lessons; keep raw evidence outside active repository use. Copy and verify every cleanup target before requesting exact destructive approval.
 
@@ -58,6 +58,12 @@ feat/fns-release-one
 feat/obsidian-phase2
 research/full-system-design
 research/full-system-design-dev
+```
+
+Temporary local preservation ref, never remote:
+
+```text
+refs/archive/f97eff4
 ```
 
 External directories and files:
@@ -138,11 +144,12 @@ Updated: 2026-07-27
 
 ## Objective
 
-Complete Phase 2 Preparation: preserve the completed Phase 1 FNS foundation,
+Complete repository recovery: preserve the completed Phase 1 FNS foundation,
 remove failed Phase 2 machinery from active use, retain its useful lessons in
-one verified cold archive, and leave one executable future-validation handoff.
+one verified cold archive, and leave one executable Phase 2 Preparation handoff.
 
-Status: Phase 1 foundation complete. Phase 2 Preparation is active. No Dusk
+Status: Phase 1 foundation complete. Repository recovery is active. Phase 2
+Preparation has not started. No Dusk
 source, plugin set, desktop result, Android result, or live promotion is
 currently accepted.
 
@@ -150,10 +157,10 @@ currently accepted.
 
 - Phase 1: existing FNS foundation and current safe baseline. This does not
   claim every roadmap Release 1 exit gate passed.
-- Phase 2 Preparation: source choice, design, archive, test contract, and
-  approval. It performs no native validation.
-- Phase 2 Execution: future disposable desktop and Android validation,
-  correction, and promotion decision.
+- Phase 2 Preparation: inspect Dusk, select candidate, create fresh disposable
+  desktop/Android evidence, define safety and test contracts, and approve one
+  customization plan.
+- Phase 2 Execution: implement and validate the approved customized workspace.
 - Roadmap Release 0 through Release 5 remain evidence gates, not aliases for
   project phases.
 
@@ -181,8 +188,9 @@ the future-agent handoff without merging to `main`.
 - Do not treat historical screenshots or plugin state as current acceptance.
 - Do not modify source vaults, `G:\Obsidian`, FNS, personal data, credentials,
   or device state during recovery.
-- No Phase 2 Execution begins until recovery finishes and a later session
-  refreshes current Dusk GitHub, Discord, plugin, desktop, and Android evidence.
+- No Phase 2 Preparation native validation begins during recovery. A later
+  Preparation session refreshes current Dusk GitHub, Discord, plugin, desktop,
+  and Android evidence before approving an Execution plan.
 
 ## Authority
 
@@ -208,8 +216,8 @@ They are related but not interchangeable.
 | Project stage | Current meaning | Release effect |
 |---|---|---|
 | Phase 1 | Existing FNS foundation and safe baseline | Does not waive incomplete Release 1 gates |
-| Phase 2 Preparation | Dusk source, design, archive, and future test contract | Promotes no release |
-| Phase 2 Execution | Disposable desktop and Android validation plus promotion decision | Must satisfy applicable Release 1 and Release 2 gates |
+| Phase 2 Preparation | Dusk inspection, candidate selection, fresh disposable desktop/Android evidence, safety/test contract, and approved customization plan | Promotes no release |
+| Phase 2 Execution | Implement and validate approved customized workspace | Must satisfy applicable Release 1 and Release 2 gates |
 ```
 
 - [ ] **Step 4: Append DEC-040**
@@ -372,6 +380,9 @@ Expected: checks pass and worktree is clean.
 
 ### Task 3: Build and verify cold archive
 
+Status: completed before execution review on 2026-07-27. Revalidate recorded
+artifacts; do not recreate or overwrite archive implicitly.
+
 **Files:**
 
 - Create externally: `G:\Dusk-Phase2-Cold-Archive-20260727\README.md`
@@ -385,18 +396,19 @@ Expected: checks pass and worktree is clean.
 - Consumes: exact refs and external targets in `KEEP-ARCHIVE-DELETE.md`.
 - Produces: independently verifiable archive required before any destructive approval.
 
-- [ ] **Step 1: Revalidate paths and free space without broad drive listing**
+- [x] **Step 1: Revalidate paths and free space without broad drive listing**
 
 Run `Test-Path`, `Get-Item`, and `Get-PSDrive G` only for exact named targets.
-Abort if archive root already exists, any required source unexpectedly vanished,
-or available space is below twice total source bytes.
+Archive root must exist and match recorded manifests. Abort if it is missing,
+any required source unexpectedly vanished, or available space is below twice
+total source bytes.
 
 Use:
 
 ```powershell
 $archiveRoot = 'G:\Dusk-Phase2-Cold-Archive-20260727'
-if (Test-Path -LiteralPath $archiveRoot) {
-    throw "Archive root already exists: $archiveRoot"
+if (-not (Test-Path -LiteralPath $archiveRoot -PathType Container)) {
+    throw "Archive root missing: $archiveRoot"
 }
 $drive = Get-PSDrive -Name G
 if ($drive.Free -lt 3GB) {
@@ -405,9 +417,10 @@ if ($drive.Free -lt 3GB) {
 ```
 
 Compute exact source bytes from target set and raise `3GB` if twice measured
-bytes is larger. Expected: root absent and free bytes above safety floor.
+bytes is larger. Expected: root present with required manifests and free bytes
+above safety floor.
 
-- [ ] **Step 2: Create fixed archive layout**
+- [x] **Step 2: Verify fixed archive layout**
 
 Create only:
 
@@ -419,17 +432,17 @@ G:\Dusk-Phase2-Cold-Archive-20260727\state
 G:\Dusk-Phase2-Cold-Archive-20260727\verification
 ```
 
-Use:
+Verify without creating:
 
 ```powershell
 $archiveRoot = 'G:\Dusk-Phase2-Cold-Archive-20260727'
-New-Item -ItemType Directory -Path $archiveRoot | Out-Null
 @('git', 'worktrees', 'external', 'state', 'verification') | ForEach-Object {
-    New-Item -ItemType Directory -Path (Join-Path $archiveRoot $_) | Out-Null
+    $path = Join-Path $archiveRoot $_
+    if (-not (Test-Path -LiteralPath $path -PathType Container)) { throw "Archive layout missing: $path" }
 }
 ```
 
-- [ ] **Step 3: Preserve Git graph and unique unreachable commit**
+- [x] **Step 3: Preserve Git graph and unique unreachable commit**
 
 Create and verify one `--all` repository bundle plus one individual bundle per
 ref. Create binary patches and `git archive` ZIP snapshots for these exact
@@ -481,16 +494,22 @@ foreach ($ref in $refs) {
 }
 
 $lost = 'f97eff4816156f7138682ec6dca23d9d21cc7317'
+$temporaryRef = 'refs/archive/f97eff4'
+git update-ref $temporaryRef $lost
+git bundle create (Join-Path $gitArchive 'unreachable-f97eff4.bundle') $temporaryRef
+git bundle verify (Join-Path $gitArchive 'unreachable-f97eff4.bundle')
 git archive --format=zip "--output=$(Join-Path $gitArchive 'unreachable-f97eff4.zip')" $lost
 git diff-tree --root --binary --full-index --patch "--output=$(Join-Path $gitArchive 'unreachable-f97eff4.patch')" $lost
-git cat-file commit $lost | Set-Content -LiteralPath (Join-Path $gitArchive 'unreachable-f97eff4.commit.txt') -Encoding UTF8
 ```
 
 Expected: each command exits 0 and archive contains one all-refs bundle, seven
 individual branch bundles, seven branch patches, seven branch ZIPs, and three
-unreachable-commit artifacts.
+unreachable-commit representations including exact ref-backed bundle. Clean
+restore must resolve commit `f97eff4` and tree
+`25fa7923b7a48c2b936ab5063763d5a85421e756`. Temporary ref remains local and
+is listed for separately approved cleanup; never push it.
 
-- [ ] **Step 4: Preserve clean historical worktree snapshots**
+- [x] **Step 4: Preserve clean historical worktree snapshots**
 
 Recheck porcelain status for:
 
@@ -503,7 +522,7 @@ C:\Users\TienBac\Documents\New project\personal-knowledge-pipeline\.worktrees\ob
 Abort on any dirty line. Record each HEAD and tree, then retain the matching Git
 archive from Step 3 as its clean snapshot.
 
-- [ ] **Step 5: Copy exact external evidence**
+- [x] **Step 5: Copy exact external evidence**
 
 Copy these directories with `robocopy /E /COPY:DAT /DCOPY:T /R:1 /W:1 /XJ` and
 treat exit codes 0 through 7 as success:
@@ -582,7 +601,7 @@ foreach ($source in $fileSources) {
 }
 ```
 
-- [ ] **Step 6: Generate manifests without printing content**
+- [x] **Step 6: Generate manifests without printing content**
 
 `SOURCE-MANIFEST.csv` must contain source path, archive-relative path, item
 type, byte count, file count, classification, and intended post-approval
@@ -609,7 +628,7 @@ $rows | Export-Csv -LiteralPath (Join-Path $archiveRoot 'SHA256SUMS.csv') -NoTyp
 
 Expected: one checksum row per archived file other than checksum file itself.
 
-- [ ] **Step 7: Verify copy equality and restore path**
+- [x] **Step 7: Verify copy equality and restore path**
 
 Compare source and destination file counts, total bytes, and per-file SHA-256
 for every copied target. Clone the repository bundle into
@@ -618,7 +637,7 @@ for every copied target. Clone the repository bundle into
 `verification\worktree-restore`. Verify restored tree identity against
 `3cd0c80e5637bec7c9b34c4ffdaac53b79774201^{tree}`.
 
-- [ ] **Step 8: Record archive result**
+- [x] **Step 8: Record archive result**
 
 Write archive `README.md` with purpose, created time, source/base SHAs,
 exclusions, bundle verification commands, restoration commands, and explicit
@@ -628,6 +647,9 @@ archive counts, bytes, manifest hashes, restore result, and any excluded item.
 Expected: zero mismatch, zero unclassified target, source trees unchanged.
 
 ### Task 4: Prepare exact destructive manifest
+
+Status: completed before execution review on 2026-07-27; every group remains
+`NOT APPROVED`.
 
 **Files:**
 
@@ -639,13 +661,13 @@ Expected: zero mismatch, zero unclassified target, source trees unchanged.
 - Consumes: verified archive manifest and archive restoration proof.
 - Produces: exact approval packet; performs no destructive command.
 
-- [ ] **Step 1: List candidate-tree deletions already proposed**
+- [x] **Step 1: List candidate-tree deletions already proposed**
 
 Record seven repository paths from exact cleanup target set with candidate
 commit and cold archive location. Status remains `NOT APPROVED` until reviewer
 and user act.
 
-- [ ] **Step 2: List exact external filesystem cleanup**
+- [x] **Step 2: List exact external filesystem cleanup**
 
 Record the two evidence directories, three package directories, one worktree
 ZIP, and 27 loose `G:` files from exact cleanup target set. Include
@@ -653,15 +675,19 @@ resolved absolute source, archive destination, source/archive counts and bytes,
 manifest hash, recoverability command, exact PowerShell removal command, and
 `NOT APPROVED`.
 
-- [ ] **Step 3: List exact Git and GitHub cleanup**
+- [x] **Step 3: List exact Git and GitHub cleanup**
 
 Record:
 
 - removal of three registered historical worktrees;
-- deletion of these seven local branches: `codex/docs-phase2-reversal`,
-  `docs/dusk-goal1-discovery`, `feat/dusk-subagents`, `feat/fns-release-one`,
-  `feat/obsidian-phase2`, `research/full-system-design`, and
+- `git branch -d` deletion of four merged local branches:
+  `codex/docs-phase2-reversal`, `feat/dusk-subagents`, `feat/fns-release-one`,
+  and `research/full-system-design`;
+- separately approved `git branch -D` deletion of three ref-only local
+  branches: `docs/dusk-goal1-discovery`, `feat/obsidian-phase2`, and
   `research/full-system-design-dev`;
+- separately approved deletion of temporary local ref `refs/archive/f97eff4`
+  only after its bundle restore passes;
 - remote deletion of seven archived branches;
 - closure of draft PR #7 after confirming head `3cd0c80e5637bec7c9b34c4ffdaac53b79774201`;
 - retention of `main`, `docs/phase2-preparation-reset`, PR #3, PR #4, PR #5,
@@ -670,7 +696,7 @@ Record:
 Every row must name prerequisite archive evidence, precondition, exact command,
 rollback, approval, and result. Do not execute commands.
 
-- [ ] **Step 4: Check manifest completeness**
+- [x] **Step 4: Check manifest completeness**
 
 Compare manifest targets against `KEEP-ARCHIVE-DELETE.md` in both directions.
 Expected: zero missing and zero extra destructive target.
@@ -689,7 +715,7 @@ Expected: zero missing and zero extra destructive target.
   durable recovery state.
 - Produces: one severity-ranked read-only review from a fresh Sol xhigh agent.
 
-- [ ] **Step 1: Invoke requesting-code-review**
+- [x] **Step 1: Invoke requesting-code-review**
 
 Dispatch exactly one `dusk-release-reviewer`-role agent with model
 `gpt-5.6-sol`, xhigh reasoning, and read-only task text. Do not dispatch any
@@ -697,7 +723,7 @@ other agent. Packet must include exact paths, candidate/base SHAs, scope,
 non-goals, verification output, and request for Critical/Important findings
 only.
 
-- [ ] **Step 2: Evaluate findings technically**
+- [x] **Step 2: Evaluate findings technically**
 
 Use `receiving-code-review`. Verify each finding against files or commands.
 Record accepted, rejected-with-evidence, and fixed findings in
@@ -741,7 +767,7 @@ set. Remove only their two links from `docs/generated-work-index.md`; keep this
 2026-07-27 plan entry. Run:
 
 ```powershell
-rg -n -i 'dusk-(release-reviewer|runtime-debugger|source-inventory)|obsidian-(plugin-auditor|visual-qa)|2026-07-24-dusk-subagents' README.md docs .codex
+rg -n -i 'dusk-(release-reviewer|runtime-debugger|source-inventory)|obsidian-(plugin-auditor|visual-qa)|2026-07-24-dusk-subagents' README.md docs .codex -g '!docs/superpowers/plans/2026-07-27-phase-2-preparation-reset.md'
 powershell -NoProfile -File scripts/check-markdown-links.ps1
 powershell -NoProfile -File scripts/check-secrets.ps1
 git diff --check
@@ -758,7 +784,9 @@ git commit -m "docs(phase2): retire swarm machinery"
 
 Use native PowerShell `Remove-Item -LiteralPath` for exact filesystem targets,
 `git worktree remove` for exact clean registered worktrees, `git branch -d` for
-verified local branches, `git push origin --delete` for exact remote branches,
+four verified merged branches, separately approved `git branch -D` for three
+verified ref-only branches, separately approved `git update-ref -d` for
+`refs/archive/f97eff4`, `git push origin --delete` for exact remote branches,
 and GitHub CLI to close exact PR #7. Record command, timestamp, exit status, and
 postcondition per row.
 
@@ -766,9 +794,12 @@ postcondition per row.
 
 Confirm every approved target absent, every unapproved target present,
 `main` still at starting SHA/tree, candidate branch present, archive manifests
-still hash correctly, and restoration commands still pass. Refresh archived
-copy of durable recovery state, regenerate `SHA256SUMS.csv`, and verify it again
-so archive records post-cleanup result.
+still hash correctly, and restoration commands still pass. Keep initial
+`state\recovery-state` snapshot immutable. Copy final durable state once to
+`state\final-recovery-state`, create `state\FINAL-STATE-HASHES.csv` with its
+relative paths, sizes, and SHA-256 values, then regenerate `SHA256SUMS.csv`.
+Do not change `SOURCE-MANIFEST.csv` or `SOURCE-FILE-HASHES.csv`; they describe
+initial source-copy proof only.
 
 ### Task 7: Publish final handoff and verify branch
 
@@ -788,7 +819,7 @@ so archive records post-cleanup result.
 Create a project-state-only handoff. Include read order, exact current branch
 and commit, Phase 1 versus roadmap caveat, approved Dusk source strategy,
 archive location and restoration proof, unresolved native validation, safety
-boundaries, and first Phase 2 Execution action. Exclude model advice except the
+boundaries, and first Phase 2 Preparation action. Exclude model advice except the
 explicit main-agent plus one Luna visual-subagent constraint requested by user.
 
 - [ ] **Step 2: Add documentation-map link**
@@ -796,9 +827,22 @@ explicit main-agent plus one Luna visual-subagent constraint requested by user.
 Link handoff from current checkpoint section of `docs/README.md`. Do not create
 another index or dashboard.
 
-- [ ] **Step 3: Run full repository verification**
+Stage both files before link validation so tracked-file reachability checks see
+the new handoff:
 
-Run:
+```powershell
+git add docs/README.md docs/phase-2-preparation-handoff.md
+```
+
+- [ ] **Step 3: Commit handoff and run full repository verification**
+
+Commit only staged handoff files:
+
+```powershell
+git commit -m "docs(phase2): add preparation handoff"
+```
+
+Run documentation checks in candidate:
 
 ```powershell
 powershell -NoProfile -File scripts/check-markdown-links.ps1
@@ -807,21 +851,114 @@ powershell -NoProfile -File scripts/test-initialize-vault-template.ps1
 powershell -NoProfile -File scripts/check-secrets.ps1
 powershell -NoProfile -File scripts/check-mermaid.ps1
 git diff --check
+git diff --cached --check
 ```
 
 Expected: all commands exit 0; all Markdown reachable; values never printed;
 all Mermaid diagrams render.
 
-- [ ] **Step 4: Commit handoff**
+Run fresh Git integrity and identity checks:
 
 ```powershell
-git add docs/README.md docs/phase-2-preparation-handoff.md
-git commit -m "docs(phase2): add execution handoff"
+$repo = 'C:\Users\TienBac\Documents\New project\personal-knowledge-pipeline'
+$candidate = 'C:\Users\TienBac\Documents\New project\personal-knowledge-pipeline-phase2-reset'
+$expectedMain = '571fde461571d842c3912964f86adfa9b0314092'
+$expectedMainTree = 'ac711cdb04e368b28480ae389b3142ce5e44f5f3'
+git -C $repo fsck --full
+git -C $candidate status --short --branch
+if ((git -C $repo rev-parse main) -ne $expectedMain) { throw 'Local main drift' }
+if ((git -C $repo rev-parse 'main^{tree}') -ne $expectedMainTree) { throw 'Local main tree drift' }
+$remoteMain = (git -C $repo ls-remote origin refs/heads/main).Split("`t")[0]
+if ($remoteMain -ne $expectedMain) { throw 'Remote main drift' }
+git -C $repo for-each-ref --format='%(refname) %(objectname)' refs/heads refs/archive
+git -C $repo worktree list --porcelain
+git -C $repo ls-remote --heads origin
+git -C $repo tag --list
+& 'C:\Program Files\GitHub CLI\gh.exe' pr list --repo tienbac2314/north-obsidian-vault --state all --json number,state,isDraft,baseRefName,headRefName,headRefOid
 ```
 
-- [ ] **Step 5: Verify final identity and publish branch**
+Expected: `fsck` exits 0; candidate clean; local and remote `main` SHA/tree
+match; only retained refs/worktrees/remotes remain; no tags; PR states match
+approved cleanup results.
+
+Verify every archive checksum and bundle from fresh bytes:
+
+```powershell
+$archiveRoot = 'G:\Dusk-Phase2-Cold-Archive-20260727'
+$checksumFile = Join-Path $archiveRoot 'SHA256SUMS.csv'
+foreach ($row in Import-Csv -LiteralPath $checksumFile) {
+    $path = Join-Path $archiveRoot $row.RelativePath
+    $item = Get-Item -LiteralPath $path
+    if ($item.Length -ne [long]$row.Bytes) { throw "Archive length mismatch: $($row.RelativePath)" }
+    if ((Get-FileHash -LiteralPath $path -Algorithm SHA256).Hash -ne $row.SHA256) { throw "Archive hash mismatch: $($row.RelativePath)" }
+}
+foreach ($bundle in Get-ChildItem -LiteralPath (Join-Path $archiveRoot 'git') -Filter '*.bundle') {
+    git bundle verify $bundle.FullName
+    if ($LASTEXITCODE -ne 0) { throw "Bundle verification failed: $($bundle.Name)" }
+}
+```
+
+Expected: every checksum row and every bundle passes.
+
+Restore every branch bundle and check every non-empty patch in new repositories:
+
+```powershell
+$restoreRoot = Join-Path $archiveRoot 'verification\final-bundle-restores'
+if (Test-Path -LiteralPath $restoreRoot) { throw 'Final restore root already exists' }
+New-Item -ItemType Directory -Path $restoreRoot | Out-Null
+foreach ($row in Import-Csv -LiteralPath (Join-Path $archiveRoot 'git\REFS.csv')) {
+    $safe = $row.Ref.Replace('/', '__')
+    $restore = Join-Path $restoreRoot $safe
+    New-Item -ItemType Directory -Path $restore | Out-Null
+    git -C $restore init --quiet
+    git -C $restore fetch --quiet (Join-Path $archiveRoot "git\$($row.Bundle)") "refs/heads/$($row.Ref)`:refs/heads/restored"
+    if ((git -C $restore rev-parse restored) -ne $row.Head) { throw "Restored head mismatch: $($row.Ref)" }
+    if ((git -C $restore rev-parse 'restored^{tree}') -ne $row.Tree) { throw "Restored tree mismatch: $($row.Ref)" }
+    $patch = Join-Path $archiveRoot "git\$($row.Patch)"
+    if ((Get-Item -LiteralPath $patch).Length -gt 0) {
+        git -C $restore checkout --quiet --detach $row.MergeBase
+        git -C $restore apply --check $patch
+        if ($LASTEXITCODE -ne 0) { throw "Patch restore failed: $($row.Ref)" }
+    }
+}
+$lost = Import-Csv -LiteralPath (Join-Path $archiveRoot 'verification\UNREACHABLE-RESTORE.csv')
+$lostRestore = Join-Path $restoreRoot 'unreachable-f97eff4'
+New-Item -ItemType Directory -Path $lostRestore | Out-Null
+git -C $lostRestore init --quiet
+git -C $lostRestore fetch --quiet (Join-Path $archiveRoot $lost.BundleRelativePath) 'refs/archive/f97eff4:refs/heads/restored'
+if ((git -C $lostRestore rev-parse restored) -ne $lost.Commit) { throw 'Unreachable commit restore mismatch' }
+if ((git -C $lostRestore rev-parse 'restored^{tree}') -ne $lost.Tree) { throw 'Unreachable tree restore mismatch' }
+```
+
+Expected: seven branch heads/trees, every non-empty patch, and exact unreachable
+commit/tree restore from clean repositories.
+
+- [ ] **Step 4: Record final identity and publish branch**
 
 Record candidate HEAD/tree, clean status, base ancestry, `main` SHA/tree, full
 verification output, archive manifest hashes, review result, and cleanup result.
 Push only `docs/phase2-preparation-reset`. Do not merge, close recovery branch,
 or create a PR unless user separately requests it.
+
+- [ ] **Step 5: Verify pushed branch from clean room**
+
+After pushing candidate, perform clean-room checkout and content exclusion:
+
+```powershell
+$cleanRoom = Join-Path $archiveRoot 'verification\final-clean-room'
+if (Test-Path -LiteralPath $cleanRoom) { throw 'Clean-room path already exists' }
+git clone --branch docs/phase2-preparation-reset --single-branch https://github.com/tienbac2314/north-obsidian-vault.git $cleanRoom
+powershell -NoProfile -File (Join-Path $cleanRoom 'scripts\check-markdown-links.ps1')
+powershell -NoProfile -File (Join-Path $cleanRoom 'scripts\test-markdown-links.ps1')
+powershell -NoProfile -File (Join-Path $cleanRoom 'scripts\test-initialize-vault-template.ps1')
+powershell -NoProfile -File (Join-Path $cleanRoom 'scripts\check-secrets.ps1')
+powershell -NoProfile -File (Join-Path $cleanRoom 'scripts\check-mermaid.ps1')
+git -C $cleanRoom diff --check
+$forbidden = @(git -C $cleanRoom ls-files | rg -i '(^|/)\.obsidian/plugins/[^/]+/data\.json$|\.(png|jpe?g|gif|webp|mp4|mov|mkv|log)$|Dusk-Phase2-Recovery-State')
+if ($forbidden.Count -ne 0) { throw 'Committed raw evidence or external state detected' }
+if (@(git -C $cleanRoom status --porcelain=v1).Count -ne 0) { throw 'Clean-room checkout dirty' }
+```
+
+Expected: clean-room branch matches pushed candidate; full repository checks
+pass; all Markdown is root-reachable; no raw evidence, secret-bearing plugin
+configuration, external recovery state, or dirty file is committed.
