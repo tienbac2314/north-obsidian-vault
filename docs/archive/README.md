@@ -5,6 +5,7 @@ Status: superseded history. Nothing under `docs/archive/` is current implementat
 ## Abandoned implementation attempts
 
 - [2026-07-24 Phase 2 Dusk recreation reversal](2026-07-24-phase-2-reversal.md)
+- [2026-07-27 Phase 2 Preparation historical lessons](2026-07-27-phase-2-preparation-lessons.md)
 
 ## Historical research
 
