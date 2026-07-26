@@ -1,9 +1,9 @@
 # Evidence-gated roadmap
 
 Status: current program roadmap under accepted modular decisions through
-DEC-039. Each release requires its own entry gates and decision.
+DEC-040. Each release requires its own entry gates and decision.
 
-Phases describe promotion order and lasting boundaries, not a backlog of components waiting for installation. Every release must remain useful if every later release is abandoned.
+Releases describe promotion order and lasting boundaries, not a backlog of components waiting for installation. Every release must remain useful if every later release is abandoned.
 
 DEC-038 records existing Notion content as an out-of-order bounded exception;
 it does not mark Release 1 or 2 complete. DEC-039 archives the abandoned
