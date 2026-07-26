@@ -795,11 +795,10 @@ postcondition per row.
 Confirm every approved target absent, every unapproved target present,
 `main` still at starting SHA/tree, candidate branch present, archive manifests
 still hash correctly, and restoration commands still pass. Keep initial
-`state\recovery-state` snapshot immutable. Copy final durable state once to
-`state\final-recovery-state`, create `state\FINAL-STATE-HASHES.csv` with its
-relative paths, sizes, and SHA-256 values, then regenerate `SHA256SUMS.csv`.
-Do not change `SOURCE-MANIFEST.csv` or `SOURCE-FILE-HASHES.csv`; they describe
-initial source-copy proof only.
+`state\recovery-state` snapshot immutable. Defer final-state snapshot and final
+archive-ledger regeneration until Task 7 Step 5, after every final verification
+artifact exists. Do not change `SOURCE-MANIFEST.csv` or
+`SOURCE-FILE-HASHES.csv`; they describe initial source-copy proof only.
 
 ### Task 7: Publish final handoff and verify branch
 
@@ -886,7 +885,15 @@ Verify every archive checksum and bundle from fresh bytes:
 ```powershell
 $archiveRoot = 'G:\Dusk-Phase2-Cold-Archive-20260727'
 $checksumFile = Join-Path $archiveRoot 'SHA256SUMS.csv'
-foreach ($row in Import-Csv -LiteralPath $checksumFile) {
+$checksumRows = @(Import-Csv -LiteralPath $checksumFile)
+$listedPaths = @($checksumRows.RelativePath | Sort-Object -Unique)
+$actualPaths = @(Get-ChildItem -LiteralPath $archiveRoot -File -Recurse -Force |
+    Where-Object { $_.FullName -ne $checksumFile } |
+    ForEach-Object { $_.FullName.Substring($archiveRoot.Length + 1) } |
+    Sort-Object -Unique)
+if ($listedPaths.Count -ne $checksumRows.Count) { throw 'Duplicate archive ledger path' }
+if (@(Compare-Object $listedPaths $actualPaths).Count -ne 0) { throw 'Archive ledger path set mismatch' }
+foreach ($row in $checksumRows) {
     $path = Join-Path $archiveRoot $row.RelativePath
     $item = Get-Item -LiteralPath $path
     if ($item.Length -ne [long]$row.Bytes) { throw "Archive length mismatch: $($row.RelativePath)" }
@@ -898,13 +905,15 @@ foreach ($bundle in Get-ChildItem -LiteralPath (Join-Path $archiveRoot 'git') -F
 }
 ```
 
-Expected: every checksum row and every bundle passes.
+Expected: ledger and actual archive file sets match exactly; every checksum row
+and every bundle passes.
 
 Restore every branch bundle and check every non-empty patch in new repositories:
 
 ```powershell
-$restoreRoot = Join-Path $archiveRoot 'verification\final-bundle-restores'
-if (Test-Path -LiteralPath $restoreRoot) { throw 'Final restore root already exists' }
+$restoreRunId = "$(git rev-parse --short=12 HEAD)-$(Get-Date -Format 'yyyyMMdd-HHmmssfff')"
+$restoreRoot = Join-Path $archiveRoot "verification\final-bundle-restores-$restoreRunId"
+if (Test-Path -LiteralPath $restoreRoot) { throw 'Unique restore root collision' }
 New-Item -ItemType Directory -Path $restoreRoot | Out-Null
 foreach ($row in Import-Csv -LiteralPath (Join-Path $archiveRoot 'git\REFS.csv')) {
     $safe = $row.Ref.Replace('/', '__')
@@ -945,8 +954,9 @@ or create a PR unless user separately requests it.
 After pushing candidate, perform clean-room checkout and content exclusion:
 
 ```powershell
-$cleanRoom = Join-Path $archiveRoot 'verification\final-clean-room'
-if (Test-Path -LiteralPath $cleanRoom) { throw 'Clean-room path already exists' }
+$cleanRunId = "$(git rev-parse --short=12 HEAD)-$(Get-Date -Format 'yyyyMMdd-HHmmssfff')"
+$cleanRoom = Join-Path $archiveRoot "verification\final-clean-room-$cleanRunId"
+if (Test-Path -LiteralPath $cleanRoom) { throw 'Unique clean-room path collision' }
 git clone --branch docs/phase2-preparation-reset --single-branch https://github.com/tienbac2314/north-obsidian-vault.git $cleanRoom
 powershell -NoProfile -File (Join-Path $cleanRoom 'scripts\check-markdown-links.ps1')
 powershell -NoProfile -File (Join-Path $cleanRoom 'scripts\test-markdown-links.ps1')
@@ -959,6 +969,54 @@ if ($forbidden.Count -ne 0) { throw 'Committed raw evidence or external state de
 if (@(git -C $cleanRoom status --porcelain=v1).Count -ne 0) { throw 'Clean-room checkout dirty' }
 ```
 
+After all verification artifacts exist, preserve final durable state and create
+the definitive bidirectional archive ledger:
+
+```powershell
+$stateRoot = 'C:\Users\TienBac\Documents\New project\Dusk-Phase2-Recovery-State'
+$finalRunId = "$(git rev-parse --short=12 HEAD)-$(Get-Date -Format 'yyyyMMdd-HHmmssfff')"
+$finalState = Join-Path $archiveRoot "state\final-recovery-state-$finalRunId"
+if (Test-Path -LiteralPath $finalState) { throw 'Unique final-state path collision' }
+Copy-Item -LiteralPath $stateRoot -Destination $finalState -Recurse
+$finalStateManifest = Join-Path $archiveRoot "state\FINAL-STATE-HASHES-$finalRunId.csv"
+Get-ChildItem -LiteralPath $finalState -File -Recurse -Force |
+    Sort-Object FullName |
+    ForEach-Object {
+        [pscustomobject]@{
+            RelativePath = $_.FullName.Substring($archiveRoot.Length + 1)
+            Bytes = $_.Length
+            SHA256 = (Get-FileHash -LiteralPath $_.FullName -Algorithm SHA256).Hash
+        }
+    } | Export-Csv -LiteralPath $finalStateManifest -NoTypeInformation -Encoding UTF8
+$checksumFile = Join-Path $archiveRoot 'SHA256SUMS.csv'
+$finalRows = @(Get-ChildItem -LiteralPath $archiveRoot -File -Recurse -Force |
+    Where-Object { $_.FullName -ne $checksumFile } |
+    Sort-Object FullName |
+    ForEach-Object {
+        [pscustomobject]@{
+            RelativePath = $_.FullName.Substring($archiveRoot.Length + 1)
+            Bytes = $_.Length
+            SHA256 = (Get-FileHash -LiteralPath $_.FullName -Algorithm SHA256).Hash
+        }
+    })
+$finalRows | Export-Csv -LiteralPath $checksumFile -NoTypeInformation -Encoding UTF8
+$verifiedRows = @(Import-Csv -LiteralPath $checksumFile)
+$listedPaths = @($verifiedRows.RelativePath | Sort-Object -Unique)
+$actualPaths = @(Get-ChildItem -LiteralPath $archiveRoot -File -Recurse -Force |
+    Where-Object { $_.FullName -ne $checksumFile } |
+    ForEach-Object { $_.FullName.Substring($archiveRoot.Length + 1) } |
+    Sort-Object -Unique)
+if ($listedPaths.Count -ne $verifiedRows.Count) { throw 'Duplicate final archive ledger path' }
+if (@(Compare-Object $listedPaths $actualPaths).Count -ne 0) { throw 'Final archive ledger path set mismatch' }
+foreach ($row in $verifiedRows) {
+    $path = Join-Path $archiveRoot $row.RelativePath
+    if ((Get-Item -LiteralPath $path).Length -ne [long]$row.Bytes) { throw "Final archive length mismatch: $($row.RelativePath)" }
+    if ((Get-FileHash -LiteralPath $path -Algorithm SHA256).Hash -ne $row.SHA256) { throw "Final archive hash mismatch: $($row.RelativePath)" }
+}
+```
+
 Expected: clean-room branch matches pushed candidate; full repository checks
 pass; all Markdown is root-reachable; no raw evidence, secret-bearing plugin
-configuration, external recovery state, or dirty file is committed.
+configuration, external recovery state, or dirty file is committed; final-state
+manifest exists; definitive ledger contains every other archive file exactly once
+and every size and SHA-256 matches.
