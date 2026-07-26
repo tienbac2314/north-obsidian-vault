@@ -124,7 +124,7 @@ GitHub state: close draft PR #7 only after confirming head
 - Consumes: approved reset specification at commit `90420258ee4582ff67b3b8186e155101f96b5752`.
 - Produces: DEC-040, concise active goal, and one unambiguous project-phase/release mapping used by every later task.
 
-- [ ] **Step 1: Mark exact specification approved**
+- [x] **Step 1: Mark exact specification approved**
 
 Replace its status paragraph with:
 
@@ -133,7 +133,7 @@ Status: approved on 2026-07-27. This design governs repository recovery and
 Phase 2 Preparation; it does not authorize Phase 2 Execution or live promotion.
 ```
 
-- [ ] **Step 2: Replace active goal with concise current checkpoint**
+- [x] **Step 2: Replace active goal with concise current checkpoint**
 
 Keep these exact sections and facts:
 
@@ -203,7 +203,7 @@ the future-agent handoff without merging to `main`.
 - [Phase 2 reversal](archive/2026-07-24-phase-2-reversal.md)
 ```
 
-- [ ] **Step 3: Add project-stage mapping to roadmap**
+- [x] **Step 3: Add project-stage mapping to roadmap**
 
 Insert after roadmap status paragraphs and before `## Program map`:
 
@@ -220,7 +220,7 @@ They are related but not interchangeable.
 | Phase 2 Execution | Implement and validate approved customized workspace | Must satisfy applicable Release 1 and Release 2 gates |
 ```
 
-- [ ] **Step 4: Append DEC-040**
+- [x] **Step 4: Append DEC-040**
 
 Append:
 
@@ -251,7 +251,7 @@ Append:
 - Design: [Phase 2 Preparation reset](../architecture/phase-2-preparation-reset.md).
 ```
 
-- [ ] **Step 5: Add direct decision-map link**
+- [x] **Step 5: Add direct decision-map link**
 
 Change current Decisions navigation to:
 
@@ -263,7 +263,7 @@ Change current Decisions navigation to:
 
 Do not add a new index file.
 
-- [ ] **Step 6: Run documentation checks**
+- [x] **Step 6: Run documentation checks**
 
 Run:
 
@@ -276,7 +276,7 @@ git diff --check
 Expected: link check passes with every tracked Markdown file reachable; secret
 scan passes without printing values; whitespace check prints nothing.
 
-- [ ] **Step 7: Commit authority**
+- [x] **Step 7: Commit authority**
 
 ```powershell
 git add docs/active-goal.md docs/architecture/phase-2-preparation-reset.md docs/roadmap/phased-roadmap.md docs/decisions/decision-log.md docs/README.md
@@ -297,7 +297,7 @@ Expected: one commit and clean worktree.
 - Consumes: historical PR #4/PR #7 evidence and verified Dusk onboarding observations.
 - Produces: one non-authoritative lessons record before any obsolete file is removed.
 
-- [ ] **Step 1: Create one historical lessons record**
+- [x] **Step 1: Create one historical lessons record**
 
 Use these sections and claims:
 
@@ -355,7 +355,7 @@ validators, and five-agent orchestration remain archive material. Future agents
 may reuse questions and regression ideas, not old acceptance conclusions.
 ```
 
-- [ ] **Step 2: Link historical lessons**
+- [x] **Step 2: Link historical lessons**
 
 Add lessons under `docs/archive/README.md` abandoned-attempt history. Leave
 obsolete Dusk-subagent files and index entries present until verified archive,
@@ -367,7 +367,7 @@ Use this exact link:
 - [2026-07-27 Phase 2 Preparation historical lessons](2026-07-27-phase-2-preparation-lessons.md)
 ```
 
-- [ ] **Step 3: Validate and commit**
+- [x] **Step 3: Validate and commit**
 
 Run link, secret, and whitespace checks from Task 1. Then:
 
@@ -729,7 +729,7 @@ Use `receiving-code-review`. Verify each finding against files or commands.
 Record accepted, rejected-with-evidence, and fixed findings in
 `REVIEW-FINDINGS.md` without copying secrets or raw logs.
 
-- [ ] **Step 3: Fix accepted findings atomically**
+- [x] **Step 3: Fix accepted findings atomically**
 
 Apply smallest fix, rerun affected checks, and commit with one logical subject.
 Send same reviewer exact new diff and verification evidence. Repeat until no
