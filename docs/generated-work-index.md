@@ -12,6 +12,7 @@ These files preserve design sessions produced through planning skills. They may 
 
 ## Plans
 
+- [Phase 2 Preparation reset](superpowers/plans/2026-07-27-phase-2-preparation-reset.md) — approved
 - [Dusk subagents](superpowers/plans/2026-07-24-dusk-subagents.md) — completed
 - [Whole-system design hardening](superpowers/plans/2026-07-23-design-hardening.md) — completed
 - [FNS human-sync pilot](superpowers/plans/2026-07-22-fns-human-sync-pilot.md) — superseded
