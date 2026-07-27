@@ -749,18 +749,18 @@ Critical or Important finding remains.
 - Consumes: reviewer-cleared manifest and verified archive.
 - Produces: clean repository/worktree/remote/external state with restoration path retained.
 
-- [ ] **Step 1: Ask one exact approval question**
+- [x] **Step 1: Ask one exact approval question**
 
 Present short totals plus clickable destructive manifest. State retained items
 and recovery path. Do not treat earlier general cleanup approval as approval.
 
-- [ ] **Step 2: Revalidate before each approved action group**
+- [x] **Step 2: Revalidate before each approved action group**
 
 Resolve absolute targets, compare current source identity/count/hash to manifest,
 verify archive copy, and stop that group on drift. Never use a computed broad
 directory, wildcard, `$HOME`, or workspace root as destructive target.
 
-- [ ] **Step 3: Remove approved obsolete repository files**
+- [x] **Step 3: Remove approved obsolete repository files**
 
 Use `apply_patch` to delete only seven repository paths in exact cleanup target
 set. Remove only their two links from `docs/generated-work-index.md`; keep this
@@ -780,7 +780,7 @@ git add .codex/agents docs/generated-work-index.md docs/superpowers
 git commit -m "docs(phase2): retire swarm machinery"
 ```
 
-- [ ] **Step 4: Execute only approved external rows**
+- [x] **Step 4: Execute only approved external rows**
 
 Use native PowerShell `Remove-Item -LiteralPath` for exact filesystem targets,
 `git worktree remove` for exact clean registered worktrees, `git branch -d` for
@@ -790,7 +790,7 @@ verified ref-only branches, separately approved `git update-ref -d` for
 and GitHub CLI to close exact PR #7. Record command, timestamp, exit status, and
 postcondition per row.
 
-- [ ] **Step 5: Verify retained and removed state**
+- [x] **Step 5: Verify retained and removed state**
 
 Confirm every approved target absent, every unapproved target present,
 `main` still at starting SHA/tree, candidate branch present, archive manifests
