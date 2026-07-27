@@ -65,9 +65,17 @@ part of recovery.
 ## Dusk source strategy
 
 Future work uses the populated `Dusk_light` vault as behavioral reference. It
-shows the intended Home, Map of Content, Mail Box, PARA/ZETA relationships,
+shows the source-defined Home, Map of Content, Mail Box, PARA/ZETA relationships,
 page tasks, daily/weekly/monthly notes, dynamic actions, templates, hotkeys,
 search, desktop/mobile Home behavior, and mobile sorting.
+
+The sole local source authority is
+`C:\Users\TienBac\Documents\New project\dusk-obsidian-vault-master`. Read all
+seven Markdown files under `Dusk_light\SYSTEM\GETTING STARTED` in the author's
+order before defining the test matrix. Cover the source-defined `HUB`, `PARA`,
+`ZETA`, `DAILY`, `STICKY`, and `SYSTEM` families and their template-backed note
+types. `DAILY\QUARTERLY` and `DAILY\YEARLY` exist, but the author supplies no
+templates for them; record that baseline instead of inventing support.
 
 `Dusk_light_empty` may become the later customization candidate after source
 comparison. Full Dusk is not a second end-to-end candidate. Phase 2 Preparation
@@ -82,22 +90,72 @@ current gate.
 
 Phase 2 Preparation must create fresh evidence from disposable vaults. It must:
 
+- treat the sole source authority at
+  `C:\Users\TienBac\Documents\New project\dusk-obsidian-vault-master` and
+  every contained source variant as static-only; never register or open them as
+  Obsidian vaults. Every runtime use of “populated reference” or “immutable
+  reference” means a fresh disposable copy whose included files match an
+  approved hash manifest. That manifest excludes whole plugin `data.json`
+  files, credentials, personal content, and separately gated secret-bearing
+  paths; required non-secret settings follow the field-by-field rule below;
 - keep `G:\Obsidian`, source vaults, FNS state, personal notes, and credentials
   outside test scope;
+- record source-tree manifests and hashes plus Obsidian vault-registry/path
+  snapshots before and after Preparation. Hashes prove the source stayed
+  unchanged; registry/path evidence proves no canonical source variant was
+  registered as a runtime vault;
 - maximize desktop Obsidian and verify native desktop and tablet resolution;
-- capture a screenshot before leaving each checkpoint;
+  prove maximization from window bounds or the restore-down control because
+  pixel dimensions alone are insufficient;
+- capture top, bottom, and horizontal-overflow extremes where applicable, plus
+  a labeled screenshot before leaving each checkpoint;
 - scroll every relevant vertical and horizontal surface to its end;
 - inspect editing/source mode for configuration and reading view for rendered
   behavior;
-- create a new note in every user-facing section, including daily, weekly,
-  monthly, project, area, resource, archive, fleeting, and permanent paths;
+- after every navigation, select the required mode again and wait at least five
+  seconds and until visible layout movement stops before judging dynamic output;
+- create a new note through every source-defined creation workflow, including
+  periodic, project/area, resource, ZETA, meeting, workstation, and `STICKY`
+  families;
+- create, open, save, and reopen synthetic Canvas and Excalidraw files under
+  `PARA\RESOURCES\CONCEPT MAP`;
+- archive synthetic completed Project Family and Area Family folders by moving
+  them into `PARA\ARCHIVES`; verify links, navigation, dashboards, and exact
+  restoration instead of inventing direct Archive-note creation;
 - verify template insertion, path, metadata, navigation, and rendered result;
 - record actual plugin load state and settings on desktop and Android after
   updates, not initial-import defaults;
+- reconstruct required non-secret plugin settings field by field through an
+  explicit allowlist; never copy a whole source plugin `data.json`;
 - explicitly check Dataview JavaScript-query settings and DatacoreJS behavior;
 - test command and hotkey IDs against installed plugin versions;
+- review executable note blocks before reading-mode execution; inventory every
+  write-capable control and test each from a whole-vault checkpoint or record an
+  explicit GATED, DEFER, or NOT APPLICABLE disposition;
+- gate network, credential, publishing, sharing, AI, beta-install, sync, and
+  external-writer plugins separately; attribute observed requests rather than
+  treating an idle capture as proof of offline safety;
+- test Unicode filenames, aliases, links, templates, save/search/index, and URI
+  round trips with synthetic English/Vietnamese notes while retaining English
+  machine keys and ISO dates as a provisional strategy, not an accepted policy;
+- measure cold and warm readiness plus interaction latency on the physical
+  tablet instead of reusing historical startup windows as a target;
 - cover current Dusk GitHub and Discord extension changes; and
 - restore or discard every synthetic write with proof.
+
+Preparation dependency order is source identity and rollback, static review,
+classification, no-credential preflight, approved component set/child rows, and
+already-running capture before authorized network-capable install/update, first
+enable/load, or reload/restart. Controlled activation under that capture is the
+exact exception to ordinary network-before-enable order. Then perform read-only
+rendering/navigation, bounded writes/executable tests, and visual/performance
+acceptance. First-open text never authorizes wholesale trust; no other executable, write, credential, or network path runs before applicable gates.
+
+Satisfy every applicable stable-ID row in the implementation plan according to
+that dependency order. Add a row before enabling any newly approved plugin or
+component. A missing observable result, evidence artifact, rollback, or stop
+condition blocks acceptance. Close sanitized or skipped-evidence gaps only with
+fresh native inspection; never reconstruct missing values from summaries.
 
 Daily creation on Android is first priority because prior evidence showed a
 broken new-note/template path. Weekly and monthly creation follow the same
@@ -138,14 +196,14 @@ Work proceeds in this order:
 2. One executable recovery plan names every file, command, check, and rollback.
 3. Cold archive and exact destructive manifest are prepared without deletion.
 4. One fresh read-only Sol xhigh reviewer checks spec, plan, manifest, and diff.
-5. Critical findings are fixed and re-reviewed.
+5. Critical and Important findings are fixed and re-reviewed.
 6. User approves or rejects exact destructive actions.
 7. Only approved actions run; repository checks and archive restoration checks
    run again.
 8. Branch is handed off without merging to `main`.
 
 Any failed baseline check, ambiguous target, dirty unrelated worktree, archive
-verification mismatch, or reviewer-critical finding stops the dependent step.
+verification mismatch, or reviewer Critical or Important finding stops the dependent step.
 No failure widens scope automatically.
 
 ## Completion criteria
@@ -157,7 +215,7 @@ Recovery is complete only when:
 - all tracked Markdown is reachable and repository validation passes;
 - cold archive has verified checksums and restoration proof;
 - every deletion matches a user-approved exact target;
-- reviewer has no unresolved critical finding;
+- reviewer has no unresolved Critical or Important finding;
 - future agent can start from documentation map, active goal, reset decision,
   this design, execution plan, and handoff without prior chat; and
 - no old evidence is represented as fresh desktop or Android acceptance.

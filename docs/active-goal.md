@@ -8,10 +8,14 @@ Complete repository recovery: preserve the completed Phase 1 FNS foundation,
 remove failed Phase 2 machinery from active use, retain its useful lessons in
 one verified cold archive, and leave one executable Phase 2 Preparation handoff.
 
-Status: Phase 1 foundation complete. Repository recovery is active. Phase 2
-Preparation has not started. No Dusk
-source, plugin set, desktop result, Android result, or live promotion is
-currently accepted.
+Status: Phase 1 foundation complete. Repository recovery is stopped before
+Task 7 Step 4. Pre-audit baseline
+`0f316d28aea2f1152bf63ab957b5dc49458eabad` has tree
+`be79bf4de00e7aa4c1021f14ab60005d9b2c912a`. Resolve live candidate identity
+from Git and the durable recovery state. Task 7 Steps 4 and 5 remain blocked
+pending separate explicit Task 7 publication authority. Phase 2 Preparation has
+not started. No Dusk source, plugin set, desktop result, Android result, or live
+promotion is currently accepted.
 
 ## Stage mapping
 
@@ -38,9 +42,11 @@ currently accepted.
 
 ## Next action
 
-Finish verified cold archive and review. Request exact destructive approval.
-Run only approved cleanup, verify repository and archive again, then publish
-the future-agent handoff without merging to `main`.
+Knowledge-audit corrections are incorporated in this candidate. Run fresh
+post-correction repository verification, record its exact HEAD/tree in durable
+recovery state, and present the corrected candidate for separate Task 7 Steps
+4 and 5 publication authority. Until granted, do not push, create a pull
+request, regenerate the definitive archive ledger, or execute those steps.
 
 ## Safety
 
