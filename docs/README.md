@@ -14,7 +14,8 @@ Read [executive summary](executive-summary.md) for orientation, then use modules
 - Decisions: [decision log](decisions/decision-log.md),
   [DEC-040 Phase 2 Preparation reset](decisions/decision-log.md#dec-040-reset-phase-2-preparation),
   and [unresolved questions](decisions/unresolved-questions.md).
-- Current checkpoint: [active goal](active-goal.md).
+- Current checkpoint: [active goal](active-goal.md) and
+  [Phase 2 Preparation handoff](phase-2-preparation-handoff.md).
 - Repository operation: [Git workflow](git-workflow.md).
 
 Summaries navigate. They never replace detailed modules. Minimalization applies to runtime components and automatic authority, not to design explanation.
