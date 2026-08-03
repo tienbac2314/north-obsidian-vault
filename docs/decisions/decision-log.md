@@ -363,8 +363,8 @@ Statuses: Accepted, Proposed, Rejected, Postponed, Superseded.
   justified. Windows disposable/profile is closed. Android serial `01234ABC`
   is user-reported unchanged and was not reverified in this continuation.
 - Authority: Part 2 `main` is clean at
-  `74f6f30cb379bbe2e5dd0ecd8e5c308f814a7531` with tree
-  `8912f945e7d3bf7a0c56cd49f8c3cae939959287`. Cumulative external manifest is
+  `ed9dfb3c7d176aeff33c685f62ba1c1840ec152c` with tree
+  `251086d5eff6d43b687cd7a3dcc0a2bc49eeb8f8`. Cumulative external manifest is
   372 rows with SHA-256
   `3ABDD3886F8F4FB4E89855F158C9959CE4572D172DBB68C0FAEE635B840BC217`.
 - Publication: update and push only `docs/phase2-preparation-reset`; keep

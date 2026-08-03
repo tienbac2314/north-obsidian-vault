@@ -8,8 +8,8 @@ Phase 2 Preparation; it does not authorize Phase 2 Execution or live promotion.
 As of 2026-08-04, Wave 4 is closed, structure-refactor Tasks 1-6 are
 accepted, and Wave 5 is `COMPLETE_WITH_EXPLICIT_GATES` after reopened repair.
 Part 2 control repository `main` is clean at
-`74f6f30cb379bbe2e5dd0ecd8e5c308f814a7531` with tree
-`8912f945e7d3bf7a0c56cd49f8c3cae939959287`. The earlier Wave 5
+`ed9dfb3c7d176aeff33c685f62ba1c1840ec152c` with tree
+`251086d5eff6d43b687cd7a3dcc0a2bc49eeb8f8`. The earlier Wave 5
 `PASS_WITH_GAPS` is superseded interim evidence.
 
 Windows disposable `W5-INTEGRATED-UPDATED-LIGHT-20260803` is closed after

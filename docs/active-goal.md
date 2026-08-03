@@ -18,8 +18,8 @@ Wave 7/Task 8, and Wave 8/Task 9 are `NOT STARTED`. Phase 2 Execution,
 personalization, live promotion, PR, and merge remain gated.
 
 Part 2 Wave 5 result checkpoint: control repository `main` at
-`74f6f30cb379bbe2e5dd0ecd8e5c308f814a7531`, tree
-`8912f945e7d3bf7a0c56cd49f8c3cae939959287`, clean. Real September monthly
+`ed9dfb3c7d176aeff33c685f62ba1c1840ec152c`, tree
+`251086d5eff6d43b687cd7a3dcc0a2bc49eeb8f8`, clean. Real September monthly
 Tabs passed settled Windows Reading and Live Preview. Synthetic three/four-
 fence Live Preview literal-source behavior remains an explicit owner/contract
 gap; no Dusk source mutation was justified. Android is user-reported
