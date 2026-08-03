@@ -5,31 +5,34 @@ Phase 2 Preparation; it does not authorize Phase 2 Execution or live promotion.
 
 ## Current preparation checkpoint
 
-As of 2026-08-03, Wave 4 is closed, structure-refactor Tasks 1-6 are
-accepted, and Wave 5 integrated updated-light regression is complete with
-`PASS_WITH_GAPS`. Part 2 control repository `main` is clean at
-`7add44d889359e71ed0e64853bd76052d5ad2005` with tree
-`42393f5af655f884b0ac1f0b2566ecc3670f3d54`. Tasks 7-9 and Wave 6 remain
-`NOT STARTED`.
+As of 2026-08-04, Wave 4 is closed, structure-refactor Tasks 1-6 are
+accepted, and Wave 5 is `COMPLETE_WITH_EXPLICIT_GATES` after reopened repair.
+Part 2 control repository `main` is clean at
+`74f6f30cb379bbe2e5dd0ecd8e5c308f814a7531` with tree
+`8912f945e7d3bf7a0c56cd49f8c3cae939959287`. The earlier Wave 5
+`PASS_WITH_GAPS` is superseded interim evidence.
 
-Fresh Windows evidence covered cold/warm startup, readiness, Homepage, Mobile
-Homepage, Map of Content, Mail Box, and Omnisearch on the integrated disposable.
-Fresh Android evidence covered serial `01234ABC` startup, mapped menu, visible
-Command Palette, and daily `2026-08-03` Reading/Live Preview. Equal-contract
-Wave 4 rows were reused. No repair was applied. Remaining gaps are recorded in
-the Part 2 ledgers, including Windows blank-container Live Preview, search
-no-match observation, Android mapped Daily Note no-navigation, QuickAdd/Hover/
-Commander/JS/JSX/macro gaps, Android Templater/accessibility, and stale
-bootstrap SHA.
+Windows disposable `W5-INTEGRATED-UPDATED-LIGHT-20260803` is closed after
+fresh settled verification. Duplicate Calendar/Todo List workspace leaves,
+stale timer-view and journal-calendar ghost surfaces, stale disabled statusbar
+items, and four stale Note Toolbar Daily mappings were repaired. The real
+September monthly note passes Reading and Live Preview. Synthetic three/four-
+fence Live Preview literal-source behavior is recorded as an explicit Tabs
+owner/contract gap; no Dusk source mutation was applied. Android serial
+`01234ABC` is user-reported unchanged and was not reverified in this
+continuation.
 
-Capture manifest remains external:
-`G:\Dusk-Knowledge-Hub\payload\evidence\Dusk-Phase2-Preparation-Part2-Runtime\manifests\W5-WAVE5-RUNTIME-20260803-SHA256.csv`,
-SHA-256
-`2BDB7F3AAF37491FD599D6C86DC99ABB72ADEDE6006F94B1A709754F5AA192B5`.
+Cumulative external evidence manifest has 372 rows, SHA-256
+`3ABDD3886F8F4FB4E89855F158C9959CE4572D172DBB68C0FAEE635B840BC217`.
+Final R7 capture subset has 104 rows, SHA-256
+`63F16F4E422F8A150D25F3FD95A2B4CEEAF7BF2B9AB0D5C335E07CF78A923AFC`.
+Raw screenshots, profiles, rollback, and runtime ledgers remain outside this
+product repository.
 
 Compact publication uses only `docs/phase2-preparation-reset` in its isolated
 worktree. Product `main` and detached worktree `bf23` remain unchanged. No PR
-or merge is part of this preparation continuation. Self-review is next.
+or merge is part of this preparation continuation. Self-review is next. Wave
+6/Task 7, Wave 7/Task 8, and Wave 8/Task 9 remain `NOT STARTED`.
 
 ## Purpose
 

@@ -347,3 +347,28 @@ Statuses: Accepted, Proposed, Rejected, Postponed, Superseded.
 - Boundary: Tasks 7-9, Wave 6, full-only import, remnant implementation,
   personalization, live-vault promotion, PR, and merge remain
   `NOT STARTED` or forbidden in this session.
+
+## DEC-043: Close Wave 5 after reopened repair
+
+- Status: Current superseding Wave 5 result; self-review required before any
+  future wave.
+- Decision: The earlier DEC-042 `PASS_WITH_GAPS` is superseded interim
+  evidence. Wave 5 is `COMPLETE_WITH_EXPLICIT_GATES` after repairing and
+  rerunning the reported Windows duplicate Calendar/Todo List leaves, stale
+  timer-view and journal-calendar ghost surfaces, stale disabled statusbar
+  items, and four stale Note Toolbar Daily mappings.
+- Result: Real September monthly Tabs passes settled Windows Reading and Live
+  Preview. Synthetic three/four-fence Live Preview literal-source behavior is
+  recorded as a Tabs owner/contract limitation; no Dusk source mutation was
+  justified. Windows disposable/profile is closed. Android serial `01234ABC`
+  is user-reported unchanged and was not reverified in this continuation.
+- Authority: Part 2 `main` is clean at
+  `74f6f30cb379bbe2e5dd0ecd8e5c308f814a7531` with tree
+  `8912f945e7d3bf7a0c56cd49f8c3cae939959287`. Cumulative external manifest is
+  372 rows with SHA-256
+  `3ABDD3886F8F4FB4E89855F158C9959CE4572D172DBB68C0FAEE635B840BC217`.
+- Publication: update and push only `docs/phase2-preparation-reset`; keep
+  product `main` and detached `bf23` unchanged. No PR or merge.
+- Boundary: Wave 6/Task 7, Wave 7/Task 8, and Wave 8/Task 9 remain
+  `NOT STARTED`; no full-only import, remnant implementation,
+  personalization, live-vault promotion, PR, or merge.

@@ -1,6 +1,6 @@
 # Active goal
 
-Updated: 2026-08-03
+Updated: 2026-08-04
 
 ## Objective
 
@@ -8,18 +8,24 @@ Continue bounded Dusk Phase 2 Preparation from the accepted post-structure-
 refactor checkpoint while preserving the completed Phase 1 FNS foundation and
 keeping Phase 2 Execution, personalization, and live promotion gated.
 
-Status: Phase 1 foundation remains complete. Dusk Wave 4 is closed and
-structure-refactor Tasks 1-6 are accepted. Wave 5 integrated updated-light
-regression is complete with `PASS_WITH_GAPS`. Tasks 7-9 and Wave 6 are
-`NOT STARTED`. Phase 2 Execution, personalization, live promotion, PR, and
-merge remain gated.
+Status: Phase 1 foundation remains complete. Wave 4 is closed and
+structure-refactor Tasks 1-6 are accepted. Wave 5 was reopened for repair and
+is now `COMPLETE_WITH_EXPLICIT_GATES`: duplicate Calendar/Todo List leaves,
+stale timer-view and journal-calendar ghost surfaces, stale disabled statusbar
+items, and four stale Note Toolbar Daily mappings were repaired and rerun.
+The earlier `PASS_WITH_GAPS` is superseded interim evidence. Wave 6/Task 7,
+Wave 7/Task 8, and Wave 8/Task 9 are `NOT STARTED`. Phase 2 Execution,
+personalization, live promotion, PR, and merge remain gated.
 
 Part 2 Wave 5 result checkpoint: control repository `main` at
-`7add44d889359e71ed0e64853bd76052d5ad2005`, tree
-`42393f5af655f884b0ac1f0b2566ecc3670f3d54`, clean at the final runtime
-ledger checkpoint. Entry and orchestration history remain in Part 2 ledgers.
-Publication work is limited to `docs/phase2-preparation-reset`; product `main`
-and detached worktree `bf23` remain unchanged.
+`74f6f30cb379bbe2e5dd0ecd8e5c308f814a7531`, tree
+`8912f945e7d3bf7a0c56cd49f8c3cae939959287`, clean. Real September monthly
+Tabs passed settled Windows Reading and Live Preview. Synthetic three/four-
+fence Live Preview literal-source behavior remains an explicit owner/contract
+gap; no Dusk source mutation was justified. Android is user-reported
+unchanged and was not reverified in this continuation. Publication is limited
+to `docs/phase2-preparation-reset`; product `main` and detached `bf23` remain
+unchanged.
 
 ## Stage mapping
 
@@ -43,7 +49,9 @@ and detached worktree `bf23` remain unchanged.
   records the bounded Wave 5 continuation, reset-branch publication, and
   current Luna-max orchestration contract.
 - [DEC-042](decisions/decision-log.md#dec-042-close-wave-5-with-explicit-gaps)
-  records the final Wave 5 result and remaining gaps.
+  records the earlier interim `PASS_WITH_GAPS`; it remains historical.
+- [DEC-043](decisions/decision-log.md#dec-043-close-wave-5-after-reopened-repair)
+  records the superseding repaired Wave 5 result and current gates.
 - [Phase 2 Preparation reset](architecture/phase-2-preparation-reset.md)
   defines source, validation, archive, safety, and review boundaries.
 - [Implementation plan](superpowers/plans/2026-07-27-phase-2-preparation-reset.md)
@@ -51,19 +59,18 @@ and detached worktree `bf23` remain unchanged.
 
 ## Next action
 
-Self-review the compact Part 2 and product checkpoints. Do not start Tasks 7-9,
-Wave 6, full-only import, remnant implementation, personalization, live-vault
-promotion, PR, or merge.
+Self-review the compact Part 2 and product checkpoints. Do not start Wave
+6/Task 7, Wave 7/Task 8, or Wave 8/Task 9; full-only import, remnant
+implementation, personalization, live-vault promotion, PR, or merge.
 
 Wave 5 evidence: integrated disposable/profile
-`W5-INTEGRATED-UPDATED-LIGHT-20260803`; Windows cold/warm/readiness/Home/Map/
-Mail/Search and Android serial `01234ABC` startup/menu/Command
-Palette/daily Reading/Live were captured. Capture manifest remains outside this
-repository at
-`G:\Dusk-Knowledge-Hub\payload\evidence\Dusk-Phase2-Preparation-Part2-Runtime\manifests\W5-WAVE5-RUNTIME-20260803-SHA256.csv`
-with SHA-256
-`2BDB7F3AAF37491FD599D6C86DC99ABB72ADEDE6006F94B1A709754F5AA192B5`.
-No repair was applied; remaining gaps stay in Part 2 authority.
+`W5-INTEGRATED-UPDATED-LIGHT-20260803` is closed. The cumulative external
+manifest has 372 rows and SHA-256
+`3ABDD3886F8F4FB4E89855F158C9959CE4572D172DBB68C0FAEE635B840BC217`; the
+final R7 capture subset has 104 rows and SHA-256
+`63F16F4E422F8A150D25F3FD95A2B4CEEAF7BF2B9AB0D5C335E07CF78A923AFC`.
+Rollback and sanitized repair references remain outside this repository under
+`G:\Dusk-Knowledge-Hub\payload\evidence\Dusk-Phase2-Preparation-Part2-Runtime`.
 
 ## Safety
 
@@ -85,6 +92,10 @@ No repair was applied; remaining gaps stay in Part 2 authority.
   daily evidence SHA is
   `E24A3B4E6CAC1D2BF654D597BDCD9AE89D5E08EDCBB0741009541C2833B43C54`.
   Full ledgers and raw evidence remain outside this product repository.
+- Windows Projects was re-enabled after R6 pruning exposed its required
+  QuickAdd/Note Toolbar command consumer. Disabled-only bloat candidates keep
+  rollback directories; no plugin directory was deleted. Todoist, BRAT, and
+  credential-bearing integrations remain disabled.
 
 ## Current orchestration
 
@@ -93,6 +104,10 @@ disposition, and may perform Computer Use directly. No `spawn_agent` or Codex
 subagents. If another agent is needed, create a separate full user-visible
 `gpt-5.6-luna` task with `max` reasoning after a durable checkpoint; target
 ownership is exclusive and returned claims require independent verification.
+Any full task created under the saved project must use
+`C:\Users\TienBac\Documents\New project\personal-knowledge-pipeline-phase2-reset`
+as workdir for every product Git command, must not edit the saved project's
+`main` checkout, and must not request a second checkout of this reset branch.
 
 ## Authority
 
