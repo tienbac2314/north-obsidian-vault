@@ -1,21 +1,25 @@
 # Active goal
 
-Updated: 2026-07-27
+Updated: 2026-08-03
 
 ## Objective
 
-Complete repository recovery: preserve the completed Phase 1 FNS foundation,
-remove failed Phase 2 machinery from active use, retain its useful lessons in
-one verified cold archive, and leave one executable Phase 2 Preparation handoff.
+Continue bounded Dusk Phase 2 Preparation from the accepted post-structure-
+refactor checkpoint while preserving the completed Phase 1 FNS foundation and
+keeping Phase 2 Execution, personalization, and live promotion gated.
 
-Status: Phase 1 foundation complete. Repository recovery is stopped before
-Task 7 Step 4. Pre-audit baseline
-`0f316d28aea2f1152bf63ab957b5dc49458eabad` has tree
-`be79bf4de00e7aa4c1021f14ab60005d9b2c912a`. Resolve live candidate identity
-from Git and the durable recovery state. Task 7 Steps 4 and 5 remain blocked
-pending separate explicit Task 7 publication authority. Phase 2 Preparation has
-not started. No Dusk source, plugin set, desktop result, Android result, or live
-promotion is currently accepted.
+Status: Phase 1 foundation remains complete. Dusk Wave 4 is closed and
+structure-refactor Tasks 1-6 are accepted. Wave 5 integrated updated-light
+regression is next and has not started. Tasks 7-9 and Wave 6 are `NOT STARTED`.
+Phase 2 Execution, personalization, live promotion, PR, and merge remain
+gated.
+
+Part 2 entry checkpoint: control repository `main` at
+`a36a96d7f741c5c46ff6a17e24cfeb8362586759`, tree
+`6ffe6f290cc330fac05c27ac2fb583711c4ce759`; current orchestration correction
+is Part 2 commit `6727da34d3617856230a0cb8effda8d3119e9e67`.
+Publication work is limited to `docs/phase2-preparation-reset`; product `main`
+and detached worktree `bf23` remain unchanged.
 
 ## Stage mapping
 
@@ -35,6 +39,9 @@ promotion is currently accepted.
 - [DEC-040](decisions/decision-log.md#dec-040-reset-phase-2-preparation)
   selects current `main` as recovery base and makes old Phase 2 evidence
   historical only.
+- [DEC-041](decisions/decision-log.md#dec-041-continue-bounded-dusk-preparation-wave-5)
+  records the bounded Wave 5 continuation, reset-branch publication, and
+  current Luna-max orchestration contract.
 - [Phase 2 Preparation reset](architecture/phase-2-preparation-reset.md)
   defines source, validation, archive, safety, and review boundaries.
 - [Implementation plan](superpowers/plans/2026-07-27-phase-2-preparation-reset.md)
@@ -42,11 +49,10 @@ promotion is currently accepted.
 
 ## Next action
 
-Knowledge-audit corrections are incorporated in this candidate. Run fresh
-post-correction repository verification, record its exact HEAD/tree in durable
-recovery state, and present the corrected candidate for separate Task 7 Steps
-4 and 5 publication authority. Until granted, do not push, create a pull
-request, regenerate the definitive archive ledger, or execute those steps.
+Reverify/build the integrated updated-light disposable on Windows and the
+registered Android target. Record exact evidence and remaining gaps in the
+external Part 2 ledgers, then publish only the compact reset-branch Wave 5
+status/fix summary. Do not start Tasks 7-9 or Wave 6.
 
 ## Safety
 
@@ -54,9 +60,28 @@ request, regenerate the definitive archive ledger, or execute those steps.
 - Do not treat historical screenshots or plugin state as current acceptance.
 - Do not modify source vaults, `G:\Obsidian`, FNS, personal data, credentials,
   or device state during recovery.
-- No Phase 2 Preparation native validation begins during recovery. A later
-  Preparation session refreshes current Dusk GitHub, Discord, plugin, desktop,
-  and Android evidence before approving an Execution plan.
+- Native validation remains disposable-only. Keep Dusk source, `G:\Obsidian`,
+  FNS, personal notes, credentials, and protected Museum inputs outside test
+  scope.
+
+## Current Dusk repair references
+
+- Journals remains the sole periodic-note owner; core Daily Notes and
+  credential-bearing Todoist remain disabled in the disposable.
+- Templater daily creation was repaired in the disposable; accepted note SHA is
+  `A92F843EE5E35F0D713D574989094BB8FCD93D35FC4C7C1DA88261472BE8796B`.
+- Datacore `0.1.29` was retained after BRAT was disabled; Android reattached
+  daily evidence SHA is
+  `E24A3B4E6CAC1D2BF654D597BDCD9AE89D5E08EDCBB0741009541C2833B43C54`.
+  Full ledgers and raw evidence remain outside this product repository.
+
+## Current orchestration
+
+Main session owns decisions, edits, Git, verification, debugging, evidence
+disposition, and may perform Computer Use directly. No `spawn_agent` or Codex
+subagents. If another agent is needed, create a separate full user-visible
+`gpt-5.6-luna` task with `max` reasoning after a durable checkpoint; target
+ownership is exclusive and returned claims require independent verification.
 
 ## Authority
 

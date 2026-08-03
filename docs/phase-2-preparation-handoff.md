@@ -1,16 +1,13 @@
 # Phase 2 Preparation handoff
 
-Status: repository recovery stopped before Task 7 Step 4. Steps 4 and 5
-remain blocked pending separate explicit Task 7 publication authority.
-Phase 2 Preparation has not started.
+Status: Wave 4 closed; structure-refactor Tasks 1-6 accepted; Wave 5 is next
+and not started. Tasks 7-9 and Wave 6 are `NOT STARTED`.
 
 Branch: `docs/phase2-preparation-reset`.
 
-Pre-audit baseline: `0f316d28aea2f1152bf63ab957b5dc49458eabad`, tree
-`be79bf4de00e7aa4c1021f14ab60005d9b2c912a`. Never treat this baseline as live
-candidate identity after a corrective commit. Resolve current HEAD/tree with
-`git rev-parse HEAD` and `git rev-parse 'HEAD^{tree}'`; verify both against the
-durable recovery state before any next action.
+Current product branch: `docs/phase2-preparation-reset`. Resolve current
+product HEAD/tree with `git rev-parse HEAD` and `git rev-parse 'HEAD^{tree}'`.
+The protected product `main` and detached `bf23` worktree remain unchanged.
 
 ## Read first
 
@@ -31,8 +28,14 @@ durable recovery state before any next action.
 - Populated `Dusk_light` is future behavioral reference. Compare
   `Dusk_light_empty` later as candidate. Full Dusk is limited to at most three
   bounded experiments after a gap is proven.
-- Recovery performed no fresh Obsidian, Android, ADB, FNS, or Computer Use
-  acceptance test. Old evidence supplies questions only.
+- Wave 4 accepted disposable findings include Journals as sole periodic owner,
+  Templater daily creation repair, retained Datacore `0.1.29` after BRAT was
+  disabled, and disabled credential-bearing Todoist. Fresh Wave 5 integrated
+  evidence is still required; old evidence never substitutes for it.
+- Part 2 current orchestration has no fixed Terra main or persistent Luna
+  operator. Main may use Computer Use directly. Another agent, if needed, is a
+  separate full user-visible `gpt-5.6-luna` task with `max` reasoning created
+  only after a durable checkpoint and given exclusive target ownership.
 
 ## Recovery archive
 
@@ -58,15 +61,10 @@ Cold archive: `G:\Dusk-Phase2-Cold-Archive-20260727`.
 
 ## First Phase 2 Preparation action
 
-Use the sole local source authority at
-`C:\Users\TienBac\Documents\New project\dusk-obsidian-vault-master`. Read all
-seven files under `Dusk_light\SYSTEM\GETTING STARTED` in the author's order,
-then inspect the full default structure and every template. Refresh current
-Dusk GitHub, Discord, plugin-release, and open-issue evidence. Choose one
-disposable candidate and approve its safety and test contract before native
-testing. Execute every applicable row in the implementation plan's compact
-Phase 2 Preparation traceability contract; add a row before selecting any new
-plugin or component.
+Reverify/build the integrated updated-light disposable from accepted Wave 4
+state. Run Windows and the registered Android target through the Wave 5 matrix,
+capture fresh evidence, record gaps/fixes in the external Part 2 ledgers, then
+publish only the compact reset-branch result. Do not start Tasks 7-9 or Wave 6.
 
 First native regression priority is Android daily new-note creation, followed
 by weekly and monthly creation. Update plugins, retry compatible disabled
@@ -84,13 +82,15 @@ synthetic completed Project/Area Family folders.
 - Keep `G:\Obsidian`, Dusk source vaults, FNS, personal notes, credentials, and
   device state outside disposable tests.
 - Use synthetic writes only and preserve restoration or discard proof.
-- Main agent remains decider and editor. At most one Luna visual Computer Use
-  subagent may operate UI checks; do not recreate a swarm.
+- Main session owns decisions, edits, Git, verification, debugging, evidence
+  disposition, and may perform Computer Use. Do not call `spawn_agent` or use
+  Codex subagents. If another agent is needed, create one full user-visible
+  Luna-max task only after a durable checkpoint; one task owns each target at a
+  time and main verifies its result.
 - Phase 2 Execution starts only after Preparation produces fresh evidence and
   an approved customization plan.
-- Task 7 Steps 4 and 5 remain blocked. Do not push this candidate, create a pull
-  request, run a clean-room clone, or regenerate the definitive archive ledger
-  without separate authorization.
+- Push only compact updates on `docs/phase2-preparation-reset`; do not create a
+  pull request or merge. Tasks 7-9 and Wave 6 remain not started.
 
 ## Suggested skills
 

@@ -3,6 +3,19 @@
 Status: approved on 2026-07-27. This design governs repository recovery and
 Phase 2 Preparation; it does not authorize Phase 2 Execution or live promotion.
 
+## Current preparation checkpoint
+
+As of 2026-08-03, Wave 4 is closed and structure-refactor Tasks 1-6 are
+accepted. Wave 5 integrated updated-light regression is next; Tasks 7-9 and
+Wave 6 are not started. The external Part 2 control entry was independently
+verified at `a36a96d7f741c5c46ff6a17e24cfeb8362586759` with tree
+`6ffe6f290cc330fac05c27ac2fb583711c4ce759`; its current orchestration
+correction is commit `6727da34d3617856230a0cb8effda8d3119e9e67`.
+
+Compact publication uses only `docs/phase2-preparation-reset` in its isolated
+worktree. Product `main` and detached worktree `bf23` remain unchanged. No PR
+or merge is part of this preparation continuation.
+
 ## Purpose
 
 Restore one comprehensible project path without rewriting accepted history:
@@ -161,10 +174,15 @@ Daily creation on Android is first priority because prior evidence showed a
 broken new-note/template path. Weekly and monthly creation follow the same
 end-to-end contract.
 
-Future Phase 2 Preparation uses one main agent as decider and editor. At most one Luna
-visual Computer Use subagent may operate the UI; it remains read-only outside
-explicit disposable-test writes. Recovery uses one separate Sol xhigh reviewer
-only after plan and destructive manifest exist.
+Future Phase 2 Preparation uses the main session as decider, editor, operator,
+and verifier; it may perform Computer Use directly. Do not call `spawn_agent` or
+use Codex subagents. If independent research, review, comparison, Computer Use,
+Web courier work, context isolation, or context saturation needs another agent,
+create a separate full user-visible Codex task with model `gpt-5.6-luna` and
+reasoning `max` only after a durable checkpoint. More than one Luna-max task may
+exist, but target ownership is exclusive per window, device, Chrome submission,
+vault, branch, ledger, and evidence destination; main independently verifies
+each result before reassignment.
 
 ## Evidence and archive design
 

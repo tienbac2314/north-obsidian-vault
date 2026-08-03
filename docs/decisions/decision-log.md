@@ -303,3 +303,25 @@ Statuses: Accepted, Proposed, Rejected, Postponed, Superseded.
   reviewer checks recovery read-only. Future UI work may use at most one Luna
   visual Computer Use subagent under the main agent.
 - Design: [Phase 2 Preparation reset](../architecture/phase-2-preparation-reset.md).
+
+## DEC-041: Continue bounded Dusk Preparation Wave 5
+
+- Status: Accepted for Wave 5 preparation only.
+- Decision: Wave 4 is closed and structure-refactor Tasks 1-6 are accepted.
+  Build/reverify the integrated updated-light disposable on Windows and the
+  registered Android target. Tasks 7-9 and Wave 6 remain `NOT STARTED`.
+- Authority: Part 2 entry was verified at
+  `a36a96d7f741c5c46ff6a17e24cfeb8362586759` with tree
+  `6ffe6f290cc330fac05c27ac2fb583711c4ce759`; the current orchestration
+  correction is Part 2 commit `6727da34d3617856230a0cb8effda8d3119e9e67`.
+- Publication: Update and push only `docs/phase2-preparation-reset`; keep
+  product `main` and detached `bf23` unchanged. No PR or merge.
+- Orchestration: Main session owns decisions, repository edits, Git,
+  verification, debugging, evidence disposition, and may perform Computer Use.
+  Do not call `spawn_agent` or use Codex subagents. Create a separate full
+  user-visible `gpt-5.6-luna` task with `max` reasoning only after a durable
+  checkpoint when another agent is needed; target ownership is exclusive and
+  main independently verifies results.
+- Boundary: Keep all runtime work disposable-only. Do not inspect or enter
+  credentials, use protected/live/source vaults, personalize, promote, import
+  full-only material, or begin Phase 2 Execution.
