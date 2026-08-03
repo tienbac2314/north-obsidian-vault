@@ -1,7 +1,7 @@
 # Phase 2 Preparation handoff
 
-Status: Wave 4 closed; structure-refactor Tasks 1-6 accepted; Wave 5 is next
-and not started. Tasks 7-9 and Wave 6 are `NOT STARTED`.
+Status: Wave 4 closed; structure-refactor Tasks 1-6 accepted; Wave 5 completed
+with `PASS_WITH_GAPS`. Tasks 7-9 and Wave 6 are `NOT STARTED`.
 
 Branch: `docs/phase2-preparation-reset`.
 
@@ -30,8 +30,8 @@ The protected product `main` and detached `bf23` worktree remain unchanged.
   bounded experiments after a gap is proven.
 - Wave 4 accepted disposable findings include Journals as sole periodic owner,
   Templater daily creation repair, retained Datacore `0.1.29` after BRAT was
-  disabled, and disabled credential-bearing Todoist. Fresh Wave 5 integrated
-  evidence is still required; old evidence never substitutes for it.
+  disabled, and disabled credential-bearing Todoist. Wave 5 fresh integrated
+  evidence is complete with explicit gaps in the Part 2 ledgers.
 - Part 2 current orchestration has no fixed Terra main or persistent Luna
   operator. Main may use Computer Use directly. Another agent, if needed, is a
   separate full user-visible `gpt-5.6-luna` task with `max` reasoning created
@@ -59,23 +59,14 @@ Cold archive: `G:\Dusk-Phase2-Cold-Archive-20260727`.
 - Use `git bundle verify <bundle>` before restoration. Restore an archived
   branch into a new repository with `git fetch <bundle> <ref>:refs/heads/restored`.
 
-## First Phase 2 Preparation action
+## Wave 5 result and next action
 
-Reverify/build the integrated updated-light disposable from accepted Wave 4
-state. Run Windows and the registered Android target through the Wave 5 matrix,
-capture fresh evidence, record gaps/fixes in the external Part 2 ledgers, then
-publish only the compact reset-branch result. Do not start Tasks 7-9 or Wave 6.
-
-First native regression priority is Android daily new-note creation, followed
-by weekly and monthly creation. Update plugins, retry compatible disabled
-plugins, verify Dataview JavaScript settings, and evaluate DatacoreJS. On both
-desktop and Android, exercise every applicable source-defined creation and
-archive action, inspect editing and reading modes, maximize desktop Obsidian,
-scroll every surface vertically
-and horizontally, and capture a screenshot before leaving each checkpoint.
-Use source-defined actions: create notes only in creation families, create
-Canvas/Excalidraw under Concept Map, and test Archives by moving and restoring
-synthetic completed Project/Area Family folders.
+Wave 5 used disposable/profile `W5-INTEGRATED-UPDATED-LIGHT-20260803` and the
+registered Android serial `01234ABC`. Windows cold/warm/readiness/Home/Map/
+Mail/Search and Android startup/menu/Command Palette/daily Reading/Live evidence
+passed or remained explicit gaps. No repair was applied. Raw evidence and the
+26-row SHA-256 capture manifest remain outside this product repository. Self-
+review is next. Do not start Tasks 7-9 or Wave 6.
 
 ## Safety and orchestration
 

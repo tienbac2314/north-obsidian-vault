@@ -10,14 +10,14 @@ keeping Phase 2 Execution, personalization, and live promotion gated.
 
 Status: Phase 1 foundation remains complete. Dusk Wave 4 is closed and
 structure-refactor Tasks 1-6 are accepted. Wave 5 integrated updated-light
-regression is next and has not started. Tasks 7-9 and Wave 6 are `NOT STARTED`.
-Phase 2 Execution, personalization, live promotion, PR, and merge remain
-gated.
+regression is complete with `PASS_WITH_GAPS`. Tasks 7-9 and Wave 6 are
+`NOT STARTED`. Phase 2 Execution, personalization, live promotion, PR, and
+merge remain gated.
 
-Part 2 entry checkpoint: control repository `main` at
-`a36a96d7f741c5c46ff6a17e24cfeb8362586759`, tree
-`6ffe6f290cc330fac05c27ac2fb583711c4ce759`; current orchestration correction
-is Part 2 commit `6727da34d3617856230a0cb8effda8d3119e9e67`.
+Part 2 Wave 5 result checkpoint: control repository `main` at
+`7add44d889359e71ed0e64853bd76052d5ad2005`, tree
+`42393f5af655f884b0ac1f0b2566ecc3670f3d54`, clean at the final runtime
+ledger checkpoint. Entry and orchestration history remain in Part 2 ledgers.
 Publication work is limited to `docs/phase2-preparation-reset`; product `main`
 and detached worktree `bf23` remain unchanged.
 
@@ -42,6 +42,8 @@ and detached worktree `bf23` remain unchanged.
 - [DEC-041](decisions/decision-log.md#dec-041-continue-bounded-dusk-preparation-wave-5)
   records the bounded Wave 5 continuation, reset-branch publication, and
   current Luna-max orchestration contract.
+- [DEC-042](decisions/decision-log.md#dec-042-close-wave-5-with-explicit-gaps)
+  records the final Wave 5 result and remaining gaps.
 - [Phase 2 Preparation reset](architecture/phase-2-preparation-reset.md)
   defines source, validation, archive, safety, and review boundaries.
 - [Implementation plan](superpowers/plans/2026-07-27-phase-2-preparation-reset.md)
@@ -49,10 +51,19 @@ and detached worktree `bf23` remain unchanged.
 
 ## Next action
 
-Reverify/build the integrated updated-light disposable on Windows and the
-registered Android target. Record exact evidence and remaining gaps in the
-external Part 2 ledgers, then publish only the compact reset-branch Wave 5
-status/fix summary. Do not start Tasks 7-9 or Wave 6.
+Self-review the compact Part 2 and product checkpoints. Do not start Tasks 7-9,
+Wave 6, full-only import, remnant implementation, personalization, live-vault
+promotion, PR, or merge.
+
+Wave 5 evidence: integrated disposable/profile
+`W5-INTEGRATED-UPDATED-LIGHT-20260803`; Windows cold/warm/readiness/Home/Map/
+Mail/Search and Android serial `01234ABC` startup/menu/Command
+Palette/daily Reading/Live were captured. Capture manifest remains outside this
+repository at
+`G:\Dusk-Knowledge-Hub\payload\evidence\Dusk-Phase2-Preparation-Part2-Runtime\manifests\W5-WAVE5-RUNTIME-20260803-SHA256.csv`
+with SHA-256
+`2BDB7F3AAF37491FD599D6C86DC99ABB72ADEDE6006F94B1A709754F5AA192B5`.
+No repair was applied; remaining gaps stay in Part 2 authority.
 
 ## Safety
 

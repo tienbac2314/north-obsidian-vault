@@ -325,3 +325,25 @@ Statuses: Accepted, Proposed, Rejected, Postponed, Superseded.
 - Boundary: Keep all runtime work disposable-only. Do not inspect or enter
   credentials, use protected/live/source vaults, personalize, promote, import
   full-only material, or begin Phase 2 Execution.
+
+## DEC-042: Close Wave 5 with explicit gaps
+
+- Status: Accepted Wave 5 preparation result; self-review required before any
+  later task.
+- Result: Integrated updated-light disposable/profile
+  `W5-INTEGRATED-UPDATED-LIGHT-20260803` completed with
+  `PASS_WITH_GAPS`. Windows cold/warm/readiness/Home/Map/Mail/Search and Android
+  serial `01234ABC` startup/menu/Command Palette/daily Reading/Live evidence
+  were captured. Equal-contract Wave 4 rows were reused.
+- Gaps: Windows literal blank-container Live Preview and unconfirmed owner/top
+  behavior; Omnisearch Homepage returned 0 results; Android mapped Daily Note
+  stayed on Homepage after a settled wait; QuickAdd, Hover Editor, Commander,
+  arbitrary JS/JSX/macro, Android Templater/accessibility, other untested
+  platform functions, and stale bootstrap SHA remain open. No repair applied.
+- Evidence: External 26-row capture manifest
+  `W5-WAVE5-RUNTIME-20260803-SHA256.csv` SHA-256
+  `2BDB7F3AAF37491FD599D6C86DC99ABB72ADEDE6006F94B1A709754F5AA192B5`.
+  Raw screenshots and runtime ledgers remain outside this product repository.
+- Boundary: Tasks 7-9, Wave 6, full-only import, remnant implementation,
+  personalization, live-vault promotion, PR, and merge remain
+  `NOT STARTED` or forbidden in this session.

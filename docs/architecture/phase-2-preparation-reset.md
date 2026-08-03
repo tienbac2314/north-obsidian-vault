@@ -5,16 +5,31 @@ Phase 2 Preparation; it does not authorize Phase 2 Execution or live promotion.
 
 ## Current preparation checkpoint
 
-As of 2026-08-03, Wave 4 is closed and structure-refactor Tasks 1-6 are
-accepted. Wave 5 integrated updated-light regression is next; Tasks 7-9 and
-Wave 6 are not started. The external Part 2 control entry was independently
-verified at `a36a96d7f741c5c46ff6a17e24cfeb8362586759` with tree
-`6ffe6f290cc330fac05c27ac2fb583711c4ce759`; its current orchestration
-correction is commit `6727da34d3617856230a0cb8effda8d3119e9e67`.
+As of 2026-08-03, Wave 4 is closed, structure-refactor Tasks 1-6 are
+accepted, and Wave 5 integrated updated-light regression is complete with
+`PASS_WITH_GAPS`. Part 2 control repository `main` is clean at
+`7add44d889359e71ed0e64853bd76052d5ad2005` with tree
+`42393f5af655f884b0ac1f0b2566ecc3670f3d54`. Tasks 7-9 and Wave 6 remain
+`NOT STARTED`.
+
+Fresh Windows evidence covered cold/warm startup, readiness, Homepage, Mobile
+Homepage, Map of Content, Mail Box, and Omnisearch on the integrated disposable.
+Fresh Android evidence covered serial `01234ABC` startup, mapped menu, visible
+Command Palette, and daily `2026-08-03` Reading/Live Preview. Equal-contract
+Wave 4 rows were reused. No repair was applied. Remaining gaps are recorded in
+the Part 2 ledgers, including Windows blank-container Live Preview, search
+no-match observation, Android mapped Daily Note no-navigation, QuickAdd/Hover/
+Commander/JS/JSX/macro gaps, Android Templater/accessibility, and stale
+bootstrap SHA.
+
+Capture manifest remains external:
+`G:\Dusk-Knowledge-Hub\payload\evidence\Dusk-Phase2-Preparation-Part2-Runtime\manifests\W5-WAVE5-RUNTIME-20260803-SHA256.csv`,
+SHA-256
+`2BDB7F3AAF37491FD599D6C86DC99ABB72ADEDE6006F94B1A709754F5AA192B5`.
 
 Compact publication uses only `docs/phase2-preparation-reset` in its isolated
 worktree. Product `main` and detached worktree `bf23` remain unchanged. No PR
-or merge is part of this preparation continuation.
+or merge is part of this preparation continuation. Self-review is next.
 
 ## Purpose
 
