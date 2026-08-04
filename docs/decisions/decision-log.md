@@ -372,3 +372,45 @@ Statuses: Accepted, Proposed, Rejected, Postponed, Superseded.
 - Boundary: Wave 6/Task 7, Wave 7/Task 8, and Wave 8/Task 9 remain
   `NOT STARTED`; no full-only import, remnant implementation,
   personalization, live-vault promotion, PR, or merge.
+
+## DEC-044: Wave 5 R8 repair and pruning
+
+- Status: Current superseding Wave 5 result; self-review required before any
+  future wave.
+- Decision: DEC-043 is superseded interim authority. Wave 5 is
+  `COMPLETE_WITH_EXPLICIT_GATES` after the reopened disposable repair,
+  evidence-gated pruning, and affected Windows/Android reruns. Six candidates
+  with zero required Dusk and top-level references were removed from both
+  registered disposables: `garble-text`, `obsidian-grandfather`,
+  `pomodoro-timer`, `url-into-selection`,
+  `obsidian-view-mode-by-frontmatter`, and `settings-search`. Exact rollback
+  trees remain external.
+- Projects: Windows `obsidian-projects` was retained and re-enabled because
+  systematic debugging reproduced its required
+  `obsidian-projects:show-projects` consumer in QuickAdd Project/Area Family
+  and Note Toolbar Project/Area commands. Android retains its disabled
+  Projects directory; it was not proven bloat there.
+- Result: Windows settled with one Calendar, one Todo List, zero `timer-view`,
+  no stale journal-calendar label, repaired Daily mappings, Project Family and
+  Area Family prompts, and full relevant Daily scroll. Android serial
+  `01234ABC` settled with one Calendar, one Todo List, zero `timer-view`, zero
+  stale Daily mappings, four repaired mappings, hidden stale status items, and
+  affected Homepage, Daily, Map, Create, Mail Box, Recent Files, and final
+  Homepage reruns. The user Hover Editor screenshot proves the current-file
+  floating pane; cursor-under-link targeting remains untested.
+- Remaining gates: synthetic three/four-fence Tabs Live Preview literal-source
+  behavior, Android physical-keyboard modifier variants, and credential,
+  Todoist, BRAT, arbitrary JS/JSX/macro, network, protected-source, and live
+  vault surfaces remain explicitly gated.
+- Authority/evidence: Part 2 `main` is clean at
+  `4aeacfe43695d19accf6f4fdec53b4a6b7317848` with tree
+  `60cd8c60769ae508eb6d3d32c28f00054bfc7617`. The external R8 repair manifest
+  has 29 rows and SHA-256
+  `BBCE4DDD8E5B4FBA79DE94E01485DA4AAABA846E018E141599354FC98E999C6B`.
+  Bloat audit SHA-256 is
+  `CA32686978A8F0530B90EBBEE88097B965A8058655F9221557F6D4211EB85BDD`;
+  sanitized repair patch SHA-256 is
+  `438762466107D93A436F4052127129A630E70573BCDDA26C1076BE5BCA589DA1`.
+- Publication: update and push only `docs/phase2-preparation-reset`; keep
+  product `main` and detached `bf23` unchanged. No PR or merge. Wave 6/Task 7,
+  Wave 7/Task 8, and Wave 8/Task 9 remain `NOT STARTED`.

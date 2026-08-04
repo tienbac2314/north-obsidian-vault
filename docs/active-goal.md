@@ -18,14 +18,15 @@ Wave 7/Task 8, and Wave 8/Task 9 are `NOT STARTED`. Phase 2 Execution,
 personalization, live promotion, PR, and merge remain gated.
 
 Part 2 Wave 5 result checkpoint: control repository `main` at
-`ed9dfb3c7d176aeff33c685f62ba1c1840ec152c`, tree
-`251086d5eff6d43b687cd7a3dcc0a2bc49eeb8f8`, clean. Real September monthly
-Tabs passed settled Windows Reading and Live Preview. Synthetic three/four-
-fence Live Preview literal-source behavior remains an explicit owner/contract
-gap; no Dusk source mutation was justified. Android is user-reported
-unchanged and was not reverified in this continuation. Publication is limited
-to `docs/phase2-preparation-reset`; product `main` and detached `bf23` remain
-unchanged.
+`4aeacfe43695d19accf6f4fdec53b4a6b7317848`, tree
+`60cd8c60769ae508eb6d3d32c28f00054bfc7617`, clean. Six proven zero-reference
+bloat candidates were removed from both registered disposables with rollback
+trees preserved outside this repository. Windows and Android affected reruns
+passed. Real September monthly Tabs passed settled Windows Reading and Live
+Preview. Synthetic three/four-fence Live Preview literal-source behavior
+remains an explicit owner/contract gap; no Dusk source mutation was justified.
+Publication is limited to `docs/phase2-preparation-reset`; product `main` and
+detached `bf23` remain unchanged.
 
 ## Stage mapping
 
@@ -51,7 +52,10 @@ unchanged.
 - [DEC-042](decisions/decision-log.md#dec-042-close-wave-5-with-explicit-gaps)
   records the earlier interim `PASS_WITH_GAPS`; it remains historical.
 - [DEC-043](decisions/decision-log.md#dec-043-close-wave-5-after-reopened-repair)
-  records the superseding repaired Wave 5 result and current gates.
+  records the superseding repaired Wave 5 result and current gates at the
+  earlier R7 checkpoint.
+- [DEC-044](decisions/decision-log.md#dec-044-wave-5-r8-repair-and-pruning)
+  records the current R8 repair, pruning, and Windows/Android reruns.
 - [Phase 2 Preparation reset](architecture/phase-2-preparation-reset.md)
   defines source, validation, archive, safety, and review boundaries.
 - [Implementation plan](superpowers/plans/2026-07-27-phase-2-preparation-reset.md)
@@ -64,12 +68,12 @@ Self-review the compact Part 2 and product checkpoints. Do not start Wave
 implementation, personalization, live-vault promotion, PR, or merge.
 
 Wave 5 evidence: integrated disposable/profile
-`W5-INTEGRATED-UPDATED-LIGHT-20260803` is closed. The cumulative external
-manifest has 372 rows and SHA-256
-`3ABDD3886F8F4FB4E89855F158C9959CE4572D172DBB68C0FAEE635B840BC217`; the
-final R7 capture subset has 104 rows and SHA-256
-`63F16F4E422F8A150D25F3FD95A2B4CEEAF7BF2B9AB0D5C335E07CF78A923AFC`.
-Rollback and sanitized repair references remain outside this repository under
+`W5-INTEGRATED-UPDATED-LIGHT-20260803` is closed on Windows; Android serial
+`01234ABC` was reverified on the registered disposable target. The R8 repair
+manifest has 29 rows and SHA-256
+`BBCE4DDD8E5B4FBA79DE94E01485DA4AAABA846E018E141599354FC98E999C6B`.
+Rollback, bloat audit, and sanitized repair references remain outside this
+repository under
 `G:\Dusk-Knowledge-Hub\payload\evidence\Dusk-Phase2-Preparation-Part2-Runtime`.
 
 ## Safety
@@ -92,10 +96,11 @@ Rollback and sanitized repair references remain outside this repository under
   daily evidence SHA is
   `E24A3B4E6CAC1D2BF654D597BDCD9AE89D5E08EDCBB0741009541C2833B43C54`.
   Full ledgers and raw evidence remain outside this product repository.
-- Windows Projects was re-enabled after R6 pruning exposed its required
-  QuickAdd/Note Toolbar command consumer. Disabled-only bloat candidates keep
-  rollback directories; no plugin directory was deleted. Todoist, BRAT, and
-  credential-bearing integrations remain disabled.
+- Windows Projects was retained and re-enabled after R6 pruning exposed its
+  required QuickAdd/Note Toolbar command consumer. Six proven zero-reference
+  candidate directories were removed from both disposables; rollback trees
+  remain external. Todoist, BRAT, and credential-bearing integrations remain
+  disabled.
 
 ## Current orchestration
 

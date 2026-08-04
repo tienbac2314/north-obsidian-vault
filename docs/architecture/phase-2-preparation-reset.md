@@ -8,9 +8,11 @@ Phase 2 Preparation; it does not authorize Phase 2 Execution or live promotion.
 As of 2026-08-04, Wave 4 is closed, structure-refactor Tasks 1-6 are
 accepted, and Wave 5 is `COMPLETE_WITH_EXPLICIT_GATES` after reopened repair.
 Part 2 control repository `main` is clean at
-`ed9dfb3c7d176aeff33c685f62ba1c1840ec152c` with tree
-`251086d5eff6d43b687cd7a3dcc0a2bc49eeb8f8`. The earlier Wave 5
-`PASS_WITH_GAPS` is superseded interim evidence.
+`4aeacfe43695d19accf6f4fdec53b4a6b7317848` with tree
+`60cd8c60769ae508eb6d3d32c28f00054bfc7617`. The earlier Wave 5
+`PASS_WITH_GAPS` is superseded interim evidence. Six proven zero-reference
+bloat candidates were removed from both registered disposables; exact rollback
+trees remain outside this product repository.
 
 Windows disposable `W5-INTEGRATED-UPDATED-LIGHT-20260803` is closed after
 fresh settled verification. Duplicate Calendar/Todo List workspace leaves,
@@ -19,13 +21,14 @@ items, and four stale Note Toolbar Daily mappings were repaired. The real
 September monthly note passes Reading and Live Preview. Synthetic three/four-
 fence Live Preview literal-source behavior is recorded as an explicit Tabs
 owner/contract gap; no Dusk source mutation was applied. Android serial
-`01234ABC` is user-reported unchanged and was not reverified in this
-continuation.
+`01234ABC` was reverified on the registered disposable target after the repair.
+It settled with one Calendar, one Todo List, zero `timer-view`, repaired Daily
+mappings, and hidden stale status items.
 
-Cumulative external evidence manifest has 372 rows, SHA-256
-`3ABDD3886F8F4FB4E89855F158C9959CE4572D172DBB68C0FAEE635B840BC217`.
-Final R7 capture subset has 104 rows, SHA-256
-`63F16F4E422F8A150D25F3FD95A2B4CEEAF7BF2B9AB0D5C335E07CF78A923AFC`.
+Cumulative external evidence remains outside Git. The current R8 repair
+manifest has 29 rows, SHA-256
+`BBCE4DDD8E5B4FBA79DE94E01485DA4AAABA846E018E141599354FC98E999C6B`.
+The bloat audit and sanitized repair patch are also external.
 Raw screenshots, profiles, rollback, and runtime ledgers remain outside this
 product repository.
 
