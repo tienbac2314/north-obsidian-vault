@@ -1,10 +1,25 @@
 # Phase 2 Preparation handoff
 
+## Current Wave 5 pruning correction
+
+Wave 5 is `COMPLETE_WITH_EXPLICIT_GATES` after the user-reopened pruning
+correction. The earlier six-plugin removal was not accepted as bloat because
+zero mapped Dusk/consumer references did not prove zero personal utility.
+Exact rollback trees for Garble Text, Grandfather, Pomodoro Timer, URL Into
+Selection, Force note view mode, and Settings Search were restored and enabled
+on Windows and Android. Pomodoro run/reset and Settings Search filtering
+passed on both targets. No disputed plugin was uninstalled. Raw proof remains
+outside Git under the Part 2 runtime evidence root.
+
 Status: Wave 4 closed; structure-refactor Tasks 1-6 accepted; Wave 5 is
 `COMPLETE_WITH_EXPLICIT_GATES` after disposable repairs and affected reruns.
 Wave 6/Task 7, Wave 7/Task 8, and Wave 8/Task 9 are `NOT STARTED`.
 
 Branch: `docs/phase2-preparation-reset`.
+
+Part 2 final control checkpoint: `main` HEAD
+`f32c74342be4e78270fe9da50fe4f09ce9fa0de0`, tree
+`bda0eba0b6e8a9f58e46b00bd4ebe14d70ecbdf7`, clean before product publication.
 
 Current product branch: `docs/phase2-preparation-reset`. Resolve current
 product HEAD/tree with `git rev-parse HEAD` and `git rev-parse 'HEAD^{tree}'`.
@@ -33,9 +48,10 @@ The protected product `main` and detached `bf23` worktree remain unchanged.
   Templater daily creation repair, retained Datacore `0.1.29` after BRAT was
   disabled, and disabled credential-bearing Todoist. Wave 5 repaired the
   Journals/Templater cursor-marker integration defect, duplicate/ghost
-  surfaces, stale mappings/status items, and six proven zero-reference bloat
-  candidates. Projects remains enabled on Windows because QuickAdd and Note
-  Toolbar consume its command.
+  surfaces, stale mappings/status items, and the unsupported six-plugin
+  removal. The six disputed utility trees were restored and retained.
+  Projects remains enabled on Windows because QuickAdd and Note Toolbar
+  consume its command.
 - Getting Started guide Markdown navigation remains in scope. Its 82 image
   references/81 unique basenames depict full-Dusk reference media and are not
   Dusk_light acceptance requirements. No full-vault media was imported.
@@ -71,8 +87,8 @@ Cold archive: `G:\Dusk-Phase2-Cold-Archive-20260727`.
 Wave 5 used disposable/profile `W5-INTEGRATED-UPDATED-LIGHT-20260803` and the
 registered Android serial `01234ABC`. Windows and Android affected reruns
 passed after the disposable Journals finalizer, duplicate/ghost cleanup,
-mapping/status repair, and six proven zero-reference removals. Raw evidence,
-rollback, and the 29-row R8 repair manifest remain outside this product
+mapping/status repair, and six-plugin restoration. Raw evidence, rollback, and
+the compact pruning-correction manifests remain outside this product
 repository. Known gates remain explicit in Part 2 ledgers; self-review is next.
 Do not start Wave 6/Task 7, Wave 7/Task 8, or Wave 8/Task 9.
 

@@ -1,5 +1,29 @@
 # Active goal
 
+## Current Wave 5 pruning correction
+
+Wave 5 is `COMPLETE_WITH_EXPLICIT_GATES` after the user-reopened pruning
+correction. The earlier R8/R9 claim that six plugins were disposable bloat is
+superseded: that audit proved only zero mapped Dusk/consumer references, not
+zero personal utility or zero configured behavior.
+
+Exact rollback trees for Garble Text, Grandfather, Pomodoro Timer, URL Into
+Selection, Force note view mode, and Settings Search were restored and enabled
+on both registered disposables. Windows finished at 44 enabled entries and
+SHA-256 `72C7E31F007BFA8F1783C9A41601F37B13991571D6AA84D54BA80BA87BBE72B0`;
+Android finished at 43 enabled entries and SHA-256
+`8BFA2E3EB94B10E786A78847BA1939BC01516C09A001C51F71A36EBD537BFD01`.
+Pomodoro run/reset and Settings Search filtering passed on both targets. No
+disputed plugin was uninstalled; no live/source/product/bf23 state changed.
+
+Compact runtime proof remains external under
+`G:\Dusk-Knowledge-Hub\payload\evidence\Dusk-Phase2-Preparation-Part2-Runtime\checkpoints\W5-PRUNING-CORRECTION-20260804`.
+The restored-plugin manifest is 34 rows, SHA-256
+`F663F451923155EB25805B783B0331FD4534FF086EEAC76CBA0112800C0CF8C3`; the
+evidence hash manifest is SHA-256
+`681CA0C7603B8A096A80994803F0F90760AB369B53835C70788903E6EB810A19`.
+Wave 6/Task 7, Wave 7/Task 8, and Wave 8/Task 9 remain `NOT STARTED`.
+
 Updated: 2026-08-04
 
 ## Objective
@@ -24,10 +48,10 @@ full-Dusk reference media confirmed by the user, not Dusk_light behavior
 requirements. No full-vault media or feature was imported during Wave 5.
 
 Part 2 Wave 5 result checkpoint: control repository `main` at
-`e3f91fd6e9f3458b39beb68be51dea71165a7edc`, tree
-`ee58ea6f52648ff3f8091d275d0ebd8691b72d97`, clean. Six proven zero-reference
-bloat candidates were removed from both registered disposables with rollback
-trees preserved outside this repository. Windows and Android affected reruns
+`f32c74342be4e78270fe9da50fe4f09ce9fa0de0`, tree
+`bda0eba0b6e8a9f58e46b00bd4ebe14d70ecbdf7`, clean. The prior six-plugin
+disposable removal is superseded; exact rollback trees were restored and
+retained outside this repository. Windows and Android affected reruns
 passed. Real September monthly Tabs passed settled Windows Reading and Live
 Preview. Synthetic three/four-fence Live Preview literal-source behavior
 remains an explicit owner/contract gap; no Dusk source mutation was justified.
@@ -69,6 +93,8 @@ detached `bf23` remain unchanged.
 - [DEC-045](decisions/decision-log.md#dec-045-close-wave-5-after-media-scope-correction)
   records the final cursor repair, Getting Started media scope correction,
   evidence cleanup, and explicit Wave 5 gates.
+- [DEC-046](decisions/decision-log.md#dec-046-correct-wave-5-pruning-disposition)
+  records the superseding six-plugin restoration and affected utility reruns.
 - [Phase 2 Preparation reset](architecture/phase-2-preparation-reset.md)
   defines source, validation, archive, safety, and review boundaries.
 - [Implementation plan](superpowers/plans/2026-07-27-phase-2-preparation-reset.md)
@@ -110,10 +136,10 @@ repository under
   `E24A3B4E6CAC1D2BF654D597BDCD9AE89D5E08EDCBB0741009541C2833B43C54`.
   Full ledgers and raw evidence remain outside this product repository.
 - Windows Projects was retained and re-enabled after R6 pruning exposed its
-  required QuickAdd/Note Toolbar command consumer. Six proven zero-reference
-  candidate directories were removed from both disposables; rollback trees
-  remain external. Todoist, BRAT, and credential-bearing integrations remain
-  disabled.
+  required QuickAdd/Note Toolbar command consumer. The six disputed utility
+  directories were restored and retained after Windows/Android reruns;
+  rollback trees remain external. Todoist, BRAT, and credential-bearing
+  integrations remain disabled.
 - The full-Dusk Getting Started media scope record is external:
   `GETTING-STARTED-MEDIA-SCOPE-20260804.txt`, SHA-256
   `088638E92D0B6E8FE31240FEB24050829385FE9C35B5AAEE0CA92CD210778BCC`.

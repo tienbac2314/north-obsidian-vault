@@ -1,5 +1,23 @@
 # Phase 2 Preparation reset
 
+## Current Wave 5 correction checkpoint
+
+Wave 5 is `COMPLETE_WITH_EXPLICIT_GATES` after correcting the disposable-only
+pruning decision. The prior six-plugin removal was based on zero mapped
+Dusk/consumer references, which did not prove zero personal utility or zero
+configured behavior. Exact rollback trees for Garble Text, Grandfather,
+Pomodoro Timer, URL Into Selection, Force note view mode, and Settings Search
+were restored and enabled on both registered disposables.
+
+Windows final community config is 44 enabled entries, SHA-256
+`72C7E31F007BFA8F1783C9A41601F37B13991571D6AA84D54BA80BA87BBE72B0`.
+Android serial `01234ABC` final config is 43 enabled entries, SHA-256
+`8BFA2E3EB94B10E786A78847BA1939BC01516C09A001C51F71A36EBD537BFD01`.
+Pomodoro run/reset and Settings Search filtering passed on both targets; no
+disputed plugin was uninstalled. Raw evidence and exact manifests remain
+outside Git under the runtime evidence root. Future Wave 6/Task 7, Wave 7/
+Task 8, and Wave 8/Task 9 remain `NOT STARTED`.
+
 Status: approved on 2026-07-27. This design governs repository recovery and
 Phase 2 Preparation; it does not authorize Phase 2 Execution or live promotion.
 
@@ -8,11 +26,11 @@ Phase 2 Preparation; it does not authorize Phase 2 Execution or live promotion.
 As of 2026-08-04, Wave 4 is closed, structure-refactor Tasks 1-6 are
 accepted, and Wave 5 is `COMPLETE_WITH_EXPLICIT_GATES` after reopened repair.
 Part 2 control repository `main` is clean at
-`e3f91fd6e9f3458b39beb68be51dea71165a7edc` with tree
-`ee58ea6f52648ff3f8091d275d0ebd8691b72d97`. The earlier Wave 5
-`PASS_WITH_GAPS` is superseded interim evidence. Six proven zero-reference
-bloat candidates were removed from both registered disposables; exact rollback
-trees remain outside this product repository.
+`f32c74342be4e78270fe9da50fe4f09ce9fa0de0` with tree
+`bda0eba0b6e8a9f58e46b00bd4ebe14d70ecbdf7`. The earlier Wave 5
+`PASS_WITH_GAPS` is superseded interim evidence. The earlier six-plugin
+disposable removal is also superseded; exact rollback trees were restored and
+retained outside this product repository.
 
 Windows disposable `W5-INTEGRATED-UPDATED-LIGHT-20260803` is closed after
 fresh settled verification. Duplicate Calendar/Todo List workspace leaves,

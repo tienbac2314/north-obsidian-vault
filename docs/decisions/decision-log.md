@@ -450,3 +450,28 @@ Statuses: Accepted, Proposed, Rejected, Postponed, Superseded.
   tree `ee58ea6f52648ff3f8091d275d0ebd8691b72d97`, clean at publication time.
   Product publication remains limited to
   `docs/phase2-preparation-reset`; product `main` and `bf23` are unchanged.
+
+## DEC-046: Correct Wave 5 pruning disposition
+
+- Status: Current superseding Wave 5 result; self-review required before any
+  future wave.
+- Decision: DEC-045's six-plugin removal wording is superseded. The R8 audit
+  proved zero mapped Dusk and consumer references, not zero personal utility
+  or zero configured behavior. Exact rollback trees for Garble Text,
+  Grandfather, Pomodoro Timer, URL Into Selection, Force note view mode, and
+  Settings Search were restored and enabled on both registered disposables.
+- Result: Windows and Android affected reruns passed. Pomodoro ran and reset;
+  Settings Search filtered Pomodoro on both platforms; Windows settled
+  maximized Homepage and Android settled native Homepage. No disputed plugin
+  was uninstalled. Projects remains enabled where QuickAdd and Note Toolbar
+  require its command.
+- Evidence: `RESTORED-PLUGIN-MANIFEST-20260804.csv` is 34 rows at SHA-256
+  `F663F451923155EB25805B783B0331FD4534FF086EEAC76CBA0112800C0CF8C3`; the
+  compact evidence hash manifest is
+  `681CA0C7603B8A096A80994803F0F90760AB369B53835C70788903E6EB810A19`.
+  Both remain external under the Part 2 runtime evidence root. Existing Tabs, Hover, Android keyboard, credential,
+  Todoist, BRAT, arbitrary-code, network, protected-source, and live-vault
+  gates remain explicit. Future Wave 6/Task 7, Wave 7/Task 8, and Wave 8/
+  Task 9 remain `NOT STARTED`; no PR or merge. Part 2 final control checkpoint
+  is `f32c74342be4e78270fe9da50fe4f09ce9fa0de0` / tree
+  `bda0eba0b6e8a9f58e46b00bd4ebe14d70ecbdf7`, clean before this publication.
