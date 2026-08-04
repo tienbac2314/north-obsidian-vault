@@ -1,5 +1,33 @@
 # Decision log
 
+## DEC-047: Keep Projects enabled on both disposable platforms
+
+- Status: Current superseding Wave 5 correction; self-review remains required
+  before any future wave.
+- Decision: retain `obsidian-projects` enabled on Windows and Android. The
+  user may use Projects on Android, and platform parity removes an unnecessary
+  configuration difference.
+- Root cause: Android Projects was not proven bloat or broken. Its directory
+  and manifest were present; the earlier Android-disabled state reflected an
+  untested dependency path. Windows debugging had already proven
+  `obsidian-projects:show-projects` is consumed by QuickAdd and Note Toolbar
+  Project/Area routes.
+- Result: Android pre-state was 43 IDs / 968 bytes / SHA-256
+  `80FBA64CD66A3A2327E229CB20352F0DC164A25F8C0F38F0DDC243DCE84F68D9`.
+  After a config-only disposable repair and restart, Android matches current
+  Windows at 44 IDs / 991 bytes / SHA-256
+  `7F11C3A7F043724BFA95E9AB1353DA1499A9D235163D8D96C873FF03B7C03905` and
+  settled on native Homepage. No plugin reinstall or removal occurred.
+- Evidence: external `RESULT-PROJECTS-PLATFORM-SYNC-20260804.txt` SHA-256
+  `EEE61F14B42893113084BD0B7510B367A6CD03373ADFBB459E56D9A2A8263BFA`; the
+  18-row evidence hash manifest is SHA-256
+  `A4C9F7E099629784A65BAD13F5C9BAB5D7A89BCB47FB9AF494B20B62A4F0ED26`.
+  Part 2 mutation checkpoint is `6007f669cf051a5ed2d1d87a989da19434c8931d`
+  / tree `a0742fbc10086f3f70ab87a60e134df544fca185`; Graphify used the
+  9router OpenAI-compatible route with no Gemini fallback.
+- Boundary: Wave 6/Task 7, Wave 7/Task 8, and Wave 8/Task 9 remain
+  `NOT STARTED`; no PR or merge.
+
 Status: current after 2026-07-23 design-readiness hardening. Earlier workspace-service, SQLite, backup, Telegram-ingestion, OpenViking, embedding, Syncthing-first, and thin-spec decisions remain visible as superseded history.
 
 Statuses: Accepted, Proposed, Rejected, Postponed, Superseded.

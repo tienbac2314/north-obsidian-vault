@@ -1,5 +1,24 @@
 # Active goal
 
+## Current Wave 5 Projects platform-sync correction
+
+Android Projects was disabled only because its dependency path had not been
+tested there. The plugin directory and manifest were present, and the only
+enabled-ID difference was `obsidian-projects`: Windows had 44 IDs; Android had
+43. After a disposable-only enable-list push and restart, both current
+disposable configs match at 44 IDs / 991 bytes / SHA-256
+`7F11C3A7F043724BFA95E9AB1353DA1499A9D235163D8D96C873FF03B7C03905`.
+Android settled on native Homepage at PID `19366`. No plugin was reinstalled or
+removed; no source, live, product-main, or `bf23` state changed.
+
+Evidence is external under the runtime checkpoint. Result SHA-256 is
+`EEE61F14B42893113084BD0B7510B367A6CD03373ADFBB459E56D9A2A8263BFA`; the
+18-row evidence hash manifest is SHA-256
+`A4C9F7E099629784A65BAD13F5C9BAB5D7A89BCB47FB9AF494B20B62A4F0ED26`.
+Part 2 mutation checkpoint is `6007f669cf051a5ed2d1d87a989da19434c8931d`
+with tree `a0742fbc10086f3f70ab87a60e134df544fca185`. Correct Graphify
+evidence uses the 9router OpenAI-compatible route; no Gemini fallback.
+
 ## Current Wave 5 pruning correction
 
 Wave 5 is `COMPLETE_WITH_EXPLICIT_GATES` after the user-reopened pruning

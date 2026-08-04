@@ -50,8 +50,9 @@ The protected product `main` and detached `bf23` worktree remain unchanged.
   Journals/Templater cursor-marker integration defect, duplicate/ghost
   surfaces, stale mappings/status items, and the unsupported six-plugin
   removal. The six disputed utility trees were restored and retained.
-  Projects remains enabled on Windows because QuickAdd and Note Toolbar
-  consume its command.
+  Projects is enabled on both disposable platforms. Windows QuickAdd and Note
+  Toolbar consume its command; Android was aligned after the user requested
+  platform parity and restarted cleanly.
 - Getting Started guide Markdown navigation remains in scope. Its 82 image
   references/81 unique basenames depict full-Dusk reference media and are not
   Dusk_light acceptance requirements. No full-vault media was imported.
