@@ -13,6 +13,9 @@ on both registered disposables. Windows finished at 44 enabled entries and
 SHA-256 `72C7E31F007BFA8F1783C9A41601F37B13991571D6AA84D54BA80BA87BBE72B0`;
 Android finished at 43 enabled entries and SHA-256
 `8BFA2E3EB94B10E786A78847BA1939BC01516C09A001C51F71A36EBD537BFD01`.
+Final Android direct readback is 968 bytes, SHA-256
+`80FBA64CD66A3A2327E229CB20352F0DC164A25F8C0F38F0DDC243DCE84F68D9`, with
+the same 43 IDs after one terminal-LF normalization.
 Pomodoro run/reset and Settings Search filtering passed on both targets. No
 disputed plugin was uninstalled; no live/source/product/bf23 state changed.
 
@@ -21,7 +24,7 @@ Compact runtime proof remains external under
 The restored-plugin manifest is 34 rows, SHA-256
 `F663F451923155EB25805B783B0331FD4534FF086EEAC76CBA0112800C0CF8C3`; the
 evidence hash manifest is SHA-256
-`681CA0C7603B8A096A80994803F0F90760AB369B53835C70788903E6EB810A19`.
+`6588D33B9BC2D3AA98AE4A85E5EF03ECCB8510775DAA5D0F4BFF3C6C6926BA6B`.
 Wave 6/Task 7, Wave 7/Task 8, and Wave 8/Task 9 remain `NOT STARTED`.
 
 Updated: 2026-08-04
@@ -48,8 +51,8 @@ full-Dusk reference media confirmed by the user, not Dusk_light behavior
 requirements. No full-vault media or feature was imported during Wave 5.
 
 Part 2 Wave 5 result checkpoint: control repository `main` at
-`f32c74342be4e78270fe9da50fe4f09ce9fa0de0`, tree
-`bda0eba0b6e8a9f58e46b00bd4ebe14d70ecbdf7`, clean. The prior six-plugin
+`8e4b47e1995a71e201d6300c0a12e2583df64ea0`, tree
+`51d85566ee41c406954296675197a883088d3e80`, clean. The prior six-plugin
 disposable removal is superseded; exact rollback trees were restored and
 retained outside this repository. Windows and Android affected reruns
 passed. Real September monthly Tabs passed settled Windows Reading and Live

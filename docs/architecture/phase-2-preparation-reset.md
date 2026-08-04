@@ -13,6 +13,9 @@ Windows final community config is 44 enabled entries, SHA-256
 `72C7E31F007BFA8F1783C9A41601F37B13991571D6AA84D54BA80BA87BBE72B0`.
 Android serial `01234ABC` final config is 43 enabled entries, SHA-256
 `8BFA2E3EB94B10E786A78847BA1939BC01516C09A001C51F71A36EBD537BFD01`.
+Final Android direct readback is 968 bytes, SHA-256
+`80FBA64CD66A3A2327E229CB20352F0DC164A25F8C0F38F0DDC243DCE84F68D9`, with
+the same 43 IDs after one terminal-LF normalization.
 Pomodoro run/reset and Settings Search filtering passed on both targets; no
 disputed plugin was uninstalled. Raw evidence and exact manifests remain
 outside Git under the runtime evidence root. Future Wave 6/Task 7, Wave 7/
@@ -26,8 +29,8 @@ Phase 2 Preparation; it does not authorize Phase 2 Execution or live promotion.
 As of 2026-08-04, Wave 4 is closed, structure-refactor Tasks 1-6 are
 accepted, and Wave 5 is `COMPLETE_WITH_EXPLICIT_GATES` after reopened repair.
 Part 2 control repository `main` is clean at
-`f32c74342be4e78270fe9da50fe4f09ce9fa0de0` with tree
-`bda0eba0b6e8a9f58e46b00bd4ebe14d70ecbdf7`. The earlier Wave 5
+`8e4b47e1995a71e201d6300c0a12e2583df64ea0` with tree
+`51d85566ee41c406954296675197a883088d3e80`. The earlier Wave 5
 `PASS_WITH_GAPS` is superseded interim evidence. The earlier six-plugin
 disposable removal is also superseded; exact rollback trees were restored and
 retained outside this product repository.

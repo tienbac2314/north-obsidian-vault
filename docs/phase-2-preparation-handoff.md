@@ -18,8 +18,8 @@ Wave 6/Task 7, Wave 7/Task 8, and Wave 8/Task 9 are `NOT STARTED`.
 Branch: `docs/phase2-preparation-reset`.
 
 Part 2 final control checkpoint: `main` HEAD
-`f32c74342be4e78270fe9da50fe4f09ce9fa0de0`, tree
-`bda0eba0b6e8a9f58e46b00bd4ebe14d70ecbdf7`, clean before product publication.
+`8e4b47e1995a71e201d6300c0a12e2583df64ea0`, tree
+`51d85566ee41c406954296675197a883088d3e80`, clean before product publication.
 
 Current product branch: `docs/phase2-preparation-reset`. Resolve current
 product HEAD/tree with `git rev-parse HEAD` and `git rev-parse 'HEAD^{tree}'`.

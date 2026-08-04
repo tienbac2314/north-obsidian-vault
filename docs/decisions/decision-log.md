@@ -463,15 +463,17 @@ Statuses: Accepted, Proposed, Rejected, Postponed, Superseded.
 - Result: Windows and Android affected reruns passed. Pomodoro ran and reset;
   Settings Search filtered Pomodoro on both platforms; Windows settled
   maximized Homepage and Android settled native Homepage. No disputed plugin
-  was uninstalled. Projects remains enabled where QuickAdd and Note Toolbar
-  require its command.
+  was uninstalled. Android direct config readback is 968 bytes at SHA-256
+  `80FBA64CD66A3A2327E229CB20352F0DC164A25F8C0F38F0DDC243DCE84F68D9`, with
+  the same 43 IDs after terminal-LF normalization. Projects remains enabled
+  where QuickAdd and Note Toolbar require its command.
 - Evidence: `RESTORED-PLUGIN-MANIFEST-20260804.csv` is 34 rows at SHA-256
   `F663F451923155EB25805B783B0331FD4534FF086EEAC76CBA0112800C0CF8C3`; the
   compact evidence hash manifest is
-  `681CA0C7603B8A096A80994803F0F90760AB369B53835C70788903E6EB810A19`.
+  `6588D33B9BC2D3AA98AE4A85E5EF03ECCB8510775DAA5D0F4BFF3C6C6926BA6B`.
   Both remain external under the Part 2 runtime evidence root. Existing Tabs, Hover, Android keyboard, credential,
   Todoist, BRAT, arbitrary-code, network, protected-source, and live-vault
   gates remain explicit. Future Wave 6/Task 7, Wave 7/Task 8, and Wave 8/
   Task 9 remain `NOT STARTED`; no PR or merge. Part 2 final control checkpoint
-  is `f32c74342be4e78270fe9da50fe4f09ce9fa0de0` / tree
-  `bda0eba0b6e8a9f58e46b00bd4ebe14d70ecbdf7`, clean before this publication.
+  is `8e4b47e1995a71e201d6300c0a12e2583df64ea0` / tree
+  `51d85566ee41c406954296675197a883088d3e80`, clean before this publication.
