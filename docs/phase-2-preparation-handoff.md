@@ -18,6 +18,31 @@ Part 2 current checkpoint: `6ece63890bed34d2f2c553dad703500b38b03e2e`, tree
 `81eb797249bbed260cc1587131c0aa0ecc21e9bb`. Product branch remains
 `docs/phase2-preparation-reset`; publish only this reset branch.
 
+## Superseding Wave 6 / Task 7 FAB result
+
+Full-Dusk comparison remains static-only because exact full-Dusk source and
+archive are gated. Local Note Toolbar debugging found the missing FAB root
+cause: legacy nested `visibility.<platform>.allViews.components` was ignored
+by Note Toolbar v1.34.12, which reads direct platform `components`. A temporary
+current-schema toolbar rendered, confirming a local configuration-shape fault.
+
+The disposable repair flattened all 100 items, retained 21 ordered mappings
+and a final `*` fallback, removed the temporary toolbar, disabled debug
+logging, and pushed identical config to Windows and Android. Settled Windows
+Homepage, Map of Content, and PARA/PROJECTS note showed the context-sensitive
+FAB in native 1920x1040 JPEGs. Settled Android Homepage showed it in native
+1200x2000 PNG. Final config SHA-256:
+`E6AAE6DE732156534F7694B974ADAD7F95ED237E36D488CC1FAAB0CA3D4505ED`.
+
+Sanitized patch and hash references remain external under
+`G:\\Dusk-Knowledge-Hub\\payload\\evidence\\Dusk-Phase2-Preparation-Part2-Runtime\\checkpoints\\W6-FAB-FALLBACK-20260804`.
+The 11 full-only historical plugins remain review-only. Day Planner and
+Remember Cursor Position are future candidates; Advanced Tables is optional
+because Obsidian Bases is core. Bases and future Dataview/Datacore migration
+are later personalization/customization/optimization work. Journals remains
+periodic owner; Daily Note Navbar stays disabled. Wave 7 / Task 8 and Wave 8 /
+Task 9 remain `NOT STARTED`.
+
 ## Completed Wave 5 pruning correction
 
 Wave 5 is `COMPLETE_WITH_EXPLICIT_GATES` after the user-reopened pruning

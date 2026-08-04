@@ -27,6 +27,38 @@ recoverable under the Part 2 runtime evidence root.
 
 Updated: 2026-08-04
 
+## Superseding Wave 6 / Task 7 Note Toolbar repair
+
+Task 7 remains static-only for full-Dusk comparison. Exact full-Dusk source
+and archive remain gated; no full-vault visual/import/activation occurred.
+
+Systematic debugging isolated the missing Dusk_light FAB to legacy nested
+Note Toolbar item visibility: Dusk_light stored
+`visibility.<platform>.allViews.components`, while Note Toolbar v1.34.12 reads
+direct `visibility.<platform>.components`. A temporary current-schema toolbar
+rendered, proving the renderer/CSS and disposable target were functional. The
+disposable repair flattened all 100 items, retained 21 ordered mappings and a
+final `*` fallback, removed the temporary toolbar, disabled debug logging, and
+pushed identical config to Windows and Android.
+
+Settled Windows Homepage, Map of Content, and PARA/PROJECTS note showed the
+context-sensitive FAB in native 1920x1040 JPEG evidence. Settled Android
+Homepage showed it in native 1200x2000 PNG evidence. External sanitized repair
+and hash references are stored under the Part 2 runtime evidence root at
+`checkpoints/W6-FAB-FALLBACK-20260804`; raw screenshots and runtime JSON stay
+outside Git. Final config SHA-256 is
+`E6AAE6DE732156534F7694B974ADAD7F95ED237E36D488CC1FAAB0CA3D4505ED`.
+
+The 11 historical full-only plugins remain review-only. Day Planner and
+Remember Cursor Position are future candidates; Advanced Tables is optional
+because Obsidian Bases is core. Bases and future Dataview/Datacore migration
+belong to later personalization/customization/optimization. Journals remains
+periodic owner and Daily Note Navbar stays disabled. Wave 7 / Task 8 and Wave
+8 / Task 9 remain `NOT STARTED`.
+
+Part 2 pre-publication checkpoint: `189c1930e77a46896b71545755e09a3646199120`
+/ tree `65c212db7da2d1d5ec222ab97561ae47ce68e3f3`.
+
 ## Completed Wave 5 Projects platform-sync correction
 
 Android Projects was disabled only because its dependency path had not been
