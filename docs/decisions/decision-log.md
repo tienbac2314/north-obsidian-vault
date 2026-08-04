@@ -414,3 +414,39 @@ Statuses: Accepted, Proposed, Rejected, Postponed, Superseded.
 - Publication: update and push only `docs/phase2-preparation-reset`; keep
   product `main` and detached `bf23` unchanged. No PR or merge. Wave 6/Task 7,
   Wave 7/Task 8, and Wave 8/Task 9 remain `NOT STARTED`.
+
+## DEC-045: Close Wave 5 after media scope correction
+
+- Status: Current superseding Wave 5 result; self-review required before any
+  future wave.
+- Decision: Wave 5 is `COMPLETE_WITH_EXPLICIT_GATES` after integrated
+  Dusk_light navigation, functional reruns, disposable repairs, evidence-gated
+  pruning, and final Windows/Android checks. The earlier `PASS_WITH_GAPS` and
+  targeted interim checkpoints remain truthful history but are superseded.
+- Cursor repair: Journals `main.js` was repaired only in the registered
+  disposables; final SHA-256 is
+  `AD1CF7D5CD28C8C3C0F146A73417725528EF10D3FAB25520B7FE94C51ACCCFE8` on both
+  Windows and Android. Twelve source templates retain `tp.file.cursor()`;
+  none were deleted. External cursor result SHA-256 is
+  `37DC97A12B861B73CF849C679123296D881870D69ACF464C8AF8BDEEA35EF5BD`.
+- Getting Started correction: guide Markdown navigation/scrolling remains
+  accepted. The user confirmed that the 82 image references and 81 unique
+  basenames depict full Dusk, while Dusk_light strips some features. Treat
+  those images as reference media, not light behavior requirements. No
+  full-vault media was imported. External scope record SHA-256 is
+  `088638E92D0B6E8FE31240FEB24050829385FE9C35B5AAEE0CA92CD210778BCC`.
+- Pruning: six proven zero-reference directories were removed from both
+  disposables with external rollback; Windows Projects remains enabled because
+  QuickAdd and Note Toolbar consume its command. Todoist, BRAT, credentials,
+  arbitrary code/macros, network, protected sources, and live vaults remain
+  gated. One stale pre-fix synthetic Windows note was moved outside the
+  disposable with exact hash proof; no source template changed.
+- Remaining gates: synthetic three/four-fence Tabs Live Preview owner/contract
+  limitation, cursor-under-link Hover targeting, Android physical-keyboard
+  modifier variants, and the explicitly gated credential/integration/code/
+  network/protected/live-vault surfaces. Wave 6/Task 7, Wave 7/Task 8, and
+  Wave 8/Task 9 remain `NOT STARTED`; no PR or merge.
+- Authority: Part 2 `main` is `e3f91fd6e9f3458b39beb68be51dea71165a7edc` with
+  tree `ee58ea6f52648ff3f8091d275d0ebd8691b72d97`, clean at publication time.
+  Product publication remains limited to
+  `docs/phase2-preparation-reset`; product `main` and `bf23` are unchanged.

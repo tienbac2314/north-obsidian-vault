@@ -12,19 +12,29 @@ Status: Phase 1 foundation remains complete. Wave 4 is closed and
 structure-refactor Tasks 1-6 are accepted. Wave 5 was reopened for repair and
 is now `COMPLETE_WITH_EXPLICIT_GATES`: duplicate Calendar/Todo List leaves,
 stale timer-view and journal-calendar ghost surfaces, stale disabled statusbar
-items, and four stale Note Toolbar Daily mappings were repaired and rerun.
+items, four stale Note Toolbar Daily mappings, and the Journals/Templater
+Reading-mode cursor-marker integration defect were repaired and rerun.
 The earlier `PASS_WITH_GAPS` is superseded interim evidence. Wave 6/Task 7,
 Wave 7/Task 8, and Wave 8/Task 9 are `NOT STARTED`. Phase 2 Execution,
 personalization, live promotion, PR, and merge remain gated.
 
+Getting Started scope is corrected: guide Markdown navigation and scrolling
+remain Wave 5 checks, but the 82 image references and 81 unique basenames are
+full-Dusk reference media confirmed by the user, not Dusk_light behavior
+requirements. No full-vault media or feature was imported during Wave 5.
+
 Part 2 Wave 5 result checkpoint: control repository `main` at
-`4aeacfe43695d19accf6f4fdec53b4a6b7317848`, tree
-`60cd8c60769ae508eb6d3d32c28f00054bfc7617`, clean. Six proven zero-reference
+`e3f91fd6e9f3458b39beb68be51dea71165a7edc`, tree
+`ee58ea6f52648ff3f8091d275d0ebd8691b72d97`, clean. Six proven zero-reference
 bloat candidates were removed from both registered disposables with rollback
 trees preserved outside this repository. Windows and Android affected reruns
 passed. Real September monthly Tabs passed settled Windows Reading and Live
 Preview. Synthetic three/four-fence Live Preview literal-source behavior
 remains an explicit owner/contract gap; no Dusk source mutation was justified.
+The disposable Journals finalizer is SHA-256
+`AD1CF7D5CD28C8C3C0F146A73417725528EF10D3FAB25520B7FE94C51ACCCFE8` on both
+platforms. Final cursor evidence is external `RESULT.txt`, SHA-256
+`37DC97A12B861B73CF849C679123296D881870D69ACF464C8AF8BDEEA35EF5BD`.
 Publication is limited to `docs/phase2-preparation-reset`; product `main` and
 detached `bf23` remain unchanged.
 
@@ -56,6 +66,9 @@ detached `bf23` remain unchanged.
   earlier R7 checkpoint.
 - [DEC-044](decisions/decision-log.md#dec-044-wave-5-r8-repair-and-pruning)
   records the current R8 repair, pruning, and Windows/Android reruns.
+- [DEC-045](decisions/decision-log.md#dec-045-close-wave-5-after-media-scope-correction)
+  records the final cursor repair, Getting Started media scope correction,
+  evidence cleanup, and explicit Wave 5 gates.
 - [Phase 2 Preparation reset](architecture/phase-2-preparation-reset.md)
   defines source, validation, archive, safety, and review boundaries.
 - [Implementation plan](superpowers/plans/2026-07-27-phase-2-preparation-reset.md)
@@ -101,6 +114,9 @@ repository under
   candidate directories were removed from both disposables; rollback trees
   remain external. Todoist, BRAT, and credential-bearing integrations remain
   disabled.
+- The full-Dusk Getting Started media scope record is external:
+  `GETTING-STARTED-MEDIA-SCOPE-20260804.txt`, SHA-256
+  `088638E92D0B6E8FE31240FEB24050829385FE9C35B5AAEE0CA92CD210778BCC`.
 
 ## Current orchestration
 

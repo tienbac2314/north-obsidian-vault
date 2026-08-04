@@ -1,7 +1,8 @@
 # Phase 2 Preparation handoff
 
-Status: Wave 4 closed; structure-refactor Tasks 1-6 accepted; Wave 5 completed
-with `PASS_WITH_GAPS`. Tasks 7-9 and Wave 6 are `NOT STARTED`.
+Status: Wave 4 closed; structure-refactor Tasks 1-6 accepted; Wave 5 is
+`COMPLETE_WITH_EXPLICIT_GATES` after disposable repairs and affected reruns.
+Wave 6/Task 7, Wave 7/Task 8, and Wave 8/Task 9 are `NOT STARTED`.
 
 Branch: `docs/phase2-preparation-reset`.
 
@@ -30,8 +31,14 @@ The protected product `main` and detached `bf23` worktree remain unchanged.
   bounded experiments after a gap is proven.
 - Wave 4 accepted disposable findings include Journals as sole periodic owner,
   Templater daily creation repair, retained Datacore `0.1.29` after BRAT was
-  disabled, and disabled credential-bearing Todoist. Wave 5 fresh integrated
-  evidence is complete with explicit gaps in the Part 2 ledgers.
+  disabled, and disabled credential-bearing Todoist. Wave 5 repaired the
+  Journals/Templater cursor-marker integration defect, duplicate/ghost
+  surfaces, stale mappings/status items, and six proven zero-reference bloat
+  candidates. Projects remains enabled on Windows because QuickAdd and Note
+  Toolbar consume its command.
+- Getting Started guide Markdown navigation remains in scope. Its 82 image
+  references/81 unique basenames depict full-Dusk reference media and are not
+  Dusk_light acceptance requirements. No full-vault media was imported.
 - Part 2 current orchestration has no fixed Terra main or persistent Luna
   operator. Main may use Computer Use directly. Another agent, if needed, is a
   separate full user-visible `gpt-5.6-luna` task with `max` reasoning created
@@ -62,11 +69,12 @@ Cold archive: `G:\Dusk-Phase2-Cold-Archive-20260727`.
 ## Wave 5 result and next action
 
 Wave 5 used disposable/profile `W5-INTEGRATED-UPDATED-LIGHT-20260803` and the
-registered Android serial `01234ABC`. Windows cold/warm/readiness/Home/Map/
-Mail/Search and Android startup/menu/Command Palette/daily Reading/Live evidence
-passed or remained explicit gaps. No repair was applied. Raw evidence and the
-26-row SHA-256 capture manifest remain outside this product repository. Self-
-review is next. Do not start Tasks 7-9 or Wave 6.
+registered Android serial `01234ABC`. Windows and Android affected reruns
+passed after the disposable Journals finalizer, duplicate/ghost cleanup,
+mapping/status repair, and six proven zero-reference removals. Raw evidence,
+rollback, and the 29-row R8 repair manifest remain outside this product
+repository. Known gates remain explicit in Part 2 ledgers; self-review is next.
+Do not start Wave 6/Task 7, Wave 7/Task 8, or Wave 8/Task 9.
 
 ## Safety and orchestration
 

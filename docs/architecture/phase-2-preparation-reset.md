@@ -8,8 +8,8 @@ Phase 2 Preparation; it does not authorize Phase 2 Execution or live promotion.
 As of 2026-08-04, Wave 4 is closed, structure-refactor Tasks 1-6 are
 accepted, and Wave 5 is `COMPLETE_WITH_EXPLICIT_GATES` after reopened repair.
 Part 2 control repository `main` is clean at
-`4aeacfe43695d19accf6f4fdec53b4a6b7317848` with tree
-`60cd8c60769ae508eb6d3d32c28f00054bfc7617`. The earlier Wave 5
+`e3f91fd6e9f3458b39beb68be51dea71165a7edc` with tree
+`ee58ea6f52648ff3f8091d275d0ebd8691b72d97`. The earlier Wave 5
 `PASS_WITH_GAPS` is superseded interim evidence. Six proven zero-reference
 bloat candidates were removed from both registered disposables; exact rollback
 trees remain outside this product repository.
@@ -23,7 +23,13 @@ fence Live Preview literal-source behavior is recorded as an explicit Tabs
 owner/contract gap; no Dusk source mutation was applied. Android serial
 `01234ABC` was reverified on the registered disposable target after the repair.
 It settled with one Calendar, one Todo List, zero `timer-view`, repaired Daily
-mappings, and hidden stale status items.
+mappings, hidden stale status items, and the repaired Journals cursor finalizer.
+
+The seven Getting Started guide Markdown files remain navigation/scroll
+evidence. Their 82 image references and 81 unique basenames are full-Dusk
+reference media, not Dusk_light acceptance requirements; no full-vault media
+was imported. Static scope record SHA-256 is
+`088638E92D0B6E8FE31240FEB24050829385FE9C35B5AAEE0CA92CD210778BCC`.
 
 Cumulative external evidence remains outside Git. The current R8 repair
 manifest has 29 rows, SHA-256
