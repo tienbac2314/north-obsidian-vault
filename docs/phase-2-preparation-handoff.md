@@ -1,6 +1,24 @@
 # Phase 2 Preparation handoff
 
-## Current Wave 5 pruning correction
+## Current Wave 6 / Task 7 static delta
+
+Wave 5 is `COMPLETE_WITH_EXPLICIT_GATES`. The latest user instruction
+authorizes Wave 6 / canonical Task 7. Static full-versus-light research is
+recorded as 71 rows: 58 full-content-only paths, 11 full-plugin-only IDs, one
+workspace variant, and one Dusk_light-only row. Exact full-Dusk source remains
+gated, so no full-only runtime batch or import ran.
+
+Dusk_light has Daily Note Navbar v0.2.0 installed but disabled; Journals owns
+periodic navigation. Note Toolbar v1.34.12 is enabled and has local FAB
+mappings for desktop/mobile/tablet. Public plugin pages declare mobile
+support, but physical Android and fresh Windows visual acceptance remain
+gated. Wave 7 / Task 8 and Wave 8 / Task 9 remain `NOT STARTED`.
+
+Part 2 current checkpoint: `6ece63890bed34d2f2c553dad703500b38b03e2e`, tree
+`81eb797249bbed260cc1587131c0aa0ecc21e9bb`. Product branch remains
+`docs/phase2-preparation-reset`; publish only this reset branch.
+
+## Completed Wave 5 pruning correction
 
 Wave 5 is `COMPLETE_WITH_EXPLICIT_GATES` after the user-reopened pruning
 correction. The earlier six-plugin removal was not accepted as bloat because
@@ -13,7 +31,7 @@ outside Git under the Part 2 runtime evidence root.
 
 Status: Wave 4 closed; structure-refactor Tasks 1-6 accepted; Wave 5 is
 `COMPLETE_WITH_EXPLICIT_GATES` after disposable repairs and affected reruns.
-Wave 6/Task 7, Wave 7/Task 8, and Wave 8/Task 9 are `NOT STARTED`.
+Wave 7 / Task 8 and Wave 8 / Task 9 are `NOT STARTED`.
 
 Branch: `docs/phase2-preparation-reset`.
 
@@ -83,7 +101,7 @@ Cold archive: `G:\Dusk-Phase2-Cold-Archive-20260727`.
 - Use `git bundle verify <bundle>` before restoration. Restore an archived
   branch into a new repository with `git fetch <bundle> <ref>:refs/heads/restored`.
 
-## Wave 5 result and next action
+## Wave 5 result and Task 7 status
 
 Wave 5 used disposable/profile `W5-INTEGRATED-UPDATED-LIGHT-20260803` and the
 registered Android serial `01234ABC`. Windows and Android affected reruns
@@ -91,7 +109,8 @@ passed after the disposable Journals finalizer, duplicate/ghost cleanup,
 mapping/status repair, and six-plugin restoration. Raw evidence, rollback, and
 the compact pruning-correction manifests remain outside this product
 repository. Known gates remain explicit in Part 2 ledgers; self-review is next.
-Do not start Wave 6/Task 7, Wave 7/Task 8, or Wave 8/Task 9.
+Task 7 static work is recorded above; exact full-only runtime remains gated.
+Do not start Wave 7 / Task 8 or Wave 8 / Task 9.
 
 ## Safety and orchestration
 
@@ -106,7 +125,8 @@ Do not start Wave 6/Task 7, Wave 7/Task 8, or Wave 8/Task 9.
 - Phase 2 Execution starts only after Preparation produces fresh evidence and
   an approved customization plan.
 - Push only compact updates on `docs/phase2-preparation-reset`; do not create a
-  pull request or merge. Tasks 7-9 and Wave 6 remain not started.
+  pull request or merge. Wave 7 / Task 8 and Wave 8 / Task 9 remain not
+  started.
 
 ## Suggested skills
 

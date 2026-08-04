@@ -1,6 +1,33 @@
 # Active goal
 
-## Current Wave 5 Projects platform-sync correction
+## Current Wave 6 / Task 7 static delta
+
+Wave 5 is complete with explicit gates. Wave 6 / canonical Task 7 is now
+authorized and its historical full-versus-light static comparison is recorded:
+71 rows total, comprising 58 full-content-only paths, 11 full-plugin-only IDs,
+one workspace variant, and one Dusk_light-only row. Full-content additions are
+grouped DAILY=5, PARA=44, and ZETA=9. Full-only plugin additions are
+`advanced-canvas`, `darlal-switcher-plus`, `digitalgarden`, `meld-encrypt`,
+`obsidian-chartsview-plugin`, `obsidian-day-planner`, `obsidian-image-toolkit`,
+`password-protection`, `remember-cursor-position`, `share-note`, and
+`table-editor-obsidian`.
+
+The exact full-Dusk source is not admitted, so no full-only plugin or content
+was imported, enabled, or runtime-tested. Dusk_light contains Daily Note
+Navbar v0.2.0 but leaves it disabled while Journals owns periodic navigation.
+Note Toolbar v1.34.12 is enabled with local desktop/mobile/tablet FAB
+mappings. Public plugin documentation declares mobile support; physical target
+acceptance remains a runtime gate. Wave 7 / Task 8 and Wave 8 / Task 9 remain
+`NOT STARTED`.
+
+Part 2 current checkpoint: `6ece63890bed34d2f2c553dad703500b38b03e2e`,
+tree `81eb797249bbed260cc1587131c0aa0ecc21e9bb`, clean before this product
+publication. The fixed Windows disposable archive remains external and
+recoverable under the Part 2 runtime evidence root.
+
+Updated: 2026-08-04
+
+## Completed Wave 5 Projects platform-sync correction
 
 Android Projects was disabled only because its dependency path had not been
 tested there. The plugin directory and manifest were present, and the only
@@ -44,7 +71,7 @@ The restored-plugin manifest is 34 rows, SHA-256
 `F663F451923155EB25805B783B0331FD4534FF086EEAC76CBA0112800C0CF8C3`; the
 evidence hash manifest is SHA-256
 `6588D33B9BC2D3AA98AE4A85E5EF03ECCB8510775DAA5D0F4BFF3C6C6926BA6B`.
-Wave 6/Task 7, Wave 7/Task 8, and Wave 8/Task 9 remain `NOT STARTED`.
+Wave 7/Task 8 and Wave 8/Task 9 remain `NOT STARTED`.
 
 Updated: 2026-08-04
 
@@ -60,8 +87,9 @@ is now `COMPLETE_WITH_EXPLICIT_GATES`: duplicate Calendar/Todo List leaves,
 stale timer-view and journal-calendar ghost surfaces, stale disabled statusbar
 items, four stale Note Toolbar Daily mappings, and the Journals/Templater
 Reading-mode cursor-marker integration defect were repaired and rerun.
-The earlier `PASS_WITH_GAPS` is superseded interim evidence. Wave 6/Task 7,
-Wave 7/Task 8, and Wave 8/Task 9 are `NOT STARTED`. Phase 2 Execution,
+The earlier `PASS_WITH_GAPS` is superseded interim evidence. Wave 6/Task 7
+static delta is recorded with full-only runtime gated. Wave 7/Task 8 and Wave
+8/Task 9 are `NOT STARTED`. Phase 2 Execution,
 personalization, live promotion, PR, and merge remain gated.
 
 Getting Started scope is corrected: guide Markdown navigation and scrolling
@@ -124,9 +152,10 @@ detached `bf23` remain unchanged.
 
 ## Next action
 
-Self-review the compact Part 2 and product checkpoints. Do not start Wave
-6/Task 7, Wave 7/Task 8, or Wave 8/Task 9; full-only import, remnant
-implementation, personalization, live-vault promotion, PR, or merge.
+Finish Task 7 publication and review the compact Part 2 and product
+checkpoints. Do not start Wave 7 / Task 8 or Wave 8 / Task 9; keep full-only
+import, remnant implementation, personalization, live-vault promotion, PR,
+and merge gated.
 
 Wave 5 evidence: integrated disposable/profile
 `W5-INTEGRATED-UPDATED-LIGHT-20260803` is closed on Windows; Android serial
