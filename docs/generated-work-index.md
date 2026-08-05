@@ -4,7 +4,7 @@ These files preserve design sessions produced through planning skills. They may 
 
 ## Specifications
 
-- [Dusk_light parity and onboarding](superpowers/specs/2026-08-05-dusk-light-parity-onboarding-design.md) — approved, awaiting execution
+- [Dusk_light parity and onboarding](superpowers/specs/2026-08-05-dusk-light-parity-onboarding-design.md) — approved; executed in current Wave 5
 - [Obsidian and Hermes workspace](superpowers/specs/2026-07-22-obsidian-hermes-workspace-design.md) — superseded
 - [Git workflow migration](superpowers/specs/2026-07-22-git-workflow-migration-design.md) — superseded
 - [Markdown discoverability](superpowers/specs/2026-07-22-markdown-discoverability-design.md) — completed
@@ -12,7 +12,7 @@ These files preserve design sessions produced through planning skills. They may 
 
 ## Plans
 
-- [Dusk_light parity and onboarding](superpowers/plans/2026-08-05-dusk-light-parity-onboarding.md) — approved, awaiting execution
+- [Dusk_light parity and onboarding](superpowers/plans/2026-08-05-dusk-light-parity-onboarding.md) — executed; bounded Android gesture follow-up recorded
 - [Phase 2 Preparation reset](superpowers/plans/2026-07-27-phase-2-preparation-reset.md) — approved
 - [Whole-system design hardening](superpowers/plans/2026-07-23-design-hardening.md) — completed
 - [FNS human-sync pilot](superpowers/plans/2026-07-22-fns-human-sync-pilot.md) — superseded

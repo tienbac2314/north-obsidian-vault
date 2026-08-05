@@ -6,8 +6,9 @@
 
 Make the disposable Dusk_light vault easier to use and closer in practical
 desktop/mobile parity without importing the full Dusk vault. This is a
-post-Wave-6 usability and parity batch. It is not a new canonical wave and it
-does not authorize Wave 7 / Task 8 or Wave 8 / Task 9.
+current Wave 5 usability and parity batch. It is not a new canonical wave and
+it does not authorize Wave 6 / canonical Task 7, Wave 7 / Task 8, or Wave 8 /
+Task 9.
 
 The batch covers three selected mobile-capable plugins, removal of one
 obsolete compatibility-risk plugin, platform parity checks, and a new

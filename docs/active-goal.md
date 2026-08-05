@@ -1,6 +1,36 @@
 # Active goal
 
-## Current Wave 6 / Task 7 static delta
+## Current Wave 5 Dusk_light parity and onboarding checkpoint (2026-08-05)
+
+The earlier Wave 5 `PASS_WITH_GAPS` was superseded interim evidence. Current
+Wave 5 work repaired and reran integrated Dusk_light behavior on the exact
+disposable Windows target and registered Android target. Wave 6 / canonical
+Task 7, Wave 7 / Task 8, and Wave 8 / Task 9 remain `NOT STARTED`.
+
+Part 2 final live identity is `main` at
+`3ff27e0652d744992fe83bd7924b1ef140a3e5fe`, tree
+`b43ba6ab4517f9526de6b1f6434efb7711968a3c`, clean. Product/reset publication
+starts from `176d52b0f973990f2688a9c9e9f36fd29d89cf18`, tree
+`3d0e1e8d5cfd170f1457f79ce32fc78e0a225e47`, on
+`docs/phase2-preparation-reset`; `origin/main` remains
+`571fde461571d842c3912964f86adfa9b0314092`.
+
+Settings Search was removed from both disposable active trees with dated
+rollback/quarantine. Day Planner `0.35.1`, Remember Cursor Position `1.0.13`,
+and Quick Switcher++ `6.1.6` were added on both. Projects and disputed
+personal utilities remain retained; Advanced Tables was skipped. Both active
+community configs have 46 IDs and SHA-256
+`591DAC8656E72F5345AD9394AB4D943CF9671EB3DA870B66C00CFC4049D2EC79`.
+
+Windows passed settled Homepage one-Calendar/one-Todo/FAB, Day Planner
+multi-day, Quick Switcher++ search, and Dusk_light guide checks. Android
+passed config/file/manifest parity, Day Planner release-page load, cursor
+metadata, and Settings Search absence without a settled toast. Direct Android
+Day Planner block/tap-and-hold remains the only bounded physical follow-up.
+Full-Dusk source and older full-Dusk Getting Started media remain
+reference-only. Stop after product push for user self-review.
+
+## Historical Wave 6 / Task 7 static delta
 
 Wave 5 is complete with explicit gates. Wave 6 / canonical Task 7 is now
 authorized and its historical full-versus-light static comparison is recorded:
@@ -184,10 +214,10 @@ detached `bf23` remain unchanged.
 
 ## Next action
 
-Finish Task 7 publication and review the compact Part 2 and product
-checkpoints. Do not start Wave 7 / Task 8 or Wave 8 / Task 9; keep full-only
-import, remnant implementation, personalization, live-vault promotion, PR,
-and merge gated.
+Finish compact product publication and review the Part 2/product checkpoints.
+Do not start Wave 6 / canonical Task 7, Wave 7 / Task 8, or Wave 8 / Task 9;
+keep full-only import, remnant implementation, personalization, live-vault
+promotion, pull request, and merge gated.
 
 Wave 5 evidence: integrated disposable/profile
 `W5-INTEGRATED-UPDATED-LIGHT-20260803` is closed on Windows; Android serial

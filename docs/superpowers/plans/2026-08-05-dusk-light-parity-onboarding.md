@@ -1,6 +1,6 @@
 # Dusk_light parity and onboarding implementation plan
 
-> **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (\`- [ ]\`) syntax for tracking.
+**Execution record:** Main session executed this plan inline under current Wave 5 scope; no subagent or child task was used. Steps are retained as the approved design checklist.
 
 **Goal:** Add the three approved mobile-capable plugins, remove obsolete Settings Search, verify Dusk_light behavior and Windows/Android parity, and publish a Dusk_light-specific Getting Started guide with sanitized screenshots.
 
@@ -13,7 +13,7 @@
 - Main session is sole executor and owner; do not call spawn_agent, use Codex subagents, or create another full task for this batch.
 - Work only on product branch docs/phase2-preparation-reset; product main, bf23, source trees, live vaults, and protected Museum/source paths remain untouched.
 - Part 2 starts at main HEAD 9a100527af6efd009b6bf29bcd8e9d30b25b0eed, tree 0aa34dff1ebbc2db74e0fcdbb5f25ae56ff07d1a, clean.
-- Product reset starts at HEAD ced77c8224519ab938d8fcb71f388ccbf8e51787, tree 602d2c4a53248c94d40000d447710cbe472fc483, clean.
+- Product reset starts at HEAD 176d52b0f973990f2688a9c9e9f36fd29d89cf18, tree 3d0e1e8d5cfd170f1457f79ce32fc78e0a225e47, clean.
 - Windows target is G:\Dusk-Knowledge-Hub\payload\evidence\Dusk-Phase2-Preparation-Part2-Runtime\disposables\W5-INTEGRATED-UPDATED-LIGHT-20260803 with its registered external profile.
 - Android target is serial 01234ABC, package md.obsidian, vault /storage/emulated/0/Documents/Dusk-Phase2-Preparation-Part2-Android-V1-20260801.
 - Do not inspect, copy, hash, upload, or print credentials, tokens, browser profiles, personal notes, network caches, or raw logs.
@@ -25,7 +25,7 @@
 - Windows accepted screenshots must be freshly reobserved, maximized immediately before capture, and verified as native 1920x1040 JPEGs. Android accepted screenshots must remain native 1200x2000 PNGs.
 - Use existing Part 2 ledgers. Do not create duplicate coverage/plugin/evidence tables.
 - Raw evidence stays under G:\Dusk-Knowledge-Hub\payload\evidence\Dusk-Phase2-Preparation-Part2-Runtime; raw evidence never enters Git.
-- This batch is post-Wave-6 usability/parity work. It does not start Wave 7 / Task 8, Wave 8 / Task 9, or any new canonical wave.
+- This batch is current Wave 5 usability/parity work. It does not start Wave 6 / canonical Task 7, Wave 7 / Task 8, Wave 8 / Task 9, or any new canonical wave.
 - If a target is wrong, a credential/private-data surface appears, rollback is missing, a destructive action is not recoverable, a branch/remote is ambiguous, or an unexplained plugin is loaded, stop before further mutation.
 
 ---
@@ -36,7 +36,7 @@
 
 - Create: docs/superpowers/plans/2026-08-05-dusk-light-parity-onboarding.md — this execution plan.
 - Existing: docs/superpowers/specs/2026-08-05-dusk-light-parity-onboarding-design.md — approved design contract.
-- Modify after runtime: docs/active-goal.md — add one superseding compact post-Wave-6 batch entry without rewriting historical entries.
+- Modify after runtime: docs/active-goal.md — add one superseding compact current Wave 5 entry without rewriting historical entries.
 - Modify after runtime: docs/phase-2-preparation-handoff.md — add current status, exact product/Part 2 identities, runtime evidence references, and remaining gates.
 - Modify after runtime if needed: docs/generated-work-index.md — link this plan and the approved design; keep both labeled as planning artifacts.
 
@@ -372,7 +372,7 @@ Open Getting Started.md and Dusk_light Quick Start.md on Windows and Android, fo
 
 - [ ] **Step 1: Write the Part 2 result checkpoint.**
 
-Add one superseding current entry, without rewriting historical records, stating: this is a post-Wave-6 Dusk_light parity/onboarding batch; Settings Search disposition; three plugin versions and results; Projects retained; Advanced Tables skipped; Windows and Android status; guide/media paths; config and manifest hashes; remaining true gates; and next self-review stop.
+Add one superseding current entry, without rewriting historical records, stating: this is current Wave 5 Dusk_light parity/onboarding work; Settings Search disposition; three plugin versions and results; Projects retained; Advanced Tables skipped; Windows and Android status; guide/media paths; config and manifest hashes; remaining true gates; and next self-review stop.
 
 - [ ] **Step 2: Commit accepted Part 2 documentation atomically.**
 
@@ -471,5 +471,5 @@ Execute Workstreams 1 through 9 in order. Commit a durable Part 2 checkpoint bef
 - Spec coverage: every approved plugin decision, Settings Search removal gate, Projects parity rule, Advanced Tables omission, Dusk_light onboarding requirement, Windows/Android image contract, full safe-coverage matrix, rollback rule, product lean-publication rule, 9router Graphify rule, and future-wave stop has a workstream and explicit verification step.
 - Placeholder scan: no unresolved implementation placeholder is used.
 - Naming check: this plan uses Workstream and Step; it does not create a Wave 7/8 task hierarchy or reuse historical internal batch labels.
-- Authority check: historical Wave 5/Wave 6 records remain historical; the new result is appended as a superseding post-Wave-6 batch entry.
+- Authority check: historical Wave 5/Wave 6 records remain historical; the new result is appended as a superseding current Wave 5 entry.
 - Safety check: no credential, private-note, full-Dusk, live-vault, product-main, bf23, PR, merge, or subagent action is included.

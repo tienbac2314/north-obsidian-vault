@@ -1,6 +1,35 @@
 # Phase 2 Preparation handoff
 
-## Current Wave 6 / Task 7 static delta
+## Current Wave 5 Dusk_light parity and onboarding checkpoint (2026-08-05)
+
+Current Wave 5 is integrated Dusk_light regression, debugging, repair, pruning,
+and affected Windows/Android rerun work. Earlier `PASS_WITH_GAPS` is
+superseded interim evidence. Wave 6 / canonical Task 7, Wave 7 / Task 8, and
+Wave 8 / Task 9 are `NOT STARTED`.
+
+Part 2 final live identity is `main`
+`3ff27e0652d744992fe83bd7924b1ef140a3e5fe` / tree
+`b43ba6ab4517f9526de6b1f6434efb7711968a3c`, clean. Product/reset publication
+target is `docs/phase2-preparation-reset`; its pre-publication identity is
+`176d52b0f973990f2688a9c9e9f36fd29d89cf18` / tree
+`3d0e1e8d5cfd170f1457f79ce32fc78e0a225e47`. Remote is
+`https://github.com/tienbac2314/north-obsidian-vault.git`; `origin/main`
+remains `571fde461571d842c3912964f86adfa9b0314092`.
+
+Settings Search was removed from both disposable active trees with external
+rollback/quarantine. Day Planner `0.35.1`, Remember Cursor Position `1.0.13`,
+and Quick Switcher++ `6.1.6` were added on both. Projects and disputed
+personal utilities remain retained; Advanced Tables was not added. Windows
+passed Homepage one-Calendar/one-Todo/FAB, Day Planner multi-day, Quick
+Switcher++ search, and Dusk_light guide. Android passed config/manifest parity,
+release-page load, cursor metadata, and Settings Search absence.
+
+Only bounded physical gap is Android Day Planner block/tap-and-hold. Runtime
+Dusk_light guide and four curated screenshots remain outside product Git under
+Part 2 evidence root. Full-Dusk source/media is not admitted. Stop after reset
+branch push for user self-review.
+
+## Historical Wave 6 / Task 7 static delta
 
 Wave 5 is `COMPLETE_WITH_EXPLICIT_GATES`. The latest user instruction
 authorizes Wave 6 / canonical Task 7. Static full-versus-light research is
