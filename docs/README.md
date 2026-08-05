@@ -16,6 +16,7 @@ Read [executive summary](executive-summary.md) for orientation, then use modules
   and [unresolved questions](decisions/unresolved-questions.md).
 - Current checkpoint: [active goal](active-goal.md) and
   [Phase 2 Preparation handoff](phase-2-preparation-handoff.md).
+- Approved Dusk_light usability batch: [parity and onboarding design](superpowers/specs/2026-08-05-dusk-light-parity-onboarding-design.md).
 - Repository operation: [Git workflow](git-workflow.md).
 
 Summaries navigate. They never replace detailed modules. Minimalization applies to runtime components and automatic authority, not to design explanation.
