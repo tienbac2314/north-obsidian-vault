@@ -8,8 +8,8 @@ superseded interim evidence. Wave 6 / canonical Task 7, Wave 7 / Task 8, and
 Wave 8 / Task 9 are `NOT STARTED`.
 
 Part 2 final live identity is `main`
-`dd16930f754e85bfbc143cac73a22143f18644f8` / tree
-`752ef2f7b69cc7f05d07e792bd4c9864fbfae868`, clean before this product
+`ec254bad2c38c10aeb79bd45b38a6ad99cc58caf` / tree
+`2081ed8a090c6353f7df1f21a9811d0921a419aa`, clean before this product
 update. Product/reset publication target is `docs/phase2-preparation-reset`; its
 current base is `170fcf7bfd83a26c60e15cc4c6f905a3aca47a18` / tree
 `b70e101756938e5b1dbdfa9460b26b3b5d396904`. Remote is
