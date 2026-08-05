@@ -22,7 +22,7 @@ does not contain.
 
 | Plugin | Version | Windows | Android | Purpose |
 |---|---:|---|---|---|
-| Day Planner | 0.35.1 | Timeline and multi-day view checked | Mobile release page loaded; direct tap-and-hold remains explicit follow-up | Time-blocked daily planning |
+| Day Planner | 0.35.1 | Timeline and multi-day view checked; repaired plugin reload | Mobile long-press menu and Edit modal passed; synthetic test note was removed | Time-blocked daily planning |
 | Remember Cursor Position | 1.0.13 | Metadata write checked | Metadata present after install | Returns to a note position |
 | Quick Switcher++ | 6.1.6 | Open, search, filter, dismiss checked | Installed and config-parity checked | Faster file and command switching |
 
@@ -60,10 +60,12 @@ community-plugin lists contain same 46 IDs and same 1052-byte config SHA-256:
 
 `591DAC8656E72F5345AD9394AB4D943CF9671EB3DA870B66C00CFC4049D2EC79`
 
-Windows is left on settled Homepage. Android is left on safe Day Planner
-release page after an external-link trust prompt was cancelled. Android Day
-Planner block/tap-and-hold is one bounded physical follow-up; release page
-documents mobile support, but this gesture is not claimed as physically passed.
+Windows is left on settled Homepage after exact-profile reload of the repaired
+Day Planner bytes. One fresh post-patch native Computer Use capture was not
+obtained because the helper returned `node_repl exec context not found`; no
+input followed. Android is left on settled Homepage after final restart. Its
+Day Planner block long-press menu and Edit modal passed; the synthetic note was
+quarantined/deleted and its exact path is absent.
 
 ## Evidence and boundaries
 

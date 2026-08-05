@@ -8,11 +8,11 @@ superseded interim evidence. Wave 6 / canonical Task 7, Wave 7 / Task 8, and
 Wave 8 / Task 9 are `NOT STARTED`.
 
 Part 2 final live identity is `main`
-`3ff27e0652d744992fe83bd7924b1ef140a3e5fe` / tree
-`b43ba6ab4517f9526de6b1f6434efb7711968a3c`, clean. Product/reset publication
-target is `docs/phase2-preparation-reset`; its pre-publication identity is
-`176d52b0f973990f2688a9c9e9f36fd29d89cf18` / tree
-`3d0e1e8d5cfd170f1457f79ce32fc78e0a225e47`. Remote is
+`dd16930f754e85bfbc143cac73a22143f18644f8` / tree
+`752ef2f7b69cc7f05d07e792bd4c9864fbfae868`, clean before this product
+update. Product/reset publication target is `docs/phase2-preparation-reset`; its
+current base is `170fcf7bfd83a26c60e15cc4c6f905a3aca47a18` / tree
+`b70e101756938e5b1dbdfa9460b26b3b5d396904`. Remote is
 `https://github.com/tienbac2314/north-obsidian-vault.git`; `origin/main`
 remains `571fde461571d842c3912964f86adfa9b0314092`.
 
@@ -22,20 +22,26 @@ and Quick Switcher++ `6.1.6` were added on both. Projects and disputed
 personal utilities remain retained; Advanced Tables was not added. Windows
 passed Homepage one-Calendar/one-Todo/FAB, Day Planner multi-day, Quick
 Switcher++ search, and Dusk_light guide. Android passed config/manifest parity,
-release-page load, cursor metadata, and Settings Search absence.
+patched Day Planner long-press/Edit, cursor metadata, and Settings Search
+absence.
 
-Only bounded physical gap is Android Day Planner block/tap-and-hold. Runtime
-Dusk_light guide and four curated screenshots remain outside product Git under
-Part 2 evidence root. Full-Dusk source/media is not admitted. Stop after reset
-branch push for user self-review.
+Android Day Planner block/tap-and-hold and Edit now pass on the registered
+device; the synthetic note was quarantined/deleted and final Homepage settled.
+Windows exact-profile reload passed patched-byte identity and settled title, but
+one fresh post-patch Computer Use screenshot was blocked by
+`node_repl exec context not found`; no UI action followed. Runtime Dusk_light
+guide and four curated screenshots remain outside product Git under Part 2
+evidence root. Full-Dusk source/media is not admitted. Stop after reset branch
+push for user self-review.
 
-## Historical Wave 6 / Task 7 static delta
+## Historical superseded Wave 6 / Task 7 static delta
 
-Wave 5 is `COMPLETE_WITH_EXPLICIT_GATES`. The latest user instruction
-authorizes Wave 6 / canonical Task 7. Static full-versus-light research is
-recorded as 71 rows: 58 full-content-only paths, 11 full-plugin-only IDs, one
-workspace variant, and one Dusk_light-only row. Exact full-Dusk source remains
-gated, so no full-only runtime batch or import ran.
+This section is retained as historical evidence only. Current authority leaves
+Wave 6 / canonical Task 7, Wave 7 / Task 8, and Wave 8 / Task 9 `NOT STARTED`.
+An earlier handoff recorded Wave 6 / canonical Task 7 as authorized. Its static
+full-versus-light research is 71 rows: 58 full-content-only paths, 11
+full-plugin-only IDs, one workspace variant, and one Dusk_light-only row. Exact
+full-Dusk source remains gated, so no full-only runtime batch or import ran.
 
 Dusk_light has Daily Note Navbar v0.2.0 installed but disabled; Journals owns
 periodic navigation. Note Toolbar v1.34.12 is enabled and has local FAB

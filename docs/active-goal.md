@@ -8,10 +8,10 @@ disposable Windows target and registered Android target. Wave 6 / canonical
 Task 7, Wave 7 / Task 8, and Wave 8 / Task 9 remain `NOT STARTED`.
 
 Part 2 final live identity is `main` at
-`3ff27e0652d744992fe83bd7924b1ef140a3e5fe`, tree
-`b43ba6ab4517f9526de6b1f6434efb7711968a3c`, clean. Product/reset publication
-starts from `176d52b0f973990f2688a9c9e9f36fd29d89cf18`, tree
-`3d0e1e8d5cfd170f1457f79ce32fc78e0a225e47`, on
+`dd16930f754e85bfbc143cac73a22143f18644f8`, tree
+`752ef2f7b69cc7f05d07e792bd4c9864fbfae868`, clean before this product
+update. Product/reset current base is `170fcf7bfd83a26c60e15cc4c6f905a3aca47a18`,
+tree `b70e101756938e5b1dbdfa9460b26b3b5d396904`, on
 `docs/phase2-preparation-reset`; `origin/main` remains
 `571fde461571d842c3912964f86adfa9b0314092`.
 
@@ -23,17 +23,22 @@ community configs have 46 IDs and SHA-256
 `591DAC8656E72F5345AD9394AB4D943CF9671EB3DA870B66C00CFC4049D2EC79`.
 
 Windows passed settled Homepage one-Calendar/one-Todo/FAB, Day Planner
-multi-day, Quick Switcher++ search, and Dusk_light guide checks. Android
-passed config/file/manifest parity, Day Planner release-page load, cursor
-metadata, and Settings Search absence without a settled toast. Direct Android
-Day Planner block/tap-and-hold remains the only bounded physical follow-up.
-Full-Dusk source and older full-Dusk Getting Started media remain
-reference-only. Stop after product push for user self-review.
+multi-day, Quick Switcher++ search, and Dusk_light guide checks. The exact
+profile reloaded the repaired Day Planner bytes and returned a settled
+Homepage title; one fresh post-patch Computer Use screenshot was blocked by
+the helper error `node_repl exec context not found`, with no UI action after
+it. Android passed config/file/manifest parity, the repaired Day Planner
+long-press menu and Edit modal, cursor metadata, Settings Search absence, and
+final settled Homepage after synthetic-note cleanup. Full-Dusk source and
+older full-Dusk Getting Started media remain reference-only. Stop after reset
+branch push for user self-review.
 
-## Historical Wave 6 / Task 7 static delta
+## Historical superseded Wave 6 / Task 7 static delta
 
-Wave 5 is complete with explicit gates. Wave 6 / canonical Task 7 is now
-authorized and its historical full-versus-light static comparison is recorded:
+This section is retained as historical evidence only. Current authority leaves
+Wave 6 / canonical Task 7, Wave 7 / Task 8, and Wave 8 / Task 9 `NOT STARTED`.
+An earlier handoff recorded Wave 6 / canonical Task 7 as authorized and its
+historical full-versus-light static comparison as:
 71 rows total, comprising 58 full-content-only paths, 11 full-plugin-only IDs,
 one workspace variant, and one Dusk_light-only row. Full-content additions are
 grouped DAILY=5, PARA=44, and ZETA=9. Full-only plugin additions are
