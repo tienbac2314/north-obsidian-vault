@@ -41,6 +41,13 @@ from its Default profile. Use it to hide noisy items such as Grandfather's
 clock when desired; Grandfather remains installed. It is desktop-only, so
 Android does not load it and that omission is expected.
 
+## Tab bar warning
+
+Minimal Theme Settings Focus Mode hides the native tab bar. If tabs disappear,
+press `Ctrl+P` and run `Minimal Theme Settings: Toggle Focus Mode`; the change
+is reversible. Editing Toolbar Auto-hide is intentional and stays enabled. This
+is not Hider `hideTabs`.
+
 ## Templates and cursor behavior
 
 Templates keep their `tp.file.cursor()` markers. Create a daily note in
