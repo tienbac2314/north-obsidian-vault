@@ -1,5 +1,34 @@
 # Active goal
 
+## Superseding Wave 5 Projects removal checkpoint (2026-08-06)
+
+Current Wave 5 remains open for one external Windows UI gate. Earlier product
+text saying Wave 5 was complete or Projects was retained is superseded current
+status; historical sections remain unchanged as history. Part 2 authority is
+`a6d3290215b38da086d3690f3555142543c6d51c` with tree
+`c6f965b9d8fcc96e307b1aab48ad128b891709e7`, clean before this publication.
+
+User-authorized repair removed archived `obsidian-projects` from both exact
+Dusk_light disposables, including its dashboard/config tree, community ID,
+hotkey/workspace ribbon state, stale QuickAdd command steps, and Note Toolbar
+View Projects item. Rollback trees remain outside this product repository.
+PARA/PROJECTS Markdown, project frontmatter, both project templates, Templater,
+Meta Bind, Dataview/DVJS, Homepage Development > Project, and QuickAdd Create
+Project Family remain. Dataview replaces the removed Homepage Projects
+dashboard; Projects commands/dashboard are no longer part of Dusk_light.
+
+Both active platforms retain equal sorted 45-plugin ID sets. Android fresh
+native UI passed settled Homepage, Development > Project DataviewJS, relevant
+scrolling, no-Projects menu, QuickAdd Project Family, populated template
+output, and cleanup. Windows static checks pass, but two fresh exact-target
+Computer Use tasks hit `node_repl exec context not found`; no Windows UI
+capture or acceptance claim exists. Wave 5 is not complete until that gate is
+resolved or accepted as an external blocker. Evidence remains outside Git at
+`G:\Dusk-Knowledge-Hub\payload\evidence\Dusk-Phase2-Preparation-Part2-Runtime\checkpoints\W5-PROJECTS-REMOVAL-20260806`.
+
+Wave 6 / canonical Task 7, Wave 7 / Task 8, and Wave 8 / Task 9 remain
+`NOT STARTED`.
+
 ## Current Wave 5 Dusk_light parity and onboarding checkpoint (2026-08-05)
 
 The earlier Wave 5 `PASS_WITH_GAPS` was superseded interim evidence. Current

@@ -1,5 +1,23 @@
 # Phase 2 Preparation reset
 
+## Superseding Wave 5 Projects removal checkpoint (2026-08-06)
+
+The current Wave 5 repair removes archived `obsidian-projects` from both exact
+Dusk_light disposables. It also removes its dashboard/config definitions,
+community ID, hotkey/workspace ribbon state, stale QuickAdd command steps, and
+Note Toolbar View Projects item. Rollback trees remain outside product Git.
+
+Preserved contract: PARA/PROJECTS Markdown and frontmatter, both project
+templates, Templater, Meta Bind, Dataview/DVJS, Homepage Development > Project,
+and QuickAdd Create Project Family. Dataview replaces the removed Homepage
+Projects dashboard. Both active platforms retain equal sorted 45-plugin ID
+sets. Android fresh UI passed the affected Homepage/table/menu/template flows;
+Windows static checks pass but two fresh exact-target Computer Use tasks hit
+`node_repl exec context not found`, so Windows UI remains unaccepted.
+
+This current Wave 5 checkpoint is not Wave 6 / canonical Task 7, Wave 7 /
+Task 8, or Wave 8 / Task 9; all three remain `NOT STARTED`.
+
 ## Current Wave 5 Projects platform-sync correction
 
 Android Projects was disabled only because its dependency path had not been

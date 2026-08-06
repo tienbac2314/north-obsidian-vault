@@ -29,10 +29,15 @@ does not contain.
 All three manifests declare mobile support. Advanced Tables was not added;
 Obsidian Bases remains a future core-table and personalization option.
 
-Projects remains enabled on Windows and Android because it is a user-facing
-vault feature, not disposable bloat. Settings Search was removed from both
-active disposable trees because its compatibility surface was unnecessary;
-rollback/quarantine is preserved outside this repository.
+Projects is removed from both current Dusk_light disposables as archived bloat:
+its dashboard, commands, config definitions, and stale command consumers are
+gone. Do not look for a Projects dashboard. Use Homepage > Development >
+Project for the DataviewJS project table, and QuickAdd > Create a Note > Create
+Project Family for populated project-family notes. PARA/PROJECTS content,
+both project templates, Templater, Meta Bind, and Dataview remain. Rollback is
+preserved outside this repository. Settings Search was also removed from both
+active disposable trees; no other disputed utility plugin was removed in this
+checkpoint.
 
 ## Status bar cleanup
 
