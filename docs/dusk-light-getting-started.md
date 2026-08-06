@@ -34,6 +34,13 @@ vault feature, not disposable bloat. Settings Search was removed from both
 active disposable trees because its compatibility surface was unnecessary;
 rollback/quarantine is preserved outside this repository.
 
+## Status bar cleanup
+
+Status Bar Organizer can reorder or hide individual bottom status-bar items
+from its Default profile. Use it to hide noisy items such as Grandfather's
+clock when desired; Grandfather remains installed. It is desktop-only, so
+Android does not load it and that omission is expected.
+
 ## Templates and cursor behavior
 
 Templates keep their `tp.file.cursor()` markers. Create a daily note in

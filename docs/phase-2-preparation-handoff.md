@@ -24,6 +24,9 @@ passed Homepage one-Calendar/one-Todo/FAB, Day Planner multi-day, Quick
 Switcher++ search, and Dusk_light guide. Android passed config/manifest parity,
 patched Day Planner long-press/Edit, cursor metadata, and Settings Search
 absence.
+Status Bar Organizer remains the Windows cleanup path: its Default profile can
+hide or reorder bottom status-bar items, including Grandfather's clock, without
+uninstalling Grandfather. It is desktop-only; Android omission is expected.
 
 Android Day Planner block/tap-and-hold and Edit now pass on the registered
 device; the synthetic note was quarantined/deleted and final Homepage settled.

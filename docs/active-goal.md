@@ -21,6 +21,9 @@ and Quick Switcher++ `6.1.6` were added on both. Projects and disputed
 personal utilities remain retained; Advanced Tables was skipped. Both active
 community configs have 46 IDs and SHA-256
 `591DAC8656E72F5345AD9394AB4D943CF9671EB3DA870B66C00CFC4049D2EC79`.
+Status Bar Organizer remains the Windows cleanup path: its Default profile can
+hide or reorder bottom status-bar items, including Grandfather's clock, without
+uninstalling Grandfather. It is desktop-only; Android omission is expected.
 
 Windows passed settled Homepage one-Calendar/one-Todo/FAB, Day Planner
 multi-day, Quick Switcher++ search, and Dusk_light guide checks. The exact
