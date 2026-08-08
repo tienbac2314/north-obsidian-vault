@@ -24,8 +24,10 @@ surface remained coherent. Home tab, Checklist, Quick Explorer, Novel Word
 Count, and List Callouts remain unchanged pending user review.
 
 Part 2 source before this publication is `0f56170c15c51e40f01a2a0f57a2e9a7d9a58678` / tree
-`e31cb6aa9ad1bcead63316611efadf358be53fc6`; publish only the reset branch
-`docs/phase2-preparation-reset` at the existing remote. Product `main`, live
+`e31cb6aa9ad1bcead63316611efadf358be53fc6`. Reset branch
+`docs/phase2-preparation-reset` is published at
+`c963a5b13af1b3060423acdc957711c7120d6a63` / tree
+`227cf24fcc0d4b936ef5ee142bf1e7f1ed428059`, equal to origin/reset. Product `main`, live
 vaults, protected sources, and raw evidence remain untouched. Stop after the
 push for self-review.
 

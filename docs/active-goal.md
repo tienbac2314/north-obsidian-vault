@@ -26,8 +26,10 @@ Quick Explorer, Novel Word Count, and List Callouts remain review-gated; no
 uninstall is implied by zero-reference counts.
 
 Part 2 source checkpoint before this publication is `0f56170c15c51e40f01a2a0f57a2e9a7d9a58678` / tree
-`e31cb6aa9ad1bcead63316611efadf358be53fc6`. Product/reset is the only
-publication target; product `main` remains unchanged. Raw evidence and
+`e31cb6aa9ad1bcead63316611efadf358be53fc6`. Product/reset is published at
+`c963a5b13af1b3060423acdc957711c7120d6a63` / tree
+`227cf24fcc0d4b936ef5ee142bf1e7f1ed428059`, equal to origin/reset. Product
+`main` remains unchanged. Raw evidence and
 rollback stay outside Git under the Part 2 runtime evidence root. Next action
 is final product/Part 2 validation, push of `docs/phase2-preparation-reset`,
 and a user self-review stop.

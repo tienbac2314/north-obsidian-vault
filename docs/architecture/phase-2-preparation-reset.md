@@ -26,8 +26,11 @@ any disable or uninstall decision. PC remains the feature baseline; Android
 uses native mobile routes without weakening PC behavior.
 
 Part 2 source before reset-branch publication is `0f56170c15c51e40f01a2a0f57a2e9a7d9a58678` / tree
-`e31cb6aa9ad1bcead63316611efadf358be53fc6`. Raw runtime evidence and rollback
-remain outside this repository. Stop after reset-branch push for self-review.
+`e31cb6aa9ad1bcead63316611efadf358be53fc6`. Reset branch publication is
+`c963a5b13af1b3060423acdc957711c7120d6a63` / tree
+`227cf24fcc0d4b936ef5ee142bf1e7f1ed428059`, equal to origin/reset. Raw runtime
+evidence and rollback remain outside this repository. Stop after this
+publication for self-review.
 
 ## Superseding Wave 5 Projects removal checkpoint (2026-08-06)
 
