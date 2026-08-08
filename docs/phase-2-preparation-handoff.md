@@ -1,10 +1,18 @@
 # Phase 2 Preparation handoff
 
-## Current Personalization execution checkpoint (2026-08-08)
+## Current Personalization execution checkpoint (2026-08-09)
 
 This is the current compact handoff; older Wave 5 sections remain historical.
 Full-Dusk comparison and Discord component addition are skipped for now. No
 new wave or canonical Task 7/8/9 work starts here.
+
+E11's contact scheduled-meetings Base is a disposable-only parallel pilot, not
+a product migration. Exact Windows and Android rendering passed with two
+expected rows. Android Files navigation is the verified route; its direct
+external-link shortcut remains a documented gap. Dataview remains the owner,
+and user review is required before E12 or any source/plugin ownership change.
+Research remains iterative: implementation gates may request fresh NotebookLM,
+official, web, and local evidence.
 
 E1 migrated the exact repeated area-family table to core Bases on platform-
 present files only: 61 Windows files and 19 Android files. The Area Families
@@ -23,11 +31,13 @@ Omnisearch, QuickAdd Focus Mode, Homepage/Mobile Homepage, and the Base
 surface remained coherent. Home tab, Checklist, Quick Explorer, Novel Word
 Count, and List Callouts remain unchanged pending user review.
 
-Part 2 source before this publication is `0f56170c15c51e40f01a2a0f57a2e9a7d9a58678` / tree
-`e31cb6aa9ad1bcead63316611efadf358be53fc6`. Reset branch
-`docs/phase2-preparation-reset` is published at
-`c963a5b13af1b3060423acdc957711c7120d6a63` / tree
-`227cf24fcc0d4b936ef5ee142bf1e7f1ed428059`, equal to origin/reset. Product `main`, live
+Part 2 source before this publication is
+`fe96824c1dceff405c43ed8deb857439964aae04` / tree
+`45ab684b43e5c1dd07910eab81cab40d7ae41620`. Reset branch
+`docs/phase2-preparation-reset` remains published at
+`379c050c5f8f9e97153aa0a4e1edb2e58082ecaf` / tree
+`727e08ac873d35857f170933502c7b8a64d14e95`, equal to origin/reset before this
+publication. Product `main`, live
 vaults, protected sources, and raw evidence remain untouched. Stop after the
 push for self-review.
 

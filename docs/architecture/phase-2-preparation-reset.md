@@ -1,10 +1,17 @@
 # Phase 2 Preparation reset
 
-## Current Personalization execution checkpoint (2026-08-08)
+## Current Personalization execution checkpoint (2026-08-09)
 
 Current work continues the approved Personalization lane. Full-Dusk
 comparison and Discord component addition are deferred; this is not a new
 numeric wave or canonical Task 7/8/9 task.
+
+E11 contact-meetings Base remains a disposable-only parallel pilot. Windows and
+Android rendered two expected rows; Android Files navigation is the verified
+route and its direct external-link shortcut remains a gap. Dataview remains
+owner of the source query. User review gates E12 and every source/plugin
+ownership change. Later implementation gates may request fresh NotebookLM,
+official, web, and local research; the current pool is not exhaustive.
 
 Verified disposable changes are limited to two high-confidence operations:
 
@@ -25,10 +32,12 @@ Quick Explorer, Novel Word Count, and List Callouts require user review before
 any disable or uninstall decision. PC remains the feature baseline; Android
 uses native mobile routes without weakening PC behavior.
 
-Part 2 source before reset-branch publication is `0f56170c15c51e40f01a2a0f57a2e9a7d9a58678` / tree
-`e31cb6aa9ad1bcead63316611efadf358be53fc6`. Reset branch publication is
-`c963a5b13af1b3060423acdc957711c7120d6a63` / tree
-`227cf24fcc0d4b936ef5ee142bf1e7f1ed428059`, equal to origin/reset. Raw runtime
+Part 2 source before reset-branch publication is
+`fe96824c1dceff405c43ed8deb857439964aae04` / tree
+`45ab684b43e5c1dd07910eab81cab40d7ae41620`. Reset branch publication is
+`379c050c5f8f9e97153aa0a4e1edb2e58082ecaf` / tree
+`727e08ac873d35857f170933502c7b8a64d14e95`, equal to origin/reset before this
+publication. Raw runtime
 evidence and rollback remain outside this repository. Stop after this
 publication for self-review.
 

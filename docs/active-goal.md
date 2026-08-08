@@ -1,11 +1,19 @@
 # Active goal
 
-## Current Personalization execution checkpoint (2026-08-08)
+## Current Personalization execution checkpoint (2026-08-09)
 
 This supersedes the older product-facing Wave 5 checkpoint below. Historical
 entries remain unchanged. The current lane is Personalization continuation;
 full-Dusk comparison and Discord component addition are skipped for now. This
 does not create a new wave or canonical Task 7/8/9 hierarchy.
+
+E11 contact-meetings Base pilot is verified only in the exact Windows and
+Android disposables. Both rendered the expected two meeting rows; Android's
+verified route is Files navigation, while its direct external-link shortcut
+remains a gap. Dataview remains the source-note owner. The Base is not promoted
+to the product vault, and the next candidate is gated on user review. Later
+implementation gates may request fresh NotebookLM, official, web, and local
+research because the current research pool is not exhaustive.
 
 The verified disposable changes are: the exact area-family Dataview table was
 migrated to one core Bases view on platform-present files only, and Commander
@@ -25,14 +33,17 @@ Status Bar Organizer Commander references are zero. Home tab, Checklist,
 Quick Explorer, Novel Word Count, and List Callouts remain review-gated; no
 uninstall is implied by zero-reference counts.
 
-Part 2 source checkpoint before this publication is `0f56170c15c51e40f01a2a0f57a2e9a7d9a58678` / tree
-`e31cb6aa9ad1bcead63316611efadf358be53fc6`. Product/reset is published at
-`c963a5b13af1b3060423acdc957711c7120d6a63` / tree
-`227cf24fcc0d4b936ef5ee142bf1e7f1ed428059`, equal to origin/reset. Product
+Part 2 source checkpoint before this publication is
+`fe96824c1dceff405c43ed8deb857439964aae04` / tree
+`45ab684b43e5c1dd07910eab81cab40d7ae41620`. Product/reset remains at
+`379c050c5f8f9e97153aa0a4e1edb2e58082ecaf` / tree
+`727e08ac873d35857f170933502c7b8a64d14e95`, equal to origin/reset before this
+publication. Product
 `main` remains unchanged. Raw evidence and
 rollback stay outside Git under the Part 2 runtime evidence root. Next action
-is final product/Part 2 validation, push of `docs/phase2-preparation-reset`,
-and a user self-review stop.
+is user review of the E11 parallel Base; E12 runtime work and all uncertain
+ownership changes remain gated. This compact publication adds no runtime
+vault content.
 
 ## Superseding Wave 5 Projects removal checkpoint (2026-08-06)
 
