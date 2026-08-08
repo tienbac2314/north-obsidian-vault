@@ -1,5 +1,24 @@
 # Decision log
 
+## DEC-048: Continue Personalization with safe Bases and debloat
+
+- Status: Current; user self-review required after reset-branch publication.
+- Decision: Continue the existing Personalization lane. Migrate only the
+  exact simple area-family query to core Bases, retain Dataview for dynamic
+  views and Homepage Project, and remove Commander only after both-platform
+  fallback proof. Skip full-Dusk comparison and Discord addition for now.
+- Result: Area Families Base SHA-256 is
+  `18378FE60114DDB359C9EDF233CDF6585A89943274F4A53C90986149B38FA1D3`;
+  Area Components pilot SHA-256 is
+  `12F85D01BB5B8CF710791378A55A8519831354E7BC3247E8A8FF5F5C2FBBA439`.
+  Commander removal leaves 44 enabled community IDs with sorted parity on
+  Windows and Android. Dataview, Datacore, templates, project creation,
+  Tasks, Journals, Note Toolbar, and other protected owners remain.
+- Boundary: Home tab, Checklist, Quick Explorer, Novel Word Count, and List
+  Callouts remain unchanged pending explicit user review. Product `main`, live
+  vaults, protected sources, raw evidence, and future canonical waves remain
+  untouched.
+
 ## DEC-047: Keep Projects enabled on both disposable platforms
 
 - Status: Current superseding Wave 5 correction; self-review remains required

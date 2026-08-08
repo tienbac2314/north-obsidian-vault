@@ -26,8 +26,15 @@ does not contain.
 | Remember Cursor Position | 1.0.13 | Metadata write checked | Metadata present after install | Returns to a note position |
 | Quick Switcher++ | 6.1.6 | Open, search, filter, dismiss checked | Installed and config-parity checked | Faster file and command switching |
 
-All three manifests declare mobile support. Advanced Tables was not added;
-Obsidian Bases remains a future core-table and personalization option.
+All three manifests declare mobile support. Advanced Tables was not added.
+The current Personalization pilot adds core Bases only for simple tables:
+Area Families is the accepted exact-query migration, and Area Components is a
+parallel pilot. Dataview remains the owner of Homepage Project, DataviewJS,
+Datacore, Tasks, and other dynamic views; Bases does not create project notes.
+
+Commander was removed from both current Dusk_light disposables after fallback
+proof. Omnisearch, QuickAdd, Note Toolbar, Homepage, and Mobile Homepage are
+not Commander-dependent.
 
 Projects is removed from both current Dusk_light disposables as archived bloat:
 its dashboard, commands, config definitions, and stale command consumers are
@@ -65,9 +72,10 @@ template to work around this mode-specific behavior.
 
 The external Wave 5 coverage matrix records Homepage and Mobile Homepage,
 navigation, tabs, Tasks, Journals creation routes, Templater, Dataview/DVJS,
-Datacore JSX, Meta Bind/JS Engine, QuickAdd, Commander, Note Toolbar, Custom
-Sort, Excalidraw, Hover Editor, search, templates, mapped creation flows,
-recovery, Reading, Live Preview, and relevant scrolling on both platforms.
+Datacore JSX, Meta Bind/JS Engine, QuickAdd, Commander removal/fallbacks,
+Note Toolbar, Custom Sort, Excalidraw, Hover Editor, search, templates, mapped
+creation flows, recovery, Reading, Live Preview, and relevant scrolling on
+both platforms.
 The current batch added fresh integrated evidence for repaired/plugin surfaces;
 unchanged equal-contract evidence was reused rather than duplicated.
 
@@ -75,9 +83,10 @@ unchanged equal-contract evidence was reused rather than duplicated.
 
 Windows disposable evidence uses native 1920x1040 JPEG captures. Android uses
 native 1200x2000 PNG captures on registered serial `01234ABC`. Both active
-community-plugin lists contain same 46 IDs and same 1052-byte config SHA-256:
-
-`591DAC8656E72F5345AD9394AB4D943CF9671EB3DA870B66C00CFC4049D2EC79`
+community-plugin lists contain 44 IDs with sorted parity. Windows list SHA-256
+is `CCDE647ACA2DEB504A3100C2BFB1830453E334C833927656D0F034A6306BAE6A`;
+Android list SHA-256 is
+`331AB2C10D579ED7B54596DDFBA9330C86E4FB12C925FE53221E3E73DEBC6AA0`.
 
 Windows is left on settled Homepage after exact-profile reload of the repaired
 Day Planner bytes. One fresh post-patch native Computer Use capture was not
@@ -93,7 +102,7 @@ remain outside product Git under Part 2 runtime evidence root. Runtime guide
 contains four curated sanitized screenshots; this product repo does not copy
 them.
 
-Full-Dusk source is not admitted. Wave 6 / canonical Task 7, Wave 7 / Task 8,
-and Wave 8 / Task 9 remain `NOT STARTED`. No full-only import, remnant
-ingestion, personalization, live-vault promotion, pull request, or merge was
-started.
+Full-Dusk source is not admitted. Full-Dusk comparison and Discord addition
+are skipped for now. Wave 6 / canonical Task 7, Wave 7 / Task 8, and Wave 8 /
+Task 9 remain `NOT STARTED`. No full-only import, remnant ingestion,
+live-vault promotion, pull request, or merge was started.

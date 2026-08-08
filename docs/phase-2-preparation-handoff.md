@@ -1,5 +1,34 @@
 # Phase 2 Preparation handoff
 
+## Current Personalization execution checkpoint (2026-08-08)
+
+This is the current compact handoff; older Wave 5 sections remain historical.
+Full-Dusk comparison and Discord component addition are skipped for now. No
+new wave or canonical Task 7/8/9 work starts here.
+
+E1 migrated the exact repeated area-family table to core Bases on platform-
+present files only: 61 Windows files and 19 Android files. The Area Families
+Base is identical on both targets (SHA-256
+`18378FE60114DDB359C9EDF233CDF6585A89943274F4A53C90986149B38FA1D3`). The
+Area Components Base pilot remains retained (SHA-256
+`12F85D01BB5B8CF710791378A55A8519831354E7BC3247E8A8FF5F5C2FBBA439`). The
+original Dataview owner remains in place for protected and dynamic views,
+especially Homepage Project; Bases is not replacing Dataview or project
+creation.
+
+E3 removed Commander from both exact disposables after fallback proof. Both
+platforms now have 44 enabled community IDs with sorted parity; Commander
+active trees and Status Bar Organizer Commander references are absent.
+Omnisearch, QuickAdd Focus Mode, Homepage/Mobile Homepage, and the Base
+surface remained coherent. Home tab, Checklist, Quick Explorer, Novel Word
+Count, and List Callouts remain unchanged pending user review.
+
+Part 2 source before this publication is `0f56170c15c51e40f01a2a0f57a2e9a7d9a58678` / tree
+`e31cb6aa9ad1bcead63316611efadf358be53fc6`; publish only the reset branch
+`docs/phase2-preparation-reset` at the existing remote. Product `main`, live
+vaults, protected sources, and raw evidence remain untouched. Stop after the
+push for self-review.
+
 ## Superseding Wave 5 Projects removal checkpoint (2026-08-06)
 
 Current Wave 5 remains open for one external Windows UI gate. Earlier product

@@ -1,5 +1,34 @@
 # Phase 2 Preparation reset
 
+## Current Personalization execution checkpoint (2026-08-08)
+
+Current work continues the approved Personalization lane. Full-Dusk
+comparison and Discord component addition are deferred; this is not a new
+numeric wave or canonical Task 7/8/9 task.
+
+Verified disposable changes are limited to two high-confidence operations:
+
+- The exact `PARA/AREAS` + `type = area_family` table migrated to one core
+  Bases view on platform-present files only. Area Families Base SHA-256 is
+  `18378FE60114DDB359C9EDF233CDF6585A89943274F4A53C90986149B38FA1D3`;
+  Windows covered 61 files and Android 19. The Area Components pilot remains
+  separate and retains its Dataview source; Base SHA-256 is
+  `12F85D01BB5B8CF710791378A55A8519831354E7BC3247E8A8FF5F5C2FBBA439`.
+- Commander was removed from both active disposables after fallback proof.
+  Each has 44 enabled community IDs with sorted parity; core plugin files and
+  protected dynamic/project flows were unchanged.
+
+Dataview remains the owner of Homepage Project and other dynamic views.
+Templater, Meta Bind, JS Engine, QuickAdd, Tasks, Journals, Note Toolbar,
+project templates, and project creation remain protected. Home tab, Checklist,
+Quick Explorer, Novel Word Count, and List Callouts require user review before
+any disable or uninstall decision. PC remains the feature baseline; Android
+uses native mobile routes without weakening PC behavior.
+
+Part 2 source before reset-branch publication is `0f56170c15c51e40f01a2a0f57a2e9a7d9a58678` / tree
+`e31cb6aa9ad1bcead63316611efadf358be53fc6`. Raw runtime evidence and rollback
+remain outside this repository. Stop after reset-branch push for self-review.
+
 ## Superseding Wave 5 Projects removal checkpoint (2026-08-06)
 
 The current Wave 5 repair removes archived `obsidian-projects` from both exact

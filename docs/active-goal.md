@@ -1,5 +1,37 @@
 # Active goal
 
+## Current Personalization execution checkpoint (2026-08-08)
+
+This supersedes the older product-facing Wave 5 checkpoint below. Historical
+entries remain unchanged. The current lane is Personalization continuation;
+full-Dusk comparison and Discord component addition are skipped for now. This
+does not create a new wave or canonical Task 7/8/9 hierarchy.
+
+The verified disposable changes are: the exact area-family Dataview table was
+migrated to one core Bases view on platform-present files only, and Commander
+was removed after Windows/Android fallback proof. Area Families Base SHA-256
+is `18378FE60114DDB359C9EDF233CDF6585A89943274F4A53C90986149B38FA1D3`;
+the retained Area Components pilot SHA-256 is
+`12F85D01BB5B8CF710791378A55A8519831354E7BC3247E8A8FF5F5C2FBBA439`.
+Dataview/DataviewJS, Datacore, Tasks, Templater, Meta Bind, JS Engine,
+QuickAdd, Note Toolbar, Journals, Pomodoro, Day Planner, project templates,
+and project creation remain protected owners.
+
+Commander removal leaves 44 enabled community IDs on each target with zero
+sorted-set difference. Windows community SHA-256 is
+`CCDE647ACA2DEB504A3100C2BFB1830453E334C833927656D0F034A6306BAE6A`;
+Android is `331AB2C10D579ED7B54596DDFBA9330C86E4FB12C925FE53221E3E73DEBC6AA0`.
+Status Bar Organizer Commander references are zero. Home tab, Checklist,
+Quick Explorer, Novel Word Count, and List Callouts remain review-gated; no
+uninstall is implied by zero-reference counts.
+
+Part 2 source checkpoint before this publication is `0f56170c15c51e40f01a2a0f57a2e9a7d9a58678` / tree
+`e31cb6aa9ad1bcead63316611efadf358be53fc6`. Product/reset is the only
+publication target; product `main` remains unchanged. Raw evidence and
+rollback stay outside Git under the Part 2 runtime evidence root. Next action
+is final product/Part 2 validation, push of `docs/phase2-preparation-reset`,
+and a user self-review stop.
+
 ## Superseding Wave 5 Projects removal checkpoint (2026-08-06)
 
 Current Wave 5 remains open for one external Windows UI gate. Earlier product
