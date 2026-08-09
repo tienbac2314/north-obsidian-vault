@@ -1,5 +1,31 @@
 # Active goal
 
+## Superseding E13 next-candidate triage checkpoint (2026-08-09)
+
+User accepted keeping Checklist disabled in both exact Dusk_light disposable
+targets. Read-only overlap triage found no unambiguously unused next plugin.
+Home tab has active new-tab/search state; Quick Explorer remains a useful
+desktop PC navigation feature; Novel Word Count has 262 cached counts; List
+Callouts has seven configured symbols despite zero current Markdown matches;
+Admonition has one custom definition; Recent Files has 50 entries; Status Bar
+Organizer owns requested bottom-bar cleanup; and Editing Toolbar `autohide=true`
+is protected. No next candidate was disabled or uninstalled.
+
+Compact cumulative list: `obsidian-projects`, `cmdr`, and `settings-search` are
+already removed from both active disposable trees. `obsidian-checklist-plugin`,
+`obsidian42-brat`, `daily-note-navbar`, and `todoist-sync-plugin` are disabled
+with payload retained for rollback. Do not batch-remove Checklist or
+List Callouts without later user review. Dataview, Datacore, Tasks, templates,
+project creation, and future canonical waves remain protected/not started.
+
+Part 2 source is `a54aaeed7ca5d3946cd92e019f04fcbf7d19894f` / tree
+`77e0621382e3e471ace971aed682bda89a920ad4`. Product/reset source before this
+publication is `ec110e66adb1b0e112cf5898bdc5c8f2414ccbb3` / tree
+`460f5e591510e05307929eb4e65690238c33fdef`. Raw evidence remains external at
+`G:\Dusk-Knowledge-Hub\payload\evidence\Dusk-Phase2-Preparation-Part2-Runtime`.
+
+Current gate: `E13_NEXT_CANDIDATE_REVIEW_REQUIRED`.
+
 ## Superseding E13 Checklist disable-test checkpoint (2026-08-09)
 
 E12 Base parity was accepted by the user. E13 is the next bounded step in the
