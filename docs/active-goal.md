@@ -1,5 +1,44 @@
 # Active goal
 
+## Current E7 full Bases migration and debloat checkpoint (2026-08-10)
+
+This compact product status supersedes the earlier E20 pilot wording. Runtime
+work completed on the exact disposable Windows target and registered Android
+target. It remains one personalization execution inside the current Dusk
+program; Wave 6/Task 7, Wave 7/Task 8, and Wave 8/Task 9 are not started.
+
+Part 2 authority is
+`dfa1ac534f702b1a79d925bef0c8138685289f00` / tree
+`0caae211560c621073be4e5d92d2310be0df8851`.
+
+Full Bases-safe migration is complete. Six core `.base` files now cover
+Homepage/Mobile Homepage, area families and area views, contact directory and
+contact meetings, and daily/weekly/monthly meeting/project views. Matching
+format-template embeds are updated. Windows audit is zero ordinary Dataview,
+21 protected DataviewJS blocks, four protected Datacore JSX surfaces, and 178
+Tasks blocks. Tasks, date aggregation, progress bars, Calendar/Timeline
+loaders, Mail Box/Map JSX, Templater, Meta Bind, QuickAdd, Journals, project
+templates, and creation flow remain intact because Bases cannot replace them
+without UX loss.
+
+BRAT and Todoist were removed recoverably from both active disposable targets.
+Todoist homepage/onboarding blocks were removed; native `Add Vault Task`
+remains. Windows and Android enabled plugin IDs match at 43/43. Disabled
+Checklist and Daily Navbar payloads remain recoverable. No live vault,
+protected source, product `main`, or `bf23` worktree changed.
+
+External evidence remains outside Git at
+`G:\Dusk-Knowledge-Hub\payload\evidence\Dusk-Phase2-Preparation-Part2-Runtime\checkpoints\PERSONALIZATION-E7-FULL-MIGRATION-PRETODOIST-20260810`.
+Evidence manifest SHA is
+`DCE0C4F425612064006867F658DE6FE35526B315801AFFB8D07DF1DA381C86FF`;
+post-seal 9router/OpenAI Graphify record SHA is
+`ED2E3EF3771B1C5168F9887F6368641A818AE33E648A6CCF96C4E7786B242907`.
+Graphify remains navigation-only; one fail-closed stale-source warning is
+recorded. Windows evidence is native 1920x1040 JPEG; Android evidence is
+native 1200x2000 PNG.
+
+Status: `READY_FOR_USER_SELF_REVIEW`. No PR or merge.
+
 ## Current Wave 5 E20 parity and settled mobile coverage checkpoint (2026-08-10)
 
 Wave 5 remains integrated Dusk_light regression, repair, pruning, and
