@@ -7,9 +7,9 @@ work completed on the exact disposable Windows target and registered Android
 target. It remains one personalization execution inside the current Dusk
 program; Wave 6/Task 7, Wave 7/Task 8, and Wave 8/Task 9 are not started.
 
-Part 2 authority is
-`dfa1ac534f702b1a79d925bef0c8138685289f00` / tree
-`0caae211560c621073be4e5d92d2310be0df8851`.
+Part 2 final authority is
+`76991fb1040f06fab238279bf9b95dfebeed4caa` / tree
+`70062040cd1f9dec2a96e007f89cb3355b3ae528`.
 
 Full Bases-safe migration is complete. Six core `.base` files now cover
 Homepage/Mobile Homepage, area families and area views, contact directory and
@@ -32,7 +32,7 @@ External evidence remains outside Git at
 Evidence manifest SHA is
 `DCE0C4F425612064006867F658DE6FE35526B315801AFFB8D07DF1DA381C86FF`;
 post-seal 9router/OpenAI Graphify record SHA is
-`ED2E3EF3771B1C5168F9887F6368641A818AE33E648A6CCF96C4E7786B242907`.
+`9FA131C40959E8D31EF782C3BC68C44B0E0E0A847F06CD104840B2AD0C99027D`.
 Graphify remains navigation-only; one fail-closed stale-source warning is
 recorded. Windows evidence is native 1920x1040 JPEG; Android evidence is
 native 1200x2000 PNG.
