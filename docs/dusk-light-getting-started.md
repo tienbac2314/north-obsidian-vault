@@ -36,9 +36,9 @@ does not create project notes. Original Dataview views remain unchanged until
 user review.
 
 Open `SYSTEM/GETTING STARTED/Dusk_light Bases - Contact Directory.base` for
-the Contacts pilot. Android native render passes. Windows static verification
-passes, but fresh Windows Base visual acceptance is pending a Computer Use
-helper repair.
+the Contacts pilot. Android native render passes. Latest approved Windows
+recheck was excluded because its screenshot showed Codex/ChatGPT instead of
+Obsidian; no Windows Base visual acceptance exists.
 
 Commander was removed from both current Dusk_light disposables after fallback
 proof. Omnisearch, QuickAdd, Note Toolbar, Homepage, and Mobile Homepage are

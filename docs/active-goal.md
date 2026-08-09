@@ -8,9 +8,10 @@ Dusk_light disposables. Final file SHA-256 is
 Android native 1200x2000 evidence passes with four contact rows and
 Note/Company/Title headers after repairing the property keys to
 `note.company` and `note.title`. Windows static file and plugin-parity checks
-pass. Fresh Windows Computer Use captured Homepage, then the helper failed
-with `Error: node_repl exec context not found`; no Windows Base visual is
-accepted.
+pass. The latest approved Windows Computer Use recheck returned metadata
+naming Obsidian but a screenshot showing Codex/ChatGPT and repository panels.
+Capture was excluded as a wrong-target safety stop; no Windows Base visual is
+accepted and no UI input or runtime mutation followed.
 
 Original Contacts Dataview, Homepage/Mobile Homepage, DataviewJS, Datacore,
 Tasks, templates, project creation, and plugin owners remain unchanged. Keep
@@ -18,8 +19,8 @@ the Base as a parallel pilot until user review. Checklist stays disabled with
 payload retained. No next overlap plugin met the proven-unused rule, so E12
 made no new plugin removal or disable.
 
-Part 2 source: `87f058a56b749a84ffaf653f09540e97586621f9` /
-`a0a5aef089a8b7f6c07cd67e7e93c320a7146593`. Raw evidence and final 9router
+Part 2 source: `87f1b729360c833c4a4155956e89b80429249dad` /
+`6bbb4b8997f7c32c049d2cbcf1fd701d2a853540`. Raw evidence and final 9router
 Graphify identity remain external under
 `G:\Dusk-Knowledge-Hub\payload\evidence\Dusk-Phase2-Preparation-Part2-Runtime`.
 
