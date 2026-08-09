@@ -1,5 +1,48 @@
 # Active goal
 
+## Current Wave 5 E20 parity and settled mobile coverage checkpoint (2026-08-10)
+
+Wave 5 remains integrated Dusk_light regression, repair, pruning, and
+Windows/Android rerun. E20 supersedes the earlier E19 self-review stop for
+this compact checkpoint.
+
+Part 2 authority after E20 ledger sealing is
+`12382219c3a9bf01d7886f516cb3ea7d8d59844e` / tree
+`855d827b480f5138f6a324c60750124a964f5d41`. Product work remains only on
+`docs/phase2-preparation-reset`; product `main` remains unchanged.
+
+Computer Use passed with the transport-refresh workaround on exact disposable
+window `197270` at native `1920x1040`. Windows and registered Android have
+equal 43-plugin ID sets. Projects, Commander, and Settings Search are absent
+on both. Windows and Android now match byte-for-byte for Homepage, Mobile
+Homepage, and contact/area/project templates. Fresh Windows Homepage Project
+view rendered after synchronization.
+
+Android serial `01234ABC`, package `md.obsidian`, native `1200x2000` passed all
+Mobile Homepage outer/nested tabs and settled Daily Note Overview surfaces.
+Daily Projects showed five rows. Daily Areas showed the three-row Area
+Families Base with `Note`, `area_category`, and `created`. First `No file`
+screen was transient loading and is not accepted as settled failure.
+
+Confirmed current disposable boundary: Todoist, BRAT, core Daily, credentials,
+network integrations, arbitrary JS/JSX/macros, destructive actions, and
+Android physical keyboard remain gated. Checklist remains disabled with
+payload retained. No further plugin removal is justified by E20.
+
+Raw screenshots, records, and manifests remain outside this product repo. E20
+Android record SHA is
+`08FD6B7342501254BD7915A17C8552A191EDD3179AE32D15AF8BFFD99D74EAD0`;
+manifest SHA is
+`5DAA61EB1911426FB5E74319AC4C52D8A75C52CB971D558798E928A5DAC5F565`;
+post-seal Graphify record SHA is
+`9AD222574133A58D6F66E8DA8DBA06535011B0906C513C8039701CE5100EC526`.
+Graphify used 9router/OpenAI and remains navigation-only; one fail-closed
+stale-source warning remains.
+
+Status: `READY_FOR_USER_SELF_REVIEW_WITH_EXPLICIT_GATES`. Future Wave 6 /
+Task 7, Wave 7 / Task 8, and Wave 8 / Task 9 remain `NOT STARTED`. No PR or
+merge.
+
 ## Current Wave 5 E19 repair and self-review checkpoint (2026-08-10)
 
 Wave 5 remains the active integrated Dusk_light regression, repair, and
