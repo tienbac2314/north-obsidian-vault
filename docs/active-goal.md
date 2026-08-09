@@ -19,8 +19,8 @@ the Base as a parallel pilot until user review. Checklist stays disabled with
 payload retained. No next overlap plugin met the proven-unused rule, so E12
 made no new plugin removal or disable.
 
-Part 2 source: `87f1b729360c833c4a4155956e89b80429249dad` /
-`6bbb4b8997f7c32c049d2cbcf1fd701d2a853540`. Raw evidence and final 9router
+Part 2 source: `494067807a0b410b21bf0b296edca7c567c7625e` /
+`9c4ca7af2238860a47938dec4595fdaa874eb4aa`. Raw evidence and final 9router
 Graphify identity remain external under
 `G:\Dusk-Knowledge-Hub\payload\evidence\Dusk-Phase2-Preparation-Part2-Runtime`.
 
