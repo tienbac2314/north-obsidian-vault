@@ -43,9 +43,9 @@ metadata. This is a review gate, not a product-wide removal decision.
 The next overlap triage found no unambiguously unused plugin. Home tab, Quick
 Explorer, Novel Word Count, Admonition, Recent Files, Status Bar Organizer, and
 Editing Toolbar remain active or protected. List Callouts has seven configured
-symbols but no current Markdown matches; that does not prove future syntax is
-unwanted. No next candidate was disabled. The cumulative removal/disable list
-is recorded in the current active-goal checkpoint.
+symbols and 49 current Markdown syntax entries on both platforms. No next
+candidate was disabled. The cumulative removal/disable list is recorded in the
+current active-goal checkpoint.
 
 Projects is removed from both current Dusk_light disposables as archived bloat:
 its dashboard, commands, config definitions, and stale command consumers are
