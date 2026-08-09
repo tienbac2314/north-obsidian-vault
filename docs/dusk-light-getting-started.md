@@ -29,8 +29,16 @@ does not contain.
 All three manifests declare mobile support. Advanced Tables was not added.
 The current Personalization pilot adds core Bases only for simple tables:
 Area Families is the accepted exact-query migration, and Area Components is a
-parallel pilot. Dataview remains the owner of Homepage Project, DataviewJS,
-Datacore, Tasks, and other dynamic views; Bases does not create project notes.
+parallel pilot. Contact Directory is a parallel pilot with the same four
+contact attributes as its old Dataview table. Dataview remains the owner of
+Homepage Project, DataviewJS, Datacore, Tasks, and other dynamic views; Bases
+does not create project notes. Original Dataview views remain unchanged until
+user review.
+
+Open `SYSTEM/GETTING STARTED/Dusk_light Bases - Contact Directory.base` for
+the Contacts pilot. Android native render passes. Windows static verification
+passes, but fresh Windows Base visual acceptance is pending a Computer Use
+helper repair.
 
 Commander was removed from both current Dusk_light disposables after fallback
 proof. Omnisearch, QuickAdd, Note Toolbar, Homepage, and Mobile Homepage are

@@ -1,5 +1,32 @@
 # Active goal
 
+## Superseding E12 Contact Directory Base pilot checkpoint (2026-08-09)
+
+E12 created one compact core Bases pilot for the Contacts table on both exact
+Dusk_light disposables. Final file SHA-256 is
+`607121B88A583F6818AF24181CD9A85E43A884594D3E1263E7183115FA91862C`.
+Android native 1200x2000 evidence passes with four contact rows and
+Note/Company/Title headers after repairing the property keys to
+`note.company` and `note.title`. Windows static file and plugin-parity checks
+pass. Fresh Windows Computer Use captured Homepage, then the helper failed
+with `Error: node_repl exec context not found`; no Windows Base visual is
+accepted.
+
+Original Contacts Dataview, Homepage/Mobile Homepage, DataviewJS, Datacore,
+Tasks, templates, project creation, and plugin owners remain unchanged. Keep
+the Base as a parallel pilot until user review. Checklist stays disabled with
+payload retained. No next overlap plugin met the proven-unused rule, so E12
+made no new plugin removal or disable.
+
+Part 2 source: `2ee9ec271e33a36ea662c80b0375a2aab0b4a79c` /
+`d72293f8acb396370c33798af6bfcbe93bcd72dc`. Raw evidence and final 9router
+Graphify identity remain external under
+`G:\Dusk-Knowledge-Hub\payload\evidence\Dusk-Phase2-Preparation-Part2-Runtime`.
+
+Current gate: `E12_CONTACT_DIRECTORY_BASE_REVIEW_REQUIRED`. Do not promote
+Bases, remove Dataview, remove another plugin, or start Wave 6/Task 7, Wave
+7/Task 8, or Wave 8/Task 9 from this checkpoint.
+
 ## Superseding E13 next-candidate triage checkpoint (2026-08-09)
 
 User accepted keeping Checklist disabled in both exact Dusk_light disposable
