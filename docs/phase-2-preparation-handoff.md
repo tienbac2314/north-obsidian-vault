@@ -1,5 +1,26 @@
 # Phase 2 Preparation handoff
 
+## Superseding E11 supported Contact Base access repair (2026-08-09)
+
+Earlier E11 wording accepted Android Files navigation while leaving an
+external URI shortcut gap. That is superseded. Supported onboarding now links
+to the standalone Contact Base from `SYSTEM/GETTING STARTED/Getting Started.md`
+on both exact disposables. Android native 1200x2000 evidence shows the visible
+link and the link-opened `Elon Musk Meetings` Base with 2 results and both
+expected rows. Windows guide content and the existing accepted Windows Base
+visual remain valid; fresh guide capture was blocked by a recoverable
+Computer Use helper error with no input afterward.
+
+This is a disposable-only discoverability repair. Dataview remains owner;
+source notes, templates, plugins, core configuration, product content, and
+raw evidence remain unchanged. Part 2 source is
+`16b61cba8ec162eee8cf1a2d22f221e240892dec` / tree
+`208743f22f50aca7037913dcca1cbaabae8772fe`, clean before this publication.
+Reset branch was `0f09420b6e1bdc04db387c18a1e925ea57c6f93a` / tree
+`e5f3be69b4206b23fdce1a3405ec3c8c2230fa5d`, clean and equal to origin before
+this edit. Stop after push for user review. Do not promote Base, replace
+Dataview, or start E12/E13 runtime work.
+
 ## Current Personalization execution checkpoint (2026-08-09)
 
 This is the current compact handoff; older Wave 5 sections remain historical.

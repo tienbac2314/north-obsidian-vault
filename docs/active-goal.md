@@ -1,5 +1,30 @@
 # Active goal
 
+## Superseding E11 supported Contact Base access repair (2026-08-09)
+
+The earlier E11 status accepted Android Files navigation while leaving a
+direct external URI shortcut gap. User rejected that. Supported onboarding is
+now repaired on both exact disposable targets: `SYSTEM/GETTING STARTED/Getting
+Started.md` contains one internal link to
+`Dusk_light Bases Pilot - Contact Meetings.base`, labelled `Elon Musk Meetings
+Base pilot`.
+
+Android native 1200x2000 evidence shows the link in Getting Started and the
+link-opened Base with `Elon Musk Meetings`, 2 results, and both expected rows.
+Windows guide content and the existing accepted Windows Base visual remain
+valid; a fresh guide capture hit a Computer Use helper error and no input
+followed. The Base remains a parallel pilot. Dataview, source notes, templates,
+plugins, and core configuration remain unchanged. No runtime file is copied
+into this product repository.
+
+Part 2 source for this compact update is `16b61cba8ec162eee8cf1a2d22f221e240892dec`
+/ tree `208743f22f50aca7037913dcca1cbaabae8772fe`, clean before this product
+edit. Product/reset is `0f09420b6e1bdc04db387c18a1e925ea57c6f93a` /
+tree `e5f3be69b4206b23fdce1a3405ec3c8c2230fa5d`, clean and equal to origin
+before this publication. Product `main`, live vaults, protected sources, and
+raw evidence remain untouched. Stop after push for user review; do not promote
+the Base or start another candidate.
+
 ## Current Personalization execution checkpoint (2026-08-09)
 
 This supersedes the older product-facing Wave 5 checkpoint below. Historical
