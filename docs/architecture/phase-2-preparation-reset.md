@@ -1,5 +1,23 @@
 # Phase 2 Preparation reset
 
+## Current Wave 5 E19 compact result (2026-08-10)
+
+Wave 5 integrated disposable repair is at a user self-review boundary. Part 2
+sealed authority is `094f7d138bdbc135cc2cddd80ad4e2976402e681` / tree
+`14daaf3818173bfa62fa8e19b109705cd19f175d`. Windows Computer Use passed after
+transport refresh. Minimal Theme Settings Focus Mode was reproduced as the
+tab-bar cause and reversed through Command Palette; final `focusMode=false`,
+Hider `hideTabs=false`, and Editing Toolbar `autohide=true`.
+
+Hover Editor current-file and ordinary wikilink paths pass. Link-under-cursor
+remains `UNPROVEN_CURSOR_TARGET_NO_REPAIR` because local callback token state
+was not exposed; no code/config repair was justified. Windows and Android
+community-plugin IDs remain equal at 43/43. Raw UI evidence and sealed
+9router/OpenAI Graphify record remain external under the runtime evidence
+root. Remaining gates and future-wave boundary are listed in
+`docs/active-goal.md`; Wave 6 / Task 7, Wave 7 / Task 8, and Wave 8 / Task 9
+remain `NOT STARTED`.
+
 ## Current Personalization execution checkpoint (2026-08-09)
 
 Current work continues the approved Personalization lane. Full-Dusk

@@ -1,5 +1,43 @@
 # Active goal
 
+## Current Wave 5 E19 repair and self-review checkpoint (2026-08-10)
+
+Wave 5 remains the active integrated Dusk_light regression, repair, and
+pruning lane. The final sealed Part 2 authority before this compact product
+publication is `094f7d138bdbc135cc2cddd80ad4e2976402e681` / tree
+`14daaf3818173bfa62fa8e19b109705cd19f175d`.
+
+Windows Computer Use is working with the transport-refresh workaround. On the
+exact disposable, Minimal Theme Settings Focus Mode was toggled on and off:
+it hid native tabs while enabled and restored them through Command Palette
+`Minimal Theme Settings: Toggle Focus Mode`. Final settings preserve
+`focusMode=false`, Hider `hideTabs=false`, and Editing Toolbar `autohide=true`.
+This is a reversible Focus Mode warning, not a Hider or Editing Toolbar repair.
+
+A stronger real-wikilink Hover Editor probe remains unproven: the command did
+not open a pane because local code requires an internal-link cursor token that
+Computer Use cannot expose. Ordinary wikilink navigation and current-file
+Hover Editor remain passed; no plugin code or configuration repair was made.
+Windows and Android community-plugin IDs remain equal at 43/43. Android stays
+the feature-preserving native baseline, serial `01234ABC`, native `1200x2000`.
+
+Raw E19 evidence remains outside Git under the runtime evidence root. E19 UI
+record SHA is
+`709DDF8EB62AFEBA79FF2E77E35E0ECA4B6DB4030B04F952FF325F4FF8F57104`;
+image manifest SHA is
+`B05D4F6B357E1A04159C71C6628D37EE2AB235C31EFB7636822EBA7CBABD3CA0`;
+sealed Graphify record SHA is
+`8FAB24D4327CECE61581D12EF62ABC9ADC7073E3414C933474F371CF0DC130E7`.
+Graphify used 9router/OpenAI and remains navigation-only; one fail-closed
+stale-source warning remains.
+
+Current stop is user self-review of the explicit gates: Hover cursor-token
+proof, Android physical keyboard, destructive actions, arbitrary JS/JSX/macros,
+credentials, network integrations, Todoist, BRAT, and disabled core Daily.
+Wave 6 / Task 7, Wave 7 / Task 8, and Wave 8 / Task 9 remain `NOT STARTED`.
+No live vault, product `main`, protected source, or `bf23` worktree was
+touched.
+
 ## Superseding E12 Contact Directory Base pilot checkpoint (2026-08-09)
 
 E12 created one compact core Bases pilot for the Contacts table on both exact
