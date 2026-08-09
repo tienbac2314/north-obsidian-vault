@@ -36,6 +36,10 @@ Commander was removed from both current Dusk_light disposables after fallback
 proof. Omnisearch, QuickAdd, Note Toolbar, Homepage, and Mobile Homepage are
 not Commander-dependent.
 
+Checklist is currently disabled, not uninstalled, in the E13 disposable test on
+both platforms. Tasks remains enabled as the owner for task query blocks and
+metadata. This is a review gate, not a product-wide removal decision.
+
 Projects is removed from both current Dusk_light disposables as archived bloat:
 its dashboard, commands, config definitions, and stale command consumers are
 gone. Do not look for a Projects dashboard. Use Homepage > Development >
@@ -83,10 +87,11 @@ unchanged equal-contract evidence was reused rather than duplicated.
 
 Windows disposable evidence uses native 1920x1040 JPEG captures. Android uses
 native 1200x2000 PNG captures on registered serial `01234ABC`. Both active
-community-plugin lists contain 44 IDs with sorted parity. Windows list SHA-256
-is `CCDE647ACA2DEB504A3100C2BFB1830453E334C833927656D0F034A6306BAE6A`;
+community-plugin lists contain 43 IDs with sorted parity in the current E13
+disposable test. Windows list SHA-256 is
+`E899C8E786A28E46D09C363FC91D4763B280785C9BED1342CE7631A36B5CB78A`;
 Android list SHA-256 is
-`331AB2C10D579ED7B54596DDFBA9330C86E4FB12C925FE53221E3E73DEBC6AA0`.
+`05A8F4CE0C7A287BE69F834DC3D7338431DF1C6DAA83D8E29B6657516582899A`.
 
 Windows is left on settled Homepage after exact-profile reload of the repaired
 Day Planner bytes. One fresh post-patch native Computer Use capture was not

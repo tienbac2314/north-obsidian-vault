@@ -1,6 +1,38 @@
 # Active goal
 
-+## Superseding E12 Base parity checkpoint (2026-08-09)
+## Superseding E13 Checklist disable-test checkpoint (2026-08-09)
+
+E12 Base parity was accepted by the user. E13 is the next bounded step in the
+same personalization/debloat program; it is not a new wave or canonical Task
+7/8/9 work.
+
+Checklist was disabled, not uninstalled, in both exact Dusk_light disposable
+targets for an owner-overlap test. The enabled community-plugin sets now have
+43 IDs and are exactly equal between Windows and Android. Checklist data,
+manifest, and vault content are unchanged. Tasks remains enabled. Dataview,
+DataviewJS, Datacore, Templater, Meta Bind, QuickAdd, project templates, and
+project creation were not changed.
+
+Android native validation passed after restart: Mobile Homepage remained
+usable, Daily Note recovered to its settled task and Dataview Meetings surface,
+and no note content changed. Windows exact-profile restart settled, but fresh
+visual acceptance was blocked before input by the Computer Use helper error
+`node_repl exec context not found`; no input followed. This is static evidence,
+not a Windows visual pass.
+
+Current gate: `E13_CHECKLIST_DISABLE_TEST_REVIEW_REQUIRED`. Keep Checklist
+disabled or restore it after user review. Do not uninstall it, test the next
+candidate, remove Tasks or Dataview, promote Bases, or start Wave 6/Task 7,
+Wave 7/Task 8, or Wave 8/Task 9 until that decision.
+
+Part 2 source is `fe9cd524a3ff23b1bbe1bcad21005ee878f715cc` / tree
+`2853c62d711224e105eaeadea073e2b56cfe7856`. Product/reset source before this
+publication is `4e36dba5c4257b9db909dd206d8b6daf5393e97f` / tree
+`ef0b1903af1a2e420bf556bdb1f80034d273cc09`. Raw evidence remains external at
+`G:\Dusk-Knowledge-Hub\payload\evidence\Dusk-Phase2-Preparation-Part2-Runtime`.
+No live vault, product main, protected source, or `bf23` worktree was touched.
+
+## Superseding E12 Base parity checkpoint (2026-08-09)
 
 E11 review was accepted. E12 is the next bounded step inside the one
 personalization/debloat program; it is not a new wave or canonical Task 7/8/9
