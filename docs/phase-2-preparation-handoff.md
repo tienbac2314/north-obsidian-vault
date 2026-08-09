@@ -1,5 +1,38 @@
 # Phase 2 Preparation handoff
 
++## Superseding E12 Base parity checkpoint (2026-08-09)
+
+E11 review was accepted. E12 completed the next safe parallel pilot in the
+same personalization/debloat program. No new wave or canonical Task 7/8/9
+work started.
+
+Contact Base now appears in the actual Elon Musk contact note on both exact
+disposables. Its filter, file identity, scheduled date, start time, summary,
+meeting status, and status/date sort match the old Dataview contract. Status
+remains a sort property but is hidden from visible order for the same columns
+as the old view. Original Dataview remains unchanged.
+
+Area Scheduled Meetings Base now appears standalone and inside the actual Area
+note on both exact disposables. It uses the matching area filter and meeting
+attributes and renders one expected row. Original Dataview remains unchanged.
+Bases remain parallel pilots; no source-note or plugin-owner promotion occurred.
+
+Windows: exact PID 19120, disposable profile/vault
+W5-INTEGRATED-UPDATED-LIGHT-20260803, static hashes pass, prior accepted Base
+visual valid. Fresh Computer Use failed before input with
+node_repl exec context not found. Android: serial 01234ABC, package md.obsidian,
+PID 26020, registered vault, native 1200x2000 evidence for settled startup,
+standalone Area Base, Area note embed, and Contact note embed. One temporary
+Android test-input truncation was detected and restored; bad snapshot is
+excluded.
+
+Part 2 source: aa041d53b7ffd8ba170559f0e9d1c683cd3e1d7f /
+f5463bc52ef33e315353521f568d774cb13eb805. Raw E12 evidence and rollback:
+G:\Dusk-Knowledge-Hub\payload\evidence\Dusk-Phase2-Preparation-Part2-Runtime\checkpoints\PERSONALIZATION-E12-AREA-MEETING-CONTACT-PARITY-20260809.
+
+Stop for user review of both actual-note embeds. Do not promote Base, replace
+Dataview, remove Datacore, alter project creation, or start E13.
+
 ## Superseding E11 supported Contact Base access repair (2026-08-09)
 
 Earlier E11 wording accepted Android Files navigation while leaving an

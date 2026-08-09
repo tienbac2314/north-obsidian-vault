@@ -1,5 +1,47 @@
 # Active goal
 
++## Superseding E12 Base parity checkpoint (2026-08-09)
+
+E11 review was accepted. E12 is the next bounded step inside the one
+personalization/debloat program; it is not a new wave or canonical Task 7/8/9
+work.
+
+Contact Base is now embedded in the actual disposable
+PARA/RESOURCES/CONTACTS/Elon Musk.md note on Windows and Android. It retains
+the old query filter, every old attribute (file identity, scheduled date,
+start time, summary, and meeting status), and the old status/date sort.
+Meeting status stays available as a sort property but is hidden from visible
+order, matching the old Dataview columns. The original Dataview block remains
+unchanged.
+
+New Area Scheduled Meetings Base is embedded in the actual
+PARA/AREAS/Space Tourism Initiatives/2. Space Tourism Initiatives.md note and
+also passed standalone opening on both disposables. It uses the matching area
+filter and meeting attributes; one expected meeting row rendered. Original
+Dataview remains unchanged. These are parallel pilots, not promoted migrations.
+
+Windows exact disposable/profile was reverified at PID 19120. Existing accepted
+Windows Base visual remains valid; fresh Computer Use stopped before input with
+node_repl exec context not found. Android serial 01234ABC, package md.obsidian,
+PID 26020, and registered disposable vault were reverified. Native 1200x2000
+evidence covers settled startup, standalone Area Base, actual Area note, and
+actual Contact note.
+
+One Android coordinate-test truncation was detected by SHA comparison and
+restored from staged disposable content. Bad snapshot remains outside Git and
+is excluded from acceptance. No live vault, protected source, product main, or
+bf23 worktree was touched.
+
+Part 2 source is aa041d53b7ffd8ba170559f0e9d1c683cd3e1d7f /
+f5463bc52ef33e315353521f568d774cb13eb805. Product/reset source before this
+publication is 114f787712b4d661f60fff68a5f2a055e6a38e14 /
+1d0fdb611de6f0f755c4d6469265c6aec0b7e8b9. Raw evidence remains external at
+G:\Dusk-Knowledge-Hub\payload\evidence\Dusk-Phase2-Preparation-Part2-Runtime.
+
+Current status: E12_PASS_REVIEW_REQUIRED. Review actual-note Contact and Area
+Base embeds before any promotion, Dataview/Datacore removal, Homepage Project
+replacement, project-creation change, or E13 runtime work.
+
 ## Superseding E11 supported Contact Base access repair (2026-08-09)
 
 The earlier E11 status accepted Android Files navigation while leaving a
