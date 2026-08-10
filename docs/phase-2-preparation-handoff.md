@@ -13,10 +13,15 @@ Quick Explorer and Status Bar Organizer remain Windows-only PC features with
 native Android fallbacks. Dataview/Home Tab are absent on both. Day Planner,
 Checklist, and Daily Note Navbar are disabled with rollback payloads retained.
 
-Part 2 source before this product publication is
-`4963c92494be3681a195411b2d59329e344bf6a0` / tree
-`f45cdd9c505150f34a84d050c96e4e0a29403167`. Evidence, Graphify, and independent
-review records remain outside product Git under the runtime evidence root.
+Part 2 source for this product publication is
+`369444265ac4314d2e6d5900f60bb0527b4f7a05` / tree
+`147fb8dd8b0e9c98cb6a3416f1a101ab9deda2c7`. E7 task-panel repair passed on
+Windows and Android: explicit Today/All open/Completed modes, visible state,
+named controls, empty-state actions, wrapped rows, Add rerun, and affected
+scroll checks. One Android overflow was fixed and rerun. Evidence, Graphify,
+and independent review records remain outside product Git under the runtime
+evidence root; task UX manifest SHA is
+`E1D0412136CC77737BA06885E0A3856BBEAFE4D77C1B45751CC378E74CEB9DCA`.
 Compact update is published only on `docs/phase2-preparation-reset`. Verify
 local/origin identity, then stop for user self-review. No future wave starts.
 

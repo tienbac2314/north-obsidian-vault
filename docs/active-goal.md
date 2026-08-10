@@ -7,9 +7,9 @@ registered Android targets. This remains one E7 program. Wave 6/Task 7, Wave
 7/Task 8, and Wave 8/Task 9 are `NOT STARTED`. Full-Dusk comparison and
 Discord component addition remain skipped by user direction.
 
-Part 2 runtime authority before this product update is `main`
-`4963c92494be3681a195411b2d59329e344bf6a0` / tree
-`f45cdd9c505150f34a84d050c96e4e0a29403167`.
+Part 2 runtime authority for this product update is `main`
+`369444265ac4314d2e6d5900f60bb0527b4f7a05` / tree
+`147fb8dd8b0e9c98cb6a3416f1a101ab9deda2c7`.
 
 Six synchronized core `.base` files now cover all safe Homepage, area,
 contact, and daily/weekly/monthly table views and their format templates.
@@ -26,11 +26,22 @@ native Android fallbacks. Dataview and Home Tab are absent on both. Day
 Planner, Checklist, and Daily Note Navbar are disabled with rollback payloads
 retained. No live vault, protected source, product `main`, or `bf23` changed.
 
+E7 task-panel repair now has explicit Today, All open, and Completed modes,
+visible active state, named controls, empty-state actions, and wrapped rows.
+Windows passed fresh maximized `1920x1040` Today/All open/Completed, Add,
+scroll, and Reading/Live Preview checks. Android passed native `1200x2000`
+settled Today/All open/Completed, wrapped rows, and vertical scroll. A real
+first-repair Android overflow was fixed; horizontal swipes opened an existing
+Dusk side pane and were not treated as task-row scrolling. Synthetic Add
+content was restored exactly; no user note remains changed.
+
 Fresh Android Journal Views Base parity and settled weekly/monthly/Homepage
-evidence pass. External evidence stays outside this repo under
+evidence also pass. External evidence stays outside this repo under
 `G:\Dusk-Knowledge-Hub\payload\evidence\Dusk-Phase2-Preparation-Part2-Runtime\checkpoints\PERSONALIZATION-E7-DATACORE-DEBLOAT-20260810`:
 Step 13 SHA `721877995100E88798D096486FB204F2AF8C47BC068729971E2F9BC1BD534C0C`,
 manifest SHA `9FB171EA6BD1347DA3CAB888FF4C0AB01EB4250B5272F114A1994DE4BA43E3BD`,
+task UX manifest SHA `E1D0412136CC77737BA06885E0A3856BBEAFE4D77C1B45751CC378E74CEB9DCA`,
+task UX Graphify SHA `F6F6DB3738593F0D3F00BB714CCD68C1B5330643D50A2A2072F4E1CD3014D459`,
 post-seal Graphify SHA `6996E7319DB70F775773393018B5C472EDD0AD047224FA637E8F4394DE56B5E9`,
 and independent review SHA `519797B4A48381FB2B69137D31E3FF13C0F04B294967D78FCD8D369894CBE9F4`.
 
