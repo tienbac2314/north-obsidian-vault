@@ -22,23 +22,18 @@ does not contain.
 
 | Plugin | Version | Windows | Android | Purpose |
 |---|---:|---|---|---|
-| Day Planner | 0.35.1 | Timeline and multi-day view checked; repaired plugin reload | Mobile long-press menu and Edit modal passed; synthetic test note was removed | Time-blocked daily planning |
 | Remember Cursor Position | 1.0.13 | Metadata write checked | Metadata present after install | Returns to a note position |
 | Quick Switcher++ | 6.1.6 | Open, search, filter, dismiss checked | Installed and config-parity checked | Faster file and command switching |
+| Obsidian Bases | core | Six synchronized view files checked | Native table rendering checked | Simple tables and dashboard-style views |
 
-All three manifests declare mobile support. Advanced Tables was not added.
-The current Personalization pilot adds core Bases only for simple tables:
-Area Families is the accepted exact-query migration, and Area Components is a
-parallel pilot. Contact Directory is a parallel pilot with the same four
-contact attributes as its old Dataview table. Dataview remains the owner of
-Homepage Project, DataviewJS, Datacore, Tasks, and other dynamic views; Bases
-does not create project notes. Original Dataview views remain unchanged until
-user review.
+Advanced Tables was not added. Bases now owns six safe simple-table and
+dashboard-style views across Homepage, areas, contacts, and daily/weekly/
+monthly notes. Dataview is absent from current disposables. Datacore remains
+owner for complex JSX, task/date/progress, Calendar/Timeline, and custom UI
+surfaces. Bases shows project views; it does not create project notes.
 
 Open `SYSTEM/GETTING STARTED/Dusk_light Bases - Contact Directory.base` for
-the Contacts pilot. Android native render passes. Latest approved Windows
-recheck was excluded because its screenshot showed Codex/ChatGPT instead of
-Obsidian; no Windows Base visual acceptance exists.
+the Contacts view. Windows and Android native rendering pass.
 
 Commander was removed from both current Dusk_light disposables after fallback
 proof. Omnisearch, QuickAdd, Note Toolbar, Homepage, and Mobile Homepage are
@@ -48,12 +43,14 @@ Checklist is currently disabled, not uninstalled, in the E13 disposable test on
 both platforms. Tasks remains enabled as the owner for task query blocks and
 metadata. This is a review gate, not a product-wide removal decision.
 
-The next overlap triage found no unambiguously unused plugin. Home tab, Quick
-Explorer, Novel Word Count, Admonition, Recent Files, Status Bar Organizer, and
-Editing Toolbar remain active or protected. List Callouts has seven configured
-symbols and 49 current Markdown syntax entries on both platforms. No next
-candidate was disabled. The cumulative removal/disable list is recorded in the
-current active-goal checkpoint.
+Admonition is now disabled on both platforms with rollback retained. List
+Callouts remains enabled because 49 active syntax markers remain across eight
+files. Novel Word Count remains because core Word Count lacks its file/folder/
+vault totals. Remaining overlap audit found no additional 100-percent bloat
+candidate. Highlightr, Iconic, mapped file hotkeys, Custom Frames, Recent
+Files, Tag Wrangler, Natural Language Dates, Paste Image Rename, and Trash
+Explorer remain because each has documented, configured, or distinct value.
+The cumulative removal/disable list is recorded in this active-goal checkpoint.
 
 Projects is removed from both current Dusk_light disposables as archived bloat:
 its dashboard, commands, config definitions, and stale command consumers are
@@ -101,19 +98,15 @@ unchanged equal-contract evidence was reused rather than duplicated.
 ## Windows and Android
 
 Windows disposable evidence uses native 1920x1040 JPEG captures. Android uses
-native 1200x2000 PNG captures on registered serial `01234ABC`. Both active
-community-plugin lists contain 43 IDs with sorted parity in the current E13
-disposable test. Windows list SHA-256 is
-`E899C8E786A28E46D09C363FC91D4763B280785C9BED1342CE7631A36B5CB78A`;
-Android list SHA-256 is
-`05A8F4CE0C7A287BE69F834DC3D7338431DF1C6DAA83D8E29B6657516582899A`.
+native 1200x2000 PNG captures on registered serial `01234ABC`. Current enabled
+lists contain 39 Windows IDs and 37 Android IDs; common IDs match. Windows-only
+Quick Explorer and Status Bar Organizer remain PC features. Android uses native
+file navigation and status-bar fallbacks.
 
-Windows is left on settled Homepage after exact-profile reload of the repaired
-Day Planner bytes. One fresh post-patch native Computer Use capture was not
-obtained because the helper returned `node_repl exec context not found`; no
-input followed. Android is left on settled Homepage after final restart. Its
-Day Planner block long-press menu and Edit modal passed; the synthetic note was
-quarantined/deleted and its exact path is absent.
+Windows is left on settled Homepage after exact-profile reload following the
+Admonition disable test. Android is left on settled Homepage after final
+restart. Both task panels show repaired plain rows and explicit modes. No user
+note or template content remains changed.
 
 ## Evidence and boundaries
 

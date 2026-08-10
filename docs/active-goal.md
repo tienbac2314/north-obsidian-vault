@@ -1,5 +1,42 @@
 # Active goal
 
+## Current E7 usable self-review checkpoint (2026-08-10)
+
+E7 personalization, migration, task-panel repair, and safe debloat now reach a
+usable disposable checkpoint on Windows and registered Android. Wave 6/Task 7,
+Wave 7/Task 8, and Wave 8/Task 9 remain `NOT STARTED`. Full-Dusk comparison and
+Discord component addition remain skipped by user direction.
+
+Latest Part 2 authority is `79bd9f4cddfa396013a233bf21f894d43e84525a` / tree
+`adc25e636bcdf9ab6dc5eda4e6b1acd200b29f20`.
+
+Six synchronized core Bases files cover safe table views. Dataview is absent
+from both active disposables; Datacore keeps complex JSX, task/date/progress,
+Calendar/Timeline, and custom UI behavior. Tasks, Templater, Meta Bind,
+QuickAdd, Journals, project templates, and project-note creation remain intact.
+Projects dashboard/plugin is removed; PARA/PROJECTS notes, project frontmatter,
+templates, and Homepage project view remain.
+
+Task panel now has explicit Today, All open, and Completed modes, visible state,
+clear Add action, readable wrapped rows, and no title border clutter. Windows
+passed fresh maximized `1920x1040` checks. Android passed native `1200x2000`
+settled checks. Admonition is disabled on both platforms with rollback kept;
+core callouts, Homepage, Bases, templates, and mobile layout still pass.
+
+Windows has 39 enabled community IDs. Android has 37. Common IDs match;
+Windows-only Quick Explorer and Status Bar Organizer remain PC features, with
+native Android fallbacks. Checklist, Day Planner, and Daily Note Navbar remain
+disabled with payloads retained. No live vault, protected source, product
+`main`, or `bf23` changed.
+
+Remaining overlap audit found no additional 100-percent bloat candidate.
+Highlightr, Iconic, mapped file hotkeys, Custom Frames, Recent Files, Tag
+Wrangler, Natural Language Dates, Paste Image Rename, and Trash Explorer retain
+documented, configured, or distinct user-facing behavior.
+
+Status: `READY_FOR_USER_SELF_REVIEW`; product update is limited to
+`docs/phase2-preparation-reset`, with no PR or merge.
+
 ## Current E7 final runtime and product publication checkpoint (2026-08-10)
 
 E7 personalization/debloat runtime work passes on exact disposable Windows and
