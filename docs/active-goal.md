@@ -7,8 +7,8 @@ usable disposable checkpoint on Windows and registered Android. Wave 6/Task 7,
 Wave 7/Task 8, and Wave 8/Task 9 remain `NOT STARTED`. Full-Dusk comparison and
 Discord component addition remain skipped by user direction.
 
-Latest Part 2 authority is `79bd9f4cddfa396013a233bf21f894d43e84525a` / tree
-`adc25e636bcdf9ab6dc5eda4e6b1acd200b29f20`.
+Latest Part 2 authority is `d0128b923d172cf6946689027d63559f1fb43c9d` / tree
+`2763dcb89a51f627d5582815f8b7d5e5211033ea`.
 
 Six synchronized core Bases files cover safe table views. Dataview is absent
 from both active disposables; Datacore keeps complex JSX, task/date/progress,
@@ -33,6 +33,12 @@ Remaining overlap audit found no additional 100-percent bloat candidate.
 Highlightr, Iconic, mapped file hotkeys, Custom Frames, Recent Files, Tag
 Wrangler, Natural Language Dates, Paste Image Rename, and Trash Explorer retain
 documented, configured, or distinct user-facing behavior.
+
+Final evidence manifest validates 11 artifacts with zero missing, byte, hash,
+or dimension errors. Manifest SHA is
+`8B18BF95D19B608A2DF7A8439DBA7A2C4B509CA6507B37EC8BAD92090C48AC5F`.
+Latest 9router/OpenAI Graphify record is
+`6A77FF93AE87B5230FB6743DF280E8C3A561A685A8984D12A4FB09E0D88A0B1E`.
 
 Status: `READY_FOR_USER_SELF_REVIEW`; product update is limited to
 `docs/phase2-preparation-reset`, with no PR or merge.

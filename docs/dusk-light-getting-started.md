@@ -39,8 +39,8 @@ Commander was removed from both current Dusk_light disposables after fallback
 proof. Omnisearch, QuickAdd, Note Toolbar, Homepage, and Mobile Homepage are
 not Commander-dependent.
 
-Checklist is currently disabled, not uninstalled, in the E13 disposable test on
-both platforms. Tasks remains enabled as the owner for task query blocks and
+Checklist is currently disabled, not uninstalled, in both current Dusk_light
+disposables. Tasks remains enabled as the owner for task query blocks and
 metadata. This is a review gate, not a product-wide removal decision.
 
 Admonition is now disabled on both platforms with rollback retained. List
