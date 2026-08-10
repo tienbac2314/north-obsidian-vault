@@ -34,9 +34,11 @@ manifest SHA `9FB171EA6BD1347DA3CAB888FF4C0AB01EB4250B5272F114A1994DE4BA43E3BD`,
 post-seal Graphify SHA `6996E7319DB70F775773393018B5C472EDD0AD047224FA637E8F4394DE56B5E9`,
 and independent review SHA `519797B4A48381FB2B69137D31E3FF13C0F04B294967D78FCD8D369894CBE9F4`.
 
-Current action: validate this compact product update, commit and push only
-`docs/phase2-preparation-reset`, verify remote identity, then stop for user
-self-review. No PR or merge.
+Status: `PUBLISHED_PENDING_USER_SELF_REVIEW`.
+
+Compact product update is committed and pushed only to
+`docs/phase2-preparation-reset`. Final local/origin identity verification is
+the last check. No PR or merge.
 
 ## Superseded E7 full Bases migration and debloat checkpoint (2026-08-10)
 

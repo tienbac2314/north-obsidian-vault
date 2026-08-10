@@ -22,7 +22,7 @@ records are external under the runtime evidence root. Wave 6/Task 7, Wave
 7/Task 8, and Wave 8/Task 9 remain `NOT STARTED`. No PR, merge, live-vault
 promotion, product `main`, or `bf23` change.
 
-Status: `RUNTIME_PASS_PENDING_PRODUCT_PUBLICATION`.
+Status: `PUBLISHED_PENDING_USER_SELF_REVIEW`.
 
 ## Superseded Wave 5 E19 compact result (2026-08-10)
 
