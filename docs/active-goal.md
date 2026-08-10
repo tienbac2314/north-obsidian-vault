@@ -1,6 +1,47 @@
 # Active goal
 
-## Current E7 full Bases migration and debloat checkpoint (2026-08-10)
+## Current E7 final runtime and product publication checkpoint (2026-08-10)
+
+E7 personalization/debloat runtime work passes on exact disposable Windows and
+registered Android targets. This remains one E7 program. Wave 6/Task 7, Wave
+7/Task 8, and Wave 8/Task 9 are `NOT STARTED`. Full-Dusk comparison and
+Discord component addition remain skipped by user direction.
+
+Part 2 runtime authority before this product update is `main`
+`4963c92494be3681a195411b2d59329e344bf6a0` / tree
+`f45cdd9c505150f34a84d050c96e4e0a29403167`.
+
+Six synchronized core `.base` files now cover all safe Homepage, area,
+contact, and daily/weekly/monthly table views and their format templates.
+Ordinary Dataview/DQL is gone from both active disposables. Datacore keeps
+complex JSX, task/date/progress, Calendar/Timeline, and custom UI behavior;
+Tasks, Templater, Meta Bind, QuickAdd, Journals, project templates, and note
+creation remain intact. The Projects plugin is removed; PARA/PROJECTS notes,
+frontmatter, templates, QuickAdd creation, Meta Bind, and Homepage project
+surfaces remain.
+
+Windows has 40 enabled community IDs. Android has 38. Common IDs match;
+Windows-only Quick Explorer and Status Bar Organizer remain PC features, with
+native Android fallbacks. Dataview and Home Tab are absent on both. Day
+Planner, Checklist, and Daily Note Navbar are disabled with rollback payloads
+retained. No live vault, protected source, product `main`, or `bf23` changed.
+
+Fresh Android Journal Views Base parity and settled weekly/monthly/Homepage
+evidence pass. External evidence stays outside this repo under
+`G:\Dusk-Knowledge-Hub\payload\evidence\Dusk-Phase2-Preparation-Part2-Runtime\checkpoints\PERSONALIZATION-E7-DATACORE-DEBLOAT-20260810`:
+Step 13 SHA `721877995100E88798D096486FB204F2AF8C47BC068729971E2F9BC1BD534C0C`,
+manifest SHA `9FB171EA6BD1347DA3CAB888FF4C0AB01EB4250B5272F114A1994DE4BA43E3BD`,
+post-seal Graphify SHA `6996E7319DB70F775773393018B5C472EDD0AD047224FA637E8F4394DE56B5E9`,
+and independent review SHA `519797B4A48381FB2B69137D31E3FF13C0F04B294967D78FCD8D369894CBE9F4`.
+
+Current action: validate this compact product update, commit and push only
+`docs/phase2-preparation-reset`, verify remote identity, then stop for user
+self-review. No PR or merge.
+
+## Superseded E7 full Bases migration and debloat checkpoint (2026-08-10)
+
+This older snapshot is retained as historical product evidence. Current E7
+status is above.
 
 This compact product status supersedes the earlier E20 pilot wording. Runtime
 work completed on the exact disposable Windows target and registered Android

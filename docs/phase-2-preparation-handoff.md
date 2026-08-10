@@ -1,5 +1,25 @@
 # Phase 2 Preparation handoff
 
+## Current E7 final runtime handoff (2026-08-10)
+
+Runtime E7 migration/debloat passes on disposable Windows and registered
+Android. Six synchronized Bases files replace all safe ordinary table views;
+Dataview/DQL is absent. Datacore and Tasks retain complex behavior, while
+Templater, Meta Bind, QuickAdd, Journals, project templates, and creation flow
+remain. Projects is removed; PARA/PROJECTS notes and creation flow remain.
+
+Windows has 40 enabled community IDs; Android has 38 with common IDs equal.
+Quick Explorer and Status Bar Organizer remain Windows-only PC features with
+native Android fallbacks. Dataview/Home Tab are absent on both. Day Planner,
+Checklist, and Daily Note Navbar are disabled with rollback payloads retained.
+
+Part 2 source before this product publication is
+`4963c92494be3681a195411b2d59329e344bf6a0` / tree
+`f45cdd9c505150f34a84d050c96e4e0a29403167`. Evidence, Graphify, and independent
+review records remain outside product Git under the runtime evidence root.
+Validate and push only `docs/phase2-preparation-reset`, then stop for user
+self-review. No future wave starts.
+
 +## Superseding E12 Base parity checkpoint (2026-08-09)
 
 E11 review was accepted. E12 completed the next safe parallel pilot in the

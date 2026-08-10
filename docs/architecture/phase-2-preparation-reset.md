@@ -1,6 +1,30 @@
 # Phase 2 Preparation reset
 
-## Current Wave 5 E19 compact result (2026-08-10)
+## Current E7 final runtime and product publication checkpoint (2026-08-10)
+
+E7 runtime migration and debloat pass on exact disposable Windows and Android
+targets. Six synchronized Bases files replace every safe ordinary table view.
+Ordinary Dataview/DQL is absent from active targets. Datacore and Tasks keep
+complex task/date/progress, Calendar/Timeline, JSX, and custom UI behavior;
+Templater, Meta Bind, QuickAdd, Journals, project templates, and note creation
+remain unchanged. Projects is removed while PARA/PROJECTS content and
+creation flow remain.
+
+Windows has 40 enabled community IDs; Android has 38 with common IDs equal.
+Windows-only Quick Explorer and Status Bar Organizer remain PC features;
+Android uses native fallback. Dataview/Home Tab are absent on both. Day
+Planner, Checklist, and Daily Note Navbar remain disabled with rollback payloads.
+
+Part 2 before this product update is `4963c92494be3681a195411b2d59329e344bf6a0`
+/ tree `f45cdd9c505150f34a84d050c96e4e0a29403167`. Step 13 Android Journal
+parity, five-row manifest, post-seal 9router Graphify, and independent review
+records are external under the runtime evidence root. Wave 6/Task 7, Wave
+7/Task 8, and Wave 8/Task 9 remain `NOT STARTED`. No PR, merge, live-vault
+promotion, product `main`, or `bf23` change.
+
+Status: `RUNTIME_PASS_PENDING_PRODUCT_PUBLICATION`.
+
+## Superseded Wave 5 E19 compact result (2026-08-10)
 
 Wave 5 integrated disposable repair is at a user self-review boundary. Part 2
 sealed authority is `094f7d138bdbc135cc2cddd80ad4e2976402e681` / tree
