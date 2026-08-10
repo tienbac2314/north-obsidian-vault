@@ -19,6 +19,7 @@ Read [executive summary](executive-summary.md) for orientation, then use modules
 - Current Dusk_light guide: [Dusk_light quick start](dusk-light-getting-started.md).
 - Approved Dusk_light usability batch: [parity and onboarding design](superpowers/specs/2026-08-05-dusk-light-parity-onboarding-design.md).
 - Dusk_light query and debloat design: [Datacore-permanent debloat design](superpowers/specs/2026-08-10-dusk-datacore-permanent-debloat-design.md).
+- Dusk_light execution plan: [Datacore-permanent debloat implementation plan](superpowers/plans/2026-08-10-dusk-datacore-permanent-debloat-plan.md).
 - Repository operation: [Git workflow](git-workflow.md).
 
 Summaries navigate. They never replace detailed modules. Minimalization applies to runtime components and automatic authority, not to design explanation.
