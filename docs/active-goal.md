@@ -1,5 +1,30 @@
 # Active goal
 
+## Current Wave 5 final repair checkpoint (2026-08-11)
+
+Wave 5 integrated Dusk_light repair now passes on Windows and registered
+Android disposables. The scoped Daily Overview embed-border repair is applied
+to the integrated Windows source and Android target. A shared
+`template_daily_overview.md` is used by 53 integrated Windows daily notes and
+11 Android daily notes. The unreferenced duplicate `Datacore Calendar View.md`
+was removed; canonical `Calendar View.md` remains. No note content was
+deleted.
+
+Windows passed settled Reading and Live Preview with no unwanted left line;
+Meetings=1, Projects=9, Areas=4. Android passed native `1200x2000` Reading
+with Meetings=2, Projects=5, Areas=3, settled Live Preview with Projects=5,
+and relevant vertical/horizontal scrolling. Android interaction caveat:
+tapping a nested Overview tab while Live Preview is focused opens the editor
+keyboard and exposes the embed token; no text was entered, and Reading mode
+restores clean rendering. This did not mutate the daily note.
+
+Part 2 source for this compact update is
+`e9efb8db67ce76db01fe28b6a2315141149beca9` / tree
+`eb77c4e8291cc12f99fc9c4e7239a04023ae3d85`. Wave 5 is ready for final
+validators and user self-review after this reset-branch publication. Wave
+6/Task 7, Wave 7/Task 8, and Wave 8/Task 9 remain `NOT STARTED`. Full-Dusk
+comparison and Discord component addition remain skipped. No PR or merge.
+
 ## Current E7 usable self-review checkpoint (2026-08-10)
 
 E7 personalization, migration, task-panel repair, and safe debloat now reach a

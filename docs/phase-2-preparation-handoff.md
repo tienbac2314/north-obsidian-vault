@@ -1,5 +1,27 @@
 # Phase 2 Preparation handoff
 
+## Current Wave 5 final repair handoff (2026-08-11)
+
+Wave 5 integrated Dusk_light repair passes on exact Windows and registered
+Android disposables. The scoped Daily Overview embed-border repair, shared
+Overview template, 53 Windows daily-note updates, 11 Android daily-note
+updates, and duplicate-calendar removal are recorded in Part 2 authority.
+Canonical `Calendar View.md` remains; no note content was deleted.
+
+Windows Reading and Live Preview pass with Meetings=1, Projects=9, Areas=4.
+Android native `1200x2000` Reading passes with Meetings=2, Projects=5,
+Areas=3; settled Live Preview passes with Projects=5. Relevant vertical and
+horizontal scroll passes. Nested-tab taps while Live Preview is focused expose
+the embed token and keyboard; no text was entered and Reading restores clean
+rendering. This is a documented interaction caveat, not saved-content
+mutation.
+
+Part 2 source: `e9efb8db67ce76db01fe28b6a2315141149beca9` /
+`eb77c4e8291cc12f99fc9c4e7239a04023ae3d85`. Publish only this compact reset
+branch update. Wave 6/Task 7, Wave 7/Task 8, and Wave 8/Task 9 remain
+`NOT STARTED`; full-Dusk comparison and Discord addition remain skipped. No
+PR or merge.
+
 ## Current E7 final runtime handoff (2026-08-10)
 
 Runtime E7 migration/debloat passes on disposable Windows and registered
