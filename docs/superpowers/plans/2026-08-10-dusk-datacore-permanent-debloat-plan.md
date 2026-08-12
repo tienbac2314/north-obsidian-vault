@@ -61,6 +61,23 @@ Knowledge, active MOCs, Canvas/Excalidraw assets, or legacy residue. No
 blanket ZETA move, silent content rewrite, or irreversible deletion is
 authorized by this amendment.
 
+### Pause state after Windows structure mutation (2026-08-12)
+
+Windows mutation is partially complete and paused by user request. Twelve
+content files moved into `PARA/RESOURCES/KNOWLEDGE`; empty `INBOX` exists;
+empty old `ZETA` and `PARA/RESOURCES/CONCEPT MAP` owners were removed after
+exact checks; Workstation, Archives, Sticky, and note content remain. QuickAdd,
+Templater, Note Toolbar, Excalidraw, Canvas, View Mode, Iconic, Bookmarks,
+Homepage, Mobile Homepage, Bases, and Getting Started paths were updated.
+
+Before resume, restore two-space indentation in nine moved-note `connections`
+lists and run static preservation checks. Then test Windows UI, links,
+creation, Bases, Excalidraw, Canvas, Workstation, Sticky, Archives, and INBOX
+before mirroring Android. PC Obsidian is closed; Android serial `01234ABC` is
+unchanged. Rollback is external
+`checkpoints/PERSONALIZATION-STRUCTURE-20260812/windows-before/` (28 files,
+746483 bytes). Do not start future waves or canonical Tasks 7-9.
+
 ### Structure audit continuation
 
 Before any structure mutation, inspect the exact Windows disposable and

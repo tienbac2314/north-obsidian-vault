@@ -1,4 +1,32 @@
 # Phase 2 Preparation handoff
+## Current pause checkpoint: Windows Knowledge migration partial (2026-08-12)
+
+- User requested pause. No further vault, plugin, config, UI, or Android
+  mutation is pending in this stopped session.
+- Windows disposable now has 12 moved files under
+  `PARA/RESOURCES/KNOWLEDGE`, empty `INBOX`, updated path consumers, and
+  removed empty `ZETA`/`PARA/RESOURCES/CONCEPT MAP` owners. Workstation,
+  Archives, Sticky, and content remain preserved.
+- Rollback:
+  `G:/Dusk-Knowledge-Hub/payload/evidence/Dusk-Phase2-Preparation-Part2-Runtime/checkpoints/PERSONALIZATION-STRUCTURE-20260812/windows-before/`
+  (28 files, 746483 bytes). External manifest and inventory remain in the
+  same directory.
+- Cleanup remains: restore two-space indentation in nine moved-note
+  `connections` lists. Legacy embedded Concept Map wording and generated
+  caches are not changed during pause.
+- PC Obsidian is closed. No post-migration Windows UI regression or creation
+  check has run. Android serial `01234ABC`, remote disposable
+  `/storage/emulated/0/Documents/Dusk-Phase2-Preparation-Part2-Android-V1-20260801`,
+  is unchanged and unverified in this continuation.
+- Resume: static cleanup/checks, exact Windows runtime checks, then Android
+  mirror and native parity. Keep this in Personalization; do not start Wave 6/
+  Task 7, Wave 7/Task 8, or Wave 8/Task 9.
+- Pre-seal parents: Part 2 `ee06b4291cb241640c0dbaece4000a7cef71ccb2` /
+  `3daeae6f414f2575d4dc896820a47f22eb76f350`; product
+  `41140111581d0cd8a75ccff4510643c0f9657f61` /
+  `961478bdd7423421382ded1104ba8b8f9774223e`. Final identities are in the
+  external pause checkpoint.
+
 
 ## Current structure inventory checkpoint (2026-08-12)
 

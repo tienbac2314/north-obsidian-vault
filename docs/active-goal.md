@@ -1,4 +1,37 @@
 # Active goal
+## Current pause checkpoint: Windows Knowledge migration partial (2026-08-12)
+
+User requested pause after reversible Windows structure migration. This entry
+supersedes the preceding read-only inventory checkpoint as current state.
+
+- Windows disposable
+  `G:/Dusk-Knowledge-Hub/payload/evidence/Dusk-Phase2-Preparation-Part2-Runtime/disposables/W5-INTEGRATED-UPDATED-LIGHT-20260803`
+  now has 12 moved content files under `PARA/RESOURCES/KNOWLEDGE` (9 ZETA
+  notes and 3 Concept Map Excalidraw Markdown files), Knowledge subfolders,
+  and empty `INBOX`. Empty old `ZETA` and `PARA/RESOURCES/CONCEPT MAP`
+  owners were removed after exact checks. Workstation, Archives, Sticky, and
+  all note content remain preserved.
+- QuickAdd, Templater, Note Toolbar, Excalidraw, Canvas, View Mode, Iconic,
+  Bookmarks, Homepage, Mobile Homepage, Bases, and Getting Started paths were
+  updated. Obsidian-generated caches were not hand-edited.
+- Rollback snapshot:
+  `G:/Dusk-Knowledge-Hub/payload/evidence/Dusk-Phase2-Preparation-Part2-Runtime/checkpoints/PERSONALIZATION-STRUCTURE-20260812/windows-before/`
+  contains 28 files and 746483 bytes.
+- Known cleanup: restore original two-space indentation in nine moved-note
+  `connections` lists. Legacy embedded Concept Map wording remains pending.
+  No Windows UI, creation, Base, Excalidraw, Canvas, or mobile parity check
+  has run after migration. PC Obsidian is closed.
+- Android serial `01234ABC` and remote disposable
+  `/storage/emulated/0/Documents/Dusk-Phase2-Preparation-Part2-Android-V1-20260801`
+  are unchanged in this continuation.
+- Resume: normalize links; run static checks; test exact Windows target; mirror
+  and test Android only after Windows passes. Do not start future waves/tasks.
+- Pre-seal Part 2 parent: `ee06b4291cb241640c0dbaece4000a7cef71ccb2` /
+  tree `3daeae6f414f2575d4dc896820a47f22eb76f350`. Pre-seal product parent:
+  `41140111581d0cd8a75ccff4510643c0f9657f61` / tree
+  `961478bdd7423421382ded1104ba8b8f9774223e`. Final seal identities are in
+  the external pause checkpoint.
+
 
 ## Current structure inventory checkpoint (2026-08-12)
 
