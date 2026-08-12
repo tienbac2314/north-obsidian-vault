@@ -1,4 +1,35 @@
 # Active goal
+## Current presentable Personalization checkpoint (2026-08-13)
+
+The approved Personalization structure migration is ready for user review.
+This entry supersedes the 2026-08-12 partial-migration pause; that historical
+entry remains below.
+
+- Windows disposable:
+  `G:/Dusk-Knowledge-Hub/payload/evidence/Dusk-Phase2-Preparation-Part2-Runtime/disposables/W5-INTEGRATED-UPDATED-LIGHT-20260803`.
+- Android disposable: serial `01234ABC`, package `md.obsidian`,
+  `/storage/emulated/0/Documents/Dusk-Phase2-Preparation-Part2-Android-V1-20260801`.
+- Both copies now use `PARA/RESOURCES/KNOWLEDGE` with 12 migrated files and
+  `PERMANENT`, `LITERATURE`, and `FLEETING` folders. `INBOX` exists. `ZETA`
+  and `PARA/RESOURCES/CONCEPT MAP` are gone after empty checks. Workstation,
+  Archives, Sticky, Projects notes, templates, and note types remain.
+- QuickAdd `Create Inbox Capture` was added and tested into `INBOX`; the
+  synthetic test note is quarantined outside Git. Feature-bearing config is
+  mirrored to Android. Remember Cursor Position and Novel Word Count are
+  platform-local generated caches and can rewrite after each app launch.
+- Windows passed rendered Homepage/task panel, Bases, migrated links,
+  Templater, and Excalidraw. Android passed native Mobile Homepage, structure
+  navigation, Daily Base, and migrated Chatbot Diagram Excalidraw after final
+  restart. No source-code leak appeared in the accepted checks.
+- Windows-only desktop utilities are `quick-explorer` and
+  `statusbar-organizer`; Android-only IDs: none. This is expected platform
+  behavior, not a failed sync.
+- Evidence and rollback remain outside Git under the Part 2 runtime root,
+  checkpoint `PERSONALIZATION-STRUCTURE-20260813`.
+- Next: final validators, one 9router Graphify refresh, product push, then
+  stop for user review. Future Wave 6/Task 7, Wave 7/Task 8, and Wave 8/
+  Task 9 remain not started.
+
 ## Current pause checkpoint: Windows Knowledge migration partial (2026-08-12)
 
 User requested pause after reversible Windows structure migration. This entry

@@ -1,5 +1,26 @@
 # Dusk_light quick start
 
+## Current Personalization structure
+
+Current disposable Dusk_light uses one simpler learning/reference home:
+`PARA/RESOURCES/KNOWLEDGE`. Reusable notes from old `ZETA` and old Concept
+Map drawings now live there. Use `PERMANENT`, `LITERATURE`, and `FLEETING`
+when you want to separate note maturity; existing note type values stay the
+same.
+
+- `PARA/AREAS`: ongoing responsibilities, such as Autonomous Vehicle AI
+  Ethics or Space Tourism Initiatives.
+- `PARA/PROJECTS`: active outcomes and project notes.
+- `PARA/RESOURCES/KNOWLEDGE`: reusable learning and reference, such as a
+  concept explanation, research note, or Excalidraw diagram.
+- `INBOX`: one unprocessed capture route. QuickAdd exposes `Create Inbox
+  Capture`; `STICKY` remains fast disposable scratch space.
+- `PARA/WORKSTATION`: retained during dependency audit for existing workflow
+  behavior; do not treat it as a second generic Inbox yet.
+
+No content is silently moved by AI review. Existing `review_ai` and
+`review_ai_needs_user` tags remain the review signals regardless of folder.
+
 This page describes current Dusk_light disposable result. It does not
 describe full Dusk vault. Older Getting Started pictures are full-Dusk
 reference material and may show folders, plugins, or pages that Dusk_light

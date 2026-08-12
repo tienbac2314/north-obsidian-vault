@@ -1,4 +1,30 @@
 # Phase 2 Preparation handoff
+## Current presentable Personalization checkpoint (2026-08-13)
+
+Windows-first structure migration is complete on the approved disposable and
+mirrored to registered Android. This section supersedes the 2026-08-12 pause;
+the older record remains below as history.
+
+- Windows target:
+  `G:/Dusk-Knowledge-Hub/payload/evidence/Dusk-Phase2-Preparation-Part2-Runtime/disposables/W5-INTEGRATED-UPDATED-LIGHT-20260803`.
+- Android target: serial `01234ABC`, package `md.obsidian`,
+  `/storage/emulated/0/Documents/Dusk-Phase2-Preparation-Part2-Android-V1-20260801`.
+- Both platforms have `PARA/RESOURCES/KNOWLEDGE`, 12 migrated files,
+  `PERMANENT`/`LITERATURE`/`FLEETING`, and `INBOX`. Empty `ZETA` and
+  `PARA/RESOURCES/CONCEPT MAP` owners are removed. Workstation, Archives,
+  Sticky, Projects notes, templates, and note types are preserved.
+- QuickAdd Inbox capture passed. Windows Homepage, task panel, Bases,
+  Knowledge links, Templater, and Excalidraw passed. Android Mobile
+  Homepage, structure navigation, Daily Base, and Chatbot Diagram Excalidraw
+  passed after final restart.
+- Android and Windows feature-bearing plugin lists match. Only
+  `quick-explorer` and `statusbar-organizer` remain Windows-only desktop
+  utilities. Android uses native Files and status-bar fallback surfaces.
+- Evidence and rollback are external under
+  `G:/Dusk-Knowledge-Hub/payload/evidence/Dusk-Phase2-Preparation-Part2-Runtime/checkpoints/PERSONALIZATION-STRUCTURE-20260813/`.
+- Finish validators, Graphify, exact Git identities, and compact reset-branch
+  publication, then stop for user self-review. Do not start future waves.
+
 ## Current pause checkpoint: Windows Knowledge migration partial (2026-08-12)
 
 - User requested pause. No further vault, plugin, config, UI, or Android
