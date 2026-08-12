@@ -1,5 +1,28 @@
 # Active goal
 
+## Current structure inventory checkpoint (2026-08-12)
+
+Part 2 identity: efba247796ef977be57226a4c3ecc681f6683555 /
+tree 2f8b0953778b5a5a1fe56777d001df31e844c680, clean.
+
+Product identity: a1d5121b8f9210fa8645a9ff771792b02e445314 /
+tree 87a2614d0999e26e0a3aa298c98f1b50ddb05132,
+docs/phase2-preparation-reset, clean and pushed origin-equal.
+
+Read-only inventory is complete on Windows disposable
+W5-INTEGRATED-UPDATED-LIGHT-20260803 and Android serial 01234ABC. It found
+9 ZETA notes, 3 Concept Map Excalidraw Markdown files, 6 Workstation notes,
+no Knowledge/INBOX, empty PARA/ARCHIVES, and no destination basename
+collisions. External manifest:
+G:/Dusk-Knowledge-Hub/payload/evidence/Dusk-Phase2-Preparation-Part2-Runtime/checkpoints/PERSONALIZATION-STRUCTURE-20260812/STRUCTURE-MIGRATION-MANIFEST.csv.
+
+Accepted mutation map: move classified ZETA notes into
+PARA/RESOURCES/KNOWLEDGE/PERMANENT, LITERATURE, or FLEETING; move Concept
+Map files to Knowledge root; preserve current note types and Excalidraw
+content; keep PARA/WORKSTATION, PARA/ARCHIVES, and STICKY; create INBOX.
+Apply Windows first, then mirror Android after regression. No vault/plugin/
+config mutation has been made after inventory.
+
 ## Current Personalization structure decision (2026-08-12)
 
 User accepted the external design review defaults with one correction. This

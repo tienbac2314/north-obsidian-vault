@@ -1,5 +1,20 @@
 # Phase 2 Preparation handoff
 
+## Current structure inventory checkpoint (2026-08-12)
+
+- Part 2: efba247796ef977be57226a4c3ecc681f6683555,
+  tree 2f8b0953778b5a5a1fe56777d001df31e844c680, clean.
+- Product reset: a1d5121b8f9210fa8645a9ff771792b02e445314,
+  tree 87a2614d0999e26e0a3aa298c98f1b50ddb05132, clean and pushed.
+- Windows and Android disposable inventory is complete. Nine ZETA notes
+  and three Concept Map Excalidraw Markdown files are classified for
+  Knowledge. Six Workstation notes and PARA/ARCHIVES stay. Knowledge and
+  INBOX do not exist yet. No destination basename collisions.
+- External per-file manifest:
+  G:/Dusk-Knowledge-Hub/payload/evidence/Dusk-Phase2-Preparation-Part2-Runtime/checkpoints/PERSONALIZATION-STRUCTURE-20260812/STRUCTURE-MIGRATION-MANIFEST.csv.
+- Next: reversible Windows move/config update, Windows regression, then
+  Android mirror. No mutation has happened after inventory.
+
 ## Current Personalization structure handoff (2026-08-12)
 
 User accepted the design-review defaults with one correction: keep

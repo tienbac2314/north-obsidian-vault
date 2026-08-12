@@ -84,6 +84,32 @@ tests before moving the first note. Notebook Navigator remains a separate
 post-migration pilot and cannot be used to justify structure or plugin
 removal.
 
+### Structure inventory result and migration map (2026-08-12)
+
+Read-only inventory found 9 ZETA notes, 3 Concept Map Excalidraw Markdown
+files, 6 Workstation notes, no Knowledge/INBOX, empty PARA/ARCHIVES, and no
+destination basename collisions on the exact Windows disposable. Android
+serial 01234ABC exposes the same 39 enabled community plugin IDs.
+
+Accepted map:
+
+- Move ZETA permanent, literature, and fleeting notes to matching
+  PARA/RESOURCES/KNOWLEDGE subfolders. Preserve note-type values and internal
+  links.
+- Move populated and empty Concept Map Excalidraw Markdown files to
+  PARA/RESOURCES/KNOWLEDGE root. Remove only the redundant empty owner after
+  link/config checks.
+- Keep PARA/WORKSTATION, PARA/ARCHIVES, and STICKY.
+- Create INBOX as one unprocessed-capture owner.
+- Update QuickAdd, Templater, Note Toolbar, Excalidraw, Canvas, View Mode,
+  Iconic, Bookmarks, Bases, Homepage/Mobile Homepage, and onboarding paths.
+  Generated caches are refreshed by Obsidian, not hand-edited.
+- Apply Windows first. Mirror Android only after Windows creation, link,
+  Base, Excalidraw, and capture regression passes.
+
+Manifest and baseline summary are outside Git at
+G:/Dusk-Knowledge-Hub/payload/evidence/Dusk-Phase2-Preparation-Part2-Runtime/checkpoints/PERSONALIZATION-STRUCTURE-20260812/.
+
 ## Global Constraints
 
 - Use only Windows disposable `W5-INTEGRATED-UPDATED-LIGHT-20260803` and
