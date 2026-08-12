@@ -26,6 +26,11 @@ entry remains below.
   behavior, not a failed sync.
 - Evidence and rollback remain outside Git under the Part 2 runtime root,
   checkpoint `PERSONALIZATION-STRUCTURE-20260813`.
+- Durable identities: Part 2 `main` `3d2c152f2c96ec9a6b2cd72a072f0d720b1d0131`
+  / tree `d20ba688edbc36ac7c43277b732d4fd91f9edfea`, clean; product reset
+  `docs/phase2-preparation-reset` `52748902d398734123a5057edbc607aeb5aff882`
+  / tree `5826d0456abe5647cba2fdc84619390f966d46f0`, clean and pushed
+  origin-equal.
 - Next: final validators, one 9router Graphify refresh, product push, then
   stop for user review. Future Wave 6/Task 7, Wave 7/Task 8, and Wave 8/
   Task 9 remain not started.

@@ -22,6 +22,11 @@ the older record remains below as history.
   utilities. Android uses native Files and status-bar fallback surfaces.
 - Evidence and rollback are external under
   `G:/Dusk-Knowledge-Hub/payload/evidence/Dusk-Phase2-Preparation-Part2-Runtime/checkpoints/PERSONALIZATION-STRUCTURE-20260813/`.
+- Durable identities: Part 2 `main` `3d2c152f2c96ec9a6b2cd72a072f0d720b1d0131`
+  / tree `d20ba688edbc36ac7c43277b732d4fd91f9edfea`, clean; product reset
+  `docs/phase2-preparation-reset` `52748902d398734123a5057edbc607aeb5aff882`
+  / tree `5826d0456abe5647cba2fdc84619390f966d46f0`, clean and pushed
+  origin-equal.
 - Finish validators, Graphify, exact Git identities, and compact reset-branch
   publication, then stop for user self-review. Do not start future waves.
 
