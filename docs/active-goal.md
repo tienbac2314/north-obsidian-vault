@@ -31,9 +31,9 @@ entry remains below.
   `docs/phase2-preparation-reset` `52748902d398734123a5057edbc607aeb5aff882`
   / tree `5826d0456abe5647cba2fdc84619390f966d46f0`, clean and pushed
   origin-equal.
-- Next: final validators, one 9router Graphify refresh, product push, then
-  stop for user review. Future Wave 6/Task 7, Wave 7/Task 8, and Wave 8/
-  Task 9 remain not started.
+- Final validators, 9router Graphify, product push, and clean Git checks
+  passed. This checkpoint is ready for user review. Future Wave 6/Task 7,
+  Wave 7/Task 8, and Wave 8/Task 9 remain not started.
 
 ## Current pause checkpoint: Windows Knowledge migration partial (2026-08-12)
 

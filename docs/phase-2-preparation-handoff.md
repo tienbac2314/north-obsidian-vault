@@ -27,8 +27,8 @@ the older record remains below as history.
   `docs/phase2-preparation-reset` `52748902d398734123a5057edbc607aeb5aff882`
   / tree `5826d0456abe5647cba2fdc84619390f966d46f0`, clean and pushed
   origin-equal.
-- Finish validators, Graphify, exact Git identities, and compact reset-branch
-  publication, then stop for user self-review. Do not start future waves.
+- Validators, Graphify, exact Git checks, and compact reset-branch publication
+  passed. Stop for user self-review. Do not start future waves.
 
 ## Current pause checkpoint: Windows Knowledge migration partial (2026-08-12)
 
