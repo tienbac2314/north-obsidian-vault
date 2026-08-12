@@ -1,5 +1,21 @@
 # Phase 2 Preparation handoff
 
+## Current Personalization structure handoff (2026-08-12)
+
+User accepted the design-review defaults with one correction: keep
+`PARA/ARCHIVES`, retain `WORKSTATION` during dependency audit, preserve the
+current note-type values, and treat `RESOURCES/CONCEPT MAP` as a legacy
+candidate. Reusable learning/reference content belongs in
+`RESOURCES/KNOWLEDGE`.
+
+This remains the existing Personalization/debloat program. No new wave or
+canonical Task 7/8/9 starts. Existing Concept Map files are not deleted or
+moved yet. Read-only inventory must classify MOCs, Canvas/Excalidraw assets,
+navigation behavior, reusable Knowledge, and residue before any per-file move.
+The next action is exact Windows/Android dependency inventory, then a
+collision/link-safe migration manifest and a review stop if ownership is not
+clear. No vault/plugin/config mutation is claimed by this checkpoint.
+
 ## Current Wave 5 final repair handoff (2026-08-11)
 
 Wave 5 integrated Dusk_light repair passes on exact Windows and registered

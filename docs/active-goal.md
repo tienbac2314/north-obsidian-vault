@@ -1,5 +1,50 @@
 # Active goal
 
+## Current Personalization structure decision (2026-08-12)
+
+User accepted the external design review defaults with one correction. This
+continues the current Personalization/debloat program; it does not start a
+new wave or canonical Task 7/8/9.
+
+Decision-entry identity: Part 2 `main` `e9efb8db67ce76db01fe28b6a2315141149beca9`
+/ tree `eb77c4e8291cc12f99fc9c4e7239a04023ae3d85`, clean; product reset
+`docs/phase2-preparation-reset` `61d4cb5f384088da41c156502fb612e7f936e79a`
+/ tree `68cc1982534942c8ae2e3733fd201d89594b7109`, clean and origin-equal.
+
+- Keep inactive Project/Area families under `PARA/ARCHIVES`.
+- Keep `WORKSTATION` during dependency audit. Do not present it as a new
+  generic capture destination while its behavior is being checked.
+- Preserve `permanent_note`, `literature_note`, and `fleeting_note` values.
+- Treat `RESOURCES/CONCEPT MAP` as a legacy candidate. `RESOURCES/KNOWLEDGE`
+  is the default home for reusable learning and reference content.
+- Inventory Concept Map before moving or deleting anything. Keep files with
+  MOC, Canvas, Excalidraw, navigation, or other behavior in place until their
+  owner and Windows/Android contract are proven. Move only per-file content
+  classified as reusable Knowledge after collision, link, query, template,
+  and creation-flow checks pass.
+
+Target visible structure:
+
+```text
+HUB/
+PARA/PROJECTS/
+PARA/AREAS/
+PARA/RESOURCES/CONTACTS/
+PARA/RESOURCES/DOCUMENTATIONS/
+PARA/RESOURCES/MEETINGS/
+PARA/RESOURCES/KNOWLEDGE/
+PARA/ARCHIVES/
+INBOX/
+DAILY/
+STICKY/
+SYSTEM/
+```
+
+No blanket ZETA move, silent content rewrite, or irreversible Concept Map
+deletion is authorized. The next action is read-only inventory on the exact
+disposable Windows and registered Android targets, followed by a per-file
+manifest and review stop if semantic ownership remains unclear.
+
 ## Current Wave 5 final repair checkpoint (2026-08-11)
 
 Wave 5 integrated Dusk_light repair now passes on Windows and registered

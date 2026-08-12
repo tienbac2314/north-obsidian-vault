@@ -18,6 +18,72 @@ Templater, Meta Bind, QuickAdd, Journals, native Computer Use, direct ADB,
 PowerShell, Git, existing Part 2 validators, and process-local 9router
 Graphify.
 
+## Accepted structure-simplification amendment (2026-08-12)
+
+This is a continuation of the current Personalization/debloat program. It is
+not a new wave, canonical Task 7/8/9, or full-Dusk import.
+
+User accepted the ChatGPT Web design-gate defaults with one correction:
+
+- Keep inactive Project/Area families under `PARA/ARCHIVES`.
+- Keep `WORKSTATION` through dependency inventory. Do not promote it as a new
+  generic capture destination while the audit runs.
+- Preserve `permanent_note`, `literature_note`, and `fleeting_note` values.
+- Treat `RESOURCES/CONCEPT MAP` as a legacy candidate, not a permanent new
+  content category. `RESOURCES/KNOWLEDGE` becomes the default home for
+  reusable learning and reference content.
+- Inventory Concept Map before moving or deleting anything. Keep Canvas,
+  Excalidraw, navigation/MOC, and other behavior-bearing items in place until
+  their current owner and Windows/Android contract are proven. Move only
+  content classified as reusable Knowledge after collision, link, template,
+  query, and creation-flow checks pass.
+
+The intended visible structure is:
+
+```text
+HUB/
+PARA/PROJECTS/
+PARA/AREAS/
+PARA/RESOURCES/CONTACTS/
+PARA/RESOURCES/DOCUMENTATIONS/
+PARA/RESOURCES/MEETINGS/
+PARA/RESOURCES/KNOWLEDGE/
+PARA/ARCHIVES/
+INBOX/
+DAILY/
+STICKY/
+SYSTEM/
+```
+
+`CONCEPT MAP` is omitted from this target only as a future owner. Existing
+files remain untouched until inventory proves whether they are reusable
+Knowledge, active MOCs, Canvas/Excalidraw assets, or legacy residue. No
+blanket ZETA move, silent content rewrite, or irreversible deletion is
+authorized by this amendment.
+
+### Structure audit continuation
+
+Before any structure mutation, inspect the exact Windows disposable and
+registered Android target for:
+
+1. Concept Map file types, embeds, links, MOC behavior, Canvas/Excalidraw
+   destinations, commands, and visible navigation.
+2. `WORKSTATION` templates, Templater folder rules, QuickAdd destinations,
+   Note Toolbar mappings, Meta Bind actions, Bases, Datacore, Tasks queries,
+   scripts, and literal path filters.
+3. Existing `PARA/ARCHIVES` move/restore behavior and every path-bearing
+   reference that would be affected by Knowledge or archive placement.
+4. Destination collisions, duplicate-basename links, pre-existing broken
+   links, and literal path strings before creating a per-file migration
+   manifest.
+
+Classify each item as `KEEP_MOC`, `MOVE_TO_KNOWLEDGE`, `KEEP_ACTIVE_AREA`,
+`KEEP_WORKSTATION`, or `LEGACY_REVIEW`. `LEGACY_REVIEW` never means delete by
+default. Record baseline rows and representative Windows/Android acceptance
+tests before moving the first note. Notebook Navigator remains a separate
+post-migration pilot and cannot be used to justify structure or plugin
+removal.
+
 ## Global Constraints
 
 - Use only Windows disposable `W5-INTEGRATED-UPDATED-LIGHT-20260803` and
@@ -26,6 +92,13 @@ Graphify.
   `C:\Users\TienBac\.codex\worktrees\bf23\personal-knowledge-pipeline`
   untouched.
 - Keep Datacore permanently for complex views and Bases for simple tables.
+- Keep inactive Project/Area families under `PARA/ARCHIVES`; do not introduce
+  a new root-level `ARCHIVES` owner.
+- Treat existing `RESOURCES/CONCEPT MAP` content as legacy-candidate input to
+  the structure audit. Do not delete it or move it to `KNOWLEDGE` without
+  per-file classification and link/consumer checks.
+- Keep `WORKSTATION` during the audit and do not make it a new generic user
+  capture recommendation beside `STICKY` and `INBOX`.
 - Keep Tasks, Templater, Meta Bind, QuickAdd, Journals, project templates, and
   project-note creation unless a later verified owner replacement exists.
 - Disable `obsidian-day-planner` on both exact disposable targets; do not
