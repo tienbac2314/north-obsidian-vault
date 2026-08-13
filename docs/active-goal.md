@@ -14,8 +14,12 @@ External result/manifest:
 `G:/Dusk-Knowledge-Hub/payload/evidence/Dusk-Phase2-Preparation-Part2-Runtime/checkpoints/PERSONALIZATION-NN-VISUAL-PILOT-20260814/NN-VISUAL-PILOT-RESULT-20260814.md`.
 
 Status: `PASS_WINDOWS_ANDROID_NN_VISUAL_PILOT_STOP_FOR_USER_REVIEW`. Run final
-checks, publish reset branch, then stop. No live vault, `bf23`, future wave,
-plugin removal, or hotkey change.
+checks, publish reset branch, then stop. Final Part 2 authority is clean at
+`a55d641c46773fd25ff96a6a38beaf6381b022d9` / tree
+`cbd3a1ab5de79a80b08c868ff42a3a4b0844a6ad`. Post-result Graphify used
+9router/OpenAI-compatible mapping and returned 230 nodes, 143 edges, 94
+communities; one fail-closed stale-node warning remains. No live vault,
+`bf23`, future wave, plugin removal, or hotkey change.
 
 ## Current NN visual pilot execution (2026-08-14)
 

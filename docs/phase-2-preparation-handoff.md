@@ -9,8 +9,12 @@ its calendar is hidden in left navigation. No note content changed.
 
 Result lives outside product Git at
 `G:/Dusk-Knowledge-Hub/payload/evidence/Dusk-Phase2-Preparation-Part2-Runtime/checkpoints/PERSONALIZATION-NN-VISUAL-PILOT-20260814/NN-VISUAL-PILOT-RESULT-20260814.md`.
-Run final validators and publish only `docs/phase2-preparation-reset`, then
-stop for user review.
+Part 2 final authority is clean at
+`a55d641c46773fd25ff96a6a38beaf6381b022d9` / tree
+`cbd3a1ab5de79a80b08c868ff42a3a4b0844a6ad`; its post-result Graphify refresh
+used 9router/OpenAI-compatible mapping and returned 230 nodes, 143 edges, 94
+communities with one retained fail-closed warning. Run final validators and
+publish only `docs/phase2-preparation-reset`, then stop for user review.
 
 ## Resume: approved NN visual pilot (2026-08-14)
 
