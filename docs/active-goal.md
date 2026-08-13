@@ -43,10 +43,10 @@ Graphify refreshed Part 2 through process-local 9router/OpenAI-compatible
 mapping. Final graph identity is recorded in the external result. One
 fail-closed stale-node warning remains; no purge or fallback was used.
 
-Status: `PASS_WINDOWS_ANDROID_NN_FOLLOWUP_REVIEW_READY`. Run product checks,
-commit, push only `docs/phase2-preparation-reset`, then stop for user review.
-Do not remove overlap plugins or start Wave 6/Task 7, Wave 7/Task 8, or Wave
-8/Task 9 in this checkpoint.
+Status: `PASS_WINDOWS_ANDROID_NN_FOLLOWUP_REVIEW_READY`. Product checks passed;
+compact result committed and pushed only to `docs/phase2-preparation-reset`.
+Stop for user review. Do not remove overlap plugins or start Wave 6/Task 7,
+Wave 7/Task 8, or Wave 8/Task 9 in this checkpoint.
 
 ## Current Notebook Navigator migration result (2026-08-13)
 

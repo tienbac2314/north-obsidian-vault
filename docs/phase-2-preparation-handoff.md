@@ -29,9 +29,9 @@ tree `29f3415b5fe98222378fe954adc8910ad93d24f6`.
 External result:
 `G:/Dusk-Knowledge-Hub/payload/evidence/Dusk-Phase2-Preparation-Part2-Runtime/checkpoints/PERSONALIZATION-NN-FOLLOWUP-20260813/NN-FOLLOWUP-RESULT-20260813.md`.
 
-Next: run product validators, commit and push only
-`docs/phase2-preparation-reset`, then stop for user review. Do not start Wave
-6/Task 7, Wave 7/Task 8, or Wave 8/Task 9.
+Product validators passed. Compact result was committed and pushed only to
+`docs/phase2-preparation-reset`. Stop for user review. Do not start Wave 6/Task
+7, Wave 7/Task 8, or Wave 8/Task 9.
 
 ## Current Notebook Navigator migration result (2026-08-13)
 
