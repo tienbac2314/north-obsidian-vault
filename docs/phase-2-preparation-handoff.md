@@ -1,5 +1,17 @@
 # Phase 2 Preparation handoff
 
+## Resume: NN visual pilot passed (2026-08-14)
+
+NN right-sidebar calendar, Q3/week numbers, navigation, restart, and Windows /
+Android visual checks passed on exact disposables. Windows is maximized;
+Android NN Calendar is active in right drawer. Journals remains installed but
+its calendar is hidden in left navigation. No note content changed.
+
+Result lives outside product Git at
+`G:/Dusk-Knowledge-Hub/payload/evidence/Dusk-Phase2-Preparation-Part2-Runtime/checkpoints/PERSONALIZATION-NN-VISUAL-PILOT-20260814/NN-VISUAL-PILOT-RESULT-20260814.md`.
+Run final validators and publish only `docs/phase2-preparation-reset`, then
+stop for user review.
+
 ## Resume: approved NN visual pilot (2026-08-14)
 
 Part 2 pre-runtime is clean at `6d65a2f169358f56fb4f781b0f53fff1c58af6d8`

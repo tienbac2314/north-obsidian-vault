@@ -1,5 +1,22 @@
 # Active goal
 
+## Current NN visual pilot result (2026-08-14)
+
+Disposable NN pilot passed on Windows `W5-CLEAN-REVIEW-20260811` and Android
+`01234ABC`. Right-sidebar calendar, Q3, week numbers, existing-date
+navigation, restart persistence, and platform sync passed. Windows is
+maximized; Android drawer opens to NN Calendar. Journals stays installed with
+its calendar hidden in left navigation; no visible duplicate remains. No note
+content changed. Windows-only `quick-explorer` and `statusbar-organizer` are
+expected; Projects absent and Day Planner disabled on both.
+
+External result/manifest:
+`G:/Dusk-Knowledge-Hub/payload/evidence/Dusk-Phase2-Preparation-Part2-Runtime/checkpoints/PERSONALIZATION-NN-VISUAL-PILOT-20260814/NN-VISUAL-PILOT-RESULT-20260814.md`.
+
+Status: `PASS_WINDOWS_ANDROID_NN_VISUAL_PILOT_STOP_FOR_USER_REVIEW`. Run final
+checks, publish reset branch, then stop. No live vault, `bf23`, future wave,
+plugin removal, or hotkey change.
+
 ## Current NN visual pilot execution (2026-08-14)
 
 User approved bounded disposable-only NN pilot. Before runtime mutation, Part 2
