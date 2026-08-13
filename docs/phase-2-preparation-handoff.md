@@ -1,5 +1,38 @@
 # Phase 2 Preparation handoff
 
+## Current Notebook Navigator follow-up result (2026-08-13)
+
+This is the current compact handoff for Personalization. Before this product
+update, reset branch was clean at `24b7ede00259380ec370da29013db7452580085d`
+/ tree `2174670570a7d648690692ea35b51804eed98a40`, equal to origin/reset.
+Part 2 authority is clean at `d17fbbb45ece6289f421155f0960281629bfb64e` /
+tree `29f3415b5fe98222378fe954adc8910ad93d24f6`.
+
+- NN `3.3.3` is primary visible navigation/calendar on Windows and Android.
+  Quarter/year paths match: `[DAILY]/[QUARTERLY]/YYYY-[Q]Q` and
+  `[DAILY]/[YEARLY]/YYYY`.
+- Both platforms use `includeDescendantNotes=true` and
+  `narrowSidebarLayout=none`. Android retains dual panes. Journals remains
+  installed for periodic-note rendering; its fallback calendar is left, so no
+  right duplicate remains.
+- Android main workspace ends with one Homepage tab after stale-tab pruning;
+  no note content was deleted. Windows empty synthetic `2026.md` is mapped to
+  `DAILY/YEARLY/2026.md`.
+- NN overlaps browsing/navigation, Recent Files, Custom Sort, tags, and
+  properties. It optionally integrates with Omnisearch but does not bundle or
+  replace it. It does not replace Bases, Datacore, Tasks, Templater, Meta
+  Bind, QuickAdd, Note Toolbar, or Journals rendering. No removal occurred in
+  this follow-up.
+- Reddit/OpenCLI was advisory only. Official NN sources control. Raw evidence,
+  rollback, and full runtime ledgers remain outside product Git.
+
+External result:
+`G:/Dusk-Knowledge-Hub/payload/evidence/Dusk-Phase2-Preparation-Part2-Runtime/checkpoints/PERSONALIZATION-NN-FOLLOWUP-20260813/NN-FOLLOWUP-RESULT-20260813.md`.
+
+Next: run product validators, commit and push only
+`docs/phase2-preparation-reset`, then stop for user review. Do not start Wave
+6/Task 7, Wave 7/Task 8, or Wave 8/Task 9.
+
 ## Current Notebook Navigator migration result (2026-08-13)
 
 Personalization continued on exact disposable Windows and registered Android

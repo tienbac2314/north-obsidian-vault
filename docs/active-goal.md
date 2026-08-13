@@ -1,5 +1,53 @@
 # Active goal
 
+## Current Notebook Navigator follow-up result (2026-08-13)
+
+This is the current compact Personalization checkpoint. It supersedes the
+older NN result below without rewriting history. Before this product update,
+product reset was clean at `24b7ede00259380ec370da29013db7452580085d` / tree
+`2174670570a7d648690692ea35b51804eed98a40`, equal to origin/reset. Part 2 is
+clean at `d17fbbb45ece6289f421155f0960281629bfb64e` / tree
+`29f3415b5fe98222378fe954adc8910ad93d24f6`.
+
+- Notebook Navigator `3.3.3` is enabled on the exact Windows clean
+  disposable and registered Android disposable. NN is primary visible
+  navigation/calendar surface on both platforms.
+- Quarter and year paths are synchronized to
+  `[DAILY]/[QUARTERLY]/YYYY-[Q]Q` and `[DAILY]/[YEARLY]/YYYY`.
+- `includeDescendantNotes=true` and `narrowSidebarLayout=none` match on both;
+  Android keeps dual panes. Journals remains installed as periodic-note
+  renderer, with its fallback calendar leaf moved left so no right-side
+  duplicate is visible.
+- Windows synthetic empty `2026.md` is at `DAILY/YEARLY/2026.md`. Android
+  stale main-tab clutter was reduced to one Homepage tab; no note content was
+  deleted.
+- Fresh Windows settled UI and retained Android native evidence passed the
+  follow-up. Raw evidence and rollback stay in the external runtime root, not
+  product Git. External result:
+  `PERSONALIZATION-NN-FOLLOWUP-20260813/NN-FOLLOWUP-RESULT-20260813.md`.
+
+### Overlap decision
+
+| Surface | Result | Current action |
+|---|---|---|
+| File Explorer, Recent Files, Custom Sort, tags, properties | NN overlaps browsing/navigation | Keep current owners for review; no removal yet |
+| Omnisearch | NN offers optional integration, not a bundled search engine | Keep Omnisearch |
+| Bases, Datacore, Tasks | NN does not replace them | Keep |
+| Templater, Meta Bind, QuickAdd, Note Toolbar | NN does not replace them | Keep |
+| Journals | NN does not replace periodic-note rendering | Keep Journals; NN owns visible calendar/navigation |
+
+Reddit/OpenCLI findings were advisory. Official Notebook Navigator repository,
+documentation, and release data control material decisions.
+
+Graphify refreshed Part 2 through process-local 9router/OpenAI-compatible
+mapping. Final graph identity is recorded in the external result. One
+fail-closed stale-node warning remains; no purge or fallback was used.
+
+Status: `PASS_WINDOWS_ANDROID_NN_FOLLOWUP_REVIEW_READY`. Run product checks,
+commit, push only `docs/phase2-preparation-reset`, then stop for user review.
+Do not remove overlap plugins or start Wave 6/Task 7, Wave 7/Task 8, or Wave
+8/Task 9 in this checkpoint.
+
 ## Current Notebook Navigator migration result (2026-08-13)
 
 Approved Personalization work continued after the bounded Notebook Navigator
