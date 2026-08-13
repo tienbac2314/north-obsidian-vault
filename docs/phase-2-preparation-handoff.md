@@ -1,5 +1,57 @@
 # Phase 2 Preparation handoff
 
+## Current Notebook Navigator corrected guide review (2026-08-14)
+
+This supersedes the previous source-first draft's wrong YouTube reference only.
+Historical NN and Personalization records remain truthful. Before this
+documentation update, product reset was clean at
+`f6445dffd31dabf6640224b4ee25c4f20d05b262` / tree
+`508ab42c2e75218ae2d841d7b5fac9fc6cf4de91`, equal to origin/reset. Part 2
+`main` was clean at
+`d17fbbb45ece6289f421155f0960281629bfb64e` / tree
+`29f3415b5fe98222378fe954adc8910ad93d24f6`.
+
+User required NotebookLM and external desktop Chrome ChatGPT Web review before
+another NN configuration change. Correct guide is
+`Mastering Notebook Navigator 3 for Obsidian`,
+`https://youtu.be/m2maDNtho7Y?si=4Zx0hooPD0qtfaDs`, by Johan Sanneblad.
+NotebookLM source `feae0f00-9947-4a3e-a1e4-72ae0a55134d` is ready in notebook
+`aede6d6f-b21f-48dd-9801-014a9b21f10d` with 279 ready sources. Earlier Bases
+video `1Mgsdpy7awE` is superseded. Corrected ChatGPT Web used
+`GPT-5.6 Sol` and `High`, but its web search hung and was stopped; partial
+output is advisory only.
+
+Independent local NN 3.3.3 source confirms right/left calendar placement,
+full right-sidebar month, left-sidebar week control, quarter/week-number,
+feature-image/task/year/outside-month options, internal filter search with
+optional Omnisearch integration, manual sort writes, and desktop/tablet
+dual-pane versus phone single-pane limits. Current baseline is unchanged:
+left calendar, one left-sidebar week, quarter/week-number off, feature/tasks/
+year/outside/highlight on, dual pane on; data.json SHA-256
+`0F2B9650272AAB880A953A00E3B47E50B26CA387AB747602E50A07CF3ED2F371`.
+
+NotebookLM identifies unconfigured features for later disposable review:
+property browsing/saved searches, context-aware folder notes, shortcuts,
+recent files, manual sorting/group headers, word targets, merge, range
+filtering, icons/colors/spacing, vault profiles, and per-setting sync.
+Manual sort, property/tag assignment, folder-note creation, frontmatter
+icon/color writes, and merge remain review-only. Keep current plugin owners;
+NN does not replace Bases, Datacore, Tasks, Templater, Meta Bind, QuickAdd,
+Note Toolbar, or Journals rendering.
+
+Evidence remains outside product Git:
+`G:/Dusk-Knowledge-Hub/payload/evidence/Dusk-Phase2-Preparation-Part2-Runtime/checkpoints/PERSONALIZATION-NN-SOURCE-FIRST-REVIEW-20260814/`.
+Review SHA-256 is
+`92D83AA76EC4D983CC5A3D6062B4DFA754B61C7FCC716C7773108BC3E2A810B5`;
+manifest SHA-256 is
+`AE117EA9B6FDA1563C96B445654526F91F18D11B98B1AC9D04C54274C4AC6A4A`.
+
+Status: `SOURCE_REVIEW_COMPLETE_STOP_FOR_USER_REVIEW`. No vault, plugin,
+hotkey, Android config, live-vault, `bf23`, or future-wave/task mutation.
+After this authority update, product reset publication remains limited to
+this compact correction; no raw sources, screenshots, profiles, ledgers, or
+archives enter product Git.
+
 ## Current Notebook Navigator follow-up result (2026-08-13)
 
 This is the current compact handoff for Personalization. Before this product
