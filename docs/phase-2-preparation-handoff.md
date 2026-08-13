@@ -1,5 +1,28 @@
 # Phase 2 Preparation handoff
 
+## Current Notebook Navigator migration result (2026-08-13)
+
+Personalization continued on exact disposable Windows and registered Android
+after user approval. Notebook Navigator `3.3.3` now uses escaped calendar
+folders and NN-only cursor-free daily/weekly/monthly template copies. Original
+Dusk templates remain unchanged.
+
+Windows Obsidian `1.13.6` is open and maximized. Windows daily/weekly/monthly
+NN creation passed. Android serial `01234ABC` passed NN calendar date selection
+and Create for a new daily note; output rendered natively at `1200x2000` with
+no raw Templater token, then moved to synthetic quarantine after external
+preservation. Android `includeDescendantNotes` was aligned to Windows with
+rollback retained.
+
+NN is navigation/calendar/creation owner; Journals remains periodic renderer
+and owner. Keep both available. Windows-only `quick-explorer` and
+`statusbar-organizer` remain expected desktop utility differences. No future
+wave/task, live-vault, `bf23`, plugin removal, or hotkey rebinding started.
+
+Evidence and exact hashes are external under
+`G:/Dusk-Knowledge-Hub/payload/evidence/Dusk-Phase2-Preparation-Part2-Runtime/checkpoints/PERSONALIZATION-NOTEBOOK-NAVIGATOR-MIGRATION-20260813/`.
+See `docs/active-goal.md` for current status and stop boundary.
+
 ## Current clean-primary post-removal checkpoint (2026-08-13)
 
 User authorized removal of empty clean-only

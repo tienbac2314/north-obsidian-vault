@@ -1,5 +1,40 @@
 # Active goal
 
+## Current Notebook Navigator migration result (2026-08-13)
+
+Approved Personalization work continued after the bounded Notebook Navigator
+pilot. Before this documentation checkpoint, product reset was clean at
+`7ea72c6bde2d926cbe96b12ecfe38931cb1f48` / tree
+`6f24d0f08a6c92b5bd6d854223e2727115a554e9`, equal to origin/reset. Part 2
+authority and raw evidence remain in the separate runtime repository/root.
+
+- Notebook Navigator `3.3.3` is enabled on exact Windows
+  `W5-CLEAN-REVIEW-20260811` and registered Android serial `01234ABC`.
+- Windows Obsidian `1.13.6` is open and maximized. Windows passed NN daily,
+  weekly, and monthly calendar creation. Android passed NN calendar selection
+  and Create for `DAILY/DAILY/2026-08-13.md`; settled native output was 634
+  bytes with no raw Templater token. Synthetic output was preserved outside
+  Git and moved out of Android active content.
+- NN uses escaped literal folder patterns and cursor-free NN-only periodic
+  template copies with required Journals fields. Original Dusk templates stay
+  unchanged. Android `includeDescendantNotes` now matches Windows (`true`) with
+  rollback preserved.
+- NN owns navigation/calendar/creation. Journals remains periodic renderer and
+  owner. Calendar overlap is intentional fallback behavior; no plugin removal,
+  creation-hotkey rebinding, live-vault change, or future wave/task work began.
+- Windows has 40 community IDs and Android 38. Only Windows-only IDs are
+  `quick-explorer` and `statusbar-organizer`; Android-only IDs: none.
+
+External result root:
+`G:/Dusk-Knowledge-Hub/payload/evidence/Dusk-Phase2-Preparation-Part2-Runtime/checkpoints/PERSONALIZATION-NOTEBOOK-NAVIGATOR-MIGRATION-20260813/`.
+Manifest SHA-256:
+`82C1EA8A8ADE93F5AE68773364F2AEB36008087021CA978F5199333DFD72065E`.
+
+Status: `PASS_WINDOWS_ANDROID_NN_MIGRATION_STOP_FOR_REVIEW`. Next action is
+final validators, one required 9router Graphify refresh after the authority
+commit, exact Git identity, and push of this compact reset-branch update.
+Wave 6/Task 7, Wave 7/Task 8, and Wave 8/Task 9 remain not started.
+
 ## Current documentation seal (2026-08-13)
 
 Before this authority-only seal, Part 2 was clean at
