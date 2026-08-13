@@ -1,4 +1,25 @@
 # Phase 2 Preparation handoff
+
+## Current clean-primary post-removal checkpoint (2026-08-13)
+
+User authorized removal of empty clean-only
+`PARA/RESOURCES/MEETINGS/Untitled.md` from Windows review copy
+`W5-CLEAN-REVIEW-20260811`. Before move: 82 bytes, SHA-256
+`8A61F73F657160EC88EB91A8D1BA433908D2ED5556D34C270FD075F2ED1F694C`;
+identical rollback copy remains outside Git.
+
+- Current comparison: clean=293, integrated=449; 260 identical, 3 clean-only,
+  159 integrated-only, 30 common changed.
+- Clean `MEETINGS` folder shows 3 entries (`GENERAL`, `STANDUP`, `TEAM`) and
+  no `Untitled` entry. Diagnostic UI only; not formal Wave 5 capture.
+- Seven relaunch/UI runtime-config changes are recorded externally with exact
+  before/after hashes in `CLEAN-PRIMARY-RUNTIME-VOLATILE-SIDE-EFFECT-20260813.csv`.
+- Current post-removal manifest is 8 rows,
+  `POST-REMOVAL-MANIFEST-20260813.csv`, SHA-256
+  `D5BA1E7D889D9266BC6766AF0E82395748D215CA622E0A53A35AA13A7A69892E`.
+- Integrated rollback/source, Android, live vault, bf23, and future waves/tasks
+  remain untouched. Stop for clean user review.
+
 ## Current clean-primary review correction (2026-08-13)
 
 User review now starts in Windows clean vault `W5-CLEAN-REVIEW-20260811`, not
@@ -7,15 +28,16 @@ accepted onboarding/UX. Integrated stays intact for rollback/source only.
 
 - Carryover was narrow: ten Knowledge notes, five folder owners, and fourteen
   path/view/onboarding edits. No wholesale vault or config copy occurred.
-- Final exact diff is clean=294, integrated=449, 261 identical, four
+- Pre-removal exact diff is clean=294, integrated=449, 261 identical, four
   clean-only, 159 integrated-only, and 29 common changed. Intentional clean
   omissions include full-Dusk onboarding/media, synthetics, and drawing shells.
 - Clean rendered Homepage, Components > Knowledge (10 rows), and Dusk_light
   Quick Start on Obsidian 1.13.6. This is correction-review evidence, not a
   new formal Wave 5 screenshot set.
-- Leave pre-existing `Untitled` and `Skib.md` clean-only artifacts untouched
-  until separately authorized. Android, live vault, bf23, and integrated
-  rollback were not changed by this correction.
+- The blank Meeting `Untitled.md` was later removed under separate user
+  authority; remaining clean-only artifacts are the two empty `.trash` files
+  and `Skib.md`. Android, live vault, bf23, and integrated rollback remain
+  unchanged.
 - Exact raw evidence stays outside product Git. Stop for clean user review;
   no future work starts from this publication.
 

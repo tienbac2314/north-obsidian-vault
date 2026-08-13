@@ -1,4 +1,26 @@
 # Active goal
+
+## Current clean-primary post-removal checkpoint (2026-08-13)
+
+User authorized removal of empty clean-only
+`PARA/RESOURCES/MEETINGS/Untitled.md` from Windows review copy
+`W5-CLEAN-REVIEW-20260811`. Before move: 82 bytes, SHA-256
+`8A61F73F657160EC88EB91A8D1BA433908D2ED5556D34C270FD075F2ED1F694C`;
+identical rollback copy remains outside Git.
+
+- Current comparison: clean=293, integrated=449; 260 identical, 3 clean-only,
+  159 integrated-only, 30 common changed.
+- Clean `MEETINGS` folder now shows 3 entries (`GENERAL`, `STANDUP`, `TEAM`)
+  and no `Untitled` entry. Diagnostic UI only; not formal Wave 5 capture.
+- Seven clean runtime/config files changed after Obsidian relaunch/UI
+  navigation; exact before/after hashes are external in
+  `CLEAN-PRIMARY-RUNTIME-VOLATILE-SIDE-EFFECT-20260813.csv`.
+- Post-removal evidence manifest: 8 rows,
+  `POST-REMOVAL-MANIFEST-20260813.csv`, SHA-256
+  `D5BA1E7D889D9266BC6766AF0E82395748D215CA622E0A53A35AA13A7A69892E`.
+- Integrated rollback/source, Android, live vault, bf23, and future waves/tasks
+  remain untouched. Stop for clean-copy user review.
+
 ## Current clean-primary review correction (2026-08-13)
 
 Use `W5-CLEAN-REVIEW-20260811` as the Windows user-review vault. It has later
@@ -9,14 +31,14 @@ not as the review surface.
 - Narrow carryover is complete in clean only: ten Knowledge notes, five owner
   folders, and fourteen route/view/onboarding edits. `ZETA` and
   `PARA/RESOURCES/CONCEPT MAP` are absent in clean.
-- Final clean/integrated comparison: 294/449 files, 261 identical, four
+- Pre-removal clean/integrated comparison: 294/449 files, 261 identical, four
   clean-only, 159 integrated-only, and 29 common changed. Full-Dusk
   onboarding/media, synthetics, and omitted drawing shells remain omitted.
 - Clean Homepage, Components > Knowledge (ten rows), and Dusk_light Quick
   Start render in Obsidian 1.13.6 with no raw template token. Android was not
   changed by this correction.
-- A blank pre-existing Meeting `Untitled.md` row is preserved rather than
-  silently deleted. Two empty trash files and `Skib.md` also remain clean-only.
+- The blank Meeting `Untitled.md` was later removed under user authorization;
+  two empty trash files and `Skib.md` remain clean-only.
 - Raw comparison, identity, screenshots, and validated manifest remain outside
   this repository in the Part 2 runtime evidence root. Stop for user review.
   Do not modify live vault, bf23, integrated rollback, Android, or future work.
