@@ -1,4 +1,24 @@
 # Phase 2 Preparation handoff
+## Current clean-primary review correction (2026-08-13)
+
+User review now starts in Windows clean vault `W5-CLEAN-REVIEW-20260811`, not
+in integrated `W5-INTEGRATED-UPDATED-LIGHT-20260803`. Clean retains later
+accepted onboarding/UX. Integrated stays intact for rollback/source only.
+
+- Carryover was narrow: ten Knowledge notes, five folder owners, and fourteen
+  path/view/onboarding edits. No wholesale vault or config copy occurred.
+- Final exact diff is clean=294, integrated=449, 261 identical, four
+  clean-only, 159 integrated-only, and 29 common changed. Intentional clean
+  omissions include full-Dusk onboarding/media, synthetics, and drawing shells.
+- Clean rendered Homepage, Components > Knowledge (10 rows), and Dusk_light
+  Quick Start on Obsidian 1.13.6. This is correction-review evidence, not a
+  new formal Wave 5 screenshot set.
+- Leave pre-existing `Untitled` and `Skib.md` clean-only artifacts untouched
+  until separately authorized. Android, live vault, bf23, and integrated
+  rollback were not changed by this correction.
+- Exact raw evidence stays outside product Git. Stop for clean user review;
+  no future work starts from this publication.
+
 ## Current presentable Personalization checkpoint (2026-08-13)
 
 Windows-first structure migration is complete on the approved disposable and

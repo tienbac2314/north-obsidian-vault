@@ -1,4 +1,26 @@
 # Active goal
+## Current clean-primary review correction (2026-08-13)
+
+Use `W5-CLEAN-REVIEW-20260811` as the Windows user-review vault. It has later
+accepted UX/onboarding work and is not stale. Keep
+`W5-INTEGRATED-UPDATED-LIGHT-20260803` intact as rollback and accepted source,
+not as the review surface.
+
+- Narrow carryover is complete in clean only: ten Knowledge notes, five owner
+  folders, and fourteen route/view/onboarding edits. `ZETA` and
+  `PARA/RESOURCES/CONCEPT MAP` are absent in clean.
+- Final clean/integrated comparison: 294/449 files, 261 identical, four
+  clean-only, 159 integrated-only, and 29 common changed. Full-Dusk
+  onboarding/media, synthetics, and omitted drawing shells remain omitted.
+- Clean Homepage, Components > Knowledge (ten rows), and Dusk_light Quick
+  Start render in Obsidian 1.13.6 with no raw template token. Android was not
+  changed by this correction.
+- A blank pre-existing Meeting `Untitled.md` row is preserved rather than
+  silently deleted. Two empty trash files and `Skib.md` also remain clean-only.
+- Raw comparison, identity, screenshots, and validated manifest remain outside
+  this repository in the Part 2 runtime evidence root. Stop for user review.
+  Do not modify live vault, bf23, integrated rollback, Android, or future work.
+
 ## Current presentable Personalization checkpoint (2026-08-13)
 
 The approved Personalization structure migration is ready for user review.
