@@ -1,5 +1,22 @@
 # Active goal
 
+## Current NN visual pilot execution (2026-08-14)
+
+User approved bounded disposable-only NN pilot. Before runtime mutation, Part 2
+is clean at `6d65a2f169358f56fb4f781b0f53fff1c58af6d8` / tree
+`1b840f9b30ed3cb4842d4f7929993a752f5113ce`; product reset is clean at
+`a51299ab1e2970ac42b27aefd832c0a6ffc48d68` / tree
+`6e2c76fd19cf989a29577b853fd65fd9ca320745`, equal to origin/reset.
+
+Use Windows `W5-CLEAN-REVIEW-20260811` / Obsidian 1.13.6 and Android serial
+`01234ABC` / `md.obsidian` 1.13.6 / remote vault
+`/storage/emulated/0/Documents/Dusk-Phase2-Preparation-Part2-Android-V1-20260801`.
+Set NN only to `calendarPlacement=right-sidebar`,
+`calendarShowQuarter=true`, and `calendarShowWeekNumber=true`. Create
+rollback in the external runtime root first; verify both platforms, record
+result, validate, publish reset, then stop for review. No live vault, `bf23`,
+future wave/task, plugin removal, or hotkey change.
+
 ## Current Notebook Navigator corrected guide review (2026-08-14)
 
 This supersedes the previous source-first draft's wrong YouTube reference only.

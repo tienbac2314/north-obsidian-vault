@@ -1,5 +1,18 @@
 # Phase 2 Preparation handoff
 
+## Resume: approved NN visual pilot (2026-08-14)
+
+Part 2 pre-runtime is clean at `6d65a2f169358f56fb4f781b0f53fff1c58af6d8`
+/ tree `1b840f9b30ed3cb4842d4f7929993a752f5113ce`. Product reset is clean,
+pushed, and equal to origin/reset at `a51299ab1e2970ac42b27aefd832c0a6ffc48d68`
+/ tree `6e2c76fd19cf989a29577b853fd65fd9ca320745`.
+
+Next: create external rollback, then set NN right-sidebar calendar, quarter
+labels, and week numbers on Windows disposable `W5-CLEAN-REVIEW-20260811` and
+Android `01234ABC`. Verify settled UI, calendar navigation, restart, and sync;
+record evidence outside Git. Keep current plugin owners. No live vault,
+`bf23`, future wave/task, plugin removal, or hotkey change.
+
 ## Current Notebook Navigator corrected guide review (2026-08-14)
 
 This supersedes the previous source-first draft's wrong YouTube reference only.
