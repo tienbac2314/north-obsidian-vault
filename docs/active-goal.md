@@ -1,5 +1,25 @@
 # Active goal
 
+## Current Personalization Notebook Navigator pilot (2026-08-13)
+
+User approved default structure decisions with one correction: keep
+`PARA/ARCHIVES` and `PARA/WORKSTATION` during audit; use
+`PARA/RESOURCES/KNOWLEDGE` for reusable learning/reference; retire Concept Map
+as a normal owner. Existing clean-vault moves are current and must not be
+remigrated.
+
+- Pilot official Notebook Navigator `3.3.3` on the clean Windows disposable,
+  then mirror it to registered Android. Keep current Dusk navigation, search,
+  creation hotkeys, and all existing plugins during pilot.
+- Use one compact Windows matrix, one compact Android matrix, and one final
+  manifest. Reuse accepted structure evidence when the contract is unchanged.
+  Keep mandatory target, rollback, clean-Git, manifest, and final acceptance
+  checks; remove only duplicate active checks, never historical evidence.
+- Pilot stops for user review after both platforms, or sooner for wrong target,
+  private-data/credential exposure, missing rollback, or unrelated behavior.
+- Scope remains Personalization. Wave 6/Task 7, Wave 7/Task 8, and Wave 8/Task
+  9 remain not started.
+
 ## Current clean-primary post-removal checkpoint (2026-08-13)
 
 User authorized removal of empty clean-only
