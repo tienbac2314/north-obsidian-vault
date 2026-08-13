@@ -1,5 +1,40 @@
 # Active goal
 
+## Current Notebook Navigator pilot result (2026-08-13)
+
+Pilot finished on exact clean Windows and registered Android targets. Official
+Notebook Navigator `3.3.3` was the only added community ID: Windows `39 -> 40`
+and Android `37 -> 38`. Existing plugins, hotkeys, Dusk routes, and content
+owners remain unchanged.
+
+- Windows passed folder/descendant navigation, Knowledge/Area/Project opening,
+  filter/property search, Omnisearch, existing daily-note calendar opening,
+  and safe Templater creation.
+- Android passed settled load, PARA/Projects expansion, existing project-note
+  opening, and settled Homepage return. Native captures are `1200x2000`.
+- Synthetic Windows `INBOX/Untitled.md` rendered and was quarantined outside
+  the vault. No existing artifact was deleted.
+- One review-only finding remains: Notebook Navigator search preview can show
+  template source text containing `tp.file.cursor()`; opened rendered notes
+  did not show a raw token. No repair or removal follows from this finding.
+- Structure decision remains `PARA/RESOURCES/KNOWLEDGE` for reusable learning
+  and reference. Concept Map remains retired as a normal owner. Existing user
+  moves were not remigrated.
+- External evidence root:
+  `G:/Dusk-Knowledge-Hub/payload/evidence/Dusk-Phase2-Preparation-Part2-Runtime/checkpoints/PERSONALIZATION-NOTEBOOK-NAVIGATOR-PILOT-20260813/`.
+  Final manifest SHA-256:
+  `708F1AF7633F13233ECC304C1CF13725E4E1C0AA6CF9664D4766B6F0E526EF44`.
+
+Status: stop for user review before any plugin removal, hotkey rebinding, or
+future wave/task work. Wave 6/Task 7, Wave 7/Task 8, and Wave 8/Task 9 remain
+not started.
+
+Post-commit Graphify used process-local 9router/OpenAI-compatible
+`backend=openai`, `model=graphify`; five documents were re-extracted and the
+graph wrote 189 nodes, 125 edges, and 73 communities. Fail-closed warnings
+remain recorded in the external pilot checkpoint. Generated graph output is
+navigation-only; no Gemini fallback or retry.
+
 ## Current Personalization Notebook Navigator pilot (2026-08-13)
 
 User approved default structure decisions with one correction: keep
