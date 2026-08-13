@@ -1,5 +1,15 @@
 # Active goal
 
+## Current documentation seal (2026-08-13)
+
+Before this authority-only seal, Part 2 was clean at
+`797f5642d2fa4b529d6c29eb64786268a5e01e7a` / tree
+`d25b0e1de971ab23e572fa12fbcf78736c2a18b1`; product reset was clean at
+`072514b3dfd3d6e4c0ad5ba6237bf80dc1fbd88f` / tree
+`bda91d3193b0fd9519da92273cba6bdaa63d9fbf`, equal to origin/reset. Final
+identity is recorded in the external pilot checkpoint after this commit.
+Stop for user review.
+
 ## Current Notebook Navigator pilot result (2026-08-13)
 
 Pilot finished on exact clean Windows and registered Android targets. Official
