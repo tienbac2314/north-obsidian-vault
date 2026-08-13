@@ -45,6 +45,10 @@ Review SHA-256 is
 `92D83AA76EC4D983CC5A3D6062B4DFA754B61C7FCC716C7773108BC3E2A810B5`;
 manifest SHA-256 is
 `AE117EA9B6FDA1563C96B445654526F91F18D11B98B1AC9D04C54274C4AC6A4A`.
+Graphify refresh after Part 2 documentation commit used process-local
+9router/OpenAI-compatible `backend=openai`, `model=graphify`: 4 documents
+re-extracted; 202 nodes, 137 edges, 75 communities. Fail-closed warnings
+remain recorded in Part 2; generated Graphify output is navigation-only.
 
 Status: `SOURCE_REVIEW_COMPLETE_STOP_FOR_USER_REVIEW`. No vault, plugin,
 hotkey, Android config, live-vault, `bf23`, or future-wave/task mutation.
