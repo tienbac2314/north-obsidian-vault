@@ -1,5 +1,35 @@
 # Active goal
 
+## Current ISO date standardization result (2026-08-14)
+
+User reverted the prior day-first display experiment. Supported visible dates
+now use `YYYY-MM-DD` with hyphens on both exact disposable targets. Covered
+Notebook Navigator, Bases, Homepage/Mobile Homepage, Mail Box/Mobile Mail
+Box, Calendar, Timeline, monthly/weekly views, and templates.
+
+Stored frontmatter, task-line dates, journal properties, journal filenames,
+links, note content, and template calculations were preserved. Tasks and
+Journals already use ISO. Checklist was not patched because it has no
+supported date-format setting.
+
+Windows: `W5-CLEAN-REVIEW-20260811`, Obsidian `1.13.7`, PID `18996`, CUA
+window `5113818`, `1920x1033`. Android: serial `01234ABC`,
+`md.obsidian/.MainActivity`, PID `6574`, native `1200x2000`. Homepage and
+Monthly Note runtime checks show ISO dates on both platforms.
+
+External result and rollback:
+`G:/Dusk-Knowledge-Hub/payload/evidence/Dusk-Phase2-Preparation-Part2-Runtime/checkpoints/PERSONALIZATION-DATE-FORMAT-ISO-STANDARD-20260814/`
+
+40-row manifest SHA-256:
+`BDDFE88A556025FF6DD08CB64E33845CAEF811C6BB339E22F9C61372EEDC13BB`.
+Part 2 authority is currently `0ca0a84e938fc231efed89d126c7f2e470fd77bb`
+/ tree `b7c0dc7bc5e219c526365816990da06bd15e81ab`, clean. Final Graphify
+refresh used 9router/OpenAI-compatible `openai` model `graphify` and wrote
+190 nodes, 127 edges, and 71 communities; generated output is navigation-only
+with one fail-closed stale-node warning. This compact product entry
+supersedes the day-first entry below. No future wave or canonical Task 7, 8,
+or 9 starts.
+
 ## Current date display repair result (2026-08-14)
 
 User-requested day-first visible date repair is accepted on exact disposable

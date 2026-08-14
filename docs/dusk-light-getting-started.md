@@ -43,6 +43,10 @@ does not contain.
 5. Use Quick Switcher++ with `Ctrl+Shift+S` on Windows. Android uses its
    mobile launcher and file search surface.
 
+Supported visible date labels use ISO `YYYY-MM-DD` with hyphens on Windows and
+Android. This matches task dates and journal storage. Existing note names such
+as `11-12 - ...` are user content and are not renamed.
+
 ## Current additions
 
 | Plugin | Version | Windows | Android | Purpose |
