@@ -1334,3 +1334,48 @@ as workdir for every product Git command, must not edit the saved project's
 - [Decision log](decisions/decision-log.md)
 - [Phase 1 implementation evidence](research/2026-07-23-fns-implementation-evidence.md)
 - [Phase 2 reversal](archive/2026-07-24-phase-2-reversal.md)
+
+## Superseding Wave 5 selector repair checkpoint (2026-08-15)
+
+Current Wave 5 remains integrated Dusk_light regression, repair, pruning, and
+affected Windows/Android reruns. This compact checkpoint supersedes only the
+older selector gap; it does not start a future wave.
+
+Homepage `Add task to` chooser previously showed only the current note,
+`Inbox.md`, and notes already containing tasks. Disposable repair now scans
+existing `DAILY/DAILY/YYYY-MM-DD.md` files, keeps current note first, retains
+Inbox/task-bearing notes, removes duplicates, and sorts choices by date path.
+No task query, task storage, template, or note content changed.
+
+Verified exact disposable results:
+
+- Windows `W5-CLEAN-REVIEW-20260811`, Obsidian `1.13.6`, maximized Computer
+  Use observation: 14 existing daily-note choices; chooser closed without
+  creating or changing a note.
+- Registered Android serial `01234ABC`, package `md.obsidian`, Android 14:
+  13 existing daily-note choices in native `1200x2000` evidence. Different
+  counts reflect pre-existing disposable note-content drift; no note sync.
+- Three repaired source files are byte-matched to Android remote copies.
+
+Part 2 authority checkpoint: `3b9d13a1b5c5309fb3ace9cc6b79465d29fa2a58` /
+tree `0f1072a63a70ea53dee38e8e057bfae5c6743082`, clean before this product
+publication. Evidence is external under
+`G:/Dusk-Knowledge-Hub/payload/evidence/Dusk-Phase2-Preparation-Part2-Runtime/checkpoints/W5-SELECTOR-REPAIR-20260815/`.
+Result SHA-256:
+`A289AC94BD05DC6C25F72AF3371923152FE3C16E86048120F07951AA4B159EF9`.
+Manifest SHA-256:
+`8DA345099D96B9FCEF546CC75D58033583FCD6475D0673CC696265DCC8E97EF6`.
+
+Plugin state was not changed. Fresh disposable readback found 41 enabled IDs
+on Windows and 39 on Android; Android lacks desktop-only Quick Explorer and
+Status Bar Organizer. The accidental six-file unregistered Android sibling was
+removed; registered Android remained intact. Graphify used the required local
+9router/OpenAI-compatible route once; its fail-closed stale-node warning is
+non-authoritative and not a runtime failure.
+
+Remaining Wave 5 gaps stay explicit in Part 2 ledgers: disposable note-content
+drift between platforms, desktop-only plugin membership difference, and any
+historical UI gaps marked `PASS_WITH_GAP` or `UNTESTED`. Wave 6 / Task 7,
+Wave 7 / Task 8, and Wave 8 / Task 9 remain `NOT STARTED`. No raw evidence,
+profiles, ledgers, archives, credentials, or bulky runtime files enter product
+Git.
