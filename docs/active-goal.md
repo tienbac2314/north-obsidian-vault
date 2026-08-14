@@ -1,5 +1,31 @@
 # Active goal
 
+## Superseding current NN full UI/debloat result (2026-08-14)
+
+Personalization NN audit passed on exact disposable Windows and registered
+Android targets. This is not a new wave. Notebook Navigator `3.3.3` is the
+single visible right-sidebar calendar on both, with quarter and week-number
+labels. Journals remains installed for period rendering, commands, properties,
+and templates; its duplicate calendar surface is disabled only in the
+disposable plugin payload after source-level recreation proof. Note Toolbar FAB
+and `Toggle Page Task` remain. The stale Todoist ribbon shortcut is hidden;
+other plugin and left-rail owners remain.
+
+Cursor-free quarter/year NN templates render on both platforms. The Windows
+pre-existing empty `DAILY/YEARLY/2026.md` was filled, not deleted. No
+`20260812` artifact exists on either target. Windows has 40 community IDs and
+Android 38; only `quick-explorer` and `statusbar-organizer` are Windows-only.
+Android dual pane remains unchanged and passed after transient startup
+loading.
+
+External result and manifest:
+`G:/Dusk-Knowledge-Hub/payload/evidence/Dusk-Phase2-Preparation-Part2-Runtime/checkpoints/PERSONALIZATION-NN-FULL-CONFIG-AUDIT-20260814/NN-FULL-CONFIG-AUDIT-RESULT-20260814.md`
+and `NN-FULL-CONFIG-AUDIT-MANIFEST-20260814.csv`.
+
+Final Part 2/product HEAD/tree and validator results are recorded in the
+compact seal after this documentation edit. Stop for user self-review. Do not
+start Wave 6/Task 7, Wave 7/Task 8, or Wave 8/Task 9.
+
 ## Current NN full UI/debloat audit checkpoint (2026-08-14)
 
 Personalization continues in the existing lane. NN `3.3.3` is the primary

@@ -29,10 +29,14 @@ does not contain.
 ## Start here
 
 1. Open Homepage.
-2. Use single Calendar and single Todo List entry shown there.
-3. Use Journals for daily, weekly, and monthly notes. Core Daily Notes and
-   Daily Note Navbar are intentionally disabled, so they do not create a
-   second periodic-note system.
+2. Use Notebook Navigator's single Calendar in the right sidebar. Click a
+   date for daily notes, a week/month/quarter/year label for that period note.
+   It maps to `DAILY/DAILY`, `DAILY/WEEKLY`, `DAILY/MONTHLY`,
+   `DAILY/QUARTERLY`, and `DAILY/YEARLY`.
+3. Use Journals for daily, weekly, and monthly note rendering and commands.
+   Its duplicate calendar panel is intentionally hidden because Notebook
+   Navigator now supplies the visible calendar. Core Daily Notes and Daily Note
+   Navbar remain disabled, so they do not create a second periodic-note system.
 4. Use floating Note Toolbar button where its folder mapping applies. Action
    list depends on current file directory. Final `*` fallback covers unmapped
    locations; it is not a separate daily navbar.
@@ -119,8 +123,8 @@ unchanged equal-contract evidence was reused rather than duplicated.
 ## Windows and Android
 
 Windows disposable evidence uses native 1920x1040 JPEG captures. Android uses
-native 1200x2000 PNG captures on registered serial `01234ABC`. Current enabled
-lists contain 39 Windows IDs and 37 Android IDs; common IDs match. Windows-only
+native 1200x2000 PNG captures on registered serial `01234ABC`. Current active
+lists contain 40 Windows IDs and 38 Android IDs; common IDs match. Windows-only
 Quick Explorer and Status Bar Organizer remain PC features. Android uses native
 file navigation and status-bar fallbacks.
 

@@ -1,5 +1,21 @@
 # Phase 2 Preparation handoff
 
+## Resume: NN full UI/debloat audit passed; stop for review (2026-08-14)
+
+Current Personalization checkpoint is complete on disposable Windows and
+registered Android. NN `3.3.3` is the single visible right-sidebar calendar;
+Journals period rendering and commands remain, while its duplicate calendar
+surface is disabled in disposable `main.js` after source-level reproduction.
+Quarter/year templates are mapped and render on both. Note Toolbar task FAB
+passed. Todoist shortcut is hidden; no other plugin payload or note content was
+removed. Android dual pane passed after transient startup loading.
+
+Result and rollback stay outside product Git at
+`G:/Dusk-Knowledge-Hub/payload/evidence/Dusk-Phase2-Preparation-Part2-Runtime/checkpoints/PERSONALIZATION-NN-FULL-CONFIG-AUDIT-20260814/`.
+No `20260812` artifact exists. Future waves/tasks remain not started. Final
+HEAD/tree, validators, and reset-branch push are recorded in the next compact
+seal after this documentation edit.
+
 ## Resume: NN full UI/debloat audit before mutation (2026-08-14)
 
 NN is primary right calendar on both exact disposables. Journals' left
