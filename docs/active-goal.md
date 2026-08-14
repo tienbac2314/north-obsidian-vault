@@ -1,5 +1,40 @@
 # Active goal
 
+## Current date display repair result (2026-08-14)
+
+User-requested day-first visible date repair is accepted on exact disposable
+Windows and Android targets. Notebook Navigator, Homepage and Mobile Homepage
+Datacore labels, Mail Box, existing and template monthly/weekly views, custom
+Calendar and Timeline labels, and visible Bases date columns now use
+dd/mm/yyyy or an equivalent day-first form. Stored frontmatter, task-line
+dates, journal properties, template calculations, and note filenames remain
+ISO YYYY-MM-DD.
+
+Windows target W5-CLEAN-REVIEW-20260811 passed settled Homepage and weekly
+Base checks. Android serial 01234ABC passed settled Homepage, daily note, and
+monthly Base checks. No live vault, source tree, bf23 worktree, credentials,
+or future wave/task changed. Tasks native task-pane dates remain ISO because
+its task-line contract has no safe display-only setting. Journals period
+naming remains ISO because it drives filenames and date variables. Checklist
+has no date-format setting. No plugin bundle or stored task syntax changed.
+
+External raw evidence and exact hash manifest remain outside this product
+repository at:
+G:/Dusk-Knowledge-Hub/payload/evidence/Dusk-Phase2-Preparation-Part2-Runtime/checkpoints/PERSONALIZATION-DATE-FORMAT-REPAIR-20260814/
+
+Manifest SHA-256:
+964BEDA77C6C5B19E3CA02CA9F90D41D8D49BF5FC996A5133DF65230EE057AAB.
+The manifest has 56 rows: 40 intentional display changes, two workspace-only
+navigation changes, and 14 unchanged controls.
+
+Post-commit Graphify used the process-local 9router OpenAI-compatible route,
+backend openai, model graphify. It wrote 220 nodes, 140 edges, and 86
+communities. One fail-closed stale-node warning was recorded; generated
+Graphify output remains navigation-only and was not treated as authority.
+
+This is one compact product status update on docs/phase2-preparation-reset.
+Wave 6/Task 7, Wave 7/Task 8, and Wave 8/Task 9 remain NOT STARTED.
+
 ## Current Checklist content-filter result (2026-08-14)
 
 The first Checklist repair restored its right-side pane but left it empty.
