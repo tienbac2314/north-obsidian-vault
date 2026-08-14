@@ -1379,3 +1379,30 @@ historical UI gaps marked `PASS_WITH_GAP` or `UNTESTED`. Wave 6 / Task 7,
 Wave 7 / Task 8, and Wave 8 / Task 9 remain `NOT STARTED`. No raw evidence,
 profiles, ledgers, archives, credentials, or bulky runtime files enter product
 Git.
+
+## Final Wave 5 result and self-review stop (2026-08-15)
+
+Wave 5 is `COMPLETE_WITH_EXPLICIT_GATES`. The current Homepage chooser repair
+is included in final acceptance: existing daily notes now appear on both exact
+disposable platform copies, Windows exposed 14 choices, Android exposed 13,
+and no note/task/template content changed. Source files are byte-matched
+between Windows and registered Android.
+
+Final Part 2 authority: `c9eec6d02d418af4de522ce4505d2b306d533466`, tree
+`9e7d562b39fcad60f0560805a0b5f6a31438db56`, clean. External selector result
+and manifest remain at
+`G:/Dusk-Knowledge-Hub/payload/evidence/Dusk-Phase2-Preparation-Part2-Runtime/checkpoints/W5-SELECTOR-REPAIR-20260815/`.
+
+Final gates remain visible: new Windows selector observation is diagnostic
+`1920x1033` rather than a new formal `1920x1040` JPEG; disposable daily-note
+content differs across platforms; Android omits desktop-only Quick Explorer
+and Status Bar Organizer; older accepted `PASS_WITH_GAP`/`UNTESTED` behavior
+remains unchanged where physical keyboard, synthetic multi-tabs Live Preview,
+or Hover Editor cursor-target proof was unavailable. These do not hide a
+selector failure. Graphify used local 9router/OpenAI-compatible routing once;
+its stale excluded-source warning remains non-authoritative.
+
+The reset branch is the only product branch updated. Wave 6 / Task 7, Wave 7 /
+Task 8, and Wave 8 / Task 9 remain `NOT STARTED`. No raw evidence, profiles,
+full ledgers, archives, credentials, product `main`, `bf23`, PR, or merge was
+added or changed. Stop here for user self-review.
