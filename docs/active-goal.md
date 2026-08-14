@@ -1,5 +1,27 @@
 # Active goal
 
+## Current Checklist task-pane repair result (2026-08-14)
+
+Personalization repair passed on both disposable platforms. The requested
+right-side task component is Checklist 2.2.14's todo view, which supplies
+Search tasks, Today, Show all, Completed, and grouped task rows. Tasks 8.3.0
+remains enabled for task queries; it does not own this docked pane.
+
+Windows disposable W5-CLEAN-REVIEW-20260811 now has 41 active community
+plugins and shows NN Calendar above Checklist Todo List in a fresh maximized
+1920x1033 observation. Android serial 01234ABC now has 39 active community
+plugins and shows Todo List in its right drawer; Calendar remains available
+from the drawer menu. Safe checkbox tests passed and fixture notes were
+restored. The short Android No file view was transient startup loading.
+
+No note content, templates, plugin payloads, live vault, source tree, bf23,
+or product main changed. Full raw evidence and rollback remain outside this
+repository:
+G:/Dusk-Knowledge-Hub/payload/evidence/Dusk-Phase2-Preparation-Part2-Runtime/checkpoints/PERSONALIZATION-TASK-PANE-REPAIR-20260814/
+
+This is a compact status only. No future wave or canonical Task 7, 8, or 9
+started.
+
 ## Superseding current NN full UI/debloat result (2026-08-14)
 
 Personalization NN audit passed on exact disposable Windows and registered
