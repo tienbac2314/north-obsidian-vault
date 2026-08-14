@@ -1,5 +1,27 @@
 # Active goal
 
+## Current NN full UI/debloat audit checkpoint (2026-08-14)
+
+Personalization continues in the existing lane. NN `3.3.3` is the primary
+right-side calendar on Windows and Android. Read-only review found Journals'
+separate left calendar leaf, a working Note Toolbar bottom-right FAB with
+`Toggle Page Task`, and a settled full-height Android NN dual pane.
+
+Next bounded work: preserve rollback; add and map cursor-free NN quarter/year
+templates; hide only Journals' duplicate calendar leaf and stale Todoist ribbon
+shortcut; restart and verify Windows and Android. Keep Journals renderer and
+period commands, all note content, Note Toolbar, Tasks, Datacore, Bases,
+Templater, QuickAdd, and PC-only features. No guessed Android CSS change.
+
+Windows empty `DAILY/YEARLY/2026.md` is a pre-existing disposable artifact.
+No `20260812` artifact exists in either exact target. Do not delete it or
+create another empty note. No future wave/task starts.
+
+Before this checkpoint: Part 2 `a55d641c46773fd25ff96a6a38beaf6381b022d9`
+/ tree `cbd3a1ab5de79a80b08c868ff42a3a4b0844a6ad`; product reset
+`d8fc1568345d3e5c22b28fb1360bce510f18937a` / tree
+`4f2e6504bb33741a6580543c391fdfe9991bf5e0`, clean.
+
 ## Current NN visual pilot result (2026-08-14)
 
 Disposable NN pilot passed on Windows `W5-CLEAN-REVIEW-20260811` and Android

@@ -1,5 +1,25 @@
 # Phase 2 Preparation handoff
 
+## Resume: NN full UI/debloat audit before mutation (2026-08-14)
+
+NN is primary right calendar on both exact disposables. Journals' left
+calendar leaf remains a proven duplicate and will be hidden only after rollback
+capture; Journals period renderer/commands stay. Note Toolbar owns the working
+bottom-right FAB and `Toggle Page Task`. Android settled NN dual-pane review is
+usable, so no width/CSS guess is planned.
+
+NN quarter/year paths are correct but template selectors are null. Add
+cursor-free templates before creation tests. Preserve pre-existing Windows
+`DAILY/YEARLY/2026.md` 0-byte artifact; no `20260812` artifact was found.
+Next batch is rollback, template mapping, duplicate-calendar/icon cleanup,
+Windows/Android restart verification, then ledger/evidence update. No future
+wave/task, live vault, `bf23`, note move, or plugin uninstall.
+
+Part 2 before checkpoint: `a55d641c46773fd25ff96a6a38beaf6381b022d9` /
+`cbd3a1ab5de79a80b08c868ff42a3a4b0844a6ad`; product reset before checkpoint:
+`d8fc1568345d3e5c22b28fb1360bce510f18937a` /
+`4f2e6504bb33741a6580543c391fdfe9991bf5e0`.
+
 ## Resume: NN visual pilot passed (2026-08-14)
 
 NN right-sidebar calendar, Q3/week numbers, navigation, restart, and Windows /
