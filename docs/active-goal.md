@@ -1,5 +1,21 @@
 # Active goal
 
+## Current Checklist content-filter result (2026-08-14)
+
+The first Checklist repair restored its right-side pane but left it empty.
+Dusk places #task inline on task lines, while Checklist showAllTodos=false
+looks for a tag block. Disposable-only fix: set showAllTodos=true while
+keeping todoPageName=task, note format, Tasks, NN Calendar, Homepage, and
+Note Toolbar unchanged.
+
+Real grouped rows now appear on both platforms. Windows shows NN Calendar
+above Todo List; Android shows Todo List rows in its right drawer and keeps
+Calendar in its drawer menu. Safe checkbox tests passed and were reverted.
+No note content changed. Raw evidence and rollback stay outside this repo
+under the existing task-pane checkpoint. This supersedes the earlier
+task-pane shell-only status. No future wave or canonical Task 7, 8, or 9
+started.
+
 ## Current Checklist task-pane repair result (2026-08-14)
 
 Personalization repair passed on both disposable platforms. The requested
