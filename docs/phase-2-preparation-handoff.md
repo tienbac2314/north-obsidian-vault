@@ -12,9 +12,13 @@ removed. Android dual pane passed after transient startup loading.
 
 Result and rollback stay outside product Git at
 `G:/Dusk-Knowledge-Hub/payload/evidence/Dusk-Phase2-Preparation-Part2-Runtime/checkpoints/PERSONALIZATION-NN-FULL-CONFIG-AUDIT-20260814/`.
-No `20260812` artifact exists. Future waves/tasks remain not started. Final
-HEAD/tree, validators, and reset-branch push are recorded in the next compact
-seal after this documentation edit.
+No `20260812` artifact exists. Material result commit: Part 2
+`8c4e7fa776187f86e1f7e47836864285994439f5` / tree
+`b1da1e5b368e6aeadfb37b1c02d07d96cb7859e7`; product reset local
+`b33c7b6eef7e438008fdac6903790d6c83aa02b1` / tree
+`b403b75c039a17ed9a7ef8520c0421e512584880`. Product reset was two commits
+ahead of origin/reset until push. Final validators and publication follow this
+identity-only seal. Future waves/tasks remain not started.
 
 ## Resume: NN full UI/debloat audit before mutation (2026-08-14)
 

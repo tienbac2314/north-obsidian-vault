@@ -22,9 +22,13 @@ External result and manifest:
 `G:/Dusk-Knowledge-Hub/payload/evidence/Dusk-Phase2-Preparation-Part2-Runtime/checkpoints/PERSONALIZATION-NN-FULL-CONFIG-AUDIT-20260814/NN-FULL-CONFIG-AUDIT-RESULT-20260814.md`
 and `NN-FULL-CONFIG-AUDIT-MANIFEST-20260814.csv`.
 
-Final Part 2/product HEAD/tree and validator results are recorded in the
-compact seal after this documentation edit. Stop for user self-review. Do not
-start Wave 6/Task 7, Wave 7/Task 8, or Wave 8/Task 9.
+Material result commit: Part 2 `8c4e7fa776187f86e1f7e47836864285994439f5`
+/ tree `b1da1e5b368e6aeadfb37b1c02d07d96cb7859e7`; product reset local
+`b33c7b6eef7e438008fdac6903790d6c83aa02b1` / tree
+`b403b75c039a17ed9a7ef8520c0421e512584880`. Both worktrees were clean at
+this checkpoint; product reset was two commits ahead of origin/reset until
+push. Stop for user self-review after final validators and publication. Do
+not start Wave 6/Task 7, Wave 7/Task 8, or Wave 8/Task 9.
 
 ## Current NN full UI/debloat audit checkpoint (2026-08-14)
 
