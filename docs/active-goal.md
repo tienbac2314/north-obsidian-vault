@@ -1406,3 +1406,35 @@ The reset branch is the only product branch updated. Wave 6 / Task 7, Wave 7 /
 Task 8, and Wave 8 / Task 9 remain `NOT STARTED`. No raw evidence, profiles,
 full ledgers, archives, credentials, product `main`, `bf23`, PR, or merge was
 added or changed. Stop here for user self-review.
+
+## Superseding Wave 5 task-picker scroll repair (2026-08-15)
+
+Wave 5 final repair is `PASS_WINDOWS_ANDROID_FINAL` with explicit repository
+baseline gates. This is still Wave 5 integrated regression/repair work; no
+future wave started.
+
+- Windows disposable `W5-CLEAN-REVIEW-20260811`, Obsidian `1.13.6`, PID `9996`,
+  Computer Use window `66322`: picker floats outside task surface and scrolls
+  independently; long Completed task list stays inside fixed-height surface.
+- Android serial `01234ABC`, Android 14, package `md.obsidian`, PID `838`,
+  registered vault unchanged: native picker finger-scroll, selection close,
+  Completed mode, and restored Today/`2026-08-14` passed.
+- Final Windows/Android source parity: Homepage
+  `FB7A025A07877C3CB3E0304AD01C7711806459E342FA51F93471BCD8860F2A2C`;
+  Mobile Homepage `BAD6DE6A263E87396EADED574C2F64A1B5159264DA91BAEC6CDE94223BDFEC5A`;
+  shared Timeline `88066F242E857417E18E1DB29F1388D5512EE3210179DB72C8E9A1E254B95BC4`;
+  Base `E6FC388DEAB7C1EFDC2D92FBA91072E42B17D3736B520B7CF5C503FCFFD6F5D1`.
+- Evidence stays outside product Git:
+  `G:/Dusk-Knowledge-Hub/payload/evidence/Dusk-Phase2-Preparation-Part2-Runtime/checkpoints/W5-TASK-PICKER-FLOATING-SCROLL-20260815/`.
+  Manifest SHA-256 `716F6608A3539C5EA786F3DA2596FC7B5CC41B9B0CD2205F4E929AC473BEF597`;
+  result SHA-256 `53CF8C32DDA89033DD98B61B335A1A9F125BD2125DFBA44466DF7984B5D253C7`.
+- Repair keeps existing task syntax/storage, internal-link hover behavior,
+  note destinations, and Base date-time display. No note/plugin/config content
+  mutation occurred during final interaction checks.
+- ChatGPT Web was advisory only: it supported body-mounted fixed picker,
+  bounded task scroller, owner-document positioning, cleanup, and Datacore API
+  limits. Live source and runtime evidence remain authority.
+- Explicit baseline gap: repository-wide content/boundary scanners reject
+  pre-existing historical `planning-debate-v1.zip` and `SECRET-*` paths. They
+  were not touched. Wave 6 / Task 7, Wave 7 / Task 8, and Wave 8 / Task 9
+  remain `NOT STARTED`.
