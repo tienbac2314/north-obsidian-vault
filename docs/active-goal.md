@@ -1,5 +1,34 @@
 # Active goal
 
+## Current NN folder and toolbar customization result (2026-08-16)
+
+Approved Notebook Navigator and Note Toolbar customization is verified on the
+two disposable Dusk_light targets. Windows and Android show root order
+`HUB, DAILY, PARA, STICKY, INBOX, SYSTEM`, alphabetical nested folders, and
+matching 28-folder icon sets. Note Toolbar global actions are `Home`, `Today`,
+`New...`, `Recent`, and `Search`; `Page Task` remains contextual to Area and
+Project. Global floating Delete and Settings entries are removed. ChatGPT and
+YouTube custom-frame ribbon icons were already disabled.
+
+Empty Windows STAGING was retired outside the vault. Physical INBOX remains
+because QuickAdd writes there; Mail Box remains virtual. Android
+`SYNTHETIC-QUARANTINE` remains preserved on disk but is hidden from Notebook
+Navigator so visible roots match Windows.
+
+Windows: Obsidian `1.13.6`, PID `15808`, maximized CUA `1920x1033`.
+Android: serial `01234ABC`, PID `12577`, native `1200x2000`.
+
+Raw evidence and rollback stay outside this repository:
+`G:/Dusk-Knowledge-Hub/payload/evidence/Dusk-Phase2-Preparation-Part2-Runtime/checkpoints/PERSONALIZATION-NN-FOLDER-TOOLBAR-20260816/`.
+Manifest SHA-256:
+`a8246113ef6d4469436bc137a011f07d0e967dc28da43217c0160bb579165fe4`.
+Part 2 authority at publication preparation:
+`2e66276000ed8b61349af403806201e1b8cd6891` / tree
+`3bf288bcdc2ad3f93ed3ef1f476e4efe2c1c821b`.
+
+This is a compact product status update only. Wave 6/Task 7, Wave 7/Task 8,
+and Wave 8/Task 9 remain NOT STARTED.
+
 ## Current ISO date standardization result (2026-08-14)
 
 User reverted the prior day-first display experiment. Supported visible dates
