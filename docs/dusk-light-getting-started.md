@@ -33,7 +33,9 @@ Current bloat cleanup removed `daily-note-navbar`,
 `obsidian-checklist-plugin`, `obsidian-day-planner`, `obsidian-admonition`,
 `custom-sort`, and `recent-files-obsidian` from both disposable platforms.
 Custom Sort folder parity and Recent Files Quick Switcher routing passed on
-Windows and Android. No note content was removed.
+Windows and Android. Android QuickAdd's stale Custom Sort startup command was
+removed before final package rebuild; settled Android restart showed no error
+toast. No note content was removed.
 
 ## Current Personalization structure
 

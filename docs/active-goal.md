@@ -8,6 +8,9 @@ the approved bloat cleanup. Removed on both disposable platforms:
 `obsidian-admonition`, `custom-sort`, and `recent-files-obsidian`. Custom Sort
 folder parity and Recent Files Quick Switcher routing passed on Windows and
 Android. No note content was removed.
+Android QuickAdd retained one stale Custom Sort startup command; it was
+removed, Android was restarted, and the final Android package was rebuilt.
+Settled rerun showed no error toast.
 
 Existing guide authority is [Dusk_light quick start](dusk-light-getting-started.md);
 it now documents one PC/mobile flow, current plugin ownership, capture choices,
@@ -19,9 +22,9 @@ root:
 - PC: `Dusk_light-PC-USER-20260816.zip`, SHA-256
   `2459156845e76f35a17ad82d8fa9086854711793b42a1a77da79c2f25a51f77d`.
 - Android: `Dusk_light-Android-USER-20260816.zip`, SHA-256
-  `de258a4427a92b445e2deb6b546a3c4f7359f08158cf39c9afd790153e6968c3`.
+  `bea1476303ce12c29e2a87e033b6aeed50eb73e035050484e498a300427fba05`.
 - Package manifest: `FINAL-PACKAGE-MANIFEST-20260816.csv`, SHA-256
-  `8ef37ccb1cfdabfa1517b95d7c01d4d5a04bc2d248f8a6c4fabd738f510b4e0b`.
+  `3630fe742bdd7a1d57b92712a41112c2ff45295c0429bda1ff8803b16694b781`.
 
 Both packages contain same 9 marked demo notes plus guided walkthrough. Exact
 pre-review rollback archives remain separate and unchanged. FNS and Notion
