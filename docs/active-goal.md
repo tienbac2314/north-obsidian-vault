@@ -1,5 +1,34 @@
 # Active goal
 
+## Release-candidate packages and final publication (2026-08-16)
+
+Current disposable Dusk_light release candidate passed ChatGPT Web review and
+the approved bloat cleanup. Removed on both disposable platforms:
+`daily-note-navbar`, `obsidian-checklist-plugin`, `obsidian-day-planner`,
+`obsidian-admonition`, `custom-sort`, and `recent-files-obsidian`. Custom Sort
+folder parity and Recent Files Quick Switcher routing passed on Windows and
+Android. No note content was removed.
+
+Existing guide authority is [Dusk_light quick start](dusk-light-getting-started.md);
+it now documents one PC/mobile flow, current plugin ownership, capture choices,
+Notebook Navigator, Bases/Datacore/Tasks, templates, and FNS/Notion deferral.
+
+Final marked-demo packages are outside Git under the Part 2 runtime evidence
+root:
+
+- PC: `Dusk_light-PC-USER-20260816.zip`, SHA-256
+  `2459156845e76f35a17ad82d8fa9086854711793b42a1a77da79c2f25a51f77d`.
+- Android: `Dusk_light-Android-USER-20260816.zip`, SHA-256
+  `de258a4427a92b445e2deb6b546a3c4f7359f08158cf39c9afd790153e6968c3`.
+- Package manifest: `FINAL-PACKAGE-MANIFEST-20260816.csv`, SHA-256
+  `8ef37ccb1cfdabfa1517b95d7c01d4d5a04bc2d248f8a6c4fabd738f510b4e0b`.
+
+Both packages contain same 9 marked demo notes plus guided walkthrough. Exact
+pre-review rollback archives remain separate and unchanged. FNS and Notion
+setup stay deferred to user. Publish only this reset branch after repository
+validators pass. Wave 6/Task 7, Wave 7/Task 8, and Wave 8/Task 9 remain NOT
+STARTED.
+
 ## Current NN folder and toolbar customization result (2026-08-16)
 
 Approved Notebook Navigator and Note Toolbar customization is verified on the

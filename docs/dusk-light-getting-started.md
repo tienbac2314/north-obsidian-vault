@@ -1,5 +1,40 @@
 # Dusk_light quick start
 
+## Release-candidate use flow (2026-08-16)
+
+Dusk_light exists to make capture fast, keep active work findable, and turn
+useful learning into reusable knowledge on Windows and Android.
+
+1. Open `HUB/Homepage`. Use `Daily Note` for today, `Create a Note` for a
+   populated template, `Recent Files` for Quick Switcher, and `Mail Box` for
+   the virtual inbox surface.
+2. Use Notebook Navigator as primary folder browser, recent list, and visible
+   calendar. Click a day or period label to open/create existing daily,
+   weekly, monthly, quarterly, or yearly note.
+3. Use Homepage task modes `Today`, `All open`, and `Completed`. Add task to
+   selected daily note, then open row title to edit source.
+4. Capture directly into Project, Area, or Resource when destination is clear.
+   Use QuickAdd `Create Inbox Capture` for unprocessed material and `STICKY`
+   for temporary scratch. Keep `WORKSTATION` for technical investigation.
+5. Use Bases for simple tables and Datacore for complex task/date/progress,
+   calendar, timeline, and custom views. Use Templater, Meta Bind, QuickAdd,
+   Journals, Note Toolbar, and project templates for creation.
+6. Windows has desktop-only Quick Explorer and Status Bar Organizer. Android
+   uses drawer, Notebook Navigator, command palette, and native file search.
+   Same files and templates remain in use; layout differs.
+7. Add FNS and Notion later through a separate setup decision. They are not
+   configured here.
+
+If Focus Mode hides tabs, run Command Palette > `Minimal Theme Settings:
+Toggle Focus Mode`. If a daily note shows `tp.file.cursor()`, create it while
+Editing mode is active; templates keep that marker for cursor placement.
+
+Current bloat cleanup removed `daily-note-navbar`,
+`obsidian-checklist-plugin`, `obsidian-day-planner`, `obsidian-admonition`,
+`custom-sort`, and `recent-files-obsidian` from both disposable platforms.
+Custom Sort folder parity and Recent Files Quick Switcher routing passed on
+Windows and Android. No note content was removed.
+
 ## Current Personalization structure
 
 Current disposable Dusk_light uses one simpler learning/reference home:
@@ -68,25 +103,24 @@ Commander was removed from both current Dusk_light disposables after fallback
 proof. Omnisearch, QuickAdd, Note Toolbar, Homepage, and Mobile Homepage are
 not Commander-dependent.
 
-Checklist is currently disabled, not uninstalled, in both current Dusk_light
-disposables. Tasks remains enabled as the owner for task query blocks and
-metadata. This is a review gate, not a product-wide removal decision.
+Checklist is removed from both current Dusk_light disposables. Tasks remains
+enabled as owner for task query blocks and metadata.
 
-Admonition is now disabled on both platforms with rollback retained. List
-Callouts remains enabled because 49 active syntax markers remain across eight
-files. Novel Word Count remains because core Word Count lacks its file/folder/
-vault totals. Remaining overlap audit found no additional 100-percent bloat
-candidate. Highlightr, Iconic, mapped file hotkeys, Custom Frames, Recent
-Files, Tag Wrangler, Natural Language Dates, Paste Image Rename, and Trash
-Explorer remain because each has documented, configured, or distinct value.
-The cumulative removal/disable list is recorded in this active-goal checkpoint.
+Admonition, Daily Note Navbar, Day Planner, Custom Sort, and Recent Files are
+removed from both current Dusk_light disposables. List Callouts remains
+enabled because 49 active syntax markers remain across eight files. Novel Word
+Count remains because core Word Count lacks its file/folder/vault totals.
+Highlightr, Iconic, mapped file hotkeys, Custom Frames, Tag Wrangler, Natural
+Language Dates, Paste Image Rename, and Trash Explorer remain because each has
+documented, configured, or distinct value. Full bloat result and rollback
+manifest remain outside product Git.
 
 Projects is removed from both current Dusk_light disposables as archived bloat:
 its dashboard, commands, config definitions, and stale command consumers are
 gone. Do not look for a Projects dashboard. Use Homepage > Development >
-Project for the DataviewJS project table, and QuickAdd > Create a Note > Create
+Project for the DatacoreJS project table, and QuickAdd > Create a Note > Create
 Project Family for populated project-family notes. PARA/PROJECTS content,
-both project templates, Templater, Meta Bind, and Dataview remain. Rollback is
+both project templates, Templater, and Meta Bind remain. Rollback is
 preserved outside this repository. Settings Search was also removed from both
 active disposable trees; no other disputed utility plugin was removed in this
 checkpoint.
@@ -116,24 +150,25 @@ template to work around this mode-specific behavior.
 ## Features covered by the runtime matrix
 
 The external Wave 5 coverage matrix records Homepage and Mobile Homepage,
-navigation, tabs, Tasks, Journals creation routes, Templater, Dataview/DVJS,
-Datacore JSX, Meta Bind/JS Engine, QuickAdd, Commander removal/fallbacks,
+navigation, tabs, Tasks, Journals creation routes, Templater, Datacore JSX,
+Meta Bind/JS Engine, QuickAdd, Commander removal/fallbacks,
 Note Toolbar, Custom Sort, Excalidraw, Hover Editor, search, templates, mapped
 creation flows, recovery, Reading, Live Preview, and relevant scrolling on
-both platforms.
+both platforms. Dataview is not a current owner; Datacore owns migrated
+complex views.
 The current batch added fresh integrated evidence for repaired/plugin surfaces;
 unchanged equal-contract evidence was reused rather than duplicated.
 
 ## Windows and Android
 
 Windows disposable evidence uses native 1920x1040 JPEG captures. Android uses
-native 1200x2000 PNG captures on registered serial `01234ABC`. Current active
-lists contain 40 Windows IDs and 38 Android IDs; common IDs match. Windows-only
+native 1200x2000 PNG captures on registered serial `01234ABC`. Current enabled
+lists contain 38 Windows IDs and 36 Android IDs. Windows-only
 Quick Explorer and Status Bar Organizer remain PC features. Android uses native
 file navigation and status-bar fallbacks.
 
 Windows is left on settled Homepage after exact-profile reload following the
-Admonition disable test. Android is left on settled Homepage after final
+final bloat cleanup. Android is left on settled Homepage after final
 restart. Both task panels show repaired plain rows and explicit modes. No user
 note or template content remains changed.
 
