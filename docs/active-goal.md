@@ -1,13 +1,18 @@
 # Active goal
 
-## Release-candidate packages and final publication (2026-08-16)
+## Release-candidate packages and three-plugin correction (2026-08-16)
 
 Current disposable Dusk_light release candidate passed ChatGPT Web review and
-the approved bloat cleanup. Removed on both disposable platforms:
-`daily-note-navbar`, `obsidian-checklist-plugin`, `obsidian-day-planner`,
-`obsidian-admonition`, `custom-sort`, and `recent-files-obsidian`. Custom Sort
-folder parity and Recent Files Quick Switcher routing passed on Windows and
-Android. No note content was removed.
+the approved bloat cleanup, then applied the user's correction. Restored on
+both disposable platforms: `obsidian-checklist-plugin` `2.2.14`, `custom-sort`
+`3.1.6`, and `recent-files-obsidian` `1.7.10`. Checklist is back as the
+right-side Todo List/Checklist pane; Recent Files is back as a usable recent
+file pane; Custom Sort is installed with `suspended=true` for later Notebook
+Navigator/File Explorer sync. No note content was removed.
+
+Still removed on both: `daily-note-navbar`, `obsidian-day-planner`, and
+`obsidian-admonition`. The prior removal of the three restored IDs is a
+superseded historical checkpoint, not current release state.
 Android QuickAdd retained one stale Custom Sort startup command; it was
 removed, Android was restarted, and the final Android package was rebuilt.
 Settled rerun showed no error toast.
@@ -20,11 +25,11 @@ Final marked-demo packages are outside Git under the Part 2 runtime evidence
 root:
 
 - PC: `Dusk_light-PC-USER-20260816.zip`, SHA-256
-  `2459156845e76f35a17ad82d8fa9086854711793b42a1a77da79c2f25a51f77d`.
+  `f117d633b65668628f03ecb4a5232ff1876f41e0871e56ce3ec552a8f2668521`.
 - Android: `Dusk_light-Android-USER-20260816.zip`, SHA-256
-  `bea1476303ce12c29e2a87e033b6aeed50eb73e035050484e498a300427fba05`.
+  `418325edfd69cff5f2e68336d8f9e64a4ca5069cca8d2e7b856f0ebc6e864f0f`.
 - Package manifest: `FINAL-PACKAGE-MANIFEST-20260816.csv`, SHA-256
-  `3630fe742bdd7a1d57b92712a41112c2ff45295c0429bda1ff8803b16694b781`.
+  `5b280cfc70ff1670679a7d51ac9c62b297c955179682c84a9e60da8427913bd3`.
 
 Both packages contain same 9 marked demo notes plus guided walkthrough. Exact
 pre-review rollback archives remain separate and unchanged. FNS and Notion

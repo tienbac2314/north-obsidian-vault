@@ -6,8 +6,8 @@ Dusk_light exists to make capture fast, keep active work findable, and turn
 useful learning into reusable knowledge on Windows and Android.
 
 1. Open `HUB/Homepage`. Use `Daily Note` for today, `Create a Note` for a
-   populated template, `Recent Files` for Quick Switcher, and `Mail Box` for
-   the virtual inbox surface.
+   populated template, `Recent Files` for the recent-file list, and `Mail Box`
+   for the virtual inbox surface.
 2. Use Notebook Navigator as primary folder browser, recent list, and visible
    calendar. Click a day or period label to open/create existing daily,
    weekly, monthly, quarterly, or yearly note.
@@ -29,13 +29,14 @@ If Focus Mode hides tabs, run Command Palette > `Minimal Theme Settings:
 Toggle Focus Mode`. If a daily note shows `tp.file.cursor()`, create it while
 Editing mode is active; templates keep that marker for cursor placement.
 
-Current bloat cleanup removed `daily-note-navbar`,
-`obsidian-checklist-plugin`, `obsidian-day-planner`, `obsidian-admonition`,
-`custom-sort`, and `recent-files-obsidian` from both disposable platforms.
-Custom Sort folder parity and Recent Files Quick Switcher routing passed on
-Windows and Android. Android QuickAdd's stale Custom Sort startup command was
-removed before final package rebuild; settled Android restart showed no error
-toast. No note content was removed.
+Current bloat cleanup removed `daily-note-navbar`, `obsidian-day-planner`, and
+`obsidian-admonition` from both disposable platforms. User-requested
+`obsidian-checklist-plugin`, `custom-sort`, and `recent-files-obsidian` were
+restored on both platforms. Checklist provides the right-side Todo List pane;
+Recent Files provides recent-file navigation; Custom Sort is installed but
+`suspended=true`, so it does not reorder folders yet. Android QuickAdd's stale
+Custom Sort startup command remains repaired and was not restored. No note
+content was removed.
 
 ## Current Personalization structure
 
@@ -105,11 +106,14 @@ Commander was removed from both current Dusk_light disposables after fallback
 proof. Omnisearch, QuickAdd, Note Toolbar, Homepage, and Mobile Homepage are
 not Commander-dependent.
 
-Checklist is removed from both current Dusk_light disposables. Tasks remains
-enabled as owner for task query blocks and metadata.
+Checklist is restored on both current Dusk_light disposables at version
+`2.2.14`; its pane is a checklist view over Markdown checkbox items. Tasks
+remains enabled as owner for task query blocks and task metadata.
 
-Admonition, Daily Note Navbar, Day Planner, Custom Sort, and Recent Files are
-removed from both current Dusk_light disposables. List Callouts remains
+Admonition, Daily Note Navbar, and Day Planner remain removed from both current
+Dusk_light disposables. Custom Sort is restored at `3.1.6` but suspended for a
+later Notebook Navigator/File Explorer sync pilot. Recent Files is restored at
+`1.7.10` because recent-file navigation remains useful. List Callouts remains
 enabled because 49 active syntax markers remain across eight files. Novel Word
 Count remains because core Word Count lacks its file/folder/vault totals.
 Highlightr, Iconic, mapped file hotkeys, Custom Frames, Tag Wrangler, Natural
