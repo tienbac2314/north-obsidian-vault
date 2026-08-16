@@ -1,5 +1,37 @@
 # Active goal
 
+## Full-use-flow review and packaged disposable checkpoint (2026-08-17)
+
+Current Dusk_light disposable passed full representative Windows and registered
+Android flow review after a bounded repair. Old imported `Dusk_light` was used
+read-only for comparison; its older ZETA/split-pane behavior was not restored.
+
+Accepted repair: inline direct Meetings/Projects/Areas Bases tabs replaced the
+daily overview wrapper in the two templates and existing daily notes on both
+platforms. Current `2026-08-17` daily note rendered cleanly in Windows
+Live Preview and Reading and Android after restart. Homepage Today help now
+states that unfinished overdue work is included. Quick Start now explains
+Daily -> Tasks -> INBOX/STICKY -> PARA/Areas -> Bases -> Notebook Navigator ->
+advanced Datacore.
+
+Final disposable packages are outside Git under
+`G:/Dusk-Knowledge-Hub/payload/evidence/Dusk-Phase2-Preparation-Part2-Runtime/checkpoints/DUSK-FULL-USE-FLOW-REVIEW-20260816/packages/`:
+
+- PC: `Dusk_light-PC-W5-CLEAN-REVIEW-20260817.zip`, SHA-256
+  `3401B1B29E0CB62E1AFA574CFA58C38FE306716097F1D6BAA2025B79C9E0FE41`.
+- Android: `Dusk_light-Android-V1-20260801-20260817.zip`, SHA-256
+  `A84EB4CA1166D9D8B9705C9686C999D554FD6C26FD91D662C70358BFD14BF752`.
+- Result SHA-256 `7F857DE635AF793C7A698624744EC1C8B44C515653E6DAB67D8FB2F88446D18D`;
+  manifest SHA-256 `58994C033CABD8F7191C000BDE3401636E189D2F2F1FBF7DAF2BA269EE02D6A5`.
+
+Visible Chrome ChatGPT Web returned `APPROVED` after repair. Part 2 source
+commit is `f3ad4b67214c73ccd5518a7ff0f2eeb37e86125a`; Graphify used the
+9router/OpenAI-compatible route and remains navigation-only. No plugin
+inventory changed in this review; Checklist, Custom Sort, and Recent Files
+remain restored. FNS and Notion setup stay deferred. Wave 6/Task 7, Wave 7/
+Task 8, and Wave 8/Task 9 remain NOT STARTED. This reset branch is the only
+product branch to publish; do not touch product `main`.
+
 ## Release-candidate packages and three-plugin correction (2026-08-16)
 
 Current disposable Dusk_light release candidate passed ChatGPT Web review and

@@ -1,5 +1,17 @@
 # Dusk_light quick start
 
+## Current review note (2026-08-17)
+
+Current disposable review passed on Windows and registered Android after the
+daily overview wrapper was replaced with direct Bases tabs. Reading and Live
+Preview now show the same Meetings, Projects, and Areas overview. Homepage
+Today includes unfinished overdue work; old due dates remain visible so sample
+data stays truthful. Use numbered daily folders: `1. DAILY`, `2. WEEKLY`,
+`3. MONTHLY`, `4. QUARTERLY`, `5. YEARLY`.
+
+This guide describes current Dusk_light only. Old full-Dusk screenshots and
+ZETA-heavy layouts are reference material, not missing current features.
+
 ## Release-candidate use flow (2026-08-16)
 
 Dusk_light exists to make capture fast, keep active work findable, and turn
@@ -33,8 +45,8 @@ Current bloat cleanup removed `daily-note-navbar`, `obsidian-day-planner`, and
 `obsidian-admonition` from both disposable platforms. User-requested
 `obsidian-checklist-plugin`, `custom-sort`, and `recent-files-obsidian` were
 restored on both platforms. Checklist provides the right-side Todo List pane;
-Recent Files provides recent-file navigation; Custom Sort is installed but
-`suspended=true`, so it does not reorder folders yet. Android QuickAdd's stale
+Recent Files provides recent-file navigation; Custom Sort is active against
+the `SORT ORDER` bookmark group for File Explorer ordering. Android QuickAdd's stale
 Custom Sort startup command remains repaired and was not restored. No note
 content was removed.
 
@@ -69,8 +81,8 @@ does not contain.
 1. Open Homepage.
 2. Use Notebook Navigator's single Calendar in the right sidebar. Click a
    date for daily notes, a week/month/quarter/year label for that period note.
-   It maps to `DAILY/DAILY`, `DAILY/WEEKLY`, `DAILY/MONTHLY`,
-   `DAILY/QUARTERLY`, and `DAILY/YEARLY`.
+   It maps to `DAILY/1. DAILY`, `DAILY/2. WEEKLY`, `DAILY/3. MONTHLY`,
+   `DAILY/4. QUARTERLY`, and `DAILY/5. YEARLY`.
 3. Use Journals for daily, weekly, and monthly note rendering and commands.
    Its duplicate calendar panel is intentionally hidden because Notebook
    Navigator now supplies the visible calendar. Core Daily Notes and Daily Note
@@ -111,8 +123,8 @@ Checklist is restored on both current Dusk_light disposables at version
 remains enabled as owner for task query blocks and task metadata.
 
 Admonition, Daily Note Navbar, and Day Planner remain removed from both current
-Dusk_light disposables. Custom Sort is restored at `3.1.6` but suspended for a
-later Notebook Navigator/File Explorer sync pilot. Recent Files is restored at
+Dusk_light disposables. Custom Sort is restored at `3.1.6` and active for the
+`SORT ORDER` bookmark group. Recent Files is restored at
 `1.7.10` because recent-file navigation remains useful. List Callouts remains
 enabled because 49 active syntax markers remain across eight files. Novel Word
 Count remains because core Word Count lacks its file/folder/vault totals.
