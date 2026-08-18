@@ -37,6 +37,11 @@ Research supports decisions but does not authorize implementation. Refresh time-
 - [Dusk template demo rebuild design](superpowers/specs/2026-08-18-dusk-template-demo-rebuild-design.md)
 - [Dusk template demo rebuild plan](superpowers/plans/2026-08-18-dusk-template-demo-rebuild.md)
 
+## Current North UX work
+
+- [North UX simplification design](superpowers/specs/2026-08-18-north-ux-simplification-design.md)
+- [North UX simplification plan](superpowers/plans/2026-08-18-north-ux-simplification.md)
+
 ## Preserved work
 
 - [Skill-generated work index](generated-work-index.md) - working specifications and plans, some superseded.

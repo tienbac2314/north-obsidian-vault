@@ -137,14 +137,22 @@ does not reopen historical Phase 2 records.
   custom property, shortcut, mobile height, and folder-sort settings against
   North. Do not promise File Explorer parity where NN's product model is
   intentionally different.
-- ChatGPT Chrome review is pending. Existing Chrome session is connected to the
-  `Dusk obsidian` project and `Dusk_light UX Review` conversation. No message
-  has been posted yet; review must use a sanitized design brief and no private
-  vault data or credentials.
-- Decision gate: do not mutate North until one UX design is selected. First
-  design target is one human-facing Create menu, conditional Project/Area
-  family and child actions, readable labels, stable paths, and a short
-  onboarding flow. Keep native actions as fallback until PC/Android tests pass.
+- ChatGPT Chrome review completed 2026-08-18 with verdict
+  `APPROVE_WITH_CHANGES`. Review used the sanitized design brief only in the
+  existing `Dusk obsidian` project and `Dusk_light UX Review` conversation.
+  Conversation URL:
+  `https://chatgpt.com/g/g-p-6a6541ceacf88191b9fcb97967b79546/c/6a81f10c-e038-83ec-8bcb-ca25cfed03bb`.
+  Captured response snapshot SHA-256:
+  `db2523a087ef97adaeda8c706152e4244c0254a9feee1b6aac1a366415c6d64c`.
+  Review decision: one visible action per user intent, one backend writer per
+  file type; group low-frequency creation choices; keep NN for browsing and
+  calendar; remove Project/Area Templater folder triggers before relying on
+  native New note; test one canonical writer on Windows and Android.
+- Decision gate: Design A is accepted for implementation with ChatGPT's
+  changes. First target is one human-facing Create menu, grouped by intent,
+  conditional Project/Area family and child actions, readable labels, stable
+  paths, and a short onboarding flow. Keep native actions as fallback until
+  PC/Android tests pass.
 - Design alternatives under review:
   - A, recommended: keep QuickAdd as the execution backend, make Note Toolbar
     the visible Create menu, and add two small public `file-menu` actions for
@@ -156,11 +164,13 @@ does not reopen historical Phase 2 records.
     and still needs context-aware family routing.
   - C: simplify Note Toolbar only. Lowest change risk, but native File
     Explorer still exposes generic actions and family creation remains hidden.
-- Recommended user model: one Create menu for common actions; one Capture menu
-  for Inbox and Sticky; NN for browsing/calendar; File Explorer as fallback.
-  Project Family creates `PARA/1. PROJECTS/<name>/1. <name>.md`; Area Family
-  creates `PARA/2. AREAS/<name>/2. <name>.md`; child creation is separate. Do
-  not guess connections, dates, status, or priorities. Keep existing template
+- Recommended user model: one visible Create menu for Project, Area, Add note,
+  and grouped Resources; one Capture menu for Inbox and Sticky; NN for
+  browsing/calendar; File Explorer as fallback. Do not put Daily note in the
+  general Create menu. Project Family creates
+  `PARA/1. PROJECTS/<name>/1. <name>.md`; Area Family creates
+  `PARA/2. AREAS/<name>/2. <name>.md`; child creation is separate. Do not
+  guess connections, dates, status, or priorities. Keep existing template
   files until a full reference audit proves a rename is safe.
 - Recommended NN pass before any added hook: verify calendar period patterns,
   folder-note template, task icon, custom property display, shortcuts, manual
@@ -168,11 +178,13 @@ does not reopen historical Phase 2 records.
   navigation tree and file list remain separate by design.
 - Acceptance gate for design: user accepts A, B, or C. Implementation then
   proceeds in disposable-first batches with PC/Android rollback and tests.
-- Draft contract for A, pending acceptance:
-  - Human labels: `New Project`, `New Area`, `Add note`, `Resource note`,
-    `Meeting`, `Contact`, `Daily note`, `Quick capture`, and `Scratch note`.
-    Hide `Family`, `Multi`, `Macro`, `Template`, and raw template filenames
-    from normal menus.
+- Contract for A with review changes:
+  - Human labels: `New Project`, `New Area`, `Add note`, `Resource`,
+    `Capture`, `Inbox`, and `Scratch`. Put low-frequency Resource choices
+    under `Resource`; put Inbox and Sticky under `Capture`. Keep Daily,
+    Weekly, Monthly, Quarterly, and Yearly in the NN calendar/time system,
+    not in the general Create menu. Hide `Family`, `Multi`, `Macro`,
+    `Template`, and raw template filenames from normal menus.
   - Project root action creates one folder and one hub note using the existing
     Project Family template. Area root does the same with the Area Family
     template. Child action uses existing child templates inside the selected
@@ -180,8 +192,10 @@ does not reopen historical Phase 2 records.
   - Capture rule: `Quick capture` writes to INBOX; `Scratch note` writes to
     STICKY. Resource type choices remain available without forcing users to
     understand semantic type names first.
-  - Templater remains child-note fallback at PARA roots. QuickAdd remains the
-    single family-creation owner. No duplicate family write path.
+  - QuickAdd remains the single family-creation owner. Templater renders the
+    template explicitly selected by that route. Remove automatic Project and
+    Area root folder triggers; otherwise native New note can silently receive
+    a child template. No duplicate family write path.
   - NN remains browser and calendar. Configure and test task icons, selected
     type/status previews, folder-note behavior, period creation, shortcuts,
     numeric folder order, and Android sizing before changing other navigation.
@@ -218,6 +232,29 @@ does not reopen historical Phase 2 records.
 - Verification gate: backup before each material batch; test representative
   Project Family, Area Family, child, resource, capture, period, task,
   navigation, status-icon, context-menu, and sync flows on Windows and Android.
+
+### ChatGPT review changes to implement
+
+- One visible action per user intent. Do not make a beginner choose between
+  QuickAdd, Templater, NN, or raw template names.
+- Use a compact visible tree:
+  `Create` -> `New Project`, `New Area`, `Add to existing` -> `Project` or
+  `Area`, `Resource`, and `Capture` -> `Inbox` or `Scratch`.
+- Keep `Today` in Homepage and period creation in NN calendar. Do not add a
+  second Daily-note owner.
+- Remove automatic Templater triggers on `PARA/1. PROJECTS` and
+  `PARA/2. AREAS`. Explicit creation routes must select existing templates
+  once. Native New note must remain a plain note in those folders.
+- Family creation must preflight existing folder/note, open existing target
+  instead of suffixing duplicates, and never overwrite a note.
+- Context actions must resolve Project/Area from active note path, not hidden
+  NN selection state. Keep generic NN creation available for power users but do
+  not advertise it as North family creation.
+- Android must expose same labels and destinations without right-click, hover,
+  or keyboard shortcuts. Desktop may keep richer dual-pane NN layout.
+- Acceptance requires exact one-file creation, duplicate protection, plain
+  native New note fallback, template/property preservation, and Windows plus
+  Android parity across all listed routes.
 
 The durable live-vault detail checkpoint remains outside this repository at
 `C:\Users\TienBac\AppData\Local\Temp\dusk-light-template-demo-rebuild-state.md`.
