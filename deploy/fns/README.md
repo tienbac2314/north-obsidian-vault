@@ -2,7 +2,7 @@
 
 Status: current Release 1 deployment contract for synthetic human-sync testing.
 
-This contract deploys Fast Note Sync server `3.6.0` by verified multi-platform
+This contract deploys Fast Note Sync server `3.6.1` by verified multi-platform
 image digest. Raw service traffic binds only to `[::1]:19000`. A dedicated
 Cloudflare Tunnel supplies TLS without changing existing tunnel routes.
 

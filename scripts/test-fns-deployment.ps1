@@ -37,7 +37,7 @@ $tunnelUnit = Get-Content -Raw -LiteralPath $tunnelUnitPath
 $runbook = Get-Content -Raw -LiteralPath $runbookPath
 $humanSetup = Get-Content -Raw -LiteralPath $humanSetupPath
 
-Assert-True ($compose -match [regex]::Escape("haierkeys/fast-note-sync-service:3.6.0@sha256:560ab727f2a0bac804a6db9e467b68d7df1a1cf059e72dfccc0412aa4c62e89e")) "Compose must pin verified FNS 3.6.0 image digest."
+Assert-True ($compose -match [regex]::Escape("haierkeys/fast-note-sync-service:3.6.1@sha256:15833f15e83cee05794c3fe6028c7e41fd36c787f0d651415cad556579fc379f")) "Compose must pin verified FNS 3.6.1 image digest."
 Assert-True ($compose -match '\[::1\]:\$\{FNS_HOST_PORT:-19000\}:9000') "Compose must bind raw FNS port to loopback."
 Assert-True ($compose -notmatch '(?im)^\s*(privileged|network_mode):') "Compose must not use privileged or host-network mode."
 Assert-True ($compose -notmatch '(?i)docker\.sock|:latest') "Compose must not mount Docker socket or use latest tag."
@@ -54,14 +54,14 @@ Assert-True ($config -match 'attachment-static:\s*\r?\n\s+is-enable:\s*false') "
 
 Assert-True ($tunnel -match 'service:\s*http://\[::1\]:19000') "Tunnel must target exact IPv6 loopback FNS port."
 Assert-True ($tunnel -match 'service:\s*http_status:404') "Tunnel must end with explicit 404 catch-all."
-Assert-True ($tunnel -match '(?m)^tunnel:\s*__FNS_TUNNEL_ID__$') "Tunnel ID must remain a placeholder in repository."
-Assert-True ($tunnel -match '(?m)^credentials-file:\s*__FNS_TUNNEL_CREDENTIALS_FILE__$') "Tunnel credentials path must remain a placeholder in repository."
-Assert-True ($tunnel -match '(?m)^\s+- hostname:\s*__FNS_HOSTNAME__$') "Tunnel hostname must remain a placeholder in repository."
+Assert-True ($tunnel -match '(?m)^tunnel:\s*__FNS_TUNNEL_ID__\r?$') "Tunnel ID must remain a placeholder in repository."
+Assert-True ($tunnel -match '(?m)^credentials-file:\s*__FNS_TUNNEL_CREDENTIALS_FILE__\r?$') "Tunnel credentials path must remain a placeholder in repository."
+Assert-True ($tunnel -match '(?m)^\s+- hostname:\s*__FNS_HOSTNAME__\r?$') "Tunnel hostname must remain a placeholder in repository."
 
-Assert-True ($tunnelUnit -match '(?m)^User=fns-tunnel$') "Tunnel unit must use dedicated unprivileged account."
-Assert-True ($tunnelUnit -match '(?m)^NoNewPrivileges=true$') "Tunnel unit must prevent privilege escalation."
-Assert-True ($tunnelUnit -match '(?m)^ProtectSystem=strict$') "Tunnel unit must protect host filesystem."
-Assert-True ($tunnelUnit -match '(?m)^ExecStart=/usr/bin/cloudflared --no-autoupdate --config /opt/personal-knowledge-pipeline/fns/runtime/cloudflared/config\.yml tunnel run$') "Tunnel unit must use exact isolated configuration."
+Assert-True ($tunnelUnit -match '(?m)^User=fns-tunnel\r?$') "Tunnel unit must use dedicated unprivileged account."
+Assert-True ($tunnelUnit -match '(?m)^NoNewPrivileges=true\r?$') "Tunnel unit must prevent privilege escalation."
+Assert-True ($tunnelUnit -match '(?m)^ProtectSystem=strict\r?$') "Tunnel unit must protect host filesystem."
+Assert-True ($tunnelUnit -match '(?m)^ExecStart=/usr/bin/cloudflared --no-autoupdate --config /opt/personal-knowledge-pipeline/fns/runtime/cloudflared/config\.yml tunnel run\r?$') "Tunnel unit must use exact isolated configuration."
 
 foreach ($requiredPhrase in @(
         "Registration bootstrap",

@@ -1,6 +1,6 @@
 services:
   fast-note-sync:
-    image: haierkeys/fast-note-sync-service:3.6.0@sha256:560ab727f2a0bac804a6db9e467b68d7df1a1cf059e72dfccc0412aa4c62e89e
+    image: haierkeys/fast-note-sync-service:3.6.1@sha256:15833f15e83cee05794c3fe6028c7e41fd36c787f0d651415cad556579fc379f
     restart: unless-stopped
     ports:
       - "[::1]:${FNS_HOST_PORT:-19000}:9000"

@@ -2,7 +2,7 @@
 
 Status: Release 1 installation path for one private synthetic vault.
 
-This guide installs Fast Note Sync server `3.6.0`, creates the standard
+This guide installs Fast Note Sync server `3.6.1`, creates the standard
 Obsidian layout, and enrolls Windows and Android with Fast Note Sync plugin
 `2.4.0`. Commands may be run by a person or automation. UI steps remain manual.
 For design rationale and failure response, read
