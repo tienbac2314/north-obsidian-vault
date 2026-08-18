@@ -256,6 +256,41 @@ does not reopen historical Phase 2 records.
   native New note fallback, template/property preservation, and Windows plus
   Android parity across all listed routes.
 
+### Execution checkpoint: visible creation repair
+
+Status: current approved configuration batch passed Windows and Android checks.
+
+- Rollback archive: `G:\Cua Bac\North-backups\North-ux-20260818-prechange.zip`.
+  SHA-256: `7883596125CBB71ED2EAA951715DAB26E7DEFA5D567813587FACB31FAF38B555`.
+- Disposable: `C:\Users\TienBac\AppData\Local\Temp\North-ux-disposable-20260818`.
+  Live: `G:\Cua Bac\North`.
+- Note Toolbar now exposes one flat `Create` list with 18 readable actions.
+  It uses separators, not nested child menus. Note Toolbar source behavior was
+  verified: nested menus below top level are suppressed, so nested grouping
+  would produce empty menus.
+- Templater no longer auto-triggers Project or Area child templates at
+  `PARA/1. PROJECTS` and `PARA/2. AREAS`. Other mappings remain unchanged.
+- QuickAdd now exposes readable `Add Project Note` and `Add Area Note` routes;
+  existing templates and destinations remain the writer backend.
+- Getting Started now names Create, Capture, Project/Area family versus child,
+  and native New note fallback in plain language.
+- Windows result: live North and disposable window were maximized at
+  1920x1033 content capture. Create opened all labels. `Project: New project`
+  opened `New Project Family`; cancellation created no file.
+- Android result: serial `01234ABC`, active vault
+  `/storage/emulated/0/Documents/Dusk-Goal1-Safe-Rerun/Dusk_light`, native
+  1200x2000 capture. Create opened all labels. `Project: New project` opened
+  the expected prompt; cancellation created no file. Android menu and prompt
+  screenshots are outside Git under `G:\Cua Bac\North-backups\`.
+- Windows and active Android hashes match for final Note Toolbar, Templater,
+  QuickAdd, and Getting Started files. Full evidence is in
+  `G:\Cua Bac\North-backups\North-ux-20260818-evidence.txt`.
+- The mistaken non-active Android FNS-Test target was restored from its
+  prepromotion backup. No accepted configuration remains there.
+- Remaining scope: path-aware Project/Area context actions and the full
+  cross-plugin matrix remain future work in this active goal. This checkpoint
+  changes only visible routing, duplicate template ownership, and onboarding.
+
 The durable live-vault detail checkpoint remains outside this repository at
 `C:\Users\TienBac\AppData\Local\Temp\dusk-light-template-demo-rebuild-state.md`.
 

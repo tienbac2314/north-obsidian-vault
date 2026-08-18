@@ -130,13 +130,21 @@ Android must expose every required route through thumb-accessible toolbar or
 drawer actions; no required flow may need right-click, hover, or keyboard.
 Geometry can differ. Meaning and result cannot.
 
+### Accepted Note Toolbar limit
+
+Note Toolbar supports one submenu level for this configuration. A menu nested
+inside `Create` renders empty instead of showing its children. Accepted design
+therefore uses one flat `Create` list with separators and readable labels. This
+keeps same intent grouping without a broken second-level menu on Windows or
+Android.
+
 ## Safe batch order
 
 1. Record exact North baseline and create disposable Windows/Android copies.
 2. Test current Project, Area, child, Resource, Inbox, Scratch, and five period
    routes before edits.
-3. Build visible Note Toolbar grouping that points at current working routes;
-   change labels/grouping only.
+3. Build one-level visible Note Toolbar Create list that points at current
+   working routes; use separators instead of nested menus.
 4. Remove Project/Area Templater root triggers in disposable copy; test native
    New note and explicit child routes.
 5. Harden family creation against existing targets and partial failures.

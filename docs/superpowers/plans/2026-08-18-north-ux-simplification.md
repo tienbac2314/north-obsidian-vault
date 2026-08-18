@@ -92,6 +92,11 @@
 
 **Expected result:** One obvious visible Create/Capture surface, no data-model change, and old backend routes still usable for rollback.
 
+**Implementation result:** Note Toolbar's nested submenu limit was verified in
+source and runtime. The accepted surface is one flat direct-action list with
+separators. Nested child-menu definitions were removed after the flat list was
+tested, so no empty unused menus remain.
+
 ### Task 5: Remove duplicate Project/Area folder triggers
 
 **Files:**
@@ -209,3 +214,15 @@
 - [ ] Leave current goal active until all acceptance tests pass; otherwise record exact blocker and next action.
 
 **Expected result:** Durable state tells next session what changed, what passed, what rolled back, and where raw evidence lives.
+
+## 2026-08-18 execution checkpoint
+
+- Completed: baseline archive, disposable restore, flat Note Toolbar Create
+  list, Project/Area Templater trigger removal, Getting Started update, live
+  promotion, Windows verification, Android verification, and rollback record.
+- Not changed: vault note content, semantic properties, plugin set, NN
+  navigation model, or backend family route logic.
+- Deferred: path-aware context actions and full Bases/Datacore/Tasks/Meta Bind
+  regression matrix. Keep this plan active until those checks are separately
+  authorized and completed.
+- Evidence: `G:\Cua Bac\North-backups\North-ux-20260818-evidence.txt`.
