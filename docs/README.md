@@ -32,6 +32,11 @@ Research supports decisions but does not authorize implementation. Refresh time-
 
 - [Fast Note Sync pilot operations](../deploy/fns/README.md)
 
+## Current disposable-vault rebuild
+
+- [Dusk template demo rebuild design](superpowers/specs/2026-08-18-dusk-template-demo-rebuild-design.md)
+- [Dusk template demo rebuild plan](superpowers/plans/2026-08-18-dusk-template-demo-rebuild.md)
+
 ## Preserved work
 
 - [Skill-generated work index](generated-work-index.md) - working specifications and plans, some superseded.
