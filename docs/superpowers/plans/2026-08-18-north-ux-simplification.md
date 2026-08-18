@@ -293,3 +293,23 @@ North without changing live plugin state until Windows and Android pass.
 
 **Rollback:** Restore Note Toolbar JSON from the fresh backup; remove the
 disposable hider directory and restore Native menus. Do not delete vault notes.
+
+## 2026-08-18 follow-up execution result
+
+- Passed Windows disposable Project and Area directory routes through visible
+  Obsidian UI at maximized 1920x1033.
+- Passed project child template proof: `UX Route Test` contains the existing
+  `project_note` template structure and was created in the active project
+  folder.
+- Passed live North restart and visible menu checks. Promoted Note Toolbar
+  JSON only; live SHA-256 is
+  `95A2974A0972F7E99346EC923AD378B548A26ECF94BD88D30C643B3970F62480`.
+- Passed disposable Hide Commands in Menu `0.1.9` targeted-row check. Kept
+  plugin and Native-menu change disposable-only.
+- Android identity was verified, but no current North vault exists on serial
+  `01234ABC`; no Android write or parity claim was made.
+- Backup and sanitized evidence are outside Git at
+  `G:\\Cua Bac\\North-backups\\North-ux-20260818-context-menu-pilot-*`.
+- Supersedes the pre-execution state line above. Future Android promotion
+  requires current North to appear on device; do not copy the hider without a
+  separate acceptance of Native-menu behavior.

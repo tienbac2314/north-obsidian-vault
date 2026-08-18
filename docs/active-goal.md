@@ -316,9 +316,46 @@ Accepted repair scope:
   menus, live North, Android, and all other menu rows unchanged until disposable
   Windows/Android review passes.
 
-Current state: plan accepted; implementation not started. Next action is fresh
-North backup, disposable JSON patch, and plugin pilot. Live promotion requires
-fresh Windows and registered Android identity checks plus rollback evidence.
+Current state before execution: plan accepted; implementation not started.
+Superseded by the execution result below.
+
+### Superseding execution result: directory actions and context-menu pilot
+
+Updated: 2026-08-18
+
+- Windows disposable route checks passed at maximized 1920x1033:
+  `Add note to this project` now opens QuickAdd `New Project Note` in the
+  active project folder; the duplicate `Project Note` row is gone. Area toolbar
+  now has one `Add note to this area` row, no Area family row, and opens
+  QuickAdd `New Area Note` in the active area folder.
+- Disposable `UX Route Test` was created through the project route at
+  `PARA/1. PROJECTS/DUMMY - Project Showcase/`. Its file contains the real
+  `project_note` frontmatter and Components, connection, date, priority, status,
+  and Description template fields.
+- The accepted Note Toolbar JSON was promoted to live North. Live restart and
+  visible checks passed: project prompt showed
+  `New Project Note -> PARA/1. PROJECTS/Skibidi/`; Area menu showed only
+  `Add note to this area`, `Documentation Note`, and `Workstation Note`.
+- Live Note Toolbar SHA-256 after promotion:
+  `95A2974A0972F7E99346EC923AD378B548A26ECF94BD88D30C643B3970F62480`.
+- Disposable-only Hide Commands in Menu `0.1.9` pilot passed. Exact
+  `Create new note from template` disappeared from the file-explorer context
+  menu while core New note, Custom Sort, Notebook Navigator, Quick Explorer,
+  and delete rows remained. Plugin and Native-menu setting were not promoted
+  to live North.
+- Android identity is verified as serial `01234ABC`, model `TrebleDroid with
+  GApps`, Android `14`, but no current North vault exists on the device. No
+  Android file or plugin config was changed; Android promotion remains blocked
+  until North is present.
+- Rollback archive:
+  `G:\Cua Bac\North-backups\North-ux-20260818-context-menu-pilot-prechange.zip`.
+  SHA-256:
+  `A18DFCF7C5D1B44022F8BF92542F36C738F177C0B9846F620D5E262150407C79`.
+- Sanitized evidence:
+  `G:\Cua Bac\North-backups\North-ux-20260818-context-menu-pilot-evidence.txt`.
+- This follow-up is complete for its authorized Windows/live scope. Keep the
+  hider disposable-only. Do not claim Android parity until current North is
+  available on Android.
 
 ## Historical Phase 1 next action (superseded)
 
