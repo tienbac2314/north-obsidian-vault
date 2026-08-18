@@ -294,6 +294,32 @@ Status: current approved configuration batch passed Windows and Android checks.
 The durable live-vault detail checkpoint remains outside this repository at
 `C:\Users\TienBac\AppData\Local\Temp\dusk-light-template-demo-rebuild-state.md`.
 
+### Approved follow-up: directory actions and context-menu pilot
+
+Approved 2026-08-18. Read-only code inspection found one live routing bug:
+Note Toolbar project-directory action `Add note to this project` points to
+QuickAdd `New Project Family` instead of child choice
+`quickadd:choice:75b22050-2882-4386-b3c9-c9597b9a550a`. Existing `Project Note`
+already points to the child template and current folder. Area child route works;
+its labels are ambiguous.
+
+Accepted repair scope:
+
+- Point project-directory `Add note to this project` to `New Project Note`.
+- Remove duplicate project-directory `Project Note`.
+- Rename Area child action to `Add note to this area` and keep family creation in
+  global Create.
+- Keep Documentation Note and Workstation Note in directory toolbars.
+- Do not add another quick-capture command; existing `Fleeting Note` remains.
+- Pilot `Hide Commands in Menu` `0.1.9` in disposable only. Hide only exact
+  `Create new note from template` in file-explorer context menus. Keep Native
+  menus, live North, Android, and all other menu rows unchanged until disposable
+  Windows/Android review passes.
+
+Current state: plan accepted; implementation not started. Next action is fresh
+North backup, disposable JSON patch, and plugin pilot. Live promotion requires
+fresh Windows and registered Android identity checks plus rollback evidence.
+
 ## Historical Phase 1 next action (superseded)
 
 Begin import-first Dusk design from current `main`. Read the

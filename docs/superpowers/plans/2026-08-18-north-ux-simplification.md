@@ -226,3 +226,70 @@ tested, so no empty unused menus remain.
   regression matrix. Keep this plan active until those checks are separately
   authorized and completed.
 - Evidence: `G:\Cua Bac\North-backups\North-ux-20260818-evidence.txt`.
+
+## Approved follow-up: directory actions and context-menu pilot
+
+**Goal:** Make Project and Area directory actions point to the correct child
+templates, then test one narrowly configured context-menu hider in disposable
+North without changing live plugin state until Windows and Android pass.
+
+**Files:**
+
+- Modify disposable: `C:\Users\TienBac\AppData\Local\Temp\North-ux-disposable-20260818\.obsidian\plugins\note-toolbar\data.json`
+- Add disposable plugin only: `C:\Users\TienBac\AppData\Local\Temp\North-ux-disposable-20260818\.obsidian\plugins\hide-commands-in-menu\{main.js,manifest.json,styles.css}`
+- Add disposable plugin settings: `C:\Users\TienBac\AppData\Local\Temp\North-ux-disposable-20260818\.obsidian\plugins\hide-commands-in-menu\data.json`
+- Promote accepted Note Toolbar change to live: `G:\Cua Bac\North\.obsidian\plugins\note-toolbar\data.json`
+- Promote accepted Note Toolbar change to registered Android North target only after identity proof.
+- Modify: `docs/active-goal.md`
+- Modify: this plan
+- Evidence outside Git: `G:\Cua Bac\North-backups\North-ux-20260818-context-menu-pilot-*`
+
+**Exact behavior change:**
+
+- Project directory toolbar keeps one child action named `Add note to this project`.
+  It calls `QuickAdd: New Project Note` with command ID
+  `quickadd:choice:75b22050-2882-4386-b3c9-c9597b9a550a`.
+- Remove duplicate `Project Note` from that directory-only toolbar.
+- Remove family creation from the Area directory-only toolbar. Rename its child
+  action to `Add note to this area`. Family creation stays in global Create.
+- Keep Documentation Note and Workstation Note in both directory toolbars.
+- Do not add a second quick-capture route. Existing global `Fleeting Note` remains
+  the quick note route.
+- In disposable context-menu pilot only, hide exact `Create new note from template`
+  under file-explorer context menus. Keep `Custom sort:`, `Reveal in Notebook
+  Navigator`, `Show in Quick Explorer`, core New note, and destructive rows visible
+  until a separate user-approved cleanup.
+
+**Steps and gates:**
+
+- [ ] Create a fresh current-North backup and sanitized manifest before mutation.
+- [ ] Verify disposable Note Toolbar and QuickAdd hashes against current North;
+  stop on mismatch and reconcile before editing.
+- [ ] Apply only the three Note Toolbar changes above. Parse JSON before and after.
+- [ ] Download official release `bomian98/obsidian-hide-commands-in-menu` `0.1.9`
+  files into disposable only. Record release URL and file hashes outside Git.
+- [ ] Set disposable plugin data to exact default settings with
+  `fileMenu.fileExplorerContext.plainTexts` containing only
+  `Create new note from template`; all other plain and regex lists stay empty;
+  `delayTime` stays `1`.
+- [ ] Disable Native menus in disposable through Obsidian Settings only for the
+  pilot. Confirm context menu still opens and row filtering is targeted.
+- [ ] Test Project directory action: one child note, current project folder,
+  existing `template_project_note.md`, no family prompt.
+- [ ] Test Area directory action: one child note, current area folder,
+  existing `template_area_note.md`, no family prompt.
+- [ ] Test global New Project and New Area family routes remain unchanged.
+- [ ] Test editor menu, file-explorer menu, and NN menu. Confirm only the exact
+  pilot row disappears; no core creation, navigation, Custom Sort, NN, or delete
+  action disappears.
+- [ ] Test Android registered target identity and the same directory routes. Do
+  not install the context-menu pilot on Android unless its mobile behavior is
+  explicitly visible and safe; record that limitation if applicable.
+- [ ] If disposable Note Toolbar passes and no unrelated menu regression appears,
+  promote only Note Toolbar JSON to North and Android. Keep hider plugin disposable
+  until a later explicit acceptance of Native-menu behavior.
+- [ ] Run JSON parsing, SHA-256, Windows UI, Android UI, link, secret, and clean
+  Git checks. Record rollback archive and exact final hashes.
+
+**Rollback:** Restore Note Toolbar JSON from the fresh backup; remove the
+disposable hider directory and restore Native menus. Do not delete vault notes.
