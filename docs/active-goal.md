@@ -1,8 +1,13 @@
-# Active goal
+# Current active goal
+
+Current work is the North UX simplification goal below. Phase 1 material in
+this file is historical and superseded; it remains for traceability only.
 
 Updated: 2026-07-24
 
-## Objective
+## Historical Phase 1 foundation (superseded)
+
+### Objective
 
 Preserve the completed Phase 1 FNS foundation, record the abandoned hand-built
 Phase 2 attempt, and prepare a concise import-first Dusk evaluation without
@@ -12,7 +17,7 @@ Status: Phase 1 complete. Phase 2 PR #4 was closed without merge and its live
 changes were rolled back on 2026-07-24. No Dusk import source, plugin set, or
 promotion plan is currently accepted.
 
-## Checkpoint
+### Checkpoint
 
 - [DEC-039](decisions/decision-log.md#dec-039-archive-hand-built-phase-2-and-restart-import-first)
   supersedes the hand-built Dusk recreation from closed PR #4.
@@ -90,7 +95,134 @@ promotion plan is currently accepted.
   guide. It supports direct human use or automation without assuming a live
   human-agent choreography.
 
-## Next action
+## Current North UX simplification goal
+
+Updated: 2026-08-18
+
+Status: active. This is a current parallel goal for the live North vault. It
+does not reopen historical Phase 2 records.
+
+- Objective: make Windows and Android vault management obvious to a first-time
+  Obsidian user without exposing plugin internals or brittle template paths.
+- Scope: creation, family and child notes, folder placement, naming, capture,
+  period notes, task controls, navigation, Notebook Navigator, File Explorer,
+  Note Toolbar, QuickAdd, Templater, Bases/Datacore surfaces, onboarding,
+  status icons, sync parity, rollback, and safe defaults.
+- Current fact: North has multiple creation doors. QuickAdd owns family and
+  child routes, Note Toolbar exposes another menu, Templater folder triggers
+  create child notes in PARA roots, and native File Explorer exposes generic
+  creation. Main problem is duplicated doors and labels, not missing templates.
+- Research fact: public Obsidian `workspace.on('file-menu')` and
+  `Menu.addItem()` can add custom file actions. Public API does not safely
+  reorder or remove built-in entries. Commander advertises hide/reorder support
+  but adds another plugin and does not implement North family routing by itself.
+- Research fact: QuickAdd documents Template, Capture, Macro, and Multi as
+  separate choices; Multi is an organizational group. Templater supports
+  explicit template/folder creation but has documented asynchronous creation
+  edge cases. Family creation must have one owner.
+- Research fact: Agent Reach through Cốc Cốc/OpenCLI is connected. Reddit
+  Notebook Navigator release posts show calendar period creation, property
+  browsing, manual sort, custom group headers, and mobile limitations. Treat
+  Reddit as advisory; verify installed behavior before implementation.
+- Agent Reach retry: `opencli v1.8.6`, extension `v1.0.22`, profile connected.
+  Fresh Notebook Navigator release evidence says NN can create/open daily
+  notes from its calendar, show custom properties and task icons, use folder
+  note templates, filter by dates/tasks, and expose folder/tag navigation.
+  It also confirms NN intentionally separates navigation tree from file list;
+  it does not provide one mixed File Explorer tree. See the advisory
+  [NN 2.1 release post](https://www.reddit.com/r/ObsidianMD/comments/1qe7m3q/notebook_navigator_21_is_here_custom_properties/)
+  and [NN 2.3 release post](https://www.reddit.com/r/ObsidianMD/comments/1r0y73j/notebook_navigator_23_300_000_downloads_tasks/).
+- UX implication: configure NN more fully before adding another navigation
+  plugin. Test its calendar, period patterns, folder-note template, task icon,
+  custom property, shortcut, mobile height, and folder-sort settings against
+  North. Do not promise File Explorer parity where NN's product model is
+  intentionally different.
+- ChatGPT Chrome review is pending. Existing Chrome session is connected to the
+  `Dusk obsidian` project and `Dusk_light UX Review` conversation. No message
+  has been posted yet; review must use a sanitized design brief and no private
+  vault data or credentials.
+- Decision gate: do not mutate North until one UX design is selected. First
+  design target is one human-facing Create menu, conditional Project/Area
+  family and child actions, readable labels, stable paths, and a short
+  onboarding flow. Keep native actions as fallback until PC/Android tests pass.
+- Design alternatives under review:
+  - A, recommended: keep QuickAdd as the execution backend, make Note Toolbar
+    the visible Create menu, and add two small public `file-menu` actions for
+    Project/Area roots. Show `New Project`, `Add note to Project`, `New Area`,
+    and `Add note to Area` only where they make sense. Keep native `New note`
+    as fallback. No extra plugin.
+  - B: install Commander to hide/reorder commands, then keep current
+    QuickAdd/Note Toolbar routes. Lower custom code, but adds another plugin
+    and still needs context-aware family routing.
+  - C: simplify Note Toolbar only. Lowest change risk, but native File
+    Explorer still exposes generic actions and family creation remains hidden.
+- Recommended user model: one Create menu for common actions; one Capture menu
+  for Inbox and Sticky; NN for browsing/calendar; File Explorer as fallback.
+  Project Family creates `PARA/1. PROJECTS/<name>/1. <name>.md`; Area Family
+  creates `PARA/2. AREAS/<name>/2. <name>.md`; child creation is separate. Do
+  not guess connections, dates, status, or priorities. Keep existing template
+  files until a full reference audit proves a rename is safe.
+- Recommended NN pass before any added hook: verify calendar period patterns,
+  folder-note template, task icon, custom property display, shortcuts, manual
+  sort, and mobile navigation height against actual North behavior. NN's own
+  navigation tree and file list remain separate by design.
+- Acceptance gate for design: user accepts A, B, or C. Implementation then
+  proceeds in disposable-first batches with PC/Android rollback and tests.
+- Draft contract for A, pending acceptance:
+  - Human labels: `New Project`, `New Area`, `Add note`, `Resource note`,
+    `Meeting`, `Contact`, `Daily note`, `Quick capture`, and `Scratch note`.
+    Hide `Family`, `Multi`, `Macro`, `Template`, and raw template filenames
+    from normal menus.
+  - Project root action creates one folder and one hub note using the existing
+    Project Family template. Area root does the same with the Area Family
+    template. Child action uses existing child templates inside the selected
+    family folder. Native `New note` remains a visible fallback.
+  - Capture rule: `Quick capture` writes to INBOX; `Scratch note` writes to
+    STICKY. Resource type choices remain available without forcing users to
+    understand semantic type names first.
+  - Templater remains child-note fallback at PARA roots. QuickAdd remains the
+    single family-creation owner. No duplicate family write path.
+  - NN remains browser and calendar. Configure and test task icons, selected
+    type/status previews, folder-note behavior, period creation, shortcuts,
+    numeric folder order, and Android sizing before changing other navigation.
+  - Bases, Datacore, Tasks, Meta Bind, status-icon sync, and existing note
+    content remain unchanged in first batch. Simplification targets labels,
+    routing, and discoverability before data migration.
+  - Onboarding gets one "choose this" table and one PC/Android walkthrough;
+    each action names destination, template result, and recovery path.
+  - Each batch has a disposable copy, exact backup, PC test, Android test,
+    rollback check, and compact result entry. Live North changes wait for
+    acceptance after disposable evidence.
+- Read-only North audit on 2026-08-18:
+  - QuickAdd exposes 12 direct choices plus nested `Multi - Project`,
+    `Multi - Area`, and `Multi - Meeting`; it also exposes internal macros and
+    a daily-task capture command. This is functional but too technical for a
+    first-time user.
+  - Note Toolbar repeats the same creation routes in separate `top_*` menus.
+    It also exposes duplicate Home entries and unrelated Garble/Focus controls
+    in settings navigation. No changes made.
+  - Templater folder triggers correctly own child-note defaults at PARA roots;
+    they must stay separate from family creation.
+  - NN already maps daily, weekly, monthly, quarterly, and yearly calendar
+    patterns to numbered North folders and uses the NN templates. Its current
+    settings have folder-note creation disabled, task progress enabled, custom
+    property display empty, and no visible file-name icon map. These are
+    configuration candidates, not yet accepted changes.
+  - NN currently shows `PARA/1. PROJECTS`, `PARA/2. AREAS`, and
+    `PARA/3. RESOURCES` as separate navigation branches with correct icons;
+    mixed folder/file-tree parity is not available by design.
+  - JS Engine is installed as mobile-capable and already runs a startup script
+    using `app.workspace.on(...)`. This makes the recommended public
+    `file-menu` hook technically feasible without adding Commander, but it is
+    still untested on Android and must first run in a disposable copy.
+- Verification gate: backup before each material batch; test representative
+  Project Family, Area Family, child, resource, capture, period, task,
+  navigation, status-icon, context-menu, and sync flows on Windows and Android.
+
+The durable live-vault detail checkpoint remains outside this repository at
+`C:\Users\TienBac\AppData\Local\Temp\dusk-light-template-demo-rebuild-state.md`.
+
+## Historical Phase 1 next action (superseded)
 
 Begin import-first Dusk design from current `main`. Read the
 [reversal record](archive/2026-07-24-phase-2-reversal.md), reuse archived
@@ -98,7 +230,7 @@ observations only after revalidation, identify the exact user-tested source,
 and approve a concise design before disposable-vault implementation. Do not
 revive or merge PR #4.
 
-## Deferred promotion work
+## Historical Phase 1 deferred promotion work
 
 - Dusk source choice, populated versus empty base, Discord deltas, plugin
   upgrades, AI-note tooling, mobile defects, and live promotion remain
@@ -115,7 +247,7 @@ revive or merge PR #4.
   synthetic fixtures and the preserved DEC-038 Notion exception; no additional
   personal or employer content is authorized.
 
-## Authority
+## Historical Phase 1 authority
 
 - [Executive summary](executive-summary.md)
 - [System design](system-design.md)
