@@ -434,5 +434,25 @@ identity cannot be proven, do not show that action.
 
 ### Current status
 
-Planning approved. Runtime mutation has not started. This supersedes the
-earlier disposable-only pilot as current work without rewriting its result.
+Runtime completed 2026-08-19. Steps 1 through 10 passed on Windows live North
+and Android disposable; step 11 required no rollback; step 12 is this result
+update plus repository validation and publication.
+
+- Windows target: `G:\Cua Bac\North`, maximized Obsidian `1.13.6`.
+- Android target: serial `01234ABC`, Obsidian `1.13.7`, disposable
+  `/storage/emulated/0/Android/data/md.obsidian/files/North-Android-Disposable-20260819`.
+- Both targets have Hide Commands `0.1.9`, `nativeMenus=false`, the two exact
+  hidden duplicate labels, `delayTime=100`, and the same
+  `north_context_menu.js` SHA-256
+  `2B56AB553BE33877857835F49F4B190068FEE27340E8AF7C22E75B983AB00097`.
+- Windows and Android menus retained native creation, navigation, sorting,
+  Notebook Navigator, rename, move, and delete behavior. Path-aware project,
+  area, resource, Sticky, and Inbox actions appeared only in matching paths.
+- Android Contact action opened the existing QuickAdd prompt and was canceled;
+  no new named note was created. No destructive action or rollback was needed.
+- Raw evidence and manifest:
+  `G:\Dusk-Knowledge-Hub\payload\evidence\North-UX-Personalization-20260819-ContextMenus\`.
+
+This supersedes the earlier disposable-only pilot as current work without
+rewriting its truthful historical result. Android disposable verification is
+not live Android North sync proof.

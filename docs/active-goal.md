@@ -203,8 +203,46 @@ The pilot remains truthful historical evidence; it is not current acceptance.
   requested menu location.
 - `Hide Commands in Menu` is mobile-capable but requires Obsidian Native menus
   to be disabled. Record that setting and prove rollback before acceptance.
-- Runtime status: design approved; backups, implementation, Windows review,
-  Android review, and final publication are not yet complete.
+- Runtime status: implementation and review completed 2026-08-19. Windows live
+  North and Android disposable use same Hide Commands contract and the same
+  path-aware North action script. Android remains disposable evidence only;
+  live Android North sync is not claimed.
+
+### Current runtime result: full cross-platform context menus
+
+- Fresh rollback archives were created before mutation:
+  `G:\Cua Bac\North-backups\North-full-pre-context-menu-20260819-085949.zip`
+  SHA-256 `D86D054B5E56C794AFBC8000E726B238F8BFDB7534F0B08E31F047B08979BA28`;
+  Android archive
+  `G:\Cua Bac\North-backups\North-android-disposable-pre-context-menu-20260819-085949.zip`
+  SHA-256 `D931D8EB497302BA74F2E88E1AC5E5350C474E715345DD828BD1E6DF6D39ED06`.
+- `Hide Commands in Menu` `0.1.9` is enabled on both targets. Native menus are
+  disabled as required by that plugin. Delay is `100 ms`; this fixed the
+  Templater timing race that left its duplicate template row visible on the
+  Windows project folder menu.
+- Only these duplicate file-explorer labels are hidden:
+  `New note from template` and `Create new note from template`. Native note,
+  folder, Base, canvas, drawing, icon, sorting, navigation, rename, move,
+  duplicate, and delete actions remain visible.
+- `SYSTEM/TEMPLATE/CODE/north_context_menu.js` is registered beside the
+  existing status-icon startup script on both targets. It exposes existing
+  QuickAdd/template routes only: project, area, matching resource type, Sticky,
+  and Inbox actions. It does not create made-up Markdown files.
+- Windows live review passed at maximized `1920x1033`: project root, project
+  folder, area root, area folder, resource categories, Sticky, Inbox, and note
+  editor. The editor menu retained native actions and showed project actions.
+- Android disposable review passed at native `1200x2000`: project root, project
+  folder, area root, area folder, Contacts, Sticky, and Inbox. A Contact action
+  opened the existing QuickAdd prompt targeting
+  `PARA/3. RESOURCES/CONTACTS/`; it was canceled. No new named note was made.
+- Evidence manifest and raw screenshots are outside Git at
+  `G:\Dusk-Knowledge-Hub\payload\evidence\North-UX-Personalization-20260819-ContextMenus\`.
+  Manifest SHA-256:
+  `5F34FBACE68323BB7CFB0F442C983A444E6355E4436C1B79BE66BDE99F90CC82`.
+- Remaining boundary: Android is a disposable target, not live North sync.
+  No credentials, FNS configuration, note deletion, or folder deletion was
+  performed. The earlier disposable-only pilot stays historical and is not
+  current acceptance.
 
 Primary sources:
 
