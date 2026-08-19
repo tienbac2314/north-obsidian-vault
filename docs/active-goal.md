@@ -770,3 +770,26 @@ Verified 2026-08-19 after the hidden-row repair above.
   `63CB4D09DB0A4B756004EFCC4B437D04AB6359A232C59FE64A0D2919127E4C95`.
 - Static contract test and `node --check` pass. Temporary diagnostic files were
   removed after measurement.
+
+## Current result: replace Highlightr with Highlightr Plus
+
+Verified 2026-08-19 on live Windows North.
+
+- Backup before mutation:
+  `G:\Cua Bac\North-backups\North-pre-highlightr-plus-20260819-1730.zip`.
+  SHA-256:
+  `92b378e6416b861f1337f859c80e47ba0074f52dee15882b2d6960da629cec2f`.
+- Replaced enabled community ID `highlightr-plugin` version `1.2.2` with
+  official `highlightr-plus` version `1.2.4` from
+  `bluelephant825/highlightr-plus`. Manifest marks it mobile-capable.
+- Migrated existing Red, Green, and Remove highlight hotkeys to
+  `highlightr-plus:Red`, `highlightr-plus:Green`, and
+  `highlightr-plus:unhighlight`.
+- No old Highlightr `data.json` existed. Existing inline `<mark>` highlights
+  remain readable because Plus keeps same output format.
+- Old plugin folder moved recoverably to
+  `G:\Cua Bac\North-backups\North-old-highlightr-plugin-20260819-1730`.
+- Fresh maximized Computer Use check opened Highlightr Plus and its
+  Highlights & Notes panel. Temporary test note was removed afterward.
+- `node --check` passed. Old plugin path is absent; new plugin path is present.
+  Android North runtime parity was not reverified in this session.
