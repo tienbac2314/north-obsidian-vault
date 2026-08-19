@@ -318,12 +318,15 @@ Updated 2026-08-19.
 
 - Removed North-only `INBOX/` and its dummy showcase note. It contained no
   personal notes.
-- Removed `Create Inbox Capture`, the duplicate `Capture: Inbox capture`
+- Removed `Create Inbox Capture`, the duplicate capture action for the removed
+  physical `INBOX/` route,
   toolbar item, the `INBOX` Templater mapping, the `INBOX` Note Toolbar
   mapping, the `INBOX` bookmark, the North context-menu action, Homepage and
-  mobile Homepage Inbox controls, task-view Inbox grouping, and current
+  mobile Homepage capture controls, task-view Inbox grouping, and current
   onboarding references. Cleared stale Recent Files, cursor, Fast Note Sync,
   and Iconic backup state plus the old Inbox onboarding image.
+- Preserved and restored the legacy Mail Box buttons on desktop and mobile
+  Homepage. Their tooltip is now `Open Mail Box`, not `Open Inbox`.
 - STICKY remains the single fast-capture route. Future AI review can use
   `review_ai`/`review_ai_needs_user` tags or an optional STICKY subfolder; it
   does not need a dedicated Inbox route.
