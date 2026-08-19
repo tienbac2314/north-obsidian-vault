@@ -260,8 +260,8 @@ rewriting its earlier evidence.
 
 - `SYSTEM/TEMPLATE/CODE/north_context_menu.js` places North actions immediately
   before the `Custom sort` row when present, after normal create/tools/reveal
-  rows. Match menu title prefix because Obsidian omits the visible colon in its
-  DOM text, and wait for delayed Custom Sort insertion before using fallback.
+  rows. Match full menu-item text because Custom Sort uses a submenu item, and
+  wait for delayed insertion before using fallback.
   Destructive rows remain below. This matches Notebook Navigator order without
   putting North actions at the top or bottom.
 - `DAILY` exposes `North: Open today`, `North: Open this week`, `North: Open
