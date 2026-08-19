@@ -243,6 +243,12 @@ The pilot remains truthful historical evidence; it is not current acceptance.
   No credentials, FNS configuration, note deletion, or folder deletion was
   performed. The earlier disposable-only pilot stays historical and is not
   current acceptance.
+- Post-review layout cleanup: old Windows disposable window
+  `North-ux-disposable-20260818` was closed without editing or deleting its
+  files. Live North had two persisted `Todo List` leaves; one was closed
+  through Obsidian UI. Live North now persists one `Todo List` in the
+  bottom-right pane. Timer remains above it and its task display is part of
+  Timer, not a second Todo List.
 
 Primary sources:
 

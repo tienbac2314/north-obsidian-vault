@@ -450,6 +450,10 @@ update plus repository validation and publication.
   area, resource, Sticky, and Inbox actions appeared only in matching paths.
 - Android Contact action opened the existing QuickAdd prompt and was canceled;
   no new named note was created. No destructive action or rollback was needed.
+- After review, the obsolete Windows disposable window was closed without
+  changing its files. Live North had two persisted `Todo List` leaves; one was
+  closed through Obsidian UI and one remains bottom-right. Timer remains a
+  separate view with its own task display.
 - Raw evidence and manifest:
   `G:\Dusk-Knowledge-Hub\payload\evidence\North-UX-Personalization-20260819-ContextMenus\`.
 
