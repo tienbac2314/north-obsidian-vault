@@ -746,3 +746,27 @@ Verified 2026-08-19 on live Windows North at maximized `1920x1033`.
   `332ACDE8CB7A39E9ECA8F675AC8C01DBAEE70F40618773BD05DA57C0D47D35FA`.
 - Static contract test and `node --check` pass. Android North parity is not
   claimed.
+
+## Current result: compact native File Explorer boundary
+
+Verified 2026-08-19 after the hidden-row repair above.
+
+- Root cause: normal Obsidian File Explorer supplied a native separator before
+  the grouped North actions. Earlier North styling targeted only separators it
+  created, so the native boundary kept its larger inherited margin.
+- Repair: detect the native separator whose next menu group contains North
+  actions, set its vertical margin to `1px`, and avoid adding a second leading
+  separator when that native boundary already exists. Keep the intentional
+  separator between North actions and `Custom sort:`.
+- Fresh maximized Windows measurement: native boundary height `1px`,
+  `marginTop: 1px`, `marginBottom: 1px`; North starts immediately after it.
+  Final visual check passed on `4. QUARTERLY`; the hidden template row is absent.
+- Performance scope: no watcher, persistent polling, or new plugin. This uses
+  the existing menu-open transient retry path and one bounded DOM scan only
+  when a menu opens.
+- No note, folder, property, task, or command content changed. Android North
+  parity is not claimed.
+- Current live script SHA-256:
+  `63CB4D09DB0A4B756004EFCC4B437D04AB6359A232C59FE64A0D2919127E4C95`.
+- Static contract test and `node --check` pass. Temporary diagnostic files were
+  removed after measurement.

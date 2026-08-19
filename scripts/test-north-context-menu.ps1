@@ -25,4 +25,16 @@ if ($missing.Count -gt 0) {
     throw "North NN menu contract missing: $($missing -join ', ')"
 }
 
+if ($source -notmatch "setProperty\('margin', '1px 0'\, 'important'\)") {
+    throw "North context-menu separators must use compact 1px vertical margins."
+}
+
+if ($source -notmatch "const northGroupBoundary") {
+    throw "North context-menu script must compact native separator before North group."
+}
+
+if ($source -notmatch "const beforeNorth = northGroupBoundary \? null") {
+    throw "North context-menu script must avoid duplicate separator before North group."
+}
+
 Write-Output "PASS: North context-menu script exposes NN file/folder menu routes."
