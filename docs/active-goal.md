@@ -658,3 +658,26 @@ Verified 2026-08-19 on live Windows North at maximized `1920x1033`.
   `G:\Dusk-Knowledge-Hub\payload\evidence\North-UX-Personalization-20260819-MetaBindDateTime\manifest.json`.
 - Android target `01234ABC` was not changed or reverified. Shared-template
   parity remains a separate authorized check.
+
+## Current result: North menu separators and faster startup registration
+
+Verified 2026-08-19 after the prior menu-order result.
+
+- Live North script: `G:\Cua Bac\North\SYSTEM\TEMPLATE\CODE\north_context_menu.js`.
+- Native File Explorer menu now shows a visible separator before North actions
+  and another separator before `Custom sort:`. North actions no longer visually
+  merge with Custom Sort.
+- Notebook Navigator registration polling changed from 250 ms to 50 ms. This
+  reduces startup wait for its path-aware North actions without changing menu
+  routes or retry count.
+- Fresh maximized Windows screenshot showed the two separated North menu
+  blocks. No command was clicked; no note, folder, property, or task content
+  changed.
+- Live script SHA-256:
+  `79A02F3A3A8ED372DEF22EF718C112784F8DB7E8B1367096BC9ECC18822326D0`.
+- Rollback copy:
+  `G:\Cua Bac\North-backups\North-pre-menu-fast-registration-20260819-1538.js`
+  with prior SHA-256
+  `7C009C6D997378EFDC767F5B08C155B9A1A7016FF7C7150A3601CA5FEE0F6F7A`.
+- Static contract test and `node --check` pass. Android North parity is not
+  claimed.
