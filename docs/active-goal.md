@@ -262,6 +262,8 @@ rewriting its earlier evidence.
   before the `Custom sort` row when present, after normal create/tools/reveal
   rows. Match visible full menu-item text across menu DOMs because Custom Sort
   uses a submenu item, and move North items into its parent when needed.
+  Preserve separators before and after the North block when both native menu
+  separators exist.
   Destructive rows remain below. This matches Notebook Navigator order without
   putting North actions at the top or bottom.
 - `DAILY` exposes `North: Open today`, `North: Open this week`, `North: Open
