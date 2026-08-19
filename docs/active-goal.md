@@ -263,7 +263,8 @@ rewriting its earlier evidence.
   rows. Match visible full menu-item text across menu DOMs because Custom Sort
   uses a submenu item, and move North items into its parent when needed.
   Preserve separators before and after the North block when both native menu
-  separators exist.
+  separators exist; the script adds the trailing block separator when native
+  menu exposes only the leading separator.
   Destructive rows remain below. This matches Notebook Navigator order without
   putting North actions at the top or bottom.
 - `DAILY` exposes `North: Open today`, `North: Open this week`, `North: Open
