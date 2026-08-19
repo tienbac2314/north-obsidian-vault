@@ -278,6 +278,37 @@ rewriting its earlier evidence.
 - Android remains disposable evidence only. Live Android North sync is not
   claimed.
 
+### Superseding runtime result: Notebook Navigator menu bridge
+
+Verified 2026-08-19 on live Windows North at maximized `1920x1033`.
+
+- Root cause: native `file-menu` listeners do not reach Notebook Navigator's
+  separate menus. The old North routes therefore appeared in File Explorer but
+  not in NN.
+- Repair: `SYSTEM/TEMPLATE/CODE/north_context_menu.js` now registers the same
+  path-aware actions through NN's public `registerFileMenu` and
+  `registerFolderMenu` API, with retry after plugin startup.
+- Fresh visual checks passed. NN now shows `North: New project` on
+  `PARA/1. PROJECTS`; project folders and files show `North: Add note to this
+  project`, `North: Documentation note`, and `North: Workstation note`; `DAILY`
+  shows `North: Open today`, week, month, quarter, and year.
+- No creation action was clicked. No note, folder, property, or task content
+  changed during this check.
+- Current live script SHA-256:
+  `9EBA9C980073D1BD7B13881050AC94260F0A51B53BC1A62B7262188F9EDE8EE1`.
+  Prechange rollback script is preserved at
+  `G:\Cua Bac\North-backups\North-nn-menu-prechange-20260819-115032\SYSTEM\TEMPLATE\CODE\north_context_menu.js`
+  with SHA-256
+  `E9D32F93635758BB610973E70B978507CD4B46B0FF5145728525C67A62ECB0D4`.
+- Static contract test and JavaScript parse check pass in
+  `scripts/test-north-context-menu.ps1`.
+- Limitation: NN's public API adds custom items to NN's extension section; it
+  does not expose safe hide/reorder controls for NN's built-in rows. Labels,
+  icons, destinations, and path filtering now match North's native menus;
+  exact row placement inside NN remains plugin-controlled.
+- Android North remains unclaimed. Shared script can be synced and verified in
+  a later Android-specific check.
+
 ### Superseding runtime result: Homepage task-entry focus layout
 
 Verified 2026-08-19 at maximized Windows North.
