@@ -703,3 +703,22 @@ Verified 2026-08-19 after the previous separator result.
   `D0E8353809E3F44CDD9CF23914A8A7CAFD626505B2718EA0030C37595CCBE225`.
 - Static contract test and `node --check` pass. Android North parity is not
   claimed.
+
+## Current result: North menu block follows native reveal rows
+
+Verified 2026-08-19 after the previous separator result.
+
+- Root cause: North actions were anchored at `Custom sort` while native rows
+  remained between `Show in Quick Explorer` and North, creating the large gap.
+- Repair: anchor North actions immediately after the last native `Show in ...`
+  row, then keep one styled separator before and after the North block.
+- Fresh maximized Computer Use checks passed for `DAILY`, `4. QUARTERLY`, and
+  nested `DUMMY - Project Showcase`. The North block is directly below the
+  native reveal rows and directly above `Custom sort`.
+- No note, folder, property, task, or command content changed.
+- Live script SHA-256:
+  `FC1B3C47DAA99243F29F04191862F4BEAFA944C954E86DBF52C936838D06A10`.
+- Rollback copy:
+  `G:\Cua Bac\North-backups\North-pre-menu-geometry-debug-20260819-1615.js`.
+- Static contract test and `node --check` pass. Android North parity is not
+  claimed.
