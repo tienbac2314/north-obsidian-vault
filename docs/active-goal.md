@@ -278,6 +278,32 @@ rewriting its earlier evidence.
 - Android remains disposable evidence only. Live Android North sync is not
   claimed.
 
+### Superseding runtime result: Homepage task-entry focus layout
+
+Verified 2026-08-19 at maximized Windows North.
+
+- Reproduction: Homepage Add a task focused the task input and inserted
+  "Type a task above, then press the arrow." into the same flex row as the
+  note picker and task input. The row used flexWrap: nowrap; the status
+  child used flex: 1 0 100%, so the message overlapped the controls.
+- Repair: split task-entry controls from status layout. Picker and input keep
+  one desktop row and mobile keeps its stacked controls. Status now renders
+  below controls at full width.
+- Updated source copies:
+  G:\Cua Bac\North\HUB\Homepage.md,
+  G:\Cua Bac\North\SYSTEM\MOBILE HUB\Mobile Homepage.md, and
+  G:\Cua Bac\North\SYSTEM\TEMPLATE\CSS\Timeline\Datacore Timeline View.md.
+- Windows UI checks passed at 1920x1033: Add a task shows helper text
+  below the row; empty arrow submission shows "Type a task first." below the
+  row. Picker, input, task panel, and lower navigation remain visible. No note
+  or task content was created or changed.
+- Rollback copy:
+  G:\Cua Bac\North-backups\North-homepage-task-bug-prechange-20260819-1042.
+- Raw user and fresh Windows captures plus manifest:
+  G:\Dusk-Knowledge-Hub\payload\evidence\North-UX-Personalization-20260819-HomepageTaskBug.
+- Android was not mutated or reverified in this turn. The shared Mobile
+  Homepage source copy was updated in Windows North for later sync.
+
 Primary sources:
 
 - [Hide Commands in Menu](https://github.com/bomian98/obsidian-hide-commands-in-menu)

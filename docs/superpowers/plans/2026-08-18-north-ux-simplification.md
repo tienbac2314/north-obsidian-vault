@@ -479,3 +479,24 @@ Verified 2026-08-19 after the full context-menu result above.
   `G:\Dusk-Knowledge-Hub\payload\evidence\North-UX-Personalization-20260819-MenuOrderDaily\manifest.json`.
 - Android remains disposable evidence only; no live Android sync claim. No
   menu action was clicked and no note/file mutation occurred during review.
+
+### Superseding result: Homepage task-entry focus layout
+
+Verified 2026-08-19 on live Windows North at maximized 1920x1033.
+
+- Cause: task-entry status used flex: 1 0 100% inside a
+  flexWrap: nowrap controls row. Clicking the lower Add a task button
+  therefore overlapped the picker and input.
+- Fix: task-entry now has a controls wrapper plus a separate full-width
+  status line. Desktop picker/input alignment and mobile stacking remain
+  unchanged.
+- Files changed in North:
+  HUB/Homepage.md, SYSTEM/MOBILE HUB/Mobile Homepage.md, and
+  SYSTEM/TEMPLATE/CSS/Timeline/Datacore Timeline View.md.
+- Checks: lower Add a task and empty arrow submission both render status
+  below controls with no overlap. No note content changed.
+- Rollback:
+  G:\Cua Bac\North-backups\North-homepage-task-bug-prechange-20260819-1042.
+- Evidence:
+  G:\Dusk-Knowledge-Hub\payload\evidence\North-UX-Personalization-20260819-HomepageTaskBug.
+- Android disposable/live parity was not tested or changed in this turn.
