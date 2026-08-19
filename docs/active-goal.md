@@ -357,6 +357,33 @@ Updated: 2026-08-18
   hider disposable-only. Do not claim Android parity until current North is
   available on Android.
 
+### Superseding execution result: Android disposable created and verified
+
+Updated: 2026-08-19
+
+- The earlier Android absence statement is superseded for disposable testing.
+  Android had no live North vault. A separate app-storage disposable was
+  created at `/storage/emulated/0/Android/data/md.obsidian/files/North-Android-Disposable-20260819`.
+- Source was current live North `G:\Cua Bac\North`. Old Dusk vaults were not
+  changed. Fast Note Sync and Hider were excluded; no sync connection or
+  credential was inspected.
+- Device identity: serial `01234ABC`, model `TrebleDroid with GApps`, Android
+  `14`, Obsidian package `md.obsidian`, Obsidian `1.13.7`.
+- Note Toolbar hash matches live North byte-for-byte:
+  `95A2974A0972F7E99346EC923AD378B548A26ECF94BD88D30C643B3970F62480`.
+- Project route passed. Visible menu rows were `Add note to this project`,
+  `Documentation Note`, and `Workstation Note`. Prompt targeted the current
+  project folder and was canceled; no note was created.
+- Area route passed. Visible menu rows were `Add note to this area`,
+  `Documentation Note`, and `Workstation Note`. Prompt targeted the current
+  area folder and was canceled; no note was created.
+- Package: `G:\Cua Bac\North-backups\North-android-disposable-20260819.zip`.
+  SHA-256: `A101668C1FAEAB7E9CF1551C9CD58E302BEED4A2F7585E209AFCB1D0D0A12A23`.
+  Manifest and sanitized evidence are next to the archive. Raw Android
+  screenshots remain outside Git in the same backup directory.
+- This proves the repaired Note Toolbar routes on an Android disposable only.
+  It does not claim live Android North parity or sync behavior.
+
 ## Historical Phase 1 next action (superseded)
 
 Begin import-first Dusk design from current `main`. Read the

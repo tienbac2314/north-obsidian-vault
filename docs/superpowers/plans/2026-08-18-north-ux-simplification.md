@@ -313,3 +313,26 @@ disposable hider directory and restore Native menus. Do not delete vault notes.
 - Supersedes the pre-execution state line above. Future Android promotion
   requires current North to appear on device; do not copy the hider without a
   separate acceptance of Native-menu behavior.
+
+## 2026-08-19 Android disposable execution result
+
+- Earlier Android absence statement is superseded for disposable testing.
+  Android had no live North vault, so a separate app-storage vault was created:
+  `/storage/emulated/0/Android/data/md.obsidian/files/North-Android-Disposable-20260819`.
+- Source was current live North `G:\Cua Bac\North`. Old Dusk vaults stayed
+  untouched. Fast Note Sync and Hider were excluded. No sync connection or
+  credential was inspected.
+- Device: serial `01234ABC`, model `TrebleDroid with GApps`, Android `14`,
+  Obsidian `1.13.7`.
+- Note Toolbar hash matches live North:
+  `95A2974A0972F7E99346EC923AD378B548A26ECF94BD88D30C643B3970F62480`.
+- Project route passed. Menu exposed `Add note to this project`,
+  `Documentation Note`, and `Workstation Note`; prompt targeted the active
+  project folder and was canceled without creating a note.
+- Area route passed. Menu exposed `Add note to this area`,
+  `Documentation Note`, and `Workstation Note`; prompt targeted the active area
+  folder and was canceled without creating a note.
+- Archive and manifest: `G:\Cua Bac\North-backups\North-android-disposable-20260819.*`.
+  Sanitized evidence: `G:\Cua Bac\North-backups\North-ux-android-disposable-20260819-evidence.txt`.
+- Result is Android disposable verification only. Live Android North and sync
+  parity remain unclaimed.
