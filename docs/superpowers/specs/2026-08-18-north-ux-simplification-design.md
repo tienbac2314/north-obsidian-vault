@@ -23,7 +23,7 @@ paths stay out of normal use.
 
 ## User model
 
-User sees five concepts: Project, Area, Resource, Inbox, and Scratch. Today
+User sees four concepts: Project, Area, Resource, and Scratch. Today
 and other period notes belong to the calendar/time surface, not general
 creation.
 
@@ -42,7 +42,6 @@ Create
 │  ├─ Contact
 │  └─ Meeting
 └─ Capture
-   ├─ Inbox
    └─ Scratch
 ```
 
@@ -107,9 +106,9 @@ does not invent a new prefix.
 ### Resource and capture
 
 `Resource` groups Knowledge, Documentation, Contact, and Meeting. `Capture`
-groups Inbox and Scratch. Each route uses existing template and destination:
-`PARA/3. RESOURCES/KNOWLEDGE`, `DOCUMENTATIONS`, `CONTACTS`, `MEETINGS`,
-`INBOX`, and `STICKY`.
+contains Scratch. Each route uses existing template and destination:
+`PARA/3. RESOURCES/KNOWLEDGE`, `DOCUMENTATIONS`, `CONTACTS`, `MEETINGS`, and
+`STICKY`.
 
 ## Notebook Navigator and File Explorer
 
@@ -141,7 +140,7 @@ Android.
 ## Safe batch order
 
 1. Record exact North baseline and create disposable Windows/Android copies.
-2. Test current Project, Area, child, Resource, Inbox, Scratch, and five period
+2. Test current Project, Area, child, Resource, Scratch, and five period
    routes before edits.
 3. Build one-level visible Note Toolbar Create list that points at current
    working routes; use separators instead of nested menus.
@@ -165,7 +164,7 @@ outside Git. Live North is never the first test target.
 - Repeating same Project opens existing target and creates no duplicate.
 - Project child and Area child use correct existing templates in correct folder.
 - Native New note below Project/Area roots stays plain.
-- Resource, Inbox, and Scratch routes use correct destinations.
+- Resource and Scratch routes use correct destinations.
 - No route writes twice, moves silently, or overwrites existing content.
 - NN opens/creates all five period types at canonical numbered paths.
 - Bases, Datacore, Tasks, Meta Bind, status icons, links, and previews still

@@ -165,7 +165,7 @@ does not reopen historical Phase 2 records.
   - C: simplify Note Toolbar only. Lowest change risk, but native File
     Explorer still exposes generic actions and family creation remains hidden.
 - Recommended user model: one visible Create menu for Project, Area, Add note,
-  and grouped Resources; one Capture menu for Inbox and Sticky; NN for
+  and grouped Resources; one Scratch capture route to STICKY; NN for
   browsing/calendar; File Explorer as fallback. Do not put Daily note in the
   general Create menu. Project Family creates
   `PARA/1. PROJECTS/<name>/1. <name>.md`; Area Family creates
@@ -195,7 +195,7 @@ The pilot remains truthful historical evidence; it is not current acceptance.
 - Add context-aware North actions through a separate JS Engine startup script
   using existing QuickAdd command IDs and existing templates. Do not expose
   raw QuickAdd, Templater, Macro, Multi, or template-file labels.
-- Project, Area, Resource, and capture actions appear only where the selected
+- Project, Area, Resource, and Sticky actions appear only where the selected
   path proves they apply. Link and URL menus stay native unless a safe current
   note action is proven.
 - Do not add Commander. Its current source adds commands to file/editor menus
@@ -208,7 +208,10 @@ The pilot remains truthful historical evidence; it is not current acceptance.
   path-aware North action script. Android remains disposable evidence only;
   live Android North sync is not claimed.
 
-### Current runtime result: full cross-platform context menus
+### Historical runtime result: full cross-platform context menus
+
+The earlier Inbox capture route in this result was superseded by the
+2026-08-19 removal entry below. The remaining menu behavior is current.
 
 - Fresh rollback archives were created before mutation:
   `G:\Cua Bac\North-backups\North-full-pre-context-menu-20260819-085949.zip`
@@ -226,8 +229,8 @@ The pilot remains truthful historical evidence; it is not current acceptance.
   duplicate, and delete actions remain visible.
 - `SYSTEM/TEMPLATE/CODE/north_context_menu.js` is registered beside the
   existing status-icon startup script on both targets. It exposes existing
-  QuickAdd/template routes only: project, area, matching resource type, Sticky,
-  and Inbox actions. It does not create made-up Markdown files.
+  QuickAdd/template routes only: project, area, matching resource type, and
+  Sticky actions. It does not create made-up Markdown files.
 - Windows live review passed at maximized `1920x1033`: project root, project
   folder, area root, area folder, resource categories, Sticky, Inbox, and note
   editor. The editor menu retained native actions and showed project actions.
@@ -309,6 +312,28 @@ Verified 2026-08-19 on live Windows North at maximized `1920x1033`.
 - Android North remains unclaimed. Shared script can be synced and verified in
   a later Android-specific check.
 
+### Superseding runtime result: remove redundant Inbox capture route
+
+Updated 2026-08-19.
+
+- Removed North-only `INBOX/` and its dummy showcase note. It contained no
+  personal notes.
+- Removed `Create Inbox Capture`, the duplicate `Capture: Inbox capture`
+  toolbar item, the `INBOX` Templater mapping, the `INBOX` Note Toolbar
+  mapping, the `INBOX` bookmark, the North context-menu action, Homepage and
+  mobile Homepage Inbox controls, task-view Inbox grouping, and current
+  onboarding references. Cleared stale Recent Files, cursor, Fast Note Sync,
+  and Iconic backup state plus the old Inbox onboarding image.
+- STICKY remains the single fast-capture route. Future AI review can use
+  `review_ai`/`review_ai_needs_user` tags or an optional STICKY subfolder; it
+  does not need a dedicated Inbox route.
+- Preserved original Dusk `HUB/Mail Box.md` and
+  `SYSTEM/MOBILE HUB/Mobile Mail Box.md`; those are legacy dashboards, not the
+  removed `INBOX/` folder.
+- Rollback: `G:\Cua Bac\North-backups\North-pre-inbox-removal-20260819-1230\`.
+- Trace-cleanup rollback: `G:\Cua Bac\North-backups\North-pre-inbox-trace-cleanup-20260819-1245\`.
+- Windows live target: `G:\Cua Bac\North`. Android live sync is not claimed.
+
 ### Superseding runtime result: Homepage task-entry focus layout
 
 Verified 2026-08-19 at maximized Windows North.
@@ -340,9 +365,8 @@ Primary sources:
 - [Hide Commands in Menu](https://github.com/bomian98/obsidian-hide-commands-in-menu)
 - [Commander source](https://github.com/jsmorabito/obsidian-commander)
 - Contract for A with review changes:
-  - Human labels: `New Project`, `New Area`, `Add note`, `Resource`,
-    `Capture`, `Inbox`, and `Scratch`. Put low-frequency Resource choices
-    under `Resource`; put Inbox and Sticky under `Capture`. Keep Daily,
+  - Human labels: `New Project`, `New Area`, `Add note`, `Resource`, and
+    `Scratch`. Put low-frequency Resource choices under `Resource`. Keep Daily,
     Weekly, Monthly, Quarterly, and Yearly in the NN calendar/time system,
     not in the general Create menu. Hide `Family`, `Multi`, `Macro`,
     `Template`, and raw template filenames from normal menus.
@@ -350,9 +374,10 @@ Primary sources:
     Project Family template. Area root does the same with the Area Family
     template. Child action uses existing child templates inside the selected
     family folder. Native `New note` remains a visible fallback.
-  - Capture rule: `Quick capture` writes to INBOX; `Scratch note` writes to
-    STICKY. Resource type choices remain available without forcing users to
-    understand semantic type names first.
+  - Capture rule: `Scratch note` writes to STICKY. Future AI review uses
+    `review_ai`/`review_ai_needs_user` tags or an optional STICKY subfolder; it
+    does not need a dedicated Inbox route. Resource type choices remain
+    available without forcing users to understand semantic type names first.
   - QuickAdd remains the single family-creation owner. Templater renders the
     template explicitly selected by that route. Remove automatic Project and
     Area root folder triggers; otherwise native New note can silently receive
@@ -400,7 +425,7 @@ Primary sources:
   QuickAdd, Templater, NN, or raw template names.
 - Use a compact visible tree:
   `Create` -> `New Project`, `New Area`, `Add to existing` -> `Project` or
-  `Area`, `Resource`, and `Capture` -> `Inbox` or `Scratch`.
+  `Area`, `Resource`, and `Scratch`.
 - Keep `Today` in Homepage and period creation in NN calendar. Do not add a
   second Daily-note owner.
 - Remove automatic Templater triggers on `PARA/1. PROJECTS` and

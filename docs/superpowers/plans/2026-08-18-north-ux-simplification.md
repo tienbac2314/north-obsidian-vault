@@ -1,5 +1,10 @@
 # North UX Simplification Implementation Plan
 
+> Current supersession (2026-08-19): North no longer has a dedicated
+> `INBOX/` route. The accepted live result uses STICKY as the only fast-capture
+> destination. Inbox steps and results below remain historical evidence from
+> the earlier implementation plan.
+
 > **For agentic workers:** Execute inline in this session with durable checkpoints. Main agent owns all North edits, Windows/Android verification, rollback, and evidence. No subagent or parallel writer.
 
 **Goal:** Make North creation and navigation obvious while preserving existing templates, properties, links, plugin behavior, and PC/Android parity.
