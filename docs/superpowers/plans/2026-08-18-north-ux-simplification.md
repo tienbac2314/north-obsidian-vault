@@ -460,3 +460,22 @@ update plus repository validation and publication.
 This supersedes the earlier disposable-only pilot as current work without
 rewriting its truthful historical result. Android disposable verification is
 not live Android North sync proof.
+
+### Superseding result: top-ordered journal directory menus
+
+Verified 2026-08-19 after the full context-menu result above.
+
+- North actions now move above native rows in every matching menu.
+- `DAILY` shows five current-period actions. `1. DAILY`, `2. WEEKLY`,
+  `3. MONTHLY`, `4. QUARTERLY`, and `5. YEARLY` each show only their matching
+  action. Project and Area root actions remain top-ordered.
+- Windows passed at maximized `1920x1033`. Android disposable passed at native
+  `1200x2000` after Obsidian restart reloaded JS Engine startup scripts.
+- Final script SHA-256 on both targets:
+  `E9D32F93635758BB610973E70B978507CD4B46B0FF5145728525C67A62ECB0D4`.
+- Prechange rollback root:
+  `G:\Cua Bac\North-backups\North-menu-order-daily-prechange-20260819-101430\`.
+- New evidence manifest and raw captures remain outside Git:
+  `G:\Dusk-Knowledge-Hub\payload\evidence\North-UX-Personalization-20260819-MenuOrderDaily\manifest.json`.
+- Android remains disposable evidence only; no live Android sync claim. No
+  menu action was clicked and no note/file mutation occurred during review.

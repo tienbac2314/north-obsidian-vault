@@ -250,6 +250,34 @@ The pilot remains truthful historical evidence; it is not current acceptance.
   bottom-right pane. Timer remains above it and its task display is part of
   Timer, not a second Todo List.
 
+### Superseding runtime result: top-ordered daily menus
+
+Updated 2026-08-19. This extends the full context-menu result above without
+rewriting its earlier evidence.
+
+- `SYSTEM/TEMPLATE/CODE/north_context_menu.js` now moves North actions to the
+  top of each matching native folder/file menu. Native Obsidian rows remain
+  below them.
+- `DAILY` exposes `North: Open today`, `North: Open this week`, `North: Open
+  this month`, `North: Open this quarter`, and `North: Open this year`.
+- Numbered period folders expose one matching action: `1. DAILY` today,
+  `2. WEEKLY` week, `3. MONTHLY` month, `4. QUARTERLY` quarter, and `5. YEARLY`
+  year. Project and Area root actions remain top-ordered.
+- Windows review passed at maximized `1920x1033`. Android disposable review
+  passed at native `1200x2000` after restarting Obsidian so its JS Engine
+  startup script reloaded. No menu action was clicked; no note or file was
+  created or changed by this check.
+- Final script SHA-256 is
+  `E9D32F93635758BB610973E70B978507CD4B46B0FF5145728525C67A62ECB0D4` on
+  Windows and Android. Prechange rollback script SHA-256 was
+  `2B56AB553BE33877857835F49F4B190068FEE27340E8AF7C22E75B983AB00097`.
+- Rollback root:
+  `G:\Cua Bac\North-backups\North-menu-order-daily-prechange-20260819-101430\`.
+  Evidence manifest:
+  `G:\Dusk-Knowledge-Hub\payload\evidence\North-UX-Personalization-20260819-MenuOrderDaily\manifest.json`.
+- Android remains disposable evidence only. Live Android North sync is not
+  claimed.
+
 Primary sources:
 
 - [Hide Commands in Menu](https://github.com/bomian98/obsidian-hide-commands-in-menu)
