@@ -501,20 +501,30 @@ Verified 2026-08-19 on live Windows North at maximized 1920x1033.
   G:\Dusk-Knowledge-Hub\payload\evidence\North-UX-Personalization-20260819-HomepageTaskBug.
 - Android disposable/live parity was not tested or changed in this turn.
 
-### Superseding result: Meta Bind date-only fields
+### Superseded interim result: Meta Bind date-only fields
 
 Verified 2026-08-19 on live Windows North at maximized `1920x1033`.
 
 - Cause: `Date_Created` and `Due_Date` stored date-only YAML values, while
   their Meta Bind controls used `dateTime`, which expects date plus time.
-- Repair: use `datePicker(defaultValue(null))` for both date-only fields in the
-  Project and Project-child templates.
-- Updated 10 existing Project-family and Project-child notes with the same
-  control. Stored YAML remains `2026-08-18` and `2026-08-22` in the synthetic
-  check note; no note body or property name changed.
-- Windows passed: both controls displayed values, and both date-picker dialogs
-  opened with the correct day selected. Dialogs were closed without mutation.
-- Rollback: `G:\Cua Bac\North-backups\North-metabind-date-picker-prechange-20260819-1105`.
-- Evidence manifest and raw screenshot:
+- Interim repair: use `datePicker(defaultValue(null))` for both date-only fields
+  in the Project and Project-child templates.
+- Superseded by user requirement: preserve old Dusk date plus time behavior.
+- This date-only demo state is not current. Current demo YAML uses full ISO
+  timestamps and current controls use `dateTime`.
+- Historical rollback: `G:\Cua Bac\North-backups\North-metabind-date-picker-prechange-20260819-1105`.
+- Historical evidence:
   `G:\Dusk-Knowledge-Hub\payload\evidence\North-UX-Personalization-20260819-MetaBindDatePicker\manifest.json`.
 - Android was not changed or reverified in this repair.
+
+### Current result: restore old Dusk date-time fields
+
+- Restored `dateTime` controls in both shared project templates and ten existing
+  project-family or project-child notes.
+- Demo values are `2026-08-18T10:15` and `2026-08-22T17:00`.
+- Windows rendered both date and time in the maximized North window.
+- Current evidence:
+  `G:\Dusk-Knowledge-Hub\payload\evidence\North-UX-Personalization-20260819-MetaBindDateTime\manifest.json`.
+- Current rollback:
+  `G:\Cua Bac\North-backups\North-metabind-date-time-restore-prechange-20260819-1130`.
+- Android was not changed or reverified.

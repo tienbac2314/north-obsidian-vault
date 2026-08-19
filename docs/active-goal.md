@@ -552,26 +552,42 @@ revive or merge PR #4.
 
 `docs/archive/`, `docs/superpowers/`, chat history, and NotebookLM output remain history or working evidence unless promoted into current modules or accepted decisions.
 
-## Superseding current result: Meta Bind date-only fields
+## Superseded interim result: Meta Bind date-only fields
 
 Verified 2026-08-19 on live Windows North at maximized `1920x1033`.
 
 - Cause: `Date_Created` and `Due_Date` stored `YYYY-MM-DD` values, but their
   controls used Meta Bind `dateTime`, which expects a date plus a time. Bases
   read the same YAML correctly; Meta Bind showed empty controls.
-- Fix: changed date-only controls to
+- Interim fix: changed date-only controls to
   `INPUT[datePicker(defaultValue(null)):Date_Created]` and
   `INPUT[datePicker(defaultValue(null)):Due_Date]`.
+- Superseded: user confirmed old Dusk date plus time behavior is required.
 - Changed shared templates: `SYSTEM/TEMPLATE/FORMAT/template_project.md` and
   `template_project_note.md`.
 - Updated 10 existing Project-family and Project-child notes using the same
   broken control. No property names, YAML values, note bodies, links, or task
   text changed.
-- Synthetic check note still stores `Date_Created: 2026-08-18` and
-  `Due_Date: 2026-08-22`. Both controls now display those values. Both date
-  pickers opened with the matching day selected; both were closed without a
-  value change.
-- Rollback: `G:\Cua Bac\North-backups\North-metabind-date-picker-prechange-20260819-1105`.
-- Evidence: `G:\Dusk-Knowledge-Hub\payload\evidence\North-UX-Personalization-20260819-MetaBindDatePicker\`.
+- This date-only demo result is not current. Current demo YAML uses full ISO
+  timestamps and current controls use `dateTime`.
+- Historical rollback: `G:\Cua Bac\North-backups\North-metabind-date-picker-prechange-20260819-1105`.
+- Historical evidence: `G:\Dusk-Knowledge-Hub\payload\evidence\North-UX-Personalization-20260819-MetaBindDatePicker\`.
 - Android was not changed or reverified in this repair. Shared template parity
-  remains pending a later authorized sync check.
+   remains pending a later authorized sync check.
+
+## Current result: restore old Dusk date-time fields
+
+Verified 2026-08-19 on live Windows North at maximized `1920x1033`.
+
+- Restored `INPUT[dateTime(defaultValue(null)):Date_Created]` and
+  `INPUT[dateTime(defaultValue(null)):Due_Date]` in both shared project
+  templates and ten existing project-family or project-child notes.
+- Demo values now use full timestamps: `2026-08-18T10:15` and
+  `2026-08-22T17:00`.
+- Windows rendered `Date Created: 08/18/2026 10:15 AM` and
+  `Due Date: 08/22/2026 05:00 PM`, matching old Dusk behavior.
+- Current rollback: `G:\Cua Bac\North-backups\North-metabind-date-time-restore-prechange-20260819-1130`.
+- Evidence manifest and screenshot:
+  `G:\Dusk-Knowledge-Hub\payload\evidence\North-UX-Personalization-20260819-MetaBindDateTime\manifest.json`.
+- Android target `01234ABC` was not changed or reverified. Shared-template
+  parity remains a separate authorized check.
