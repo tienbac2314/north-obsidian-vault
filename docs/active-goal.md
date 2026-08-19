@@ -260,8 +260,8 @@ rewriting its earlier evidence.
 
 - `SYSTEM/TEMPLATE/CODE/north_context_menu.js` places North actions immediately
   before the `Custom sort` row when present, after normal create/tools/reveal
-  rows. Match full menu-item text because Custom Sort uses a submenu item, and
-  wait for delayed insertion before using fallback.
+  rows. Match visible full menu-item text across menu DOMs because Custom Sort
+  uses a submenu item, and move North items into its parent when needed.
   Destructive rows remain below. This matches Notebook Navigator order without
   putting North actions at the top or bottom.
 - `DAILY` exposes `North: Open today`, `North: Open this week`, `North: Open
