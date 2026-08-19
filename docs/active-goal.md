@@ -551,3 +551,27 @@ revive or merge PR #4.
 - [Git workflow](git-workflow.md)
 
 `docs/archive/`, `docs/superpowers/`, chat history, and NotebookLM output remain history or working evidence unless promoted into current modules or accepted decisions.
+
+## Superseding current result: Meta Bind date-only fields
+
+Verified 2026-08-19 on live Windows North at maximized `1920x1033`.
+
+- Cause: `Date_Created` and `Due_Date` stored `YYYY-MM-DD` values, but their
+  controls used Meta Bind `dateTime`, which expects a date plus a time. Bases
+  read the same YAML correctly; Meta Bind showed empty controls.
+- Fix: changed date-only controls to
+  `INPUT[datePicker(defaultValue(null)):Date_Created]` and
+  `INPUT[datePicker(defaultValue(null)):Due_Date]`.
+- Changed shared templates: `SYSTEM/TEMPLATE/FORMAT/template_project.md` and
+  `template_project_note.md`.
+- Updated 10 existing Project-family and Project-child notes using the same
+  broken control. No property names, YAML values, note bodies, links, or task
+  text changed.
+- Synthetic check note still stores `Date_Created: 2026-08-18` and
+  `Due_Date: 2026-08-22`. Both controls now display those values. Both date
+  pickers opened with the matching day selected; both were closed without a
+  value change.
+- Rollback: `G:\Cua Bac\North-backups\North-metabind-date-picker-prechange-20260819-1105`.
+- Evidence: `G:\Dusk-Knowledge-Hub\payload\evidence\North-UX-Personalization-20260819-MetaBindDatePicker\`.
+- Android was not changed or reverified in this repair. Shared template parity
+  remains pending a later authorized sync check.
