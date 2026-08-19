@@ -97,7 +97,7 @@ promotion plan is currently accepted.
 
 ## Current North UX simplification goal
 
-Updated: 2026-08-18
+Updated: 2026-08-19
 
 Status: active. This is a current parallel goal for the live North vault. It
 does not reopen historical Phase 2 records.
@@ -178,6 +178,38 @@ does not reopen historical Phase 2 records.
   navigation tree and file list remain separate by design.
 - Acceptance gate for design: user accepts A, B, or C. Implementation then
   proceeds in disposable-first batches with PC/Android rollback and tests.
+
+### Current superseding direction: full cross-platform context menus
+
+Approved 2026-08-19. User wants the old disposable-only context-menu pilot
+removed from current coverage and replaced by one synchronized North design.
+The pilot remains truthful historical evidence; it is not current acceptance.
+
+- Targets: live Windows North at `G:\Cua Bac\North` and Android disposable at
+  `/storage/emulated/0/Android/data/md.obsidian/files/North-Android-Disposable-20260819`.
+  Android live North sync is not claimed.
+- Hide exact duplicate template rows with `Hide Commands in Menu` `0.1.9`,
+  using both current and legacy labels in file-explorer menus. Keep native New
+  note, folder, Base, canvas, drawing, sorting, navigation, and destructive
+  recovery actions visible.
+- Add context-aware North actions through a separate JS Engine startup script
+  using existing QuickAdd command IDs and existing templates. Do not expose
+  raw QuickAdd, Templater, Macro, Multi, or template-file labels.
+- Project, Area, Resource, and capture actions appear only where the selected
+  path proves they apply. Link and URL menus stay native unless a safe current
+  note action is proven.
+- Do not add Commander. Its current source adds commands to file/editor menus
+  and explorer buttons but does not hide built-in menu rows or cover every
+  requested menu location.
+- `Hide Commands in Menu` is mobile-capable but requires Obsidian Native menus
+  to be disabled. Record that setting and prove rollback before acceptance.
+- Runtime status: design approved; backups, implementation, Windows review,
+  Android review, and final publication are not yet complete.
+
+Primary sources:
+
+- [Hide Commands in Menu](https://github.com/bomian98/obsidian-hide-commands-in-menu)
+- [Commander source](https://github.com/jsmorabito/obsidian-commander)
 - Contract for A with review changes:
   - Human labels: `New Project`, `New Area`, `Add note`, `Resource`,
     `Capture`, `Inbox`, and `Scratch`. Put low-frequency Resource choices

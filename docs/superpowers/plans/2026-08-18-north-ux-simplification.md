@@ -336,3 +336,103 @@ disposable hider directory and restore Native menus. Do not delete vault notes.
   Sanitized evidence: `G:\Cua Bac\North-backups\North-ux-android-disposable-20260819-evidence.txt`.
 - Result is Android disposable verification only. Live Android North and sync
   parity remain unclaimed.
+
+## Superseding execution plan: full cross-platform context menus
+
+Approved 2026-08-19. Replace current pilot coverage with full North menu
+implementation. Keep earlier pilot records unchanged as historical evidence.
+
+### Goal
+
+Make North creation and navigation actions understandable from relevant
+Obsidian menus on Windows and Android, while keeping one backend writer per
+route and the existing templates. Hide only proven duplicate rows. Do not
+turn every native menu into a second Create screen.
+
+### Targets and rollback
+
+- Windows live North: `G:\Cua Bac\North`.
+- Android disposable: `/storage/emulated/0/Android/data/md.obsidian/files/North-Android-Disposable-20260819`.
+- Fresh prechange archives and manifests: `G:\Cua Bac\North-backups\`.
+- Keep existing Android archive as an earlier rollback point. Create a new
+  timestamped archive before this batch.
+- No note-content deletion, folder deletion, FNS inspection, credential
+  inspection, or live Android claim.
+
+### Menu contract
+
+Hide Commands configuration, copied byte-for-byte to both targets:
+
+- `fileMenu.fileExplorerContext.plainTexts`: `New note from template` and
+  `Create new note from template`.
+- `filesMenu.fileExplorerContext.plainTexts`: same two labels.
+- All other Hide Commands plain and regex lists remain empty until a visible
+  duplicate is independently reproduced.
+- Preserve native `New note`, `New folder`, `New canvas`, `New base`, `New
+  drawing`, icon/color/background, sort, shortcuts, search, reveal, rename,
+  move, duplicate, and delete actions.
+
+Additive behavior through
+`SYSTEM/TEMPLATE/CODE/north_context_menu.js`, registered beside the existing
+project status icon startup script:
+
+- Project root: `North: New project`.
+- Project folder or project note: `North: Add note to this project`,
+  `North: Documentation note`, `North: Workstation note`.
+- Area root: `North: New area`.
+- Area folder or area note: `North: Add note to this area`,
+  `North: Documentation note`, `North: Workstation note`.
+- Resource categories: only matching Knowledge, Documentation, Meeting, and
+  Contact creation actions.
+- Inbox and Sticky: only matching capture actions.
+- Editor, link, URL, tab-header, and multi-file menus: add nothing unless the
+  event exposes an exact safe target. Keep native actions otherwise.
+
+Every action must call an existing QuickAdd choice or an existing public
+template route. It must never create a made-up Markdown file. If selected-folder
+identity cannot be proven, do not show that action.
+
+### Execution steps
+
+1. Recheck branch, clean state, live North identity, Android serial, disposable
+   identity, and current plugin/config hashes.
+2. Create and verify fresh Windows and Android prechange archives. Record bytes,
+   SHA-256, and paths outside Git.
+3. Install official `Hide Commands in Menu` `0.1.9` on both targets. Record
+   release URL and plugin-file hashes outside Git.
+4. Disable Native menus through visible Obsidian Settings on each target only
+   after backup. Verify folder context menu still opens.
+5. Set exact hide lists above. Parse JSON and verify no unrelated keys changed.
+6. Add and register `north_context_menu.js`. Preserve existing startup script
+   order and behavior. Validate syntax before Obsidian restart.
+7. Test Windows at maximized size: folder, file, project root, project child,
+   area root, area child, resource, Inbox, Sticky, note editor, link, tab header,
+   multi-file, and cancellation paths.
+8. Test Android disposable by native touch: same relevant paths, menu labels,
+   template creation, cancellation, no empty files, and readable menu layout.
+9. Reopen both targets and verify plugin load, status icon sync, NN, Note Toolbar,
+   QuickAdd, Templater, Bases/Datacore, Tasks, Outline, and existing note links.
+10. Compare Windows and Android plugin/config hashes for intended files only.
+    Record Android as disposable evidence, not live-sync proof.
+11. If any menu, template, or route regresses, restore the exact prechange
+    archive/config and record the rollback. Do not patch around an unknown
+    target.
+12. Update current authority and result ledgers, run repository validators,
+    commit one logical checkpoint, and push only
+    `docs/north-ux-personalization`.
+
+### Acceptance
+
+- Duplicate template creation row is gone from intended file-explorer menus.
+- Native useful actions remain present.
+- North actions show only in proven relevant paths, use existing templates, and
+  create in correct folders.
+- Cancel leaves no file. No route produces a zero-byte note.
+- Windows and Android disposable behavior is readable and functionally aligned.
+- Existing North functionality passes recheck. Exact evidence and rollback
+  identity are recorded outside Git.
+
+### Current status
+
+Planning approved. Runtime mutation has not started. This supersedes the
+earlier disposable-only pilot as current work without rewriting its result.
