@@ -722,3 +722,27 @@ Verified 2026-08-19 after the previous separator result.
   `G:\Cua Bac\North-backups\North-pre-menu-geometry-debug-20260819-1615.js`.
 - Static contract test and `node --check` pass. Android North parity is not
   claimed.
+
+## Current result: remove hidden template rows from North menus
+
+Verified 2026-08-19 on live Windows North at maximized `1920x1033`.
+
+- Root cause: Hide Commands in Menu hid `New note from template` and `Create
+  new note from template` visually but left a 25 px menu row in the DOM. That
+  row created the larger gap above North actions.
+- Repair: North removes those two exact hidden rows before placement, anchors
+  North at `Custom sort`, and accepts the layout only when one separator sits
+  directly after the final native reveal row and one directly before the
+  anchor. Extra separators are removed.
+- Fresh maximized Computer Use checks passed for the `DAILY` root,
+  `4. QUARTERLY`, and nested `DUMMY - Project Showcase`. Menus show no hidden
+  template row, no oversized top gap, and one boundary on each side of North.
+- No note, folder, property, task, or command content changed.
+- Live script SHA-256:
+  `1CF9BD91C955DFBDF746223437A9EEFB5F2B1088BBC95585D8C2F02A58FF6779`.
+- Rollback copy:
+  `G:\Cua Bac\North-backups\North-pre-menu-geometry-debug-20260819-1615.js`
+  with SHA-256
+  `332ACDE8CB7A39E9ECA8F675AC8C01DBAEE70F40618773BD05DA57C0D47D35FA`.
+- Static contract test and `node --check` pass. Android North parity is not
+  claimed.
