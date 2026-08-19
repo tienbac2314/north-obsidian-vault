@@ -681,3 +681,25 @@ Verified 2026-08-19 after the prior menu-order result.
   `7C009C6D997378EFDC767F5B08C155B9A1A7016FF7C7150A3601CA5FEE0F6F7A`.
 - Static contract test and `node --check` pass. Android North parity is not
   claimed.
+
+## Current result: equal North menu separator spacing
+
+Verified 2026-08-19 after the previous separator result.
+
+- Root cause: native `menu.addSeparator()` elements and North-created elements
+  used different inherited spacing after menu reordering. Accessibility showed
+  two separators, but the leading gap rendered larger.
+- Repair: North native menus no longer insert native separators before moving
+  actions. The script creates two North-owned separators with identical 1 px
+  lines, zero padding, and 3 px vertical margins.
+- Fresh maximized Windows checks passed for `DAILY`, `5. YEARLY`, and a project
+  folder. Each shows one equal boundary above and below the North block.
+- No note, folder, property, task, or command content changed.
+- Live script SHA-256:
+  `332ACDE8CB7A39E9ECA8F675AC8C01DBAEE70F40618773BD05DA57C0D47D35FA`.
+- Rollback copy:
+  `G:\Cua Bac\North-backups\North-pre-menu-owned-separators-20260819-1605.js`
+  with SHA-256
+  `D0E8353809E3F44CDD9CF23914A8A7CAFD626505B2718EA0030C37595CCBE225`.
+- Static contract test and `node --check` pass. Android North parity is not
+  claimed.
