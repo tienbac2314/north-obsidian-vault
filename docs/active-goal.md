@@ -264,8 +264,9 @@ rewriting its earlier evidence.
   uses a submenu item, and move North items into its parent when needed.
   Preserve separators before and after the North block when both native menu
   separators exist; the script adds the trailing block separator when native
-  menu exposes only the leading separator. Menu settling now waits at most
-  100 ms.
+  menu exposes only the leading separator. It creates explicit menu separator
+  elements when Obsidian drops trailing separators. Menu settling now waits at
+  most 100 ms.
   Destructive rows remain below. This matches Notebook Navigator order without
   putting North actions at the top or bottom.
 - `DAILY` exposes `North: Open today`, `North: Open this week`, `North: Open
