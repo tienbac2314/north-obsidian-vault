@@ -258,9 +258,10 @@ The earlier Inbox capture route in this result was superseded by the
 Updated 2026-08-19. This extends the full context-menu result above without
 rewriting its earlier evidence.
 
-- `SYSTEM/TEMPLATE/CODE/north_context_menu.js` now moves North actions to the
-  top of each matching native folder/file menu. Native Obsidian rows remain
-  below them.
+- `SYSTEM/TEMPLATE/CODE/north_context_menu.js` now places North actions after
+  native reveal rows (`Show in system explorer` / `Show in Quick Explorer`) in
+  each matching native folder/file menu. This matches Notebook Navigator order;
+  North actions are no longer forced to the top.
 - `DAILY` exposes `North: Open today`, `North: Open this week`, `North: Open
   this month`, `North: Open this quarter`, and `North: Open this year`.
 - Numbered period folders expose one matching action: `1. DAILY` today,
