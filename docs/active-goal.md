@@ -793,3 +793,33 @@ Verified 2026-08-19 on live Windows North.
   Highlights & Notes panel. Temporary test note was removed afterward.
 - `node --check` passed. Old plugin path is absent; new plugin path is present.
   Android North runtime parity was not reverified in this session.
+
+## Current result: replace Checklist with Simple Checklist
+
+Verified 2026-08-19 on live Windows North at maximized `1920x1033`.
+
+- Pre-change backup:
+  `G:\Cua Bac\North-backups\North-pre-simple-checklist-20260819-2046.zip`.
+  SHA-256:
+  `98a3f13f58930aade0820dd20e7f000ed89538d526b1ceb43d904514314f65e4`.
+- Disposable A/B copy:
+  `G:\Cua Bac\North-checklist-disposable-20260819-2046`.
+  Simple Checklist opened, showed ten open items, and clicking an item opened
+  its exact source note. No note or task content was changed.
+- Replaced enabled `obsidian-checklist-plugin` `2.2.14` with official
+  `simple-checklist` `1.10.5`. Live files match downloaded release hashes:
+  `main.js` `e8c1e9d04305190bb38577e340ff1387ae5de34647da66ef1aaf796ffa05a209`,
+  `manifest.json` `42a034e8eb6e111f75cd4be31d5756eb35978ecef6c0784a40b6c5a7be898ca6`,
+  `styles.css` `60975c4128945de5e0c9d7e394f8cc5e21ba381e35cb503963ca83e450cad2fc`.
+- Old plugin folder moved recoverably to
+  `G:\Cua Bac\North-backups\North-old-checklist-plugin-20260819-2046`.
+- Removed stale old Checklist workspace tab after first launch. Fresh close and
+  reopen now loads Simple Checklist directly in right sidebar with no dead-tab
+  error. The new ribbon command is `Open Checklist`.
+- Simple Checklist scans all Markdown files for open `- [ ]` items. It has no
+  folder exclusion setting; template tasks remain visible, matching the old
+  plugin's tagged-template behavior. `Tasks` plugin remains unchanged.
+- Windows result: pass. Android North runtime was not reverified; release
+  manifest marks plugin mobile-capable. Official references:
+  [Simple Checklist community page](https://community.obsidian.md/plugins/simple-checklist),
+  [Simple Checklist 1.10.5 release](https://github.com/l-4553/obsidian-simple-checklist/releases/tag/1.10.5).
