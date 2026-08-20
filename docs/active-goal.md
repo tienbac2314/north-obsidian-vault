@@ -828,42 +828,51 @@ Verified 2026-08-19 on live Windows North at maximized `1920x1033`.
 
 Verified 2026-08-20 on disposable Windows and Android, then live Windows North.
 
-- On-Demand `3.4.6` is now sole startup manager. Default mode is
-  `lazyOnDemand`. `custom-sort` uses `lazyOnDemand`. Custom Frames remains
-  listed for rollback but is `alwaysDisabled`. Lazy Loader `1.0.24` is removed
-  from the active community list; its plugin folder remains recoverable.
+- On-Demand `3.4.6` is now sole startup manager. Default mode is `lazy`.
+  `custom-sort` uses `lazyOnDemand`. Custom Frames is removed from the active
+  community list because On-Demand rewrote its disabled mode to enabled on
+  restart; its plugin folder and list entry remain recoverable. Lazy Loader
+  `1.0.24` is also removed from the active community list.
 - Live North promotion changed only `.obsidian` loader/list configuration.
   Homepage, project and area templates keep exact prechange SHA-256 values:
   `HUB/Homepage.md` `e9cce78cbec4cada47a3756683677ce7fbfce2803ab935b6265790c13a24be6c`;
   `template_project.md` `46c0de529e8ef1491099b66f4393026e49f793ce69b68c32da4a07eae73ff4a6`;
   `template_area.md` `966e1a65a2c4b81451a310984dbf7d74e2f280a693131334b5d8395cb592d96e`.
-- Live list now has 44 entries, includes On-Demand, excludes Lazy Loader, and
-  has no UTF-8 BOM. Live rollback ZIP:
+- Live list now has 43 entries, includes On-Demand, excludes Lazy Loader and
+  Custom Frames, and has no UTF-8 BOM. Live rollback ZIP:
   `G:\Cua Bac\North-backups\North-pre-startup-performance-promote-20260820.zip`;
   SHA-256 `c5ea2f7a93df1ed6066c9576adf025881c1c27058f3f3ad960b89af6e03658af`;
   11,364,782 bytes.
 - Windows disposable measurements: baseline `26.351 s`; first On-Demand UI
-  profile `21.086 s`; lowest usable profile `9.425 s` to first visible window.
-  That profile rendered Homepage and the Datacore task panel immediately;
-  Notebook Navigator, Journals, Tasks, and Outline loaded on demand without
-  raw code or dependency errors.
+  profile `21.086 s`; lower-bound `lazy` profile found its first window at the
+  first `0.5 s` poll and rendered Homepage, Datacore, Notebook Navigator,
+  Journals, Tasks, and Outline without raw code or dependency errors. This is
+  a poll upper bound, not a stopwatch-grade benchmark.
 - Android disposable `01234ABC` target
   `/storage/emulated/0/Android/data/md.obsidian/files/North-Android-Startup-Performance-20260820`
   has matching BOM-free community list SHA-256
-  `360cf3cce2edff767e127b4e77a90ce4f11f3e61e70b63018beb618c7f8f642f` and
+  `360cf3cce2edff767e127b4e77a90ce4f11f3e61e70b63018beb618c7f8f642f` before
+  the final Custom Frames removal; final 43-entry list SHA-256 is
+  `7fc837dea86dd9150438ca45599ee32aa96d9ca6676e229afd3eec14c421c89b` and
   On-Demand data SHA-256
   `48f6bd3ab7f072662955b5e3ba80e5393f24744d71cd8ed2d0594b62fd9b0dff`.
-  Native `1200x2000` settled Homepage, task, calendar, and right-sidebar
+  Native `1200x2000` settled Homepage, task, and right-sidebar
   evidence is outside Git at
   `G:\Dusk-Knowledge-Hub\payload\evidence\North-Startup-Performance-20260820\`;
-  accepted screenshot: `android-deeplink-settled.png`.
+  accepted screenshots: `android-lazy-cold-8s.png`,
+  `android-lazy-left-sidebar.png`, and `android-lazy-right-sidebar.png`.
 - Live North reopened and visually passed at maximized `1920x1033`: Homepage
   buttons, Datacore task panel, left navigation, Journals calendar, and right
   task pane rendered with no source leakage or dependency error. Live Android
   North sync is not claimed.
-- User target `<3 s` was not reached. Removing Homepage, Datacore, indexing, or
-  required navigation would fake the number and damage North UX. The accepted
-  profile is the measured usable floor; an OS-level prelaunch experiment would
-  be a separate choice, not a vault/plugin repair.
+- User target `<3 s` is met by the Windows first-window poll, but Android still
+  needs about `8 s` to settle Homepage from cold start. Removing Homepage,
+  Datacore, indexing, or required navigation would fake a cross-platform
+  number and damage North UX. The accepted profile is the most aggressive
+  usable plugin profile; an OS-level prelaunch experiment is the only remaining
+  route to hide Android's cold-start floor.
 - Full rollback extraction remains at
   `G:\Cua Bac\North-backups\_North-startup-restore-20260820`.
+- Additional exact rollback files:
+  `G:\Cua Bac\North-backups\North-community-pre-customframes-20260820.json`;
+  `G:\Cua Bac\North-backups\North-on-demand-data-pre-fully-lazy-20260820.json`.

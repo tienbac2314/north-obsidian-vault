@@ -8,6 +8,13 @@
 
 **Tech Stack:** Obsidian `1.13.6`; North vault; On-Demand `3.4.6`; Lazy Loader `1.0.24`; PowerShell; ADB; Computer Use.
 
+**Current result:** The accepted configuration uses On-Demand as the sole
+startup manager with default mode `lazy`. Custom Sort remains
+`lazyOnDemand`. Lazy Loader and Custom Frames are absent from the active
+community list; their folders and pre-change files remain recoverable. Windows
+first-window polling met the user’s `<3 s` target; Android cold Homepage
+settled in about `8 s` with sidebars loading on demand.
+
 ## Global Constraints
 
 - Never touch `C:\Users\TienBac\.codex\worktrees\bf23\personal-knowledge-pipeline`.
