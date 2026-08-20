@@ -41,6 +41,8 @@ Research supports decisions but does not authorize implementation. Refresh time-
 
 - [North UX simplification design](superpowers/specs/2026-08-18-north-ux-simplification-design.md)
 - [North UX simplification plan](superpowers/plans/2026-08-18-north-ux-simplification.md)
+- [North startup performance design](superpowers/specs/2026-08-20-north-startup-performance-design.md)
+- [North startup performance plan](superpowers/plans/2026-08-20-north-startup-performance.md)
 
 ## Preserved work
 
