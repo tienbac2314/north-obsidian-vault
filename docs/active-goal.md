@@ -831,8 +831,16 @@ Verified 2026-08-20 on disposable Windows and Android, then live Windows North.
 - On-Demand `3.4.6` is now sole startup manager. Default mode is `lazy`.
   `custom-sort` uses `lazyOnDemand`. Custom Frames is removed from the active
   community list because On-Demand rewrote its disabled mode to enabled on
-  restart; its plugin folder and list entry remain recoverable. Lazy Loader
-  `1.0.24` is also removed from the active community list.
+  restart. Lazy Loader `1.0.24` is also removed from the active community list.
+- On-Demand settings still showed stale Custom Frames and Lazy Loader rows
+  because their inactive folders remained under `.obsidian/plugins`. After
+  closing North, those exact folders were moved, not deleted, to
+  `G:\Cua Bac\North-backups\North-retired-plugin-folders-20260820\`. Live
+  plugin-folder count now matches the 43-entry active list. Live On-Demand
+  data now has only the `custom-sort:lazyOnDemand` override; its SHA-256 is
+  `5331de2862c1e37d527ec6c9923852b4e0ae8dbf364233eaed16992d89836af0`.
+  Pre-clean data backup:
+  `G:\Cua Bac\North-backups\North-on-demand-data-pre-clean-override-20260820.json`.
 - Live North promotion changed only `.obsidian` loader/list configuration.
   Homepage, project and area templates keep exact prechange SHA-256 values:
   `HUB/Homepage.md` `e9cce78cbec4cada47a3756683677ce7fbfce2803ab935b6265790c13a24be6c`;
@@ -876,3 +884,7 @@ Verified 2026-08-20 on disposable Windows and Android, then live Windows North.
 - Additional exact rollback files:
   `G:\Cua Bac\North-backups\North-community-pre-customframes-20260820.json`;
   `G:\Cua Bac\North-backups\North-on-demand-data-pre-fully-lazy-20260820.json`.
+- Fresh live restart after stale-folder cleanup rendered North core workspace;
+  Homepage, task panel, Journals calendar, Notebook Navigator, and right-side
+  task view remained available. An unrelated DeskIn security dialog later
+  covered Windows, so no click or settings change was made there.

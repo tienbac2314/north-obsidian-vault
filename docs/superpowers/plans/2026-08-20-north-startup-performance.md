@@ -11,9 +11,11 @@
 **Current result:** The accepted configuration uses On-Demand as the sole
 startup manager with default mode `lazy`. Custom Sort remains
 `lazyOnDemand`. Lazy Loader and Custom Frames are absent from the active
-community list; their folders and pre-change files remain recoverable. Windows
-first-window polling met the user’s `<3 s` target; Android cold Homepage
-settled in about `8 s` with sidebars loading on demand.
+community list. Their inactive folders were later moved, not deleted, to
+`G:\Cua Bac\North-backups\North-retired-plugin-folders-20260820\` so the
+On-Demand list no longer carries stale folder records. Windows first-window
+polling met the user’s `<3 s` target; Android cold Homepage settled in about
+`8 s` with sidebars loading on demand.
 
 ## Global Constraints
 
