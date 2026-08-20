@@ -44,6 +44,7 @@ Research supports decisions but does not authorize implementation. Refresh time-
 - [North startup performance design](superpowers/specs/2026-08-20-north-startup-performance-design.md)
 - [North startup performance plan](superpowers/plans/2026-08-20-north-startup-performance.md)
 - [North overlap cleanup design](superpowers/specs/2026-08-20-north-overlap-cleanup-design.md)
+- [North overlap cleanup plan](superpowers/plans/2026-08-20-north-overlap-cleanup.md)
 
 ## Preserved work
 
