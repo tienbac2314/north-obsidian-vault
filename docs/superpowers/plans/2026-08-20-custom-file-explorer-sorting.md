@@ -27,7 +27,7 @@
 - Read: `G:\Cua Bac\North\.obsidian\workspace.json`
 - Create: `G:\Cua Bac\North-backups\North-custom-sort-restore-20260820\`
 
-- [ ] **Step 1: Copy the four exact files to the dated rollback folder**
+- [x] **Step 1: Copy the four exact files to the dated rollback folder**
 
 Run:
 
@@ -49,11 +49,11 @@ Expected: four backup files exist; no vault note is copied or changed.
 **Files:**
 - Modify: `G:\Cua Bac\North\.obsidian\community-plugins.json`
 
-- [ ] **Step 1: Add `custom-sort` once to the enabled community-plugin list**
+- [x] **Step 1: Add `custom-sort` once to the enabled community-plugin list**
 
 Insert `"custom-sort"` beside the existing community plugin IDs, preserving JSON formatting and every other entry. Do not edit plugin data or On-Demand mode.
 
-- [ ] **Step 2: Verify exact configuration values**
+- [x] **Step 2: Verify exact configuration values**
 
 Run:
 
@@ -81,15 +81,15 @@ Expected: `CommunityEnabled=True`, `Mode=lazyOnDemand`, `UserConfigured=True`, `
 - Read: `G:\Cua Bac\North\.obsidian\community-plugins.json`
 - Read: `G:\Cua Bac\North\.obsidian\plugins\on-demand-plugins\data.json`
 
-- [ ] **Step 1: Restart only the North Obsidian window**
+- [x] **Step 1: Restart only the North Obsidian window**
 
 Close the exact North window gracefully, start Obsidian with `--vault=G:\Cua Bac\North`, then foreground and maximize North before inspection.
 
-- [ ] **Step 2: Verify native File Explorer sorting surface**
+- [x] **Step 2: Verify native File Explorer sorting surface**
 
 Open North File Explorer, open a folder context menu, and confirm `Custom sort` appears as its own submenu. Confirm `SORT ORDER` bookmark integration remains available. Do not change sort order during this check.
 
-- [ ] **Step 3: Verify no unrelated runtime change**
+- [x] **Step 3: Verify no unrelated runtime change**
 
 Confirm Quick Switcher remains available, Notebook Navigator remains unchanged, and North opens normally after restart. Record that Android was not mutated.
 
@@ -100,7 +100,7 @@ Confirm Quick Switcher remains available, Notebook Navigator remains unchanged, 
 - Create: `docs/superpowers/specs/2026-08-20-custom-file-explorer-sorting-design.md`
 - Create: `docs/superpowers/plans/2026-08-20-custom-file-explorer-sorting.md`
 
-- [ ] **Step 1: Run documentation checks**
+- [x] **Step 1: Run documentation checks**
 
 Run:
 
@@ -112,7 +112,7 @@ rtk powershell -NoProfile -File scripts/check-secrets.ps1
 
 Expected: all commands pass.
 
-- [ ] **Step 2: Commit documentation**
+- [x] **Step 2: Commit documentation**
 
 Run:
 
