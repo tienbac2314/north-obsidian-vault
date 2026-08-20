@@ -888,3 +888,37 @@ Verified 2026-08-20 on disposable Windows and Android, then live Windows North.
   Homepage, task panel, Journals calendar, Notebook Navigator, and right-side
   task view remained available. An unrelated DeskIn security dialog later
   covered Windows, so no click or settings change was made there.
+
+## Current result: North overlap cleanup
+
+Verified 2026-08-20 on live Windows North and Android disposable.
+
+- Reversibly disabled and moved `quick-explorer`, `recent-files-obsidian`, and
+  `novel-word-count` from live North. Their plugin folders remain under
+  `G:\Cua Bac\North-backups\North-overlap-cleanup-20260820\live-disabled-plugins`.
+- Removed the matching On-Demand rows and stale
+  `quick-explorer:browse-vault` hotkey. No candidate ID remains in active
+  community plugins, On-Demand data, or hotkeys.
+- Core `switcher` stays enabled. Disposable testing showed that disabling it
+  left its icon visible but made Command Palette actions fail.
+- NN Recent files remains available after Recent Files removal. Core Word Count
+  still shows `4,310 words` and `42,850 characters` after Novel Word Count
+  removal. File Explorer, NN, Homepage, Tasks, Datacore, Journals, Checklist,
+  and Calendar remained available.
+- Live North now has 40 active community plugins, 15 active core plugins, and
+  40 plugin folders. Homepage and task panel rendered after restart with no
+  source leakage or dependency error. Command Palette opened after settling.
+- Android disposable target `01234ABC` at
+  `/storage/emulated/0/Android/data/md.obsidian/files/North-Android-Startup-Performance-20260820`
+  received the same three removals. Its candidate folders moved to the
+  on-device `.overlap-cleanup-rollback-20260820` directory. Settled native
+  `1200x2000` Homepage/task evidence passed. Live Android North sync remains
+  unclaimed.
+- Rollback root:
+  `G:\Cua Bac\North-backups\North-overlap-cleanup-20260820`.
+- Evidence manifest:
+  `G:\Dusk-Knowledge-Hub\payload\evidence\North-UX-Personalization-20260820-OverlapCleanup\manifest.json`.
+  Manifest SHA-256:
+  `9ec54294a860d2ee05c5f4198d91aa5a0e5fe4e8ecd7d149c99b5bea0c9cc381`.
+- No note content, templates, FNS data, credentials, or live Android vault
+  changed.

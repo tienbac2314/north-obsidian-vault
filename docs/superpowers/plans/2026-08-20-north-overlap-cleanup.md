@@ -30,7 +30,7 @@
 - Read: `G:\Cua Bac\North\.obsidian\plugins\novel-word-count\data.json`
 - Create rollback copies under: `G:\Cua Bac\North-backups\North-overlap-cleanup-20260820\`
 
-- [ ] **Step 1: Confirm target identity and app state**
+- [x] **Step 1: Confirm target identity and app state**
 
 Run:
 
@@ -42,17 +42,17 @@ Get-Content -LiteralPath 'G:\Cua Bac\North\.obsidian\core-plugins.json' -Raw
 
 Expected: live path is exactly `G:\Cua Bac\North`, active list has 43 entries, and core `switcher` is `true`.
 
-- [ ] **Step 2: Copy only rollback inputs**
+- [x] **Step 2: Copy only rollback inputs**
 
 Copy exact JSON files and four candidate plugin folders into the dated rollback directory. Do not copy FNS data, full vault content, or credentials.
 
-- [ ] **Step 3: Hash rollback inputs**
+- [x] **Step 3: Hash rollback inputs**
 
 Run `Get-FileHash` on each copied file and record paths plus hashes in the evidence note outside Git.
 
 Expected: every rollback copy exists and hashes match its source.
 
-- [ ] **Step 4: Commit the plan checkpoint**
+- [x] **Step 4: Commit the plan checkpoint**
 
 Run:
 
@@ -69,19 +69,19 @@ Expected: clean documentation commit on `docs/north-ux-personalization`.
 - Modify disposable only: `G:\Cua Bac\North-startup-performance-clean-20260820\.obsidian\core-plugins.json`
 - Read: disposable `.obsidian\community-plugins.json`
 
-- [ ] **Step 1: Set disposable core `switcher` to `false`**
+- [x] **Step 1: Set disposable core `switcher` to `false`**
 
 Preserve JSON shape and all unrelated values.
 
-- [ ] **Step 2: Restart disposable Obsidian**
+- [x] **Step 2: Restart disposable Obsidian**
 
 Open exact disposable target, foreground it, maximize it, and wait for settled UI.
 
-- [ ] **Step 3: Check command palette and Quick Switcher++**
+- [x] **Step 3: Check command palette and Quick Switcher++**
 
 Expected: command palette opens, Quick Switcher++ search still opens, and note navigation works. If core Command Palette or a required command disappears, restore `switcher=true` and mark candidate rejected.
 
-- [ ] **Step 4: Record result**
+- [x] **Step 4: Record result**
 
 Accept only if no required command or navigation surface is lost.
 
@@ -91,19 +91,19 @@ Accept only if no required command or navigation surface is lost.
 - Modify disposable only: `G:\Cua Bac\North-startup-performance-clean-20260820\.obsidian\community-plugins.json`
 - Preserve folders under disposable `.obsidian\plugins\`
 
-- [ ] **Step 1: Disable `quick-explorer` in disposable active list**
+- [x] **Step 1: Disable `quick-explorer` in disposable active list**
 
 Restart and check NN folder reveal, File Explorer reveal, folder browsing, and Note Toolbar creation.
 
-- [ ] **Step 2: Disable `recent-files-obsidian` in disposable active list**
+- [x] **Step 2: Disable `recent-files-obsidian` in disposable active list**
 
 Restart and check NN Recent Notes, native search, bookmarks, recent-note opening, Homepage links, and mobile-sized NN layout.
 
-- [ ] **Step 3: Disable `novel-word-count` in disposable active list**
+- [x] **Step 3: Disable `novel-word-count` in disposable active list**
 
 Restart and check current-note word count, NN folder/file counts, Homepage, and bottom status bar. Do not remove core `word-count`.
 
-- [ ] **Step 4: Keep only candidates with a passed result**
+- [x] **Step 4: Keep only candidates with a passed result**
 
 Restore any failed candidate from rollback before testing the next candidate. Record each pass/fail separately.
 
@@ -114,15 +114,15 @@ Restore any failed candidate from rollback before testing the next candidate. Re
 - Modify: `G:\Cua Bac\North\.obsidian\community-plugins.json`
 - Preserve: candidate folders under `G:\Cua Bac\North\.obsidian\plugins\`
 
-- [ ] **Step 1: Confirm disposable result and live app is closed**
+- [x] **Step 1: Confirm disposable result and live app is closed**
 
 Do not promote a candidate without a disposable pass and exact live target check.
 
-- [ ] **Step 2: Apply only passed active-list changes**
+- [x] **Step 2: Apply only passed active-list changes**
 
 Disable core `switcher` only if Task 2 passed. Remove each passed community ID from active list. Do not delete plugin folders.
 
-- [ ] **Step 3: Restart live North and reobserve maximized**
+- [x] **Step 3: Restart live North and reobserve maximized**
 
 Expected: no source leakage, no dependency error, and no FNS change.
 
@@ -132,15 +132,15 @@ Expected: no source leakage, no dependency error, and no FNS change.
 - Evidence outside Git: `G:\Dusk-Knowledge-Hub\payload\evidence\North-UX-Personalization-20260820-OverlapCleanup\`
 - Update: `docs/active-goal.md`
 
-- [ ] **Step 1: Verify Windows surfaces**
+- [x] **Step 1: Verify Windows surfaces**
 
 Check Homepage, NN recent notes, File Explorer, command palette, project/area creation routes, task panel, Simple Checklist, Journals calendar, period navigation, Note Toolbar, and right sidebar.
 
-- [ ] **Step 2: Verify no unintended content changes**
+- [x] **Step 2: Verify no unintended content changes**
 
 Compare hashes for Homepage and shared templates with the prechange values recorded in `docs/active-goal.md`. Confirm no Markdown note was added, deleted, or rewritten.
 
-- [ ] **Step 3: Run repository validators**
+- [x] **Step 3: Run repository validators**
 
 Run:
 
@@ -153,6 +153,6 @@ git diff --check
 
 Expected: all checks pass; secret scan prints filenames only.
 
-- [ ] **Step 4: Update current checkpoint and commit**
+- [x] **Step 4: Update current checkpoint and commit**
 
 Record exact enabled-list before/after, candidate results, rollback directory, evidence manifest, Windows result, Android coverage boundary, and next cleanup candidates. Commit with a conventional subject under 50 characters.
